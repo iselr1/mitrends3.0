@@ -119,56 +119,30 @@ angular.module('starter.controllers', [])
 })
 
 //--------------------------------------------------------//
-//---------------CONTROLLER Excersis overview-----------------------//
+//---------------CONTROLLER Done Symbol Digit-----------------------//
 //--------------------------------------------------------//
-.controller('A_UebCtrl', function($scope, $stateParams, $state) {
+.controller('GeschafftSDCtrl', function($scope, $stateParams, $state) {
+    $scope.comment = {};
 
+    $scope.goMSIS = function() {
+      $state.go('msis');
+    };
+    $scope.$on('$ionicView.beforeLeave', function() {
+      // Zu ersetzen mit Datenübermittlung an Midata
+      console.log($scope.comment.text);
+    });
+  })
+  //--------------------------------------------------------//
+  //---------------CONTROLLER Done Labyrinth-----------------------//
+  //--------------------------------------------------------//
+  .controller('GeschafftLABCtrl', function($scope, $stateParams, $state) {
+    $scope.comment = {};
 
-  $scope.goRouteAnl = function() {
-    $state.go('route_anl');
-  };
-
-  $scope.goZS_Instruction = function() {
-    $state.go('zahlsymbol_anl');
-  };
-
-  $scope.goMotorik = function() {
-    $state.go('geschafft');
-  };
-
-})
-
-//--------------------------------------------------------//
-//---------------CONTROLLER Question overview-----------------------//
-//--------------------------------------------------------//
-.controller('A_FragCtrl', function($scope, $stateParams, $state) {
-  $scope.goMsis = function() {
-    $state.go('msis');
-  };
-  $scope.goFSS = function() {
-    $state.go('fatigue');
-  };
-
-})
-
-//--------------------------------------------------------//
-//---------------CONTROLLER Motrik-----------------------//
-//--------------------------------------------------------//
-.controller('MotorikCtrl', function($scope, $stateParams, $state) {
-
-})
-
-//--------------------------------------------------------//
-//---------------CONTROLLER Done-----------------------//
-//--------------------------------------------------------//
-.controller('GeschafftCtrl', function($scope, $stateParams, $state) {
-  $scope.comment = {};
-
-  $scope.goAu_Uebungen = function() {
-    $state.go('auswahl_uebungen');
-  };
-  $scope.$on('$ionicView.beforeLeave', function() {
-    // Zu ersetzen mit Datenübermittlung an Midata
-    console.log($scope.comment.text);
-  });
-})
+    $scope.goFSS = function() {
+      $state.go('fatigue');
+    };
+    $scope.$on('$ionicView.beforeLeave', function() {
+      // Zu ersetzen mit Datenübermittlung an Midata
+      console.log($scope.comment.text);
+    });
+  })

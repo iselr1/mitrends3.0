@@ -2,38 +2,40 @@
   <ion-nav-buttons side="right">
     <button class="button icon-left ion-log-out" ng-click="doLogout()" translate="LOGOUT"></button>
   </ion-nav-buttons>
-  <ion-nav-buttons side="left">
-    <button class="button icon-left ion-home" ng-click="goHome()" translate="HOME"></button>
-  </ion-nav-buttons>
   <ion-content class="padding">
 
-    <div class="row" style="height:33vh">
-      <!-- Main image MitrendS Logo centered-->
-      <img src="img/MitrendS.png" class="center" height="100%"></img>
+    <div class="row row-33">
+      <!-- Text left centered -->
+      <div class="col col-50" translate="Vielen Dank fürs mitmachen!">
+      </div>
+      <!-- Main image MitrendS Logo right centered-->
+      <div class="col col-50" style="width:100%">
+        <img src="img/MitrendS.png" class="center" height="90%"></img>
+      </div>
     </div>
 
-    <div class="row" style="height:10vh">
+    <div class="row row-10">
       <!-- Impressum Text middle left -->
       <div class="col col-50" translate="IMP_TEXT"></div>
       <!-- Impressum Text contact middle right -->
       <div class="col col-offset-25" translate="IMP_CONTACT"></div>
     </div>
 
-    <div class="row" style="height:20vh">
+    <div class="row row-20">
       <!-- Dataprotection button positioned under impressum text middle right -->
       <div class="col-25 col-offset-75">
         <div class="button button-large button-positive" translate="DATAPROTECTION" ng-click="showDATATEXT()"></div>
       </div>
     </div>
 
-    <div class="row" style="height:33vh">
+    <div class="row row-33">
       <!-- image bottom left USZ Logo -->
       <div class="col col-50" style="width:100%">
         <img src="img/usz.png" class="center" width="100%"></img>
       </div>
       <!-- image bottom right BFH Logo -->
       <div class="col col-50" style="witdh:100%">
-        <img src="img/bfh.png" class="center" width="50%"></img>
+        <img src="img/bfh.png" class="center" height="70%"></img>
       </div>
     </div>
   </ion-content>

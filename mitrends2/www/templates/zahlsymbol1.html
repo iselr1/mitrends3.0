@@ -1,74 +1,71 @@
 <ion-view view-title="{{'SD_PREPARATION' | translate}}" cache-view="false">
   <ion-content class="padding">
-    <div class="row">
-      <div class="col padding" style="text-align:center" translate="REFERENCETABLE"></div>
+    <div class="row row-33">
+      <div class="col">
+        <div class="row">
+          <div class="col padding" style="text-align:center" translate="REFERENCETABLE"></div>
+        </div>
+
+        <div class="row">
+          <div class="col col-9 padding">
+            <h4 align="center" translate="SYMBOL"></h4>
+          </div>
+          <div class="col col-9 zs-col" ng-repeat="symbol in keyTable">
+            <img ng-src="{{symbol.imgSrc}}" width="70%"/>
+          </div>
+          <div class="col col-9"></div>
+        </div>
+
+        <div class="row">
+          <div class="col col-9 padding">
+            <h4 align="center" translate="DIGIT"></h4>
+          </div>
+
+          <div class="col col-9 zs-col" ng-repeat="digit in keyTable">
+            <img ng-src="{{digit.numSrc}}" width="60%"/>
+          </div>
+          <div class="col col-9"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row row-33">
+      <div class="col">
+        <div class="row">
+          <div class="col padding" style="text-align:center" translate="ZS-INSTRUCTION"></div>
+        </div>
+        <div class="row">
+          <div class="col">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col"></div>
+          <div class="col col-5 zs-col" ng-repeat="symbol in solveTable">
+            <img ng-src="{{symbol.imgSrc}}" width="100%"/>
+          </div>
+          <div class="col"></div>
+        </div>
+        <div class="row">
+          <div class="col"></div>
+          <div class="col col-5 zs-col" ng-repeat="digit in solveTable">
+            <img ng-src="{{digit.numSrc}}" width="100%"/>
+          </div>
+          <div class="col"></div>
+        </div>
+      </div>
     </div>
 
-    <div class="row">
-      <div class="col col-9 padding">
-        <h4 align="center" translate="SYMBOL"></h4>
+    <div class="row row-33">
+      <div class="col">
+        <div class"row">
+          <div class="col padding" style="text-align:center" translate="DIGITTABLE"></div>
+        </div>
+        <div class="row">
+          <div class="col col-11" ng-repeat="digit in solveImages">
+            <img ng-src="{{digit.imgSrc}}" width="100%" ng-click="setValueImage(digit)"/>
+          </div>
+          <div class="col"></div>
+        </div>
       </div>
-      <div class="col col-9 zs-col" ng-repeat="symbol in keyTable">
-        <img ng-src="{{symbol.imgSrc}}" width="70%"/>
-      </div>
-      <div class="col col-9"></div>
-    </div>
-
-    <div class="row">
-      <div class="col col-9 padding">
-        <h4 align="center" translate="DIGIT"></h4>
-      </div>
-
-      <div class="col col-9 zs-col" ng-repeat="digit in keyTable">
-        <img ng-src="{{digit.numSrc}}" width="60%"/>
-      </div>
-      <div class="col col-9"></div>
-    </div>
-
-    <div class="row">
-      <div class="col padding" style="text-align:center" translate="ZS-INSTRUCTION"></div>
-    </div>
-
-    <div class="row">
-      <div class="col"></div>
-      <div class="col col-5 zs-col" ng-repeat="symbol in solveTable">
-        <img ng-src="{{symbol.imgSrc}}" width="100%"/>
-      </div>
-      <div class="col"></div>
-    </div>
-    <div class="row">
-      <div class="col"></div>
-      <div class="col col-5 zs-col" ng-repeat="digit in solveTable">
-        <img ng-src="{{digit.numSrc}}" width="100%"/>
-      </div>
-      <div class="col"></div>
-    </div>
-    <div class"row">
-      <div class="col padding"></div>
-    </div>
-    <div class="row">
-      <div class="col"></div>
-      <div class="col col-5 zs-col" ng-repeat="symbol in solveTable2">
-        <img ng-src="{{symbol.imgSrc}}" width="100%"/>
-      </div>
-      <div class="col"></div>
-    </div>
-    <div class="row">
-      <div class="col"></div>
-      <div class="col col-5 zs-col" ng-repeat="digit in solveTable2">
-        <img ng-src="{{digit.numSrc}}" width="100%"/>
-      </div>
-      <div class="col"></div>
-    </div>
-    <div class"row">
-      <div class="col padding" style="text-align:center" translate="DIGITTABLE"></div>
-    </div>
-
-    <div class="row">
-      <div class="col col-11" ng-repeat="digit in solveImages">
-        <img ng-src="{{digit.imgSrc}}" width="100%" ng-click="setValueImage(digit)"/>
-      </div>
-      <div class="col"></div>
     </div>
   </ion-content>
 </ion-view>

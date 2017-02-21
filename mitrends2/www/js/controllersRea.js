@@ -12,10 +12,10 @@ angular.module('starter.controllersRea', [])
     /* Checks if all Questions are answered
     if not, a popup informs the user about it
     if it's the case, we navigate to the next view */
-    $scope.goHome = function() {
+    $scope.goImpressum = function() {
       /*first variable has to be the name of the view we want to navigate to
       scond is the name of the ng-modal under which we save the answers with localStorage*/
-      QuestionnaireService.checkAndStore('home', 'FSS');
+      QuestionnaireService.checkAndStore('impressum', 'FSS');
     };
 
     $scope.setValue = function(value, questionid) {

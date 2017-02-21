@@ -16,10 +16,10 @@ angular.module('starter.controllersSarah', [])
   /* Checks if all Questions are answered
   if not, a popup informs the user about it
   if it's the case, we navigate to the home view */
-  $scope.goHome = function() {
+  $scope.goSDVideo = function() {
     /*first variable has to be the name of the view we want to navigate to
     scond is the name of the questionnaire under which we save the answers with localStorage*/
-    QuestionnaireService.checkAndStore('home', 'CORE');
+    QuestionnaireService.checkAndStore('zahlsymbolVideo', 'CORE');
   };
 
 })

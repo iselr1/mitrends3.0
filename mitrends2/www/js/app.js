@@ -79,18 +79,6 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'ionic-timepicker', 'for
     controller: 'ImpCtrl'
   })
 
-  .state('auswahl_uebungen', {
-    url: '/auswahl_uebungen',
-    templateUrl: 'templates/auswahl_uebungen.html',
-    controller: 'A_UebCtrl'
-  })
-
-  .state('auswahl_fragebogen', {
-    url: '/auswahl_fragebogen',
-    templateUrl: 'templates/auswahl_fragebogen.html',
-    controller: 'A_FragCtrl'
-  })
-
   .state('route', {
     url: '/route',
     templateUrl: 'templates/route.html',
@@ -107,12 +95,6 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'ionic-timepicker', 'for
       templateUrl: 'templates/zahlsymbol1.html',
       controller: 'ZS1Ctrl'
     })
-
-  .state('motorik', {
-    url: '/motorik',
-    templateUrl: 'templates/motorik.html',
-    controller: 'MotorikCtrl'
-  })
 
   .state('kernsymptome', {
     url: '/kernsymptome',
@@ -141,16 +123,12 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'ionic-timepicker', 'for
       templateUrl: 'templates/msis4.html',
       controller: 'Msis4Ctrl'
     })
-    .state('msis5', {
-      url: '/msis5',
-      templateUrl: 'templates/msis5.html',
-      controller: 'Msis5Ctrl'
-    })
-    .state('fatigue', {
-      url: '/fatigue',
-      templateUrl: 'templates/fatigue.html',
-      controller: 'FatigueCtrl'
-    })
+
+  .state('fatigue', {
+    url: '/fatigue',
+    templateUrl: 'templates/fatigue.html',
+    controller: 'FatigueCtrl'
+  })
 
   .state('route_anl', {
     url: '/route_anl',
@@ -164,11 +142,16 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'ionic-timepicker', 'for
     controller: 'ZahlsymbolAnlCtrl'
   })
 
-  .state('geschafft', {
-    url: '/geschafft',
-    templateUrl: 'templates/geschafft.html',
-    controller: 'GeschafftCtrl'
-  })
+  .state('geschafftSD', {
+      url: '/geschafftSD',
+      templateUrl: 'templates/geschafftSD.html',
+      controller: 'GeschafftSDCtrl'
+    })
+    .state('geschafftLAB', {
+      url: '/geschafftLAB',
+      templateUrl: 'templates/geschafftLAB.html',
+      controller: 'GeschafftLABCtrl'
+    })
 
   .state('zahlsymbolVideo', {
     url: '/zahlsymbolVideo',
