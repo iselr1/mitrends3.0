@@ -1,0 +1,282 @@
+{
+  "LANG_DE": "DE",
+  "LANG_EN": "EN",
+  "LANG_FR": "FR",
+  "HOME": "Home",
+  "DATAPROTECTION": "Datenschutzerklärung",
+  "DATATEXT": "Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen ein. Persönliche Daten werden streng vertraulich behandelt und weder an Dritte verkauft noch weiter gegeben.",
+  "LOGIN": "Login",
+  "LOGINERRORTEXT": "User oder Passwort falsch",
+  "LOGININFO": "Info",
+  "LOGOUT": "Logout",
+  "IMPRESSUM": "Impressum",
+  "UNDERSTOOD": "Verstanden",
+  "IMP_TEXT": "Diese App wurde von der Abteilung Medizininformatik der Berner Fachhochschule für die Abteilung Neurologie des Unispitals Zürich entwickelt.",
+  "IMP_CONTACT": "Kontakt bei Fragen:<br>info@mitrends.ch",
+  "OVERVIEW": "Home",
+  "EXCERCISES": "Übungen",
+  "CONGRATULATIONS": "Gratulation",
+  "CONGRATULATIONS_TEXT": "Vielen Dank fürs Mitmachen!",
+  "QUESTIONNAIRES": "Fragebogen",
+  "MAINSYMPTOMS": "Kernsymptome",
+  "MAINSYMPTOMS_CAPTURE": "Kernsymptome erfassen",
+  "EXCERCISES_RUNTROUGH": "Übungen durchführen",
+  "DO_MORE_EXCERCISES": "Weitere Übungen durchführen",
+  "ROUTE": "Labyrinth",
+  "ROUTE_INSTRUCTION": "Labyrinth Anleitung",
+  "SYMBOL_DIGIT": "Zahl-Symbol",
+  "SD_PREPARATION": "Zahl-Symbol Vorbereitung",
+  "SD_INSTRUCTION": "Zahl-Symbol Anleitung",
+  "MOTOR_SKILLS": "Motorik",
+  "CORE": {
+    "AHAND": [{
+      "id": "1",
+      "label": "Rechtshänder"
+    }, {
+      "id": "2",
+      "label": "Linkshänder"
+    }, {
+      "id": "3",
+      "label": "Beidhänder"
+    }],
+    "AYN": [{
+      "id": "true",
+      "label": "Ja"
+    }, {
+      "id": "false",
+      "label": "Nein"
+    }],
+    "ASMILE": [{
+      "id": "1",
+      "imgSrc": "img/emotes_face_sad.png"
+    }, {
+      "id": "2",
+      "imgSrc": "img/emotes_face_uncertain.png"
+    }, {
+      "id": "3",
+      "imgSrc": "img/emotes_face_plain.png"
+    }, {
+      "id": "4",
+      "imgSrc": "img/emotes_face_smile.png"
+    }, {
+      "id": "5",
+      "imgSrc": "img/emotes_face_smile_big.png"
+    }]
+
+  },
+  "Q1CORE": "Sie sind...",
+  "Q2COREL": "Haben Sie eine Bewegungseinschränkung in der linken Hand?",
+  "Q2CORER": "Haben Sie eine Bewegungseinschränkung in der rechten Hand?",
+  "Q3COREL": "Haben Sie eine Gefühlsstörung in der linken Hand?",
+  "Q3CORER": "Haben Sie eine Gefühlsstörung in der rechten Hand?",
+  "Q4CORE": "Wie fühlen Sie sich heute?",
+  "Q5CORE": "Wie beurteilen Sie ihre momentane Konzentrationsfähigkeit?",
+  "Q6CORE": "Hatten Sie seit der letzen Übung einen Schub?",
+  "Q7CORE": "Haben Ihre MS Symptome seit der letzten Übung zugenommen?",
+
+  "RIGHTHANDED": "Rechtshänder",
+  "LEFTHANDED": "Linkshänder",
+  "BOTHHANDED": "Beidhänder",
+  "YES": "Ja",
+  "NO": "Nein",
+  "SAVE": "Speichern",
+  "BACK": "Zurück",
+  "NEXT": "Weiter",
+  "COMMENT": "Kommentare/Rückmeldung zur Übung:",
+  "DIGIT": "Zahl",
+  "SYMBOL": "Symbol",
+  "TITLEPOPUP_NEXTPREPZS": "Info",
+  "TEMPLATEPOPUP_NEXTPREPZS": "Nun startet die VORBEREITUNG, die eigentliche Übung mit begrenzter Zeitdauer beginnt danach.",
+  "SDTITLE_POPUP": "Info",
+  "SDTEMPLATE_POPUP": "Die Vorbereitung ist nun abgeschlossen. Sobald Sie OK drücken beginnt die eigentliche Übung.",
+  "MSIS-29": "MSIS-29",
+  "MSIS": {
+    "RADIOS": [{
+      "id": "1",
+      "label": "gar nicht"
+    }, {
+      "id": "2",
+      "label": "ein bisschen"
+    }, {
+      "id": "3",
+      "label": "mässig"
+    }, {
+      "id": "4",
+      "label": "ziemlich"
+    }, {
+      "id": "5",
+      "label": "sehr"
+    }],
+    "QUESTIONS": {
+      "QS1": [{
+        "id": "1",
+        "text": "1. ... körperlich anstrengende Dinge zu tun?"
+      }, {
+        "id": "2",
+        "text": "2. ... Dinge fest anzufassen (z.B. Hahn aufdrehen)?"
+      }, {
+        "id": "3",
+        "text": "3. ... Dinge zu tragen?"
+      }],
+      "QS2_1": [{
+        "id": "4",
+        "text": "4. ... Probleme mit dem Gleichgewicht?"
+      }, {
+        "id": "5",
+        "text": "5. ... Schwierigkeiten, sich in der Wohnung zu bewegen?"
+      }, {
+        "id": "6",
+        "text": "6. ... ungeschickt zu sein?"
+      }, {
+        "id": "7",
+        "text": "7. ... steif zu sein?"
+      }],
+      "QS2_2": [{
+        "id": "8",
+        "text": "8. ... schwere Arme und/oder Beine zu haben?"
+      }, {
+        "id": "9",
+        "text": "9. ... Zittern der Arme oder Beine zu haben?"
+      }, {
+        "id": "10",
+        "text": "10. ... Krämpfe der Extremitäten zu haben?"
+      }, {
+        "id": "11",
+        "text": "11. ... dass ihr Körper nicht tat, was Sie wollten?"
+      }, {
+        "id": "12",
+        "text": "12. ... dass Sie davon abhingen, dass andere Dinge für Sie erledigten?"
+      }, {
+        "id": "13",
+        "text": "13. ... Beeinträchtigung im sozialen und Freizeitleben zu Hause?"
+      }, {
+        "id": "14",
+        "text": "14. ... gezwungen zu sein, zu Hause zu bleiben?"
+      }, {
+        "id": "15",
+        "text": "15. ... Probleme der Hände bei Alltagstätigkeiten?"
+      }],
+      "QS2_3": [{
+        "id": "16",
+        "text": "16. ... die Zeit für Arbeit oder Alltagsaktivitäten einzuschränken?"
+      }, {
+        "id": "17",
+        "text": "17. ... Probleme sich fortzubewegen (Auto, Bus, Taxis,Zug)?"
+      }, {
+        "id": "18",
+        "text": "18. ... länger für Dinge zu brauchen?"
+      }, {
+        "id": "19",
+        "text": "19. ... Schwierigkeiten, Dinge spontan zu machen?"
+      }, {
+        "id": "20",
+        "text": "20. ... ganz schnell zur Toilette zu müssen?"
+      }, {
+        "id": "21",
+        "text": "21. ... sich allgemein unwohl zu fühlen?"
+      }, {
+        "id": "22",
+        "text": "22. ... Schlafprobleme zu haben?"
+      }, {
+        "id": "23",
+        "text": "23. ... sich geistig/mental müde zu fühlen?"
+      }],
+      "QS2_4": [{
+        "id": "24",
+        "text": "24. ... Sorgen bezogen auf MS zu haben?"
+      }, {
+        "id": "25",
+        "text": "25. ... sich angespannt und ängstlich zu fühlen?"
+      }, {
+        "id": "26",
+        "text": "26. ... sich störbar, ungeduldig und aufbrausend zu fühlen?"
+      }, {
+        "id": "27",
+        "text": "27. ... Konzentrationsprobleme zu haben?"
+      }, {
+        "id": "28",
+        "text": "28. ... keine Zuversicht zu haben?"
+      }, {
+        "id": "29",
+        "text": "29. ... sich traurig/depressiv zu fühlen?"
+      }]
+    }
+  },
+  "MSISQS1": "Wie sehr waren Sie in den letzen 2 Wochen eingeschränkt…",
+  "MSISQS2": "Wie sehr waren Sie in den letzen 2 Wochen beeinträchtigt durch...",
+  "ZS-INSTRUCTION": "Wählen Sie anhand der Referenztabelle aus der Zahlentabelle die passende Zahl zum Symbol oberhalb der grünen Fläche.",
+  "REFERENCETABLE": "Referenztabelle",
+  "DIGITTABLE": "Zahlentabelle",
+  "ZS-INSTRUCTION_TEXT_1": "<b>Wie funktioniert die Übung?</b>",
+  "ZS-INSTRUCTION_TEXT_2": "Jedes Symbol ist genau einer Zahl zugeordnet.",
+  "ZS-INSTRUCTION_TEXT_3": "In der obersten Tabelle, der Referenztabelle, sehen Sie welche Zahl welchem Symbol zugeordnet ist.",
+  "ZS-INSTRUCTION_TEXT_4": "In der mittleren Tabelle, der Lösungstabelle, sind nur Symbole eingetragen, die passenden Zahlen fehlen.",
+  "ZS-INSTRUCTION_TEXT_5": "In der untersten Tabelle, der Zahlentabelle, sehen Sie die Zahlen, welche Sie anklicken können. Klicken Sie jeweils die Zahl an, welche zum Symbol passt, das sich in der Lösungstabelle oberhalb des leeren Feldes befindet. Die passende Zahl finden Sie anhand der Referenztabelle heraus.",
+  "ZS-INSTRUCTION_TEXT_6": "Durch klicken auf <b>Weiter</b>, beginnen Sie die Vorbereitung. Dort haben Sie dreimal die Möglichkeit eine Reihe auszufüllen. Sobald Sie eine komplette Reihe korrekt ausgefüllt haben, beginnt die eigentliche Übung.",
+  "ZS-INSTRUCTION_TEXT_7": "<b>Wichtig</b>: Sie sollten bei dieser Übung ungestört sein!",
+  "ROUTE-INSTRUCTION_TEXT_2": "Der Computer gibt Ihnen einen Weg durch das Labyrinth vor.<br><br>",
+  "ROUTE-INSTRUCTION_TEXT_3": "Der Weg wird Ihnen <b>einmal</b> gezeigt. <br> Sobald der Weg vom Computer bei ENDE angelangt ist, sind Sie dran.",
+  "ROUTE-INSTRUCTION_TEXT_4": "Beginnen Sie bei START (auf Start tippen). ",
+  "ROUTE-INSTRUCTION_TEXT_5": "Versuchen Sie danach die Punkte des Weges in der gleichen Reihenfolge <b>anzutippen</b>, wie Sie der Computer vorgezeigt hat.",
+  "ROUTE-INSTRUCTION_TEXT_6": "Die Übung ist beendet, wenn Sie beim Ende angelangt sind (auf Ende tippen).",
+  "PAGE1OF4": "Seite 1 von 4",
+  "PAGE2OF4": "Seite 2 von 4",
+  "PAGE3OF4": "Seite 3 von 4",
+  "PAGE4OF4": "Seite 4 von 4",
+  "FATIGUE_SS": "Fatigue Severity Scale",
+  "FSS_Q": "Ich finde, dass während der vergangenen Woche folgedes zutraf:",
+  "AGREE_COMPLETELY": "Stimme vollkommen zu = 7",
+  "AGRRE_NOT": "Stimme gar nicht zu = 1",
+  "FSS": {
+    "RADIOS": [{
+      "id": "1",
+      "label": "1"
+    }, {
+      "id": "2",
+      "label": "2"
+    }, {
+      "id": "3",
+      "label": "3"
+    }, {
+      "id": "4",
+      "label": "4"
+    }, {
+      "id": "5",
+      "label": "5"
+    }, {
+      "id": "6",
+      "label": "6"
+    }, {
+      "id": "7",
+      "label": "7"
+    }],
+    "QUESTIONS": [{
+      "id": "1",
+      "text": "1. Ich bin weniger motiviert, wenn ich müde bin."
+    }, {
+      "id": "2",
+      "text": "2. Körperliche Bewegung macht mich müde."
+    }, {
+      "id": "3",
+      "text": "3. Ich ermüde rasch."
+    }, {
+      "id": "4",
+      "text": "4. Meine Müdigkeit beeinträchtigt meine körperliche Leistungsfähigkeit"
+    }, {
+      "id": "5",
+      "text": "5. Meine Müdigkeit bereitet mir oft Probleme."
+    }, {
+      "id": "6",
+      "text": "6. Meine Müdigkeit verhindert längerdauernde körperliche Tätigkeiten."
+    }, {
+      "id": "7",
+      "text": "7. Meine Müdigkeit beeinträchtigt mich, gewisse Pflichten und Verantwortungen zu erfüllen."
+    }, {
+      "id": "8",
+      "text": "8. Meine Müdigkeit gehört zu den drei Beschwerden, die mich am meisten behindern."
+    }, {
+      "id": "9",
+      "text": "9. Meine Müdigkeit beeinträchtigt meine Arbeit, meine Familie oder mein soziales Leben."
+    }]
+  }
+}

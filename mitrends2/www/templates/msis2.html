@@ -1,0 +1,39 @@
+<ion-view view-title="{{'MSIS-29' | translate}}">
+  <ion-nav-buttons side="right">
+    <button class="button icon-left ion-log-out" ng-click="doLogout()" translate="LOGOUT"></button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <form name="MSIS">
+      <div class="row row-5">
+        <div class="col col-55" translate="MSISQS2"></div>
+        <div class="col" id="radiolabels" ng-repeat="buttons in data.MSIS.RADIOS">{{buttons.label}}</div>
+      </div>
+
+      <div class="padding"></div>
+      <div class="row row-8 row-top-border" ng-repeat="question in data.MSIS.QUESTIONS.QS2_2  track by question.id">
+        <div class="col col-55 col-align-center" translate="{{question.text}}"></div>
+        <div class="col col-text-align-center" ng-repeat="buttons in data.MSIS.RADIOS">
+          <input type="radio" id="msis" ng-model="MSISQS2" ng-value="{{buttons.id}}" name="{{$parent.question.id}}" ng-change="setValue({{buttons.id}}, {{$parent.question.id}})"/>
+          <label for="msis"></label>
+        </div>
+      </div>
+
+      <div class="row row-5"></div>
+      <div class="row">
+          <div class="col col-10"></div>
+          <div class="col">
+            <button class="button button-positive button-block" ng-click="goMsis()" translate="BACK"/>
+          </div>
+          <div class="col col-10"></div>
+          <div class="col">
+            <button class="button button-positive button-block" ng-click="goMsis3()" translate="NEXT"/>
+          </div>
+          <div class="col col-10"></div>
+        </div>
+        <div class="row row-5"></div>
+        <div class="row padding">
+          <div class="col col-align-center col-text-align-center" translate="PAGE2OF4"></div>
+        </div>
+      </form>
+    </ion-content>
+  </ion-view>

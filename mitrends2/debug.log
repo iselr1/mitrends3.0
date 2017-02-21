@@ -1,0 +1,4 @@
+[1114/163045:ERROR:process_reader_win.cc(142)] SuspendThread: Zugriff verweigert (0x5)
+[1114/163045:ERROR:exception_snapshot_win.cc(87)] thread ID 1996 not found in process
+[1114/163045:WARNING:crash_report_exception_handler.cc(56)] ProcessSnapshotWin::Initialize failed
+[1114/163045:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess: Es wurde versucht, auf einen Prozess zuzugreifen, der gerade beendet wurde.  (0xc000010a)

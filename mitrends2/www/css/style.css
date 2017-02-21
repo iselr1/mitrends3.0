@@ -1,0 +1,161 @@
+body {
+  /*basic styling */
+  font-size: 20px !important;
+  height: 100%;
+  vertical-align:bottom;
+  /*flexbox
+  display: flex;*/
+}
+.label{
+  font-size: 20px !important;
+}
+/*Login*/
+.row-login{
+  height:33vh;
+}
+.col-login{
+  height:100%;
+  width:100%;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.bfh50{
+  width:50% !important;
+}
+.usz100{
+  width:100 !important;
+}
+//MSIS
+.fill-vertical-space {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.fill-vertical-space>div, .fill-vertical-space>.row {
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.zs-col {
+  border: 2px solid black;
+  text-align: center;
+}
+input[type="radio"]:checked {
+  background: linear-gradiant(#3498DB);
+  color: #3498DB;
+  font-style: normal;
+}
+#kernsymp{
+  width: 80%;
+  height: 90%;
+}
+#kernsymp_one{
+  width: 80%;
+  height: 100%;
+}
+#core_smile{
+  width: 80%;
+  height: 80%;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    top: -1px;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#387ef5));
+    /*background: linear-gradient(to right, #ccc 0%, #0c60ee 100%) !important;*/
+}
+#msis{
+  width: 35%;
+  height: 100%;
+}
+#fss{
+  width: 60%;
+  height: 100%;
+}
+#radiolabels{
+  text-align: center;
+}
+#questionlabels{
+  vertical-align: middle;
+}
+.image-list-thumb {
+    padding: 2px 2px 2px 2px;
+    height: 100px;
+}
+
+.image-modal {
+    width: 100% !important;
+    height: 100%;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.transparent {
+    background: transparent !important;
+}
+
+.fullscreen-image {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+}
+
+.fullscreen-player {
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+
+/*Impressum*/
+
+
+/*MSIS*/
+
+
+/* first trys
+
+
+.msis{
+  width: 100%;
+  height: 100%;
+
+}
+.scroll {
+  height: 100%;
+}
+
+
+
+
+
+*/

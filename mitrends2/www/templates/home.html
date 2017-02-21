@@ -1,0 +1,34 @@
+<ion-view view-title="{{'HOME' | translate}}">
+  <ion-nav-buttons side="left">
+    <button class="button icon-left ion-information-circled" ng-click="goImpressum()" translate="IMPRESSUM"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button icon-left ion-log-out" ng-click="doLogout()" translate="LOGOUT"></button>
+  </ion-nav-buttons>
+  <ion-content class="center padding" scroll="false">
+      <!--<div class="row" style="height:33vh">
+        <div class="col col-20 col-offset-20">
+            <img src="img/write.png" height="50%" align="center" valign="center" alt=" " ng-click="goKSym_Erf()"/>
+        </div>
+        <div class="col col-60">
+          <button class='button button-block button-light button-large'  ng-click="goKSym_Erf()" translate="MAINSYMPTOMS_CAPTURE"/>
+        </div>
+      </div>-->
+      <div class="row" style="height:33vh; vertical-align:center">
+        <div class="col col-20 col-offset-20">
+            <img src="img/write.png" height="50%" alt=" " ng-click="goAu_Frageb()"/>
+        </div>
+        <div class="col col-60">
+          <button class="button button-block button-large button-light" ng-click="goAu_Frageb()" translate="QUESTIONNAIRES"/>
+        </div>
+      </div>
+      <div class="row" style="height:33vh">
+          <div class="col col-20 col-offset-20">
+            <img src="img/write.png" height="50%" alt=" " ng-click="goAu_Uebungen()"/>
+        </div>
+        <div class="col">
+          <button class="button button-block button-large button-light" ng-click="goAu_Uebungen()" translate="EXCERCISES_RUNTROUGH"/>
+        </div>
+      </div>
+  </ion-content>
+</ion-view>

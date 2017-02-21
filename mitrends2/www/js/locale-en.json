@@ -1,0 +1,280 @@
+{
+  "LANG_DE": "DE",
+  "LANG_EN": "EN",
+  "LANG_FR": "FR",
+  "HOME": "Home",
+  "DATAPROTECTION": "Dataprotection",
+  "DATATEXT": "Based on article 13 of the federal constitution of switzerland and the federal dataprotection assignments (Datenschutzgesetz, DSG) every person has a right for the protection of her privacy, aswell as the protction of misuse of her personal data. We keep those assignments. Personal data is handled strictly confidential and isn't sold to third parties or passed further away.",
+  "LOGIN": "Login",
+  "LOGINERRORTEXT": "Wrong user or password",
+  "LOGININFO": "Information",
+  "LOGOUT": "Logout",
+  "IMPRESSUM": "Imprint",
+  "UNDERSTOOD": "Understood",
+  "IMP_TEXT": "This App was developped of the health informatics department of the University of Applied Sciences of Bern for the neurology department of the University of Zurich.",
+  "IMP_CONTACT": "Contact in case of questions:<br>mitrends@app.ch",
+  "OVERVIEW": "Home",
+  "EXCERCISES": "Exercises",
+  "CONGRATULATIONS": "Congratulations",
+  "CONGRATULATIONS_TEXT": "This was awsome!",
+  "QUESTIONNAIRES": "Questionnaires",
+  "MAINSYMPTOMS": "Main symptoms",
+  "MAINSYMPTOMS_CAPTURE": "Catch main symtoms",
+  "EXCERCISES_RUNTROUGH": "Make exercise",
+  "DO_MORE_EXCERCISES": "Do more exercise",
+  "ROUTE": "Labyrinth",
+  "ROUTE_INSTRUCTION": "Labyrinth exercise instruction",
+  "SYMBOL_DIGIT": "Symbol-Digit",
+  "SD_PREPARATION": "Symbol-Digit preparation",
+  "SD_INSTRUCTION": "Symbol-Digit exercise instruction",
+  "MOTOR_SKILLS": "Motor skills",
+  "CORE": {
+    "AHAND": [{
+      "id": "1",
+      "label": "Right-handed"
+    }, {
+      "id": "2",
+      "label": "Left-handed"
+    }, {
+      "id": "3",
+      "label": "Both-handed"
+    }],
+    "AYN": [{
+      "id": "true",
+      "label": "Yes"
+    }, {
+      "id": "false",
+      "label": "No"
+    }],
+    "ASMILE": [{
+      "id": "1",
+      "imgSrc": "img/emotes_face_sad.png"
+    }, {
+      "id": "2",
+      "imgSrc": "img/emotes_face_uncertain.png"
+    }, {
+      "id": "3",
+      "imgSrc": "img/emotes_face_plain.png"
+    }, {
+      "id": "4",
+      "imgSrc": "img/emotes_face_smile.png"
+    }, {
+      "id": "5",
+      "imgSrc": "img/emotes_face_smile_big.png"
+    }]
+  },
+  "Q1CORE": "Are you...",
+  "Q2COREL": "Do you have movementrestrictions in your left hand?",
+  "Q2CORER": "Do you have movementrestrictions in your right hand?",
+  "Q3COREL": "Do you have sensory disturbances in your left hand?",
+  "Q3CORER": "Do you have sensory disturbances in your right hand?",
+  "Q4CORE": "How are you today?",
+  "Q5CORE": "How do you judge your current concentration abilities?",
+  "Q6CORE": "Had you a MS relapse since the last exercise session?",
+  "Q7CORE": "Did your MS Symptome increase since the last exercise session?",
+  "RIGHTHANDED": "right-handed",
+  "LEFTHANDED": "left-handed",
+  "BOTHHANDED": "both-handed",
+  "YES": "Yes",
+  "NO": "No",
+  "SAVE": "Save",
+  "BACK": "Back",
+  "NEXT": "Next",
+  "COMMENT": "Comments concerning the exercise:",
+  "DIGIT": "Digit",
+  "SYMBOL": "Symbol",
+  "TITLEPOPUP_NEXTPREPZS": "Info",
+  "TEMPLATEPOPUP_NEXTPREPZS": "Now the prepartion starts, the actual exercise with a defined amount of time, will start after this preparation.",
+  "SDTITLE_POPUP": "Information",
+  "SDTEMPLATE_POPUP": "The preparation is over. As soon as you click OK, the actual exercise starts.",
+  "MSIS-29": "MSIS-29",
+  "MSIS": {
+    "RADIOS": [{
+      "id": "1",
+      "label": "not at all"
+    }, {
+      "id": "2",
+      "label": "a bit"
+    }, {
+      "id": "3",
+      "label": "moderate"
+    }, {
+      "id": "4",
+      "label": "quite"
+    }, {
+      "id": "5",
+      "label": "very"
+    }],
+    "QUESTIONS": {
+      "QS1": [{
+        "id": "1",
+        "text": "1. ... Do physically demanding tasks? "
+      }, {
+        "id": "2",
+        "text": "2. ... Grip things tightly (e.g. turning on taps)?"
+      }, {
+        "id": "3",
+        "text": "3. ... Carry things?"
+      }],
+      "QS2_1": [{
+        "id": "4",
+        "text": "4. ... Problems with your balance?"
+      }, {
+        "id": "5",
+        "text": "5. ... Difficulties moving about indoors?"
+      }, {
+        "id": "6",
+        "text": "6. ... Being clumsy?"
+      }, {
+        "id": "7",
+        "text": "7. ... Stiffness?"
+      }],
+      "QS2_2": [{
+        "id": "8",
+        "text": "8. ... Heavy arms and/or legs?"
+      }, {
+        "id": "9",
+        "text": "9. ... Tremor of your arms or legs?"
+      }, {
+        "id": "10",
+        "text": "10. ... Spasms in your limbs?"
+      }, {
+        "id": "11",
+        "text": "11. ... Your body not doing what you want it to do?"
+      }, {
+        "id": "12",
+        "text": "12. ... Having to depend on others to do things for you?"
+      }, {
+        "id": "13",
+        "text": "13. ... Limitations in your social and leisure activities at home?"
+      }, {
+        "id": "14",
+        "text": "14. ... Being stuck at home more than you would like to be?"
+      }, {
+        "id": "15",
+        "text": "15. ... Difficulties using your hands in everyday tasks?"
+      }],
+      "QS2_3": [{
+        "id": "16",
+        "text": "16. ... Having to cut down the amount of time you spent on work or other daily activities?"
+      }, {
+        "id": "17",
+        "text": "17. ... Problems using transport (e.g. car, bus, train, taxi, etc.)?"
+      }, {
+        "id": "18",
+        "text": "18. ... Taking longer to do things?"
+      }, {
+        "id": "19",
+        "text": "19. ... Difficulty doing things spontaneously (e.g. going out on the spur of the moment)?"
+      }, {
+        "id": "20",
+        "text": "20. ... Needing to go to the toilet urgently?"
+      }, {
+        "id": "21",
+        "text": "21. ... Feeling unwell?"
+      }, {
+        "id": "22",
+        "text": "22. ... Problems sleeping?"
+      }, {
+        "id": "23",
+        "text": "23. ... Feeling mentally fatigued?"
+      }],
+      "QS2_4": [{
+        "id": "24",
+        "text": "24. ... Worries related to your MS?"
+      }, {
+        "id": "25",
+        "text": "25. ... Feeling anxious or tense?"
+      }, {
+        "id": "26",
+        "text": "26. ... Feeling irritable, impatient, or short tempered?"
+      }, {
+        "id": "27",
+        "text": "27. ... Problems concentrating?"
+      }, {
+        "id": "28",
+        "text": "28. ... Lack of confidence?"
+      }, {
+        "id": "29",
+        "text": "29. ... Feeling depressed?"
+      }]
+    }
+  },
+  "MSISQS1": "In the past two weeks, how much has your MS limited your ability to...",
+  "MSISQS2": "In the past two weeks, how much have you been bothered by...",
+  "ZS-INSTRUCTION": "Choose according to the referencetable, the appropriate digit of the digittable to the symbol above the green space.",
+  "REFERENCETABLE": "Referencetable",
+  "DIGITTABLE": "Digittable",
+  "ZS-INSTRUCTION_TEXT_1": "<b>How does the excersise work?</b>",
+  "ZS-INSTRUCTION_TEXT_2": "Each symbol is matches excatly to one digit.",
+  "ZS-INSTRUCTION_TEXT_3": "In the uppermost table, the referencetable, you see which digit matches which symbol.",
+  "ZS-INSTRUCTION_TEXT_4": "In the intermediate table, the solutiontable, only the symols are set, the appropriate digits are missing.",
+  "ZS-INSTRUCTION_TEXT_5": "In the bottommost table, the digittable, you see the digits, which you can tap. Tap allways on the digit that matches the symbol above the empty space in the solutiontable. You can look for the appropriate digit according to the definition in the referencetable.",
+  "ZS-INSTRUCTION_TEXT_6": "If you tap on <b>Next</b>, you start the prepartion. There you have 3 times the possibility to complete one row. As soon as you have completed one row correctly, the actual exercise begins.",
+  "ZS-INSTRUCTION_TEXT_7": "<b>Important</b>: During the exercise you should not be disturbed!",
+  "ROUTE-INSTRUCTION_TEXT_2": "The computer shows you a way through the labyrinth.<br><br>",
+  "ROUTE-INSTRUCTION_TEXT_3": "The way is shown you only <b>once</b>. <br> As soon as the demonstrated way of the computer reaches the end, it's your turn.",
+  "ROUTE-INSTRUCTION_TEXT_4": "Start at the Start (by tapping on start).",
+  "ROUTE-INSTRUCTION_TEXT_5": "Try afterwards to <b>tap</b> the points of the way in the same order as the computer has demonstrated it.",
+  "ROUTE-INSTRUCTION_TEXT_6": "The exercise is over, if you reach the end(by tapping on end).",
+  "PAGE1OF4": "Page 1 of 4",
+  "PAGE2OF4": "Page 2 of 4",
+  "PAGE3OF4": "Page 3 of 4",
+  "PAGE4OF4": "Page 4 of 4",
+  "FATIGUE_SS": "Fatigue Severity Scale",
+  "FSS_Q": "During the past week, I have found that:",
+  "AGREE_COMPLETELY": "Strongly Agree = 7",
+  "AGRRE_NOT": "Strongly Disagree = 1",
+  "FSS": {
+    "RADIOS": [{
+      "id": "1",
+      "label": "1"
+    }, {
+      "id": "2",
+      "label": "2"
+    }, {
+      "id": "3",
+      "label": "3"
+    }, {
+      "id": "4",
+      "label": "4"
+    }, {
+      "id": "5",
+      "label": "5"
+    }, {
+      "id": "6",
+      "label": "6"
+    }, {
+      "id": "7",
+      "label": "7"
+    }],
+    "QUESTIONS": [{
+      "id": "1",
+      "text": "1. My motivation is lower when I am fatigued."
+    }, {
+      "id": "2",
+      "text": "2. Exercise brings on my fatigue."
+    }, {
+      "id": "3",
+      "text": "3.  I am easily fatigued."
+    }, {
+      "id": "4",
+      "text": "4. Fatigue interferes with my physical functioning."
+    }, {
+      "id": "5",
+      "text": "5. Fatigue causes frequent problems for me."
+    }, {
+      "id": "6",
+      "text": "6. My fatigue prevents sustained physical functioning."
+    }, {
+      "id": "7",
+      "text": "7. Fatigue interferes with carrying out certain duties and responsibilities."
+    }, {
+      "id": "8",
+      "text": "8. Fatigue is among my most disabling symptoms."
+    }, {
+      "id": "9",
+      "text": "9. Fatigue interferes with my work, family, or social life."
+    }]
+  }
+}
