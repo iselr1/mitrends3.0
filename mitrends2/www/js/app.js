@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ionic-datepicker', 'ionic-timepicker', 'formlyIonic', 'nvd3', 'i4mi', 'starter.controllers', 'starter.controllersRea', 'starter.controllersSarah', 'starter.services', 'jsonFormatter', 'pascalprecht.translate'])
+angular.module('starter', ['ionic', 'ngCordova', 'ionic-datepicker', 'ionic-timepicker', 'formlyIonic', 'nvd3', 'i4mi', 'starter.controllers', 'starter.controllersRea', 'starter.controllersSarah', 'starter.services', 'jsonFormatter', 'pascalprecht.translate'])
   .constant('APPNAME', 'MitrendS')
   .constant('APPSECRET', 'Mi3636trend9696S000')
   .run(function($ionicPlatform) {
@@ -32,6 +32,31 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'ionic-timepicker', 'for
     $ionicPlatform.registerBackButtonAction(function(event) {
       event.preventDefault();
     }, 100);
+    //check for platform
+    /*
+    if (ionic.Platform.isAndroid()) {
+      console.log('cordova.file.dataDirectory: ' + cordova.file.dataDirectory);
+      myFsRootDirectory1 = 'file:///storage/emulated/0/'; // path for tablet
+      fileTransferDir = cordova.file.dataDirectory;
+      if (fileTransferDir.indexOf(myFsRootDirectory1) === 0) {
+        fileDir = fileTransferDir.replace(myFsRootDirectory1, '');
+      }
+      console.log('Android FILETRANSFERDIR: ' + fileTransferDir);
+      console.log('Android FILEDIR: ' + fileDir);
+    }
+    if (ionic.Platform.isIOS()) {
+      console.log('cordova.file.documentsDirectory: ' + cordova.file.documentsDirectory);
+      fileTransferDir = cordova.file.documentsDirectory;
+      fileDir = '';
+      console.log('IOS FILETRANSFERDIR: ' + fileTransferDir);
+      console.log('IOS FILEDIR: ' + fileDir);
+    }
+
+    if (ionic.Platform.isAndroid() || ionic.Platform.isIOS()) {
+      ClearDirectory();
+      testFS();
+      // Other functions here
+    }*/
   })
 
 .config(function($stateProvider, $urlRouterProvider, $translateProvider) {
@@ -61,13 +86,7 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'ionic-timepicker', 'for
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-    .state('home', {
-    url: '/home',
-    templateUrl: 'templates/home.html',
-    controller: 'HomeCtrl'
-  })
-
-  .state('login', {
+    .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl'
@@ -79,9 +98,9 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'ionic-timepicker', 'for
     controller: 'ImpCtrl'
   })
 
-  .state('route', {
-    url: '/route',
-    templateUrl: 'templates/route.html',
+  .state('labyrinth', {
+    url: '/labyrinth',
+    templateUrl: 'templates/labyrinth.html',
     controller: 'RouteCtrl'
   })
 
@@ -130,9 +149,9 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'ionic-timepicker', 'for
     controller: 'FatigueCtrl'
   })
 
-  .state('route_anl', {
-    url: '/route_anl',
-    templateUrl: 'templates/route_anl.html',
+  .state('labyrinthAnl', {
+    url: '/labyrinthAnl',
+    templateUrl: 'templates/labyrinthAnl.html',
     controller: 'RouteAnlCtrl'
   })
 
@@ -159,10 +178,10 @@ angular.module('starter', ['ionic', 'ionic-datepicker', 'ionic-timepicker', 'for
     controller: 'ZSVideoCtrl'
   })
 
-  .state('routeVideo', {
-    url: '/routeVideo',
-    templateUrl: 'templates/routeVideo.html',
-    controller: 'RouteVideoCtrl'
+  .state('labyrinthVideo', {
+    url: '/labyrinthVideo',
+    templateUrl: 'templates/labyrinthVideo.html',
+    controller: 'LabyrinthVideoCtrl'
   })
 
   $urlRouterProvider.otherwise('/kernsymptome')

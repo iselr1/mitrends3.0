@@ -4,7 +4,7 @@ angular.module('starter.services', [])
 //--------------------------------------------------------//
 //---------------Service for Questionnaires-----------------------//
 //--------------------------------------------------------//
-.factory('QuestionnaireService', function($state, $ionicPopup, $translate) {
+.factory('QuestionnaireService', function($state, $ionicPopup, $translate, $cordovaFile) {
   var QuestionnaireService = {};
   // boolean that indicates if all questions were answered
   var allAnswers = false;
@@ -58,6 +58,16 @@ angular.module('starter.services', [])
   QuestionnaireService.checkAndStore = function(goTo, modal) {
     // if allAnswers true navigate to goTo and store the answers, in the end we set allAnswers back to false and clear the answers array
     if (allAnswers) {
+      if (modal == 'kernsymptome') {
+        console.log("kernsymp");
+        var currDateTime = new Date();
+        console.log("date" + currDateTime);
+        $cordovaFile.writeFile(cordova.file.externalDataDirectory, currDateTime + '.txt', answers, true).then(function(result) {
+          alert('Success! Survey created!');
+        }, function(err) {
+          console.log("ERROR");
+        })
+      }
       //Code zu Testzwecken für Kundenworkshop
       /*var alertPopup = $ionicPopup.alert({
         title: "Variablen für MIDATA",
@@ -68,9 +78,18 @@ angular.module('starter.services', [])
         })*/
       $state.go(goTo);
       //Save the answers to localStorage
+      /*
       localStorage.setItem(modal, JSON.stringify(answers));
       var storedAnswers = JSON.parse(localStorage.getItem(modal));
       console.log(storedAnswers);
+      */
+      //save the answers to a file
+      $cordovaFile.writeExistingFile(cordova.file.externalDataDirectory, (currDateTime.getTime() + currDateTime.getDate() + currDateTime.getMonth() + currDateTime.getYear() + ".txt"), answers, true).then(function(result) {
+        alert('Success! Survey created!');
+      }, function(err) {
+        console.log("ERROR");
+      })
+
       //reset the function
       QuestionnaireService.reset();
     }
@@ -185,15 +204,11 @@ angular.module('starter.services', [])
   }
 
   /* Funktion um die Schlüsseltabelle mit Objekten zu befüllen*/
-  SymDigService.fillSolveTable = function(solveNums, booleanGreen) {
+  SymDigService.fillSolveTable = function(solveNums) {
     solveTable = [];
     for (var i = 1; i <= numberObjectsSolveTable; i++) {
       var newObject = {};
-      if (i == 1 && booleanGreen == true) {
-        newObject.imgSrc = "img/SD_" + solveNums[i - 1] + ".png";
-        newObject.numSrc = "img/green.png";
-        newObject.next = true;
-      } else if (i == 1 && booleanGreen == false) {
+      if (i == 1) {
         newObject.imgSrc = "img/SD_" + solveNums[i - 1] + ".png";
         newObject.numSrc = "img/empty.png";
         newObject.next = true;

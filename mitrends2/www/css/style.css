@@ -76,6 +76,20 @@ body {
   -ms-flex: 0 1 50% !important;
   flex: 0 1 50% !important;
 }
+.row-80{
+  -webkit-box-flex: 0 !important;
+  -moz-box-flex: 0 !important;
+  -webkit-flex: 0 1 80% !important;
+  -ms-flex: 0 1 80% !important;
+  flex: 0 1 80% !important;
+}
+.row-90{
+  -webkit-box-flex: 0 !important;
+  -moz-box-flex: 0 !important;
+  -webkit-flex: 0 1 90% !important;
+  -ms-flex: 0 1 90% !important;
+  flex: 0 1 90% !important;
+}
 
 .center {
   margin-left: auto;

@@ -81,27 +81,6 @@ angular.module('starter.controllers', [])
 })
 
 //--------------------------------------------------------//
-//---------------CONTROLLER Home-----------------------//
-//--------------------------------------------------------//
-.controller('HomeCtrl', function($scope, $stateParams, $state) {
-  $scope.goKSym_Erf = function() {
-    $state.go('kernsymptome');
-  };
-
-  $scope.goAu_Frageb = function() {
-    $state.go('auswahl_fragebogen');
-  };
-
-  $scope.goAu_Uebungen = function() {
-    $state.go('auswahl_uebungen');
-  };
-
-  $scope.goImpressum = function() {
-    $state.go('impressum');
-  };
-})
-
-//--------------------------------------------------------//
 //---------------CONTROLLER Impressum-----------------------//
 //--------------------------------------------------------//
 .controller('ImpCtrl', function($scope, $stateParams, $state, $ionicPopup, jsonService) {
