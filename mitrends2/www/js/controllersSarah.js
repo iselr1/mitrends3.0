@@ -24,8 +24,9 @@ angular.module('starter.controllersSarah', [])
 
 })
 
+/* -- NOT NEEDED IN THIS VERSION OF THE APP -- */
 /* -- Controller for Route Anleitung View -- */
-.controller('RouteAnlCtrl', function($scope, $stateParams, $state, $ionicModal) {
+.controller('LabAnlCtrl', function($scope, $stateParams, $state, $ionicModal) {
 
   // Go to the page "Route" after Save
   $scope.goRoute = function() {
@@ -81,7 +82,7 @@ angular.module('starter.controllersSarah', [])
 })
 
 /* -- Controller for Route View -- */
-.controller('RouteCtrl', function($scope, $stateParams, $interval, $state, $ionicPopup) {
+.controller('LabCtrl', function($scope, $stateParams, $interval, $state, $ionicPopup) {
 
   // Factor to draw the Labyrinth (Standard 1024x768)
   var xfactor = 0.0;
@@ -173,23 +174,26 @@ angular.module('starter.controllersSarah', [])
   var whiteone = 0;
   var blackline = 0;
 
-  // Arrays with all the points and all the lines from the labyrinth
-  // 2 Dimensional Array
+  // Arrays with all the points and all the lines from the labyrinth - 2 Dimensional Array
   // The first square bracket references the desired element in the outer array (actualLab).
   // The second square bracket references the desired element in the inner array (Point or Line Array).
   // (JavaScript array indexes start at zero.)
   var actualLab = [point1, point2, point3, point4, point5, point6, point7, point8, point9, point10, point11, point12, point13, point14, point15, point16, point17, point18, point19, point20, point21, point22];
   var actualLabLines = [line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, line22, line23, line24, line25, line26, line27, line28, line29, line30, line31, line32, line33, line34, line35, line36];
 
-  // Array with all the points and all the lines to show the first time
-  //var firstWay = [point1, point2, point7, point8, point9, point10, point11, point13, point12, point14, point21, point20, point15, point19, point16, point17, point22];
-  //var firstWayLines = [line1, line8, line10, line23, line22, line13, line36, line17, line16, line31, line29, line30, line27, line26, line25, line35];
-  var firstWay = [point1, point7, point2, point3, point4, point5, point12, point11, point13, point15, point19, point16, point10, point9, point17, point18, point22];
-  var firstWayLines = [line9, line8, line2, line3, line4, line15, line14, line36, line18, line27, line26, line21, line22, line24, line33, line34];
+  // Array with all the points and all the lines to show
+  var labWay = [point1, point2, point7, point8, point9, point10, point11, point13, point12, point14, point21, point20, point15, point19, point16, point17, point22];
+  var labWayLines = [line1, line8, line10, line23, line22, line13, line36, line17, line16, line31, line29, line30, line27, line26, line25, line35];
+  //var labWay = [point1, point7, point2, point3, point4, point5, point12, point11, point13, point15, point19, point16, point10, point9, point17, point18, point22];
+  //var labWayLines = [line9, line8, line2, line3, line4, line15, line14, line36, line18, line27, line26, line21, line22, line24, line33, line34];
+  //var labWay = [point1, point2, point3, point6, point8, point9, point10, point16, point15, point14, point21, point20, point19, point18, point17, point22];
+  //var labWayLines = [line1, line2, line6, line11, line23, line22, line21, line20, line19, line31, line29, line28, line32, line33, line35];
+  //var labWay = [point1, point7, point8, point6, point3, point4, point5, point12, point14, point15, point13, point11, point10, point9, point17, point18, point22];
+  //var labWayLines = [line9, line10, line11, line6, line3, line4, line15, line16, line19, line18, line36, line13, line22, line24, line33, line34];
 
   // Array with all the points to show the second time - 2 Dimensional Array
-  var secondWay = [point4, point3, point6, point2, point7, point8, point9, point10, point16, point17, point18, point19, point15, point13, point12, point14, point21];
-  var secondWayLines = [line3, line6, line7, line8, line10, line23, line22, line21, line25, line33, line32, line27, line18, line17, line16, line31];
+  //var secondWay = [point4, point3, point6, point2, point7, point8, point9, point10, point16, point17, point18, point19, point15, point13, point12, point14, point21];
+  //var secondWayLines = [line3, line6, line7, line8, line10, line23, line22, line21, line25, line33, line32, line27, line18, line17, line16, line31];
 
   // The way the user did
   var userway = [];
@@ -221,19 +225,19 @@ angular.module('starter.controllersSarah', [])
   // how many times the user did the whole lab right
   var rightlab = 0;
 
-  // Make the first Way
-  doFirst = function() {
+  // Make the Way
+  doWay = function() {
     clickOk = false;
     actualLab = [point1, point2, point3, point4, point5, point6, point7, point8, point9, point10, point11, point12, point13, point14, point15, point16, point17, point18, point19, point20, point21, point22];
     // Draw The Labyrinth
     $scope.drawLab();
     // Show the Way through the Labyrinth - Points
     setTimeout(function() {
-      $interval(showWay, 2000, firstWay.length + 1); //2000
+      $interval(showWay, 2000, labWay.length + 1); //2000
     }, 2000);
     // Show the Way through the Labyrinth - Lines
     setTimeout(function() {
-      $interval(showWayLines, 2000, firstWayLines.length + 1); //2000
+      $interval(showWayLines, 2000, labWayLines.length + 1); //2000
     }, 3000);
     // Click is Only possible when way through Labyrinth was shown
     setTimeout(function() {
@@ -330,26 +334,26 @@ angular.module('starter.controllersSarah', [])
 
   // -- Function show the Way in the Labyrinth --//
   // 2 Dimensional Arrays
-  // The first square bracket references the desired element in the outer array (firstWay).
+  // The first square bracket references the desired element in the outer array (labWay).
   // The second square bracket references the desired element in the inner array (Point Array).
   // (JavaScript array indexes start at zero.)
   showWay = function() {
     if (countway == 0) {
       // draw the first point in green --> coordinates
-      drawPoint(firstWay[countway][0], firstWay[countway][1], "lime");
-    } else if (countway == (firstWay.length)) {
+      drawPoint(labWay[countway][0], labWay[countway][1], "lime");
+    } else if (countway == (labWay.length)) {
       // make the last point black again
       whiteone = countway - 1;
-      drawPoint(firstWay[whiteone][0], firstWay[whiteone][1], "black");
+      drawPoint(labWay[whiteone][0], labWay[whiteone][1], "black");
     } else {
       // draw the point in green
-      drawPoint(firstWay[countway][0], firstWay[countway][1], "lime");
+      drawPoint(labWay[countway][0], labWay[countway][1], "lime");
       // draw the point before the one, which is drawn in green, white again
       whiteone = countway - 1;
       if (whiteone != 0) {
-        drawPoint(firstWay[whiteone][0], firstWay[whiteone][1], "white");
+        drawPoint(labWay[whiteone][0], labWay[whiteone][1], "white");
       } else {
-        drawPoint(firstWay[whiteone][0], firstWay[whiteone][1], "black");
+        drawPoint(labWay[whiteone][0], labWay[whiteone][1], "black");
       }
     }
     // counter of point
@@ -358,44 +362,44 @@ angular.module('starter.controllersSarah', [])
 
   // Function show the Way in the Labyrinth
   // 2 Dimensional Arrays
-  // The first square bracket references the desired element in the outer array (firstWay).
+  // The first square bracket references the desired element in the outer array (labWay).
   // The second square bracket references the desired element in the inner array (Point Array).
   // (JavaScript array indexes start at zero.)
   showWayLines = function() {
     if (countwaylines == 0) {
       // draw the first line in green --> coordinates
-      drawLine(firstWayLines[countwaylines][0], firstWayLines[countwaylines][1], firstWayLines[countwaylines][2], firstWayLines[countwaylines][3], "lime");
+      drawLine(labWayLines[countwaylines][0], labWayLines[countwaylines][1], labWayLines[countwaylines][2], labWayLines[countwaylines][3], "lime");
       // make startpoint lime again
-      drawPoint(firstWay[countwaylines][0], firstWay[countwaylines][1], "lime");
+      drawPoint(labWay[countwaylines][0], labWay[countwaylines][1], "lime");
       // fill following point white again
-      drawPoint(firstWay[countwaylines + 1][0], firstWay[countwaylines + 1][1], "white");
-    } else if (countwaylines == (firstWayLines.length)) {
+      drawPoint(labWay[countwaylines + 1][0], labWay[countwaylines + 1][1], "white");
+    } else if (countwaylines == (labWayLines.length)) {
       // make the last line black again
       blackline = countwaylines - 1;
-      drawLine(firstWayLines[blackline][0], firstWayLines[blackline][1], firstWayLines[blackline][2], firstWayLines[blackline][3], "black");
-      drawPoint(firstWay[blackline][0], firstWay[blackline][1], "white");
-      drawPoint(firstWay[countwaylines][0], firstWay[countwaylines][1], "lime");
+      drawLine(labWayLines[blackline][0], labWayLines[blackline][1], labWayLines[blackline][2], labWayLines[blackline][3], "black");
+      drawPoint(labWay[blackline][0], labWay[blackline][1], "white");
+      drawPoint(labWay[countwaylines][0], labWay[countwaylines][1], "lime");
     } else {
       // draw the line in green
-      drawLine(firstWayLines[countwaylines][0], firstWayLines[countwaylines][1], firstWayLines[countwaylines][2], firstWayLines[countwaylines][3], "lime");
-      if (countwaylines == (firstWayLines.length - 1)) {
+      drawLine(labWayLines[countwaylines][0], labWayLines[countwaylines][1], labWayLines[countwaylines][2], labWayLines[countwaylines][3], "lime");
+      if (countwaylines == (labWayLines.length - 1)) {
         // fill the following point black again
-        drawPoint(firstWay[countwaylines + 1][0], firstWay[countwaylines + 1][1], "black");
+        drawPoint(labWay[countwaylines + 1][0], labWay[countwaylines + 1][1], "black");
       } else {
         // fill the following point white again
-        drawPoint(firstWay[countwaylines + 1][0], firstWay[countwaylines + 1][1], "white");
+        drawPoint(labWay[countwaylines + 1][0], labWay[countwaylines + 1][1], "white");
       }
       // draw the line before the one, which is drawn in green, black again
       blackline = countwaylines - 1;
-      drawLine(firstWayLines[blackline][0], firstWayLines[blackline][1], firstWayLines[blackline][2], firstWayLines[blackline][3], "black");
+      drawLine(labWayLines[blackline][0], labWayLines[blackline][1], labWayLines[blackline][2], labWayLines[blackline][3], "black");
       // fill the point after the black line lime again
-      drawPoint(firstWay[countwaylines][0], firstWay[countwaylines][1], "lime");
+      drawPoint(labWay[countwaylines][0], labWay[countwaylines][1], "lime");
       if (blackline != 0) {
         // fill the point before the black line white again
-        drawPoint(firstWay[blackline][0], firstWay[blackline][1], "white");
+        drawPoint(labWay[blackline][0], labWay[blackline][1], "white");
       } else {
         // fill the point before the black line black again --> if its the first
-        drawPoint(firstWay[blackline][0], firstWay[blackline][1], "black");
+        drawPoint(labWay[blackline][0], labWay[blackline][1], "black");
       }
     }
     // counter of lines
@@ -471,12 +475,12 @@ angular.module('starter.controllersSarah', [])
         drawPoint(point22[0], point22[1], "cyan");
         //search in the whole labyrinth
         console.log("USERWAY: " + userway);
-        console.log("REALWAY: " + firstWayLines);
+        console.log("REALWAY: " + labWayLines);
         for (var i = 0; i < userway.length; i++) {
-          for (var j = 0; j < firstWayLines.length; j++) {
+          for (var j = 0; j < labWayLines.length; j++) {
             if (
-              ((userway[i][0] == firstWayLines[j][0] && userway[i][1] == firstWayLines[j][1]) || (userway[i][0] == firstWayLines[j][2] && userway[i][1] == firstWayLines[j][3])) &&
-              ((userway[i][2] == firstWayLines[j][0] && userway[i][3] == firstWayLines[j][1]) || (userway[i][2] == firstWayLines[j][2] && userway[i][3] == firstWayLines[j][3]))
+              ((userway[i][0] == labWayLines[j][0] && userway[i][1] == labWayLines[j][1]) || (userway[i][0] == labWayLines[j][2] && userway[i][1] == labWayLines[j][3])) &&
+              ((userway[i][2] == labWayLines[j][0] && userway[i][3] == labWayLines[j][1]) || (userway[i][2] == labWayLines[j][2] && userway[i][3] == labWayLines[j][3]))
             ) {
               rightlines = rightlines + 1;
             }
@@ -489,11 +493,11 @@ angular.module('starter.controllersSarah', [])
 
         if (rightlab > 1) {
           // 2 mal richtig --> Übung beendet
-          $state.go('geschafft');
+          $state.go('geschafftLAB');
           //$scope.showPopup();
         } else {
           // mache den weg nochmal
-          $state.go('geschafft');
+          $state.go('geschafftLAB');
           //doFirst();
         }
       }
@@ -519,7 +523,7 @@ angular.module('starter.controllersSarah', [])
       template: "Anzahl Clicks: " + clicks + "</br></br>" + "Anz. Punkt des Labs angeklickt: " + rightclicks + "</br></br>" + "Anz. richtige Verbindungen: " + rightlines,
     });
     alertPopup.then(function() {
-      $state.go('geschafft');
+      $state.go('geschafftLAB');
     });
   };
 
@@ -532,6 +536,6 @@ angular.module('starter.controllersSarah', [])
   ctx.canvas.width = window.innerWidth;
   ctx.canvas.height = window.innerHeight;
 
-  doFirst();
+  doWay();
 
 });

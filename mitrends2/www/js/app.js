@@ -101,7 +101,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'ionic-datepicker', 'ionic-time
   .state('labyrinth', {
     url: '/labyrinth',
     templateUrl: 'templates/labyrinth.html',
-    controller: 'RouteCtrl'
+    controller: 'LabCtrl'
   })
 
   .state('zahlsymbol', {
