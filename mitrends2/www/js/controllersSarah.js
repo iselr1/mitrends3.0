@@ -4,7 +4,7 @@ Made:               01.10.2016
 Made through:       meles1
 Version Nr.:         1.0
 
-Function: All Controller for the Views "Kernsymptome", "Route", "Route Anleitung"
+Function: All Controller for the Views "Kernsymptome", "Labyrinth", "Labyrinth Anleitung"
 */
 angular.module('starter.controllersSarah', [])
 
@@ -25,10 +25,10 @@ angular.module('starter.controllersSarah', [])
 })
 
 /* -- NOT NEEDED IN THIS VERSION OF THE APP -- */
-/* -- Controller for Route Anleitung View -- */
+/* -- Controller for Labyrinth Anleitung View -- */
 .controller('LabAnlCtrl', function($scope, $stateParams, $state, $ionicModal) {
 
-  // Go to the page "Route" after Save
+  // Go to the page "Labyrinth" after Save
   $scope.goRoute = function() {
     $state.go('route');
   };
@@ -81,12 +81,19 @@ angular.module('starter.controllersSarah', [])
   };
 })
 
-/* -- Controller for Route View -- */
-.controller('LabCtrl', function($scope, $stateParams, $interval, $state, $ionicPopup) {
+/* -- Controller for Labyrinth View -- */
+.controller('LabCtrl', function($scope, $stateParams, $interval, $state, $ionicPopup, $translate) {
+
+  // Boolean - is Labyrinth clickable (Standard false)
+  var clickOK = false;
 
   // Factor to draw the Labyrinth (Standard 1024x768)
   var xfactor = 0.0;
   var yfactor = 0.0;
+
+  // X and Y Coordinates to draw a point (Center)
+  var xvalue = 0;
+  var yvalue = 0;
 
   // X and Y values for drawing a line from - to
   var xvaluefrom = 0;
@@ -132,13 +139,6 @@ angular.module('starter.controllersSarah', [])
   var line35 = [953.5, 669.5, 806.5, 606];
   var line36 = [422.5, 320, 544, 275.5];
 
-  // X and Y Coordinates to draw a point (Center)
-  var xvalue = 0;
-  var yvalue = 0;
-
-  // Boolean - is Labyrinth clickable (Standard false)
-  var clickOK = false;
-
   // Coordinates for the points of the Labyrinth - Center (Standard 1024x768)
   var point1 = [51, 682]; //start
   var point2 = [160, 415.5];
@@ -164,22 +164,22 @@ angular.module('starter.controllersSarah', [])
   var point22 = [953.5, 669.5]; //end
 
   // the last point the user clicked
-  var lastpoint = [0, 0];
+  var lastpoint;
 
   // how many times the function showWay was executed - initial 0 - counter for the point to draw and the line to draw
-  var countway = 0;
-  var countwaylines = 0;
+  var countway;
+  var countwaylines;
 
   // counter for the point, that needs to be drawn white again (after green) / the line, that needs to be black again
-  var whiteone = 0;
-  var blackline = 0;
+  var whiteone;
+  var blackline;
 
   // Arrays with all the points and all the lines from the labyrinth - 2 Dimensional Array
   // The first square bracket references the desired element in the outer array (actualLab).
   // The second square bracket references the desired element in the inner array (Point or Line Array).
   // (JavaScript array indexes start at zero.)
-  var actualLab = [point1, point2, point3, point4, point5, point6, point7, point8, point9, point10, point11, point12, point13, point14, point15, point16, point17, point18, point19, point20, point21, point22];
-  var actualLabLines = [line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, line22, line23, line24, line25, line26, line27, line28, line29, line30, line31, line32, line33, line34, line35, line36];
+  var actualLab;// = [point1, point2, point3, point4, point5, point6, point7, point8, point9, point10, point11, point12, point13, point14, point15, point16, point17, point18, point19, point20, point21, point22];
+  var actualLabLines;// = [line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, line22, line23, line24, line25, line26, line27, line28, line29, line30, line31, line32, line33, line34, line35, line36];
 
   // Array with all the points and all the lines to show
   var labWay;
@@ -207,113 +207,70 @@ angular.module('starter.controllersSarah', [])
   ctx = my_canvas.getContext("2d");
 
   // Where did the user click in the canvas
-  var xclient = 0.0;
-  var yclient = 0.0;
-  var xrealclient = 0.0;
-  var yrealclient = 0.0;
+  var xclient;
+  var yclient;
+  var xrealclient;
+  var yrealclient;
 
   //position for the endcircle
   var endcircle;
 
   //rightclicks - how many clicks by the user where in a circle
-  var rightclicks = 0;
+  var rightclicks;
 
   //clicks - how many clicks by the user
-  var clicks = 0;
+  var clicks;
 
   //how many joints of the user were actually right
-  var rightlines = 0;
+  var rightlines;
 
   // how many times the user did the whole lab right
   var rightlab = 0;
+
+  // how many times the user did the lab
+  var countlab = 0;
 
   // Make the Way
   doWay = function() {
     //You cannot click the lab until the way is shown
     clickOk = false;
 
-    // X and Y values for drawing a line from - to
-    xvaluefrom = 0;
-    yvaluefrom = 0;
-    xvalueto = 0;
-    yvalueto = 0;
-
-    // X and Y Coordinates to draw a point (Center)
-    xvalue = 0;
-    yvalue = 0;
-
-    // how many times the function showWay was executed - counter for the point to draw and the line to draw
+    // every variable gets his initialvalue
     countway = 0;
     countwaylines = 0;
-
-    // the last point the user clicked
     lastpoint = [0, 0];
-
-    // counter for the point, that needs to be drawn white again (after green) / the line, that needs to be black again
     whiteone = 0;
     blackline = 0;
+    userway = [];
+    xclient = 0.0;
+    yclient = 0.0;
+    xrealclient = 0.0;
+    yrealclient = 0.0;
+    rightclicks = 0;
+    clicks = 0;
+    rightlines = 0;
 
     // the Points of the Lab to draw
     actualLab = [point1, point2, point3, point4, point5, point6, point7, point8, point9, point10, point11, point12, point13, point14, point15, point16, point17, point18, point19, point20, point21, point22];
     actualLabLines = [line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, line22, line23, line24, line25, line26, line27, line28, line29, line30, line31, line32, line33, line34, line35, line36];
 
-    // The way the user did
-    userway = [];
-
-    // Where did the user click in the canvas
-    xclient = 0.0;
-    yclient = 0.0;
-    xrealclient = 0.0;
-    yrealclient = 0.0;
-
-    //rightclicks - how many clicks by the user where in a circle
-    rightclicks = 0;
-
-    //clicks - how many clicks by the user
-    clicks = 0;
-
-    //how many joints of the user were actually right
-    rightlines = 0;
-
     // Draw The Labyrinth
     $scope.drawLab();
     // Show the Way through the Labyrinth - Points
     setTimeout(function() {
-      $interval(showWay, 2000, labWay.length + 1); //2000
+      $interval(showWay, 250, labWay.length + 1); //2000
     }, 2000);
     // Show the Way through the Labyrinth - Lines
     setTimeout(function() {
-      $interval(showWayLines, 2000, labWayLines.length + 1); //2000
+      $interval(showWayLines, 250, labWayLines.length + 1); //2000
     }, 3000);
     // Click is Only possible when way through Labyrinth was shown
     setTimeout(function() {
       $scope.drawLab();
       clickOK = true;
       nowDoIt();
-    }, 40000); //40000
+    }, 10000); //40000
   };
-
-/*  // Make the first Way
-  doSecond = function() {
-    clickOK = false;
-    actualLab = [point4, point2, point3, point1, point5, point6, point7, point8, point9, point10, point11, point12, point13, point14, point15, point16, point17, point18, point19, point20, point22, point21];
-    // Draw The Labyrinth
-    $scope.drawLab();
-    // Show the Way through the Labyrinth - Points
-    setTimeout(function() {
-      $interval(showWay, 2000, secondWay.length + 1); //2000
-    }, 2000);
-    // Show the Way through the Labyrinth - Lines
-    setTimeout(function() {
-      $interval(showWayLines, 2000, secondWayLines.length + 1); //2000
-    }, 3000);
-    // Click is Only possible when way through Labyrinth was shown
-    setTimeout(function() {
-      $scope.drawLab();
-      clickOK = true;
-      nowDoIt();
-    }, 40000); //40000
-  };*/
 
   getWay = function() {
     var numberLab = (Math.ceil(Math.random() * 4));
@@ -365,6 +322,7 @@ angular.module('starter.controllersSarah', [])
     ctx.fillStyle = "black";
     ctx.fillText('Start', xstart, ystart);
     ctx.fillText('End', xend, yend);
+    ctx.clearRect((ctx.canvas.width / 2) - 400, 3, 1200, 35);
     ctx.font = 'bold 18pt Arial';
     ctx.fillStyle = "green";
     ctx.fillText('!! Bitte merken Sie sich den Weg !!', ctx.canvas.width / 2, 15);
@@ -532,6 +490,7 @@ angular.module('starter.controllersSarah', [])
           }
         }
       } else {
+        countlab = countlab + 1;
         clicks = clicks + 1;
         rightclicks = rightclicks + 1;
         drawLine(lastpoint[0], lastpoint[1], point22[0], point22[1], "cyan");
@@ -557,14 +516,14 @@ angular.module('starter.controllersSarah', [])
           rightlab = rightlab + 1;
         }
 
-        if (rightlab > 1) {
-          // 2 mal richtig --> Übung beendet
+        if (rightlab > 1 || countlab > 4) {
+          // 2 mal richtig oder 5 mal falsch --> Übung beendet
           $state.go('geschafftLAB');
           $scope.showPopupMIDATA();
         } else {
           // Mache den Weg nochmal
-          doWay();
           $scope.showPopupMIDATA();
+          doWay();
         }
       }
       // Klicken noch nicht erlaubt
@@ -585,7 +544,7 @@ angular.module('starter.controllersSarah', [])
   // Popup mit den Variablen für Midata
   $scope.showPopupMIDATA = function() {
     var alertPopup = $ionicPopup.alert({
-      title: 'Variablen für MIDATA',
+      title: $translate.instant('VARIABLES_MIDATA'),
       template: "Anzahl Clicks: " + clicks + "</br></br>" + "Anz. Punkt des Labs angeklickt: " + rightclicks + "</br></br>" + "Anz. richtige Verbindungen: " + rightlines,
     });
     alertPopup;

@@ -30,6 +30,7 @@
   "SD_PREPARATION": "Symbol-Digit preparation",
   "SD_INSTRUCTION": "Symbol-Digit exercise instruction",
   "MOTOR_SKILLS": "Motor skills",
+  "VARIABLES_MIDATA": "MIDATA Variables",
   "CORE": {
     "AHAND": [{
       "id": "1",

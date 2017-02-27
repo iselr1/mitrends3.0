@@ -30,6 +30,7 @@
   "SD_PREPARATION": "Zahl-Symbol Vorbereitung",
   "SD_INSTRUCTION": "Zahl-Symbol Anleitung",
   "MOTOR_SKILLS": "Motorik",
+  "VARIABLES_MIDATA": "Variablen für MIDATA",
   "CORE": {
     "AHAND": [{
       "id": "1",
