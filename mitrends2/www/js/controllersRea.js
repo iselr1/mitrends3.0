@@ -206,20 +206,6 @@ angular.module('starter.controllersRea', [])
   })
 
   //--------------------------------------------------------//
-  //---------------CONTROLLER Labyrinth Instructionvideo-----------------------//
-  //--------------------------------------------------------//
-  .controller('LabyrinthVideoCtrl', function($scope, $state, $timeout) {
-    $scope.hideButton = true;
-    $scope.goLab = function() {
-      $state.go('labyrinth');
-    };
-    // to display the next button after 60 seconds
-    $timeout(function() {
-      $scope.hideButton = false;
-    }, 5000);
-  })
-
-  //--------------------------------------------------------//
   //---------------CONTROLLER Zahlsymbol-----------------------//
   //--------------------------------------------------------//
   .controller('ZSCtrl', function($scope, $stateParams, $state, $timeout, $ionicPopup, SymDigService, $translate, ExcersiseStorageService) {

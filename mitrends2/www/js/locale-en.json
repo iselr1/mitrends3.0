@@ -34,6 +34,10 @@
   "SD_INSTRUCTION": "Symbol-Digit exercise instruction",
   "MOTOR_SKILLS": "Motor skills",
   "VARIABLES_MIDATA": "MIDATA Variables",
+  "TRY_LAB": "Try the Labyrinth",
+  "TRY_LAB_TEXT": "Try to do the way of the Labyrinth. <br><br> Begin at the START!! point",
+  "MIND_WAY": "!! Please mind the shown way !!",
+  "DO_WAY": "!! Please try to do the shown way !!",
   "CORE": {
     "AHAND": [{
       "id": "1",

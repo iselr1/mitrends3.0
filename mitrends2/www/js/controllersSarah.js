@@ -19,7 +19,7 @@ angular.module('starter.controllersSarah', [])
   $scope.goSDVideo = function() {
     /*first variable has to be the name of the view we want to navigate to
     scond is the name of the questionnaire under which we save the answers with localStorage*/
-    QuestionnaireService.checkAndStore('zahlsymbolVideo', 'CORE');
+    QuestionnaireService.checkAndStore('zahlsymbolVideo', 'Kernsymptome');
   };
 
 })
@@ -79,6 +79,20 @@ angular.module('starter.controllersSarah', [])
   $scope.playVideo = function() {
     $scope.showModal('templates/routeVideo.html');
   };
+})
+
+//--------------------------------------------------------//
+//---------------CONTROLLER Labyrinth Instructionvideo----//
+//--------------------------------------------------------//
+.controller('LabyrinthVideoCtrl', function($scope, $state, $timeout) {
+  $scope.hideButton = true;
+  $scope.goLab = function() {
+    $state.go('labyrinth');
+  };
+  // to display the next button after 60 seconds
+  $timeout(function() {
+    $scope.hideButton = false;
+  }, 5000);
 })
 
 /* -- Controller for Labyrinth View -- */
@@ -258,18 +272,18 @@ angular.module('starter.controllersSarah', [])
     $scope.drawLab();
     // Show the Way through the Labyrinth - Points
     setTimeout(function() {
-      $interval(showWay, 250, labWay.length + 1); //2000
+      $interval(showWay, 1500, labWay.length + 1); //1500
     }, 2000);
     // Show the Way through the Labyrinth - Lines
     setTimeout(function() {
-      $interval(showWayLines, 250, labWayLines.length + 1); //2000
-    }, 3000);
+      $interval(showWayLines, 1500, labWayLines.length + 1); //1500
+    }, 2500);
     // Click is Only possible when way through Labyrinth was shown
     setTimeout(function() {
       $scope.drawLab();
       clickOK = true;
       nowDoIt();
-    }, 10000); //40000
+    }, 30000); //30000
   };
 
   getWay = function() {
@@ -325,7 +339,7 @@ angular.module('starter.controllersSarah', [])
     ctx.clearRect((ctx.canvas.width / 2) - 400, 3, 1200, 35);
     ctx.font = 'bold 18pt Arial';
     ctx.fillStyle = "green";
-    ctx.fillText('!! Bitte merken Sie sich den Weg !!', ctx.canvas.width / 2, 15);
+    ctx.fillText($translate.instant('MIND_WAY'), ctx.canvas.width / 2, 15);
   };
 
   // -- Function to draw a point --//
@@ -438,7 +452,16 @@ angular.module('starter.controllersSarah', [])
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillStyle = "mediumblue";
-    ctx.fillText('!! Bitte versuchen die den vorgezeigten Weg nachzumachen !!', ctx.canvas.width / 2, 15);
+    ctx.fillText($translate.instant('DO_WAY'), ctx.canvas.width / 2, 15);
+
+    var alertPopup = $ionicPopup.alert({
+      title: $translate.instant('TRY_LAB'),
+      template: $translate.instant('TRY_LAB_TEXT'),
+    });
+    alertPopup;
+    /*.then(function() {
+      $state.go('geschafftLAB');
+    });*/
   };
 
   // Function Click: Draw a blue point when click, wherever you are
@@ -519,10 +542,10 @@ angular.module('starter.controllersSarah', [])
         if (rightlab > 1 || countlab > 4) {
           // 2 mal richtig oder 5 mal falsch --> Übung beendet
           $state.go('geschafftLAB');
-          $scope.showPopupMIDATA();
+        //  $scope.showPopupMIDATA();
         } else {
           // Mache den Weg nochmal
-          $scope.showPopupMIDATA();
+        //  $scope.showPopupMIDATA();
           doWay();
         }
       }
