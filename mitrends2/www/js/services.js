@@ -73,10 +73,10 @@ angular.module('starter.services', [])
       return fileName;
     }
 
-    function answersToString(array) {
+    function answersToString(questionnaireName, array) {
       var i;
       var item;
-      var answerString = "";
+      var answerString = "\r\n" + questionnaireName + "\r\n";
       for (i = 0; i < array.length; i++) {
         for (item in array[i]) {
           answerString = answerString + item + ": " + array[i][item] + "\r\n";
@@ -115,8 +115,6 @@ angular.module('starter.services', [])
         if (answers.length == numberofQuestions) {
           allAnswers = true;
           answers.sort(compare);
-          formattedAnswers = answersToString(answers);
-          console.log(formattedAnswers);
         }
         console.log(answers);
         console.log(allAnswers);
@@ -126,17 +124,18 @@ angular.module('starter.services', [])
     /* function to check if the allAnswers boolean is true - which means that all answers were answered, then save the answers to the localStorage and navigate to the view defined as goTo.
     goTo, has to be the name of the view we want to navigate to
     modal, is the name of the ng-modal under which we save the answers with localStorage*/
-    QuestionnaireService.checkAndStore = function(goTo, modal) {
+    QuestionnaireService.checkAndStore = function(goTo, questionnaireName) {
       var timestring;
-      console.log(modal);
-
+      console.log(questionnaireName);
+      formattedAnswers = answersToString(questionnaireName, answers);
       // if allAnswers true navigate to goTo and store the answers, in the end we set allAnswers back to false and clear the answers array
       if (allAnswers) {
 
-        if (modal == "CORE") {
+        if (questionnaireName == "Kernsymptome") {
           console.log("kernsymp");
 
           var fileName = createFileName();
+
           //Save the answers to localStorage
           localStorage.setItem("fileName", JSON.stringify(fileName));
           $cordovaFile.writeFile(cordova.file.externalDataDirectory, fileName, formattedAnswers, true).then(function(result) {
@@ -245,8 +244,8 @@ angular.module('starter.services', [])
     //var time = 120000:
     // Für Kundenworkshop
     // Zeitdauer, welche für die Übung zur Verfügung steht
-    var timeExcersise = 5000;
-    //var timeExcersise = 90000;
+    //var timeExcersise = 5000;
+    var timeExcersise = 60000;
     // Zeit beim Start der Übung
     //var timeWhenExcersiseStart = 0;
     //Klickfrequenz (Zeit /(Anzahl Korrekte + Inkorrekte Zuordnungen))

@@ -15,7 +15,7 @@ angular.module('starter.controllersRea', [])
     $scope.goImpressum = function() {
       /*first variable has to be the name of the view we want to navigate to
       scond is the name of the ng-modal under which we save the answers with localStorage*/
-      QuestionnaireService.checkAndStore('impressum', 'FSS');
+      QuestionnaireService.checkAndStore('impressum', 'Fatigue Severity Scale');
     };
 
     $scope.setValue = function(value, questionid) {
@@ -38,7 +38,7 @@ angular.module('starter.controllersRea', [])
     $scope.goMsis2 = function() {
       /*first variable has to be the name of the view we want to navigate to
       scond is the name of the ng-modal under which we save the answers with localStorage*/
-      QuestionnaireService.checkAndStore('msis2', 'MSISQS1');
+      QuestionnaireService.checkAndStore('msis2', 'MSIS Seite 1');
     };
 
     $scope.setValue = function(value, questionid) {
@@ -59,7 +59,7 @@ angular.module('starter.controllersRea', [])
     $scope.goMsis3 = function() {
       /*first variable has to be the name of the view we want to navigate to
       scond is the name of the ng-modal under which we save the answers with localStorage*/
-      QuestionnaireService.checkAndStore('msis3', 'MSISQS2');
+      QuestionnaireService.checkAndStore('msis3', 'MSIS Seite 2');
     };
 
     $scope.setValue = function(value, questionid) {
@@ -86,7 +86,7 @@ angular.module('starter.controllersRea', [])
     $scope.goMsis4 = function() {
       /*first variable has to be the name of the view we want to navigate to
       scond is the name of the ng-modal under which we save the answers with localStorage*/
-      QuestionnaireService.checkAndStore('msis4', 'MSISQS3');
+      QuestionnaireService.checkAndStore('msis4', 'MSIS Seite 3');
     };
 
     $scope.setValue = function(value, questionid) {
@@ -114,7 +114,7 @@ angular.module('starter.controllersRea', [])
     $scope.goLabVideo = function() {
       /*first variable has to be the name of the view we want to navigate to
       scond is the name of the ng-modal under which we save the answers with localStorage*/
-      QuestionnaireService.checkAndStore('labyrinthVideo', 'MSISQS4');
+      QuestionnaireService.checkAndStore('labyrinthVideo', 'MSIS Seite 4');
     };
 
     $scope.setValue = function(value, questionid) {
@@ -195,14 +195,14 @@ angular.module('starter.controllersRea', [])
   //---------------CONTROLLER Zahlsymbol Instructionvideo-----------------------//
   //--------------------------------------------------------//
   .controller('ZSVideoCtrl', function($scope, $state, $timeout) {
-    $scope.hideButton = false;
+    $scope.hideButton = true;
     $scope.goSD = function() {
       $state.go('zahlsymbol1');
     };
     // to display the next button after 60 seconds
     $timeout(function() {
       $scope.hideButton = false;
-    }, 60000);
+    }, 5000);
   })
 
   //--------------------------------------------------------//
@@ -216,7 +216,7 @@ angular.module('starter.controllersRea', [])
     // to display the next button after 60 seconds
     $timeout(function() {
       $scope.hideButton = false;
-    }, 60000);
+    }, 5000);
   })
 
   //--------------------------------------------------------//
@@ -237,7 +237,7 @@ angular.module('starter.controllersRea', [])
       // End excersise after 120 seconds
       $timeout(function() {
         $state.go('geschafftSD');
-        // Variables to store in the result file 
+        // Variables to store in the result file
         var date = new Date();
         var correct = SymDigService.getCorrect();
         var incorrect = SymDigService.getIncorrect();

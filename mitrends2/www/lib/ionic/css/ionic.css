@@ -10699,7 +10699,15 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
 
 
 /* columns to take up a certain size of the available area */
-
+.col-4 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 4%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 4%;
+  -ms-flex: 0 0 4%;
+  flex: 0 0 4%;
+  max-width: 4%;
+}
 .col-5 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 5%;

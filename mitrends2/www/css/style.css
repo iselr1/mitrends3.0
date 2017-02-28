@@ -68,13 +68,20 @@ body {
   -ms-flex: 0 1 33% !important;
   flex: 0 1 33% !important;
 }
+.row-33{
+  -webkit-box-flex: 0 !important;
+  -moz-box-flex: 0 !important;
+  -webkit-flex: 0 1 35% !important;
+  -ms-flex: 0 1 35% !important;
+  flex: 0 1 35% !important;
+}
 
 .row-40{
   -webkit-box-flex: 0 !important;
   -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 50% !important;
-  -ms-flex: 0 1 50% !important;
-  flex: 0 1 50% !important;
+  -webkit-flex: 0 1 40% !important;
+  -ms-flex: 0 1 40% !important;
+  flex: 0 1 40% !important;
 }
 .row-80{
   -webkit-box-flex: 0 !important;
