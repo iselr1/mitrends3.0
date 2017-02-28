@@ -208,7 +208,7 @@ angular.module('starter.controllersRea', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Zahlsymbol-----------------------//
   //--------------------------------------------------------//
-  .controller('ZSCtrl', function($scope, $stateParams, $state, $timeout, $ionicPopup, SymDigService, $translate, ExcersiseStorageService) {
+  .controller('ZSCtrl', function($scope, $stateParams, $state, $timeout, $interval, $ionicPopup, SymDigService, $translate, ExcersiseStorageService) {
     //Popup zu Beginn, das besagt das die Übungsphase nun zu ende ist
     var popTitle = $translate.instant('INFO');
     var popTemplate = $translate.instant('SDTEMPLATE_POPUP');
@@ -219,39 +219,82 @@ angular.module('starter.controllersRea', [])
     });
     alertPopup.then(function() {
       // Registrieren der Startzeit der Übung
+      var correct = 0;
+      var incorrect = 0;
+      var clickFrequency = 0;
+      var counter = 0;
+      var tempcorrect = 0;
+      var tempincorrect = 0;
+      var results = [];
       var lastTime = (new Date()).getTime();
-      // End excersise after 120 seconds
-      $timeout(function() {
-        $state.go('geschafftSD');
-        // Variables to store in the result file
-        var date = new Date();
-        var correct = SymDigService.getCorrect();
-        var incorrect = SymDigService.getIncorrect();
-        var clickFrequency = SymDigService.getClickFrequency();
-        var results = [];
-        var result1 = {};
-        result1.name = "Datum, Uhrzeit nach beenden der Übung";
-        result1.value = date.toString();
-        results.push(result1);
-        var result2 = {};
-        result2.name = "Anzahl korrekte Zuordnungen";
-        result2.value = correct;
-        results.push(result2);
-        var result3 = {};
-        result3.name = "Anzahl inkorrekte Zuordnungen";
-        result3.value = incorrect;
-        results.push(result3);
-        var result4 = {};
-        result4.name = "Klickfrequenz";
-        result4.value = clickFrequency;
-        results.push(result4);
-        var result5 = {};
-        result5.name = "Dauer der Übung in Sekunden";
-        result5.value = (SymDigService.getTimeExcersise() / 1000);
-        results.push(result5);
-        ExcersiseStorageService.saveResultsToFile("Zahl-Symbol Übung", results);
 
-      }, SymDigService.getTimeExcersise());
+      // End excersise after 120 seconds
+      $interval(function() {
+        console.log(correct);
+        console.log(incorrect);
+        console.log("interval" + counter);
+        counter = counter + 1;
+        if (counter == 1) {
+          correct = SymDigService.getCorrect();
+          incorrect = SymDigService.getIncorrect();
+          clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / 4) / 60000));
+          tempcorrect = correct;
+          tempincorrect = incorrect;
+        } else {
+          correct = SymDigService.getCorrect() - tempcorrect;
+          incorrect = SymDigService.getIncorrect() - tempincorrect;
+          clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / 4) / 60000));
+          tempcorrect = correct;
+          tempincorrect = incorrect;
+        }
+        var partresult1 = {};
+        partresult1.name = "Anzahl korrekte Zuordnungen (während dem " + counter + ".Teil)";
+        partresult1.value = correct;
+        results.push(partresult1);
+        var partresult2 = {};
+        partresult2.name = "Anzahl inkorrekte Zuordnungen (während dem " + counter + ".Teil)";
+        partresult2.value = incorrect;
+        results.push(partresult2);
+        var partresult3 = {};
+        partresult3.name = "Klickfrequenz (während dem " + counter + ".Teil)";
+        partresult3.value = clickFrequency;
+        results.push(partresult3);
+        console.log("Zwischenresultate" + results);
+        if (counter == 4) {
+          $state.go('geschafftSD');
+          // Variables to store in the result file
+          var date = new Date();
+          var correct = SymDigService.getCorrect();
+          var incorrect = SymDigService.getIncorrect();
+          var clickFrequency = SymDigService.getClickFrequency();
+          var result1 = {};
+          result1.name = "Datum, Uhrzeit nach beenden der Übung";
+          result1.value = date.toString();
+          results.push(result1);
+          var result2 = {};
+          result2.name = "Anzahl korrekte Zuordnungen(insgesamt)";
+          result2.value = correct;
+          results.push(result2);
+          var result3 = {};
+          result3.name = "Anzahl inkorrekte Zuordnungen(insgesamt)";
+          result3.value = incorrect;
+          results.push(result3);
+          var result4 = {};
+          result4.name = "Klickfrequenz(insgesamt)";
+          result4.value = clickFrequency;
+          results.push(result4);
+          var result5 = {};
+          result5.name = "Dauer der Übung in Sekunden";
+          result5.value = (SymDigService.getTimeExcersise() / 1000);
+          results.push(result5);
+          console.log("FinalResultate" + results);
+          ExcersiseStorageService.saveResultsToFile("Zahl-Symbol Übung", results);
+        } else {
+          //do nothing
+        }
+      }, SymDigService.getTimeExcersise() / 4, 4);
+
+
 
 
 
