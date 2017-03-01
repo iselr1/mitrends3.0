@@ -2,11 +2,12 @@ body {
   /*basic styling */
   font-size: 20px !important;
   height: 100%;
-  vertical-align:bottom;
+  vertical-align: bottom;
   /*flexbox
   display: flex;*/
 }
-.scroll{
+
+.scroll {
   height: 100% !important;
   display: -webkit-box !important;
   display: -moz-box !important;
@@ -21,17 +22,41 @@ body {
   -ms-flex-direction: column !important;
   flex-direction: column !important;
 }
-.label{
+
+.label {
   font-size: 20px !important;
 }
-.row-8{
-    -webkit-box-flex: 0 !important;
-    -moz-box-flex: 0 !important;
-    -webkit-flex: 0 1 8% !important;
-    -ms-flex: 0 1 8% !important;
-    flex: 0 1 8% !important;
+
+
+.popup {
+  width: 500px !important;
 }
-.row-10{
+
+.popup-head {
+  border: none!important;
+  h3 {
+    color: #000!important;
+    font-size: 30px!important;
+  }
+}
+
+.popup-body {
+  font-size: 22px !important;
+}
+
+.col{
+  height:100% !important;
+}
+
+.row-8 {
+  -webkit-box-flex: 0 !important;
+  -moz-box-flex: 0 !important;
+  -webkit-flex: 0 1 8% !important;
+  -ms-flex: 0 1 8% !important;
+  flex: 0 1 8% !important;
+}
+
+.row-10 {
   -webkit-box-flex: 0 !important;
   -moz-box-flex: 0 !important;
   -webkit-flex: 0 1 10% !important;
@@ -39,7 +64,7 @@ body {
   flex: 0 1 10% !important;
 }
 
-.row-20{
+.row-20 {
   -webkit-box-flex: 0 !important;
   -moz-box-flex: 0 !important;
   -webkit-flex: 0 1 20% !important;
@@ -47,28 +72,31 @@ body {
   flex: 0 1 20% !important;
 }
 
-.row-25{
+.row-25 {
   -webkit-box-flex: 0 !important;
   -moz-box-flex: 0 !important;
   -webkit-flex: 0 1 25% !important;
   -ms-flex: 0 1 25% !important;
   flex: 0 1 25% !important;
 }
-.row-30{
+
+.row-30 {
   -webkit-box-flex: 0 !important;
   -moz-box-flex: 0 !important;
   -webkit-flex: 0 1 30% !important;
   -ms-flex: 0 1 30% !important;
   flex: 0 1 30% !important;
 }
-.row-33{
+
+.row-33 {
   -webkit-box-flex: 0 !important;
   -moz-box-flex: 0 !important;
   -webkit-flex: 0 1 33% !important;
   -ms-flex: 0 1 33% !important;
   flex: 0 1 33% !important;
 }
-.row-33{
+
+.row-33 {
   -webkit-box-flex: 0 !important;
   -moz-box-flex: 0 !important;
   -webkit-flex: 0 1 35% !important;
@@ -76,21 +104,23 @@ body {
   flex: 0 1 35% !important;
 }
 
-.row-40{
+.row-40 {
   -webkit-box-flex: 0 !important;
   -moz-box-flex: 0 !important;
   -webkit-flex: 0 1 40% !important;
   -ms-flex: 0 1 40% !important;
   flex: 0 1 40% !important;
 }
-.row-80{
+
+.row-80 {
   -webkit-box-flex: 0 !important;
   -moz-box-flex: 0 !important;
   -webkit-flex: 0 1 80% !important;
   -ms-flex: 0 1 80% !important;
   flex: 0 1 80% !important;
 }
-.row-90{
+
+.row-90 {
   -webkit-box-flex: 0 !important;
   -moz-box-flex: 0 !important;
   -webkit-flex: 0 1 90% !important;
@@ -108,79 +138,87 @@ body {
   border: 2px solid black;
   text-align: center;
 }
+
 input[type="radio"]:checked {
   background: linear-gradiant(#3498DB);
   color: #3498DB;
   font-style: normal;
 }
-#kernsymp{
+
+#kernsymp {
   width: 80%;
   height: 90%;
 }
-#kernsymp_one{
+
+#kernsymp_one {
   width: 80%;
   height: 100%;
 }
-#core_smile{
+
+#core_smile {
   width: 80%;
   height: 80%;
 }
 
-#msis{
+#msis {
   width: 35%;
   height: 100%;
 }
-#fss{
+
+#fss {
   width: 60%;
   height: 100%;
 }
-#radiolabels{
+
+#radiolabels {
   text-align: center;
 }
-#questionlabels{
+
+#questionlabels {
   vertical-align: middle;
 }
+
 .image-list-thumb {
-    padding: 2px 2px 2px 2px;
-    height: 100px;
+  padding: 2px 2px 2px 2px;
+  height: 100px;
 }
 
 .image-modal {
-    width: 100% !important;
-    height: 100%;
-    top: 0 !important;
-    left: 0 !important;
+  width: 100% !important;
+  height: 100%;
+  top: 0 !important;
+  left: 0 !important;
 }
 
 .transparent {
-    background: transparent !important;
+  background: transparent !important;
 }
 
 .fullscreen-image {
-    max-width: 100% !important;
-    max-height: 100% !important;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    overflow: auto;
-    position: fixed;
-    right: 0;
-    top: 0;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
 }
 
 .slider {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .fullscreen-player {
-    max-width: 100%;
-    max-height: 100%;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    overflow: none;
-    position: fixed;
-    right: 0;
-    top: 0;
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: none;
+  position: fixed;
+  right: 0;
+  top: 0;
 }

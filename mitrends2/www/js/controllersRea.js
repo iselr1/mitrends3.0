@@ -215,7 +215,7 @@ angular.module('starter.controllersRea', [])
 
     var correct;
     var incorrect;
-    var clickFrequency=0;
+    var clickFrequency = 0;
     var counter = 0;
     var results = [];
     var lastTime;
@@ -229,8 +229,7 @@ angular.module('starter.controllersRea', [])
     });
 
     // Function after alertPopup
-    functcorrincorr = function() {  // Registrieren der Startzeit der Übung
-      lastTime = (new Date()).getTime();
+    functcorrincorr = function() {
 
       // End excersise after 120 seconds
       $interval(functioninterval, SymDigService.getTimeExcersise() / 4, 4);
@@ -257,8 +256,8 @@ angular.module('starter.controllersRea', [])
       var solveTableOneComplete = false;
       $scope.setValueImage = function(digit) {
 
-      /*Funktion um die Längste Latenz zwischen zwei Klicks zu eruieren*/
-      var lastLatency = 0;
+        /*Funktion um die Längste Latenz zwischen zwei Klicks zu eruieren*/
+        var lastLatency = 0;
 
         function onClickCheck() {
           var timeNow = (new Date()).getTime();
@@ -337,27 +336,24 @@ angular.module('starter.controllersRea', [])
 
     // Alles was im Intervall passiert
     functioninterval = function() {
-      var tempcorrect = 0;
-      var tempincorrect = 0;
-      correct = 0;
-      incorrect = 0;
-
-      console.log(correct);
-      console.log(incorrect);
       console.log("interval" + counter);
       counter = counter + 1;
       if (counter == 1) {
         correct = SymDigService.getCorrect();
         incorrect = SymDigService.getIncorrect();
         clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / 4) / 60000));
-        tempcorrect = correct;
-        tempincorrect = incorrect;
-      } else {
-        correct = SymDigService.getCorrect() - tempcorrect;
-        incorrect = SymDigService.getIncorrect() - tempincorrect;
+      } else if (counter == 2) {
+        correct = SymDigService.getCorrect() - results[0].value;
+        incorrect = SymDigService.getIncorrect() - results[1].value;
         clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / 4) / 60000));
-        tempcorrect = correct;
-        tempincorrect = incorrect;
+      } else if (counter == 3) {
+        correct = SymDigService.getCorrect() - results[0].value - results[3].value;
+        incorrect = SymDigService.getIncorrect() - results[1].value - results[4].value;
+        clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / 4) / 60000));
+      } else if (counter == 4) {
+        correct = SymDigService.getCorrect() - results[0].value - results[3].value - results[6].value;
+        incorrect = SymDigService.getIncorrect() - results[1].value - results[4].value - results[7].value;
+        clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / 4) / 60000));
       }
       var partresult1 = {};
       partresult1.name = "Anzahl korrekte Zuordnungen (während dem " + counter + ".Teil)";
@@ -366,8 +362,7 @@ angular.module('starter.controllersRea', [])
       var partresult2 = {};
       partresult2.name = "Anzahl inkorrekte Zuordnungen (während dem " + counter + ".Teil)";
       partresult2.value = incorrect;
-      results.pus
-      h(partresult2);
+      results.push(partresult2);
       var partresult3 = {};
       partresult3.name = "Klickfrequenz (während dem " + counter + ".Teil)";
       partresult3.value = clickFrequency;
@@ -394,7 +389,7 @@ angular.module('starter.controllersRea', [])
         results.push(result3);
         var result4 = {};
         result4.name = "Klickfrequenz(insgesamt)";
-        result4.value = clickFrequency;
+        result4.value = Math.round(clickFrequency);
         results.push(result4);
         var result5 = {};
         result5.name = "Dauer der Übung in Sekunden";
@@ -411,7 +406,7 @@ angular.module('starter.controllersRea', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Zahlsymbol Vorbereitung-----------------------//
   //--------------------------------------------------------//
-  .controller('ZS1Ctrl', function($scope, $stateParams, $ionicPopup, $translate, $state, SymDigService) {
+  .controller('ZS1Ctrl', function($scope, $stateParams, $ionicPopup, $translate, $state, SymDigService, ExcersiseStorageService) {
     var popTitle = $translate.instant('INFO');
     var popTemplate = $translate.instant('TEMPLATEPOPUP_NEXTPREPZS');
 
@@ -419,77 +414,109 @@ angular.module('starter.controllersRea', [])
       title: popTitle,
       template: popTemplate,
     });
+    alertPopup.then(function() {
+      var startTime = new Date().getTime();
 
-    // Fill the keyTable with the images in a random way and the numbers ordered from 1 to 9
-    var ranNums = SymDigService.doShuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]);
-    console.log(ranNums);
-    $scope.keyTable = SymDigService.fillKeyTable(ranNums);
+      // Fill the keyTable with the images in a random way and the numbers ordered from 1 to 9
+      var ranNums = SymDigService.doShuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+      console.log(ranNums);
+      $scope.keyTable = SymDigService.fillKeyTable(ranNums);
 
 
-    $scope.solveTable = SymDigService.fillSolveTable((SymDigService.genNums([1, 2, 2, 3, 4, 5, 6, 7, 8, 9], 10)));
+      $scope.solveTable = SymDigService.fillSolveTable((SymDigService.genNums([1, 2, 2, 3, 4, 5, 6, 7, 8, 9], 10)));
 
-    //*****************************************************************************************
-    var solveImgs = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    console.log(solveImgs);
+      //*****************************************************************************************
+      var solveImgs = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      console.log(solveImgs);
 
-    // Generate the Images to add to the solveTable
-    $scope.solveImages = SymDigService.genSolveImages(solveImgs);
-    // *****************************************************************************************
-    // Function excecuted if a digit was selected, to set it to assign it to the next symbol
-    // *****************************************************************************************
+      // Generate the Images to add to the solveTable
+      $scope.solveImages = SymDigService.genSolveImages(solveImgs);
+      // *****************************************************************************************
+      // Function excecuted if a digit was selected, to set it to assign it to the next symbol
+      // *****************************************************************************************
 
-    $scope.setValueImage = function(digit) {
+      $scope.setValueImage = function(digit) {
 
-      var currentSolveTable = $scope.solveTable;
+        var currentSolveTable = $scope.solveTable;
 
-      var length = currentSolveTable.length;
-      // The imageName of the selected image
-      console.log(length);
-      for (var i = 0; i < length; i++) {
-        // true if the symbol image at this position is the green image, to mark that this image is gonna be replaced with the choosen one
-        console.log(i);
-        if (currentSolveTable[i].next == true) {
-          console.log("versuch");
+        var length = currentSolveTable.length;
+        // The imageName of the selected image
+        console.log(length);
+        for (var i = 0; i < length; i++) {
+          // true if the symbol image at this position is the green image, to mark that this image is gonna be replaced with the choosen one
+          console.log(i);
+          if (currentSolveTable[i].next == true) {
+            console.log("versuch");
 
-          // Set the Symbol Image at the current position to the selected one
-          currentSolveTable[i].numSrc = "img/" + digit.id + ".png";
+            // Set the Symbol Image at the current position to the selected one
+            currentSolveTable[i].numSrc = "img/" + digit.id + ".png";
 
-          // Set the next empty Symbol Image to the green one
-          if (i < (length - 1)) {
-            console.log("hier2")
-            currentSolveTable[i + 1].numSrc = "img/empty.png";
-            currentSolveTable[i + 1].next = true;
-            currentSolveTable[i].next = false;
-          }
+            // Set the next empty Symbol Image to the green one
+            if (i < (length - 1)) {
+              console.log("hier2")
+              currentSolveTable[i + 1].numSrc = "img/empty.png";
+              currentSolveTable[i + 1].next = true;
+              currentSolveTable[i].next = false;
+            }
 
-          // Check if the selected image is the one that corresponds to the number at the current position
-          // imageSource of the symbol at the current[i] position
-          var imgSrcSolveTable = currentSolveTable[i].imgSrc;
-          // imageSource of the symbol assigned to the choosen digit
-          var imgSrcKeyTable = $scope.keyTable[digit.id - 1].imgSrc;
-          console.log(imgSrcSolveTable);
-          console.log(imgSrcKeyTable);
-          if (angular.equals(imgSrcKeyTable, imgSrcSolveTable)) {
-            SymDigService.addCorrectPrep();
+            // Check if the selected image is the one that corresponds to the number at the current position
+            // imageSource of the symbol at the current[i] position
+            var imgSrcSolveTable = currentSolveTable[i].imgSrc;
+            // imageSource of the symbol assigned to the choosen digit
+            var imgSrcKeyTable = $scope.keyTable[digit.id - 1].imgSrc;
+            console.log(imgSrcSolveTable);
+            console.log(imgSrcKeyTable);
+            if (angular.equals(imgSrcKeyTable, imgSrcSolveTable)) {
+              SymDigService.addCorrectPrep();
+            } else {
+              SymDigService.addIncorrectPrep();
+
+            }
+            //True if the image for the last field was choosen
+            if (i == (length - 1)) {
+              var endTime = new Date().getTime();
+              var results = [];
+              console.log("letztes feld");
+
+              currentSolveTable[i].next = false;
+
+              // Reset the number of Tries
+              SymDigService.setTry(0);
+
+              $state.go('zahlsymbol');
+              // Variables to store in the result file
+              var durationExcersisePrep = (endTime - startTime) / 1000;
+              correct = SymDigService.getCorrectPrep();
+              incorrect = SymDigService.getIncorrectPrep();
+              clickFrequency = Math.round((60 / durationExcersisePrep) * (correct + incorrect));
+              var result1 = {};
+              result1.name = "Datum, Uhrzeit nach beenden der Übung";
+              result1.value = new Date().toString();
+              results.push(result1);
+              var result2 = {};
+              result2.name = "Anzahl korrekte Zuordnungen(insgesamt)";
+              result2.value = correct;
+              results.push(result2);
+              var result3 = {};
+              result3.name = "Anzahl inkorrekte Zuordnungen(insgesamt)";
+              result3.value = incorrect;
+              results.push(result3);
+              var result4 = {};
+              result4.name = "Klickfrequenz(insgesamt)";
+              result4.value = clickFrequency;
+              results.push(result4);
+              var result5 = {};
+              result5.name = "Dauer der Übung in Sekunden";
+              result5.value = durationExcersisePrep;
+              results.push(result5);
+              console.log("FinalResultate" + results);
+              ExcersiseStorageService.saveResultsToFile("Zahl-Symbol Übung Vorbereitung", results);
+            }
+            break;
           } else {
-            SymDigService.addIncorrectPrep();
 
           }
-          //True if the image for the last field was choosen
-          if (i == (length - 1)) {
-            console.log("letztes feld");
-
-            currentSolveTable[i].next = false;
-
-            // Reset the number of Tries
-            SymDigService.setTry(0);
-
-            $state.go('zahlsymbol');
-          }
-          break;
-        } else {
-
         }
-      }
-    };
+      };
+    });
   });

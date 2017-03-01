@@ -2,6 +2,7 @@
   "LANG_DE": "DE",
   "LANG_EN": "EN",
   "LANG_FR": "FR",
+  "THANKS": "Vielen Dank fürs Mitmachen!",
   "HOME": "Home",
   "DATAPROTECTION": "Datenschutzerklärung",
   "DATATEXT": "Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen ein. Persönliche Daten werden streng vertraulich behandelt und weder an Dritte verkauft noch weiter gegeben.",
@@ -79,7 +80,7 @@
   "Q3CORER": "Haben Sie eine Gefühlsstörung in der rechten Hand?",
   "Q4CORE": "Wie fühlen Sie sich heute?",
   "Q5CORE": "Wie beurteilen Sie ihre momentane Konzentrationsfähigkeit?",
-  "Q6CORE": "Hatten Sie seit der letzen Übung einen Schub?",
+  "Q6CORE": "Hatten Sie seit der letzten Übung einen Schub?",
   "Q7CORE": "Haben Ihre MS Symptome seit der letzten Übung zugenommen?",
 
   "RIGHTHANDED": "Rechtshänder",
