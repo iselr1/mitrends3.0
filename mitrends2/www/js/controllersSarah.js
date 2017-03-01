@@ -177,8 +177,10 @@ angular.module('starter.controllersSarah', [])
   var point21 = [877, 91.5];
   var point22 = [953.5, 669.5]; //end
 
-  // the last point the user clicked
+  // the last point and line the user clicked
   var lastpoint;
+  var beforelastpoint;
+  var lastline;
 
   // how many times the function showWay was executed - initial 0 - counter for the point to draw and the line to draw
   var countway;
@@ -247,12 +249,14 @@ angular.module('starter.controllersSarah', [])
   // Make the Way
   doWay = function() {
     //You cannot click the lab until the way is shown
-    clickOk = false;
+    clickOK = false;
 
     // every variable gets his initialvalue
     countway = 0;
     countwaylines = 0;
     lastpoint = [0, 0];
+    beforelastpoint = [0, 0];
+    lastline = [0, 0, 0, 0];
     whiteone = 0;
     blackline = 0;
     userway = [];
@@ -264,6 +268,8 @@ angular.module('starter.controllersSarah', [])
     clicks = 0;
     rightlines = 0;
 
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
     // the Points of the Lab to draw
     actualLab = [point1, point2, point3, point4, point5, point6, point7, point8, point9, point10, point11, point12, point13, point14, point15, point16, point17, point18, point19, point20, point21, point22];
     actualLabLines = [line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, line22, line23, line24, line25, line26, line27, line28, line29, line30, line31, line32, line33, line34, line35, line36];
@@ -272,18 +278,18 @@ angular.module('starter.controllersSarah', [])
     $scope.drawLab();
     // Show the Way through the Labyrinth - Points
     setTimeout(function() {
-      $interval(showWay, 1500, labWay.length + 1); //1500
-    }, 2000);
+      $interval(showWay, 100, labWay.length + 1); //1500
+    }, 2000);//2000
     // Show the Way through the Labyrinth - Lines
     setTimeout(function() {
-      $interval(showWayLines, 1500, labWayLines.length + 1); //1500
-    }, 2500);
+      $interval(showWayLines, 100, labWayLines.length + 1); //1500
+    }, 2750);//2750
     // Click is Only possible when way through Labyrinth was shown
     setTimeout(function() {
       $scope.drawLab();
       clickOK = true;
       nowDoIt();
-    }, 30000); //30000
+    }, 2000); //30000
   };
 
   getWay = function() {
@@ -336,7 +342,6 @@ angular.module('starter.controllersSarah', [])
     ctx.fillStyle = "black";
     ctx.fillText('Start', xstart, ystart);
     ctx.fillText('End', xend, yend);
-    ctx.clearRect((ctx.canvas.width / 2) - 400, 3, 1200, 35);
     ctx.font = 'bold 18pt Arial';
     ctx.fillStyle = "green";
     ctx.fillText($translate.instant('MIND_WAY'), ctx.canvas.width / 2, 15);
@@ -497,13 +502,39 @@ angular.module('starter.controllersSarah', [])
             rightclicks = rightclicks + 1;
             // draw the line blue if a circle was clicked before
             if (lastpoint[0] != 0) {
+              //Korrekturmöglichkeit
+              if (lastpoint[0] == actualLab[i][0] && lastpoint[1] == actualLab[i][1]){
+                if (lastpoint != beforelastpoint){
+                  console.log("gleicher Punkt");
+                  console.log(lastline);
+                  drawLine(lastline[0], lastline[1], lastline[2], lastline[3], "black");
+
+                  if (beforelastpoint[0] != 0 ){
+                    drawPoint(actualLab[i][0], actualLab[i][1], "white");
+                    drawPoint(beforelastpoint[0], beforelastpoint[1], "cyan");
+                  }
+                  else{
+                    drawPoint(actualLab[i][0], actualLab[i][1], "black");
+                  }
+
+                  lastpoint = beforelastpoint;
+                }
+                else{
+                  console.log("Korrektur nicht erlaubt");
+                }
+              }
+              else {
               // draw Line
               drawLine(lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1], "cyan");
               // put the clicked line in the array of the way the user did
               userway.push([lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1]]);
+              lastline = [lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1]];
+              beforelastpoint = lastpoint;
               // draw Point
               drawPoint(actualLab[i][0], actualLab[i][1], "cyan");
               lastpoint = [actualLab[i][0], actualLab[i][1]];
+
+              }
             }
             // else draw just the point blue
             else {
