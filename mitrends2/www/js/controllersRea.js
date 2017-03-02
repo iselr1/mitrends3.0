@@ -303,11 +303,9 @@ angular.module('starter.controllersRea', [])
             var imgSrcKeyTable = $scope.keyTable[digit.id - 1].imgSrc;
             console.log(imgSrcSolveTable);
             console.log(imgSrcKeyTable);
-            if (angular.equals(imgSrcKeyTable, imgSrcSolveTable)) {
-              SymDigService.addCorrect();
-            } else {
-              SymDigService.addIncorrect();
-            }
+
+            SymDigService.addResult(angular.equals(imgSrcKeyTable, imgSrcSolveTable));
+
 
             //True if the image for the last field was choosen
             if (i == (length - 1)) {
@@ -336,25 +334,12 @@ angular.module('starter.controllersRea', [])
 
     // Alles was im Intervall passiert
     functioninterval = function() {
-      console.log("interval" + counter);
-      counter = counter + 1;
-      if (counter == 1) {
-        correct = SymDigService.getCorrect();
-        incorrect = SymDigService.getIncorrect();
-        clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / 4) / 60000));
-      } else if (counter == 2) {
-        correct = SymDigService.getCorrect() - results[0].value;
-        incorrect = SymDigService.getIncorrect() - results[1].value;
-        clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / 4) / 60000));
-      } else if (counter == 3) {
-        correct = SymDigService.getCorrect() - results[0].value - results[3].value;
-        incorrect = SymDigService.getIncorrect() - results[1].value - results[4].value;
-        clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / 4) / 60000));
-      } else if (counter == 4) {
-        correct = SymDigService.getCorrect() - results[0].value - results[3].value - results[6].value;
-        incorrect = SymDigService.getIncorrect() - results[1].value - results[4].value - results[7].value;
-        clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / 4) / 60000));
-      }
+      counter++;
+      var partResult = SymDigService.getPartResults()
+      correct = partResult.correct;
+      incorrect = partResult.incorrect;
+      clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / 4) / 60000));
+
       var partresult1 = {};
       partresult1.name = "Anzahl korrekte Zuordnungen (während dem " + counter + ".Teil)";
       partresult1.value = correct;

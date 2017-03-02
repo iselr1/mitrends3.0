@@ -246,7 +246,7 @@ angular.module('starter.services', [])
     // Für Kundenworkshop
     // Zeitdauer, welche für die Übung zur Verfügung steht
     //var timeExcersise = 5000;
-    var timeExcersise = 60000;
+    var timeExcersise = 20000;
     // Zeit beim Start der Übung
     //var timeWhenExcersiseStart = 0;
     //Klickfrequenz (Zeit /(Anzahl Korrekte + Inkorrekte Zuordnungen))
@@ -254,6 +254,10 @@ angular.module('starter.services', [])
     // Längste Latenz (Zeit ohne Klick)
     var longestLatency = 0;
     var next_symbol = 0;
+    // Array mit korrekten und inkorrekten Antworten
+    var resultsArray = [];
+    // Startposition für die Auswertung der Zwischenresultate
+    var startPostionPartResults = 0;
 
     SymDigService.data = {};
     /* Funktion um die Schlüsseltabelle mit Objekten zu befüllen*/
@@ -346,16 +350,6 @@ angular.module('starter.services', [])
       timeWhenExcersiseStart = time;
     }*/
     /******************Setters *****************/
-    // Add one to the number of correct assignments
-    SymDigService.addCorrect = function() {
-      n_correct++;
-      console.log("Correct:" + n_correct);
-    }
-    // Add one to the number of incorrect assignments
-    SymDigService.addIncorrect = function() {
-      n_incorrect++;
-      console.log("Incorrect:" + n_incorrect);
-    }
     // Add one to the number of correct assignments in the preparation
     SymDigService.addCorrectPrep = function() {
       n_correctPrep++;
@@ -441,6 +435,40 @@ angular.module('starter.services', [])
       console.log(array);
       return array;
     }
+
+    SymDigService.addResult = function(result) {
+      resultsArray.push(result);
+      console.log("addedResult" + result);
+      if (result) {
+        n_correct++
+      } else {
+        n_incorrect++
+      }
+    }
+
+    SymDigService.getPartResults = function() {
+      var endPostion = resultsArray.length;
+      var correct = 0;
+      var incorrect = 0;
+      console.log("Start" + startPostionPartResults);
+      console.log("End" + endPostion);
+
+      for (var s = startPostionPartResults; s < endPostion; s++) {
+        if (resultsArray[s]) {
+          correct++;
+        } else {
+          incorrect++;
+        }
+      }
+      startPostionPartResults = endPostion;
+      console.log("correct" + correct);
+      console.log("inc" + incorrect);
+      return {
+        "correct": correct,
+        "incorrect": incorrect
+      }
+    }
+
 
     return SymDigService;
 
