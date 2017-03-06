@@ -335,7 +335,7 @@ angular.module('starter.controllersRea', [])
     // Alles was im Intervall passiert
     functioninterval = function() {
       counter++;
-      var partResult = SymDigService.getPartResults()
+      var partResult = SymDigService.getPartResults();
       correct = partResult.correct;
       incorrect = partResult.incorrect;
       clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / 4) / 60000));

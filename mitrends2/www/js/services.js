@@ -32,6 +32,18 @@ angular.module('starter.services', [])
         console.log("ERROR");
       })
     }
+    ExcersiseStorageService.saveResultCommentsToFile = function(excersiseName, comment) {
+      var commentString = "\r\n" + excersiseName + ": " + comment + "\r\n";
+
+      //save the answers to the file, with the filename, we retrieve from localStorage
+      var storedTextFileName = JSON.parse(localStorage.getItem("fileName"));
+      console.log(storedTextFileName);
+      $cordovaFile.writeExistingFile(cordova.file.externalDataDirectory, storedTextFileName, commentString, true).then(function(result) {
+        alert('Success! Results stored!');
+      }, function(err) {
+        console.log("ERROR");
+      })
+    }
 
     return ExcersiseStorageService;
   })
@@ -349,7 +361,7 @@ angular.module('starter.services', [])
     /*SymDigService.setTimeWhenExcersiseStart = function(time) {
       timeWhenExcersiseStart = time;
     }*/
-    /******************Setters *****************/
+    /******************Setters*****************/
     // Add one to the number of correct assignments in the preparation
     SymDigService.addCorrectPrep = function() {
       n_correctPrep++;
