@@ -215,6 +215,7 @@ angular.module('starter.controllersSarah', [])
 
   // The way the user did
   var userway = [];
+  var userpoints = [];
 
   // get the html canvas labyrinth
   my_canvas = document.getElementById("labyrinth");
@@ -260,6 +261,7 @@ angular.module('starter.controllersSarah', [])
     whiteone = 0;
     blackline = 0;
     userway = [];
+    userpoints = [];
     xclient = 0.0;
     yclient = 0.0;
     xrealclient = 0.0;
@@ -490,6 +492,7 @@ angular.module('starter.controllersSarah', [])
       var clickedinacircle = false;
       var madearealline = false;
       var alreadyLine = false;
+      var alreadyPoint = false;
 
       if (!endcircle) {
         // the user clicked in a circle which was not the end
@@ -517,6 +520,7 @@ angular.module('starter.controllersSarah', [])
                     drawPoint(actualLab[i][0], actualLab[i][1], "white");
                     drawPoint(beforelastpoint[0], beforelastpoint[1], "cyan");
                     userway.splice(userway.length-1, 1);
+                    userpoints.splice(userpoints.length-1, 1);
                   }
                   // Wenn aktueller Punkt "Start war"
                   else{
@@ -530,22 +534,31 @@ angular.module('starter.controllersSarah', [])
                 }
               }
               else {
-                // draw Line if its in the actuallab (Normale Zeichenfunktion)
+                // draw Line if its in the actualLab (Normale Zeichenfunktion)
                 // check ob die Linie bereits gezeichnet wurde --> dann darf nicht gezeichnet werden!!
-                for (var x = 0; x < userway.length; x++) {
+              /*  for (var x = 0; x < userway.length; x++) {
                   if (
                     ((userway[x][0] == lastpoint[0] && userway[x][1] == lastpoint[1]) || (userway[x][0] == actualLab[i][0] && userway[x][1] == actualLab[i][1])) &&
                     ((userway[x][2] == lastpoint[0] && userway[x][3] == lastpoint[1]) || (userway[x][2] == actualLab[i][0] && userway[x][3] == actualLab[i][1]))
                   ){
                     alreadyLine = true;
                   }
+                }*/
+
+                // check ob der Punkt bereits gezeichnet wurde --> dann darf nicht gezeichnet werden!!
+                for (var x = 0; x < userpoints.length; x++) {
+                  if (userpoints[x][0] == actualLab[i][0] && userpoints[x][1] == actualLab[i][1]){
+                    alreadyPoint = true;
+                  }
                 }
-                if (alreadyLine == false){
+
+                if (alreadyPoint == false){
                   madearealline = realLineInLab(lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1]);
                   if(madearealline){
                     drawLine(lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1], "cyan");
                     // put the clicked line in the array of the way the user did
                     userway.push([lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1]]);
+                    userpoints.push([actualLab[i][0], actualLab[i][1]]);
                     lastline = [lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1]];
                     // set the point before the lastpoint
                     beforelastpoint = lastpoint;
