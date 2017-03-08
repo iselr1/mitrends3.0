@@ -86,6 +86,11 @@ angular.module('starter', ['ionic', 'ngCordova', 'ionic-datepicker', 'ionic-time
     // Each state's controller can be found in controllers.js
     $stateProvider
 
+      .state('home', {
+        url: '/home',
+        templateUrl: 'templates/home.html',
+        controller: 'HomeCtrl'
+      })
       .state('login', {
         url: '/login',
         templateUrl: 'templates/login.html',
@@ -184,6 +189,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'ionic-datepicker', 'ionic-time
         controller: 'LabyrinthVideoCtrl'
       })
 
-    $urlRouterProvider.otherwise('/geschafftSD')
+    $urlRouterProvider.otherwise('/home')
 
   });

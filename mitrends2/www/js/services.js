@@ -27,7 +27,7 @@ angular.module('starter.services', [])
       var storedTextFileName = JSON.parse(localStorage.getItem("fileName"));
       console.log(storedTextFileName);
       $cordovaFile.writeExistingFile(cordova.file.externalDataDirectory, storedTextFileName, resultString, true).then(function(result) {
-        alert('Success! Results stored!');
+        //alert('Success! Results stored!');
       }, function(err) {
         console.log("ERROR");
       })
@@ -39,7 +39,7 @@ angular.module('starter.services', [])
       var storedTextFileName = JSON.parse(localStorage.getItem("fileName"));
       console.log(storedTextFileName);
       $cordovaFile.writeExistingFile(cordova.file.externalDataDirectory, storedTextFileName, commentString, true).then(function(result) {
-        alert('Success! Results stored!');
+        //alert('Success! Results stored!');
       }, function(err) {
         console.log("ERROR");
       })
@@ -151,7 +151,7 @@ angular.module('starter.services', [])
           //Save the answers to localStorage
           localStorage.setItem("fileName", JSON.stringify(fileName));
           $cordovaFile.writeFile(cordova.file.externalDataDirectory, fileName, formattedAnswers, true).then(function(result) {
-            alert('Success! Answers stored!');
+            //alert('Success! Answers stored!');
           }, function(err) {
             console.log("ERROR");
           })
@@ -160,7 +160,7 @@ angular.module('starter.services', [])
           var storedTextFileName = JSON.parse(localStorage.getItem("fileName"));
           console.log(storedTextFileName);
           $cordovaFile.writeExistingFile(cordova.file.externalDataDirectory, storedTextFileName, formattedAnswers, true).then(function(result) {
-            alert('Success! Answers stored!');
+            //alert('Success! Answers stored!');
           }, function(err) {
             console.log("ERROR");
           })

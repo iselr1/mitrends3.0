@@ -1,10 +1,4 @@
 <ion-view view-title="{{'FATIGUE_SS' | translate}}">
-  <ion-nav-buttons side="right">
-    <button class="button icon-left ion-log-out" ng-click="doLogout()" translate="LOGOUT"></button>
-  </ion-nav-buttons>
-  <ion-nav-buttons side="left">
-    <button class="button icon-left ion-home" ng-click="goHome()" translate="OVERVIEW"></button>
-  </ion-nav-buttons>
   <ion-content class="padding">
     <form name="MSIS">
       <div class="row">
@@ -23,7 +17,9 @@
 
       <div class="padding"></div>
       <div class="row row-8 row-top-border" ng-repeat="question in data.FSS.QUESTIONS  track by question.id">
-        <div class="col col-60 col-align-center" translate="{{question.text}}">
+        <div class="col col-5 col-align-center" translate="{{question.id}}">
+        </div>
+        <div class="col col-55 col-align-center" translate="{{question.text}}">
         </div>
         <!--<div class="col col-60 col-align-center">
           <ol start=1>

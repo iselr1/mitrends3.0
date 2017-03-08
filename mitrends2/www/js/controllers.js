@@ -16,6 +16,21 @@ angular.module('starter.controllers', [])
     }
 
   })
+  //--------------------------------------------------------//
+  //---------------CONTROLLER Home-----------------------//
+  //--------------------------------------------------------//
+  .controller('HomeCtrl', function($scope, $state, I4MIMidataService, jsonService) {
+
+    $scope.goKernsymp = function() {
+      $state.go('Kernsymptome');
+    };
+
+    //Change the language
+    $scope.switchLanguage = function(key) {
+      $translate.use(key);
+      jsonService.loadJson(key);
+    };
+  })
 
   //--------------------------------------------------------//
   //---------------CONTROLLER Login-----------------------//

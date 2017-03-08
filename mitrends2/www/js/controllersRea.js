@@ -219,6 +219,7 @@ angular.module('starter.controllersRea', [])
     var counter = 0;
     var results = [];
     var lastTime;
+    var intervalrepetitions = 6;
 
     var alertPopup = $ionicPopup.alert({
       title: popTitle,
@@ -232,7 +233,7 @@ angular.module('starter.controllersRea', [])
     functcorrincorr = function() {
 
       // End excersise after 120 seconds
-      $interval(functioninterval, SymDigService.getTimeExcersise() / 4, 4);
+      $interval(functioninterval, SymDigService.getTimeExcersise() / intervalrepetitions, intervalrepetitions);
 
       // Fill the keyTable with the images in a random way and the numbers ordered from 1 to 9
       var ranNums = SymDigService.doShuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]);
@@ -338,7 +339,7 @@ angular.module('starter.controllersRea', [])
       var partResult = SymDigService.getPartResults();
       correct = partResult.correct;
       incorrect = partResult.incorrect;
-      clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / 4) / 60000));
+      clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / intervalrepetitions) / 60000));
 
       var partresult1 = {};
       partresult1.name = "Anzahl korrekte Zuordnungen (während dem " + counter + ".Teil)";
@@ -349,11 +350,11 @@ angular.module('starter.controllersRea', [])
       partresult2.value = incorrect;
       results.push(partresult2);
       var partresult3 = {};
-      partresult3.name = "Klickfrequenz (während dem " + counter + ".Teil)";
+      partresult3.name = "Klickfrequenz pro Minute (während dem " + counter + ".Teil)";
       partresult3.value = clickFrequency;
       results.push(partresult3);
       console.log("Zwischenresultate" + results);
-      if (counter == 4) {
+      if (counter == intervalrepetitions) {
         $state.go('geschafftSD');
         // Variables to store in the result file
         var date = new Date();
@@ -373,7 +374,7 @@ angular.module('starter.controllersRea', [])
         result3.value = incorrect;
         results.push(result3);
         var result4 = {};
-        result4.name = "Klickfrequenz(insgesamt)";
+        result4.name = "Klickfrequenz pro Minute(insgesamt)";
         result4.value = Math.round(clickFrequency);
         results.push(result4);
         var result5 = {};

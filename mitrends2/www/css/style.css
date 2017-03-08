@@ -3,6 +3,7 @@ body {
   font-size: 20px !important;
   height: 100%;
   vertical-align: bottom;
+  line-height: 120%;
   /*flexbox
   display: flex;*/
 }
@@ -21,6 +22,7 @@ body {
   -webkit-flex-direction: column !important;
   -ms-flex-direction: column !important;
   flex-direction: column !important;
+
 }
 
 .label {
@@ -32,12 +34,8 @@ body {
   width: 500px !important;
 }
 
-.popup-head {
-  border: none!important;
-  h3 {
-    color: #000!important;
-    font-size: 30px!important;
-  }
+.popup-title{
+  font-size:30px !important;
 }
 
 .popup-body {
@@ -145,7 +143,15 @@ body {
   margin-right: auto;
   display: block;
 }
+.row-verticalalign{
+  vertical-align:middle;
+    display:table-cell;
+}
+/* Vertical in the grid*/
+.col-align-center{
+  align-self: center !important;
 
+}
 .zs-col {
   border: 2.5px solid black;
   text-align: center;

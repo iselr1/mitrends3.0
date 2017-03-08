@@ -16,9 +16,8 @@
   "IMP_CONTACT": "Contact in case of questions:<br>mitrends@outlook.ch",
   "OVERVIEW": "Home",
   "EXCERCISES": "Exercises",
-
-
-  "DONE": "Managed, part 2 of 5",
+  "DONE_SD": "Managed part 2 of 5",
+  "DONE_LAB": "Managed part 4 of 5",
   "DONE_TEXT_SD": "You've done the Symbol-Digit excersise.",
   "DONE_TEXT_LAB": "You've done the Labyrinth excersise.",
   "QUESTIONNAIRES": "Questionnaires",
@@ -212,7 +211,7 @@
   },
   "MSISQS1": "In the past two weeks, how much has your MS limited your ability to...",
   "MSISQS2": "In the past two weeks, how much have you been bothered by...",
-  "ZS-INSTRUCTION": "Choose according to the referencetable, the appropriate digit of the digittable to the symbol above the green space.",
+  "ZS-INSTRUCTION": "Choose according to the referencetable, the appropriate digit of the digittable to the symbol, in the table, from left to right.",
   "REFERENCETABLE": "Referencetable",
   "DIGITTABLE": "Digittable",
   "ZS-INSTRUCTION_TEXT_1": "<b>How does the excersise work?</b>",

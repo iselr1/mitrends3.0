@@ -10556,14 +10556,9 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   padding: 5px;
   width: 100%;
 }
-/* Vertical in the grid*/
-.col-align-center{
-  align-self: center;
-}
 
 
 
-/* Vertically Align Columns */
 
 
 /* .row-* vertically aligns every .col in the .row */
