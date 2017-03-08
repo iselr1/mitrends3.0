@@ -489,6 +489,7 @@ angular.module('starter.controllersSarah', [])
       // gets true if the user clicks into a point in the labyrinth
       var clickedinacircle = false;
       var madearealline = false;
+      var alreadyLine = false;
 
       if (!endcircle) {
         // the user clicked in a circle which was not the end
@@ -505,7 +506,7 @@ angular.module('starter.controllersSarah', [])
             if (lastpoint[0] != 0) {
               //Korrekturmöglichkeit (gleicher Punkt wie letzter Punkt)
               if (lastpoint[0] == actualLab[i][0] && lastpoint[1] == actualLab[i][1]){
-                // Vorletzter Punkt angeklickt
+                // Vorletzter nicht angeklickt
                 if (lastpoint != beforelastpoint){
                   console.log("gleicher Punkt");
                   console.log(lastline);
@@ -515,6 +516,7 @@ angular.module('starter.controllersSarah', [])
                   if (beforelastpoint[0] != 0 ){
                     drawPoint(actualLab[i][0], actualLab[i][1], "white");
                     drawPoint(beforelastpoint[0], beforelastpoint[1], "cyan");
+                    userway.splice(userway.length-1, 1);
                   }
                   // Wenn aktueller Punkt "Start war"
                   else{
@@ -528,22 +530,33 @@ angular.module('starter.controllersSarah', [])
                 }
               }
               else {
-              // draw Line if its in the actuallab
-              madearealline = realLineInLab(lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1]);
-                if(madearealline){
-                  drawLine(lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1], "cyan");
-                  // put the clicked line in the array of the way the user did
-                  userway.push([lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1]]);
-                  lastline = [lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1]];
-                  // set the point before the lastpoint
-                  beforelastpoint = lastpoint;
-                  // draw Point
-                  drawPoint(actualLab[i][0], actualLab[i][1], "cyan");
-                  lastpoint = [actualLab[i][0], actualLab[i][1]];
+                // draw Line if its in the actuallab (Normale Zeichenfunktion)
+                // check ob die Linie bereits gezeichnet wurde --> dann darf nicht gezeichnet werden!!
+                for (var x = 0; x < userway.length; x++) {
+                  if (
+                    ((userway[x][0] == lastpoint[0] && userway[x][1] == lastpoint[1]) || (userway[x][0] == actualLab[i][0] && userway[x][1] == actualLab[i][1])) &&
+                    ((userway[x][2] == lastpoint[0] && userway[x][3] == lastpoint[1]) || (userway[x][2] == actualLab[i][0] && userway[x][3] == actualLab[i][1]))
+                  ){
+                    alreadyLine = true;
+                  }
+                }
+                if (alreadyLine == false){
+                  madearealline = realLineInLab(lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1]);
+                  if(madearealline){
+                    drawLine(lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1], "cyan");
+                    // put the clicked line in the array of the way the user did
+                    userway.push([lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1]]);
+                    lastline = [lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1]];
+                    // set the point before the lastpoint
+                    beforelastpoint = lastpoint;
+                    // draw Point
+                    drawPoint(actualLab[i][0], actualLab[i][1], "cyan");
+                    lastpoint = [actualLab[i][0], actualLab[i][1]];
+                  }
                 }
               }
             }
-            // else draw just the point blue
+            // else draw just the point blue (Startpunkt)
             else {
               drawPoint(actualLab[i][0], actualLab[i][1], "cyan");
               lastpoint = [actualLab[i][0], actualLab[i][1]];
@@ -585,7 +598,7 @@ angular.module('starter.controllersSarah', [])
           $state.go('geschafftLAB');
         } else {
           // Mache den Weg nochmal
-        //  $scope.showPopupMIDATA();
+          $scope.saveResultsLab();
           doWay();
         }
       }
@@ -624,55 +637,34 @@ angular.module('starter.controllersSarah', [])
 
   // Save the Results
   $scope.saveResultsLab = function() {
+    // Array mit Resultaten, welche an den Service geschickt werden
+    var results = [];
+    //Paramter die übergeben werden
+    var result1 = {};
+    var date = new Date();
 
-    // variable wome wott spichere
+    result1.name = "Datum, Uhrzeit nach beenden eines Durchgangs Labyrinth Übung";
+    result1.value = date.toString();
+    results.push(result1);
 
+    var result2 = {};
+    result2.name = "Anzahl Klicks";
+    result2.value = clicks;
+    results.push(result2);
 
-    // resultat array wome später am service übergit
+    var result3 = {};
+    result3.name = "Anzahl Punkte des Labyrinths angeklickt";
+    result3.value = rightclicks;
+    results.push(result3);
 
-            var results = [];
+    var result4 = {};
+    result4.name = "Anzahl richtige Verbindungen";
+    result4.value = rightlines;
+    results.push(result4);
 
-    //ab hiä jewils objekt mit name u wert vo de einzelne variable
-
-            var result1 = {};
-            var date = new Date();
-
-            result1.name = "Datum, Uhrzeit nach beenden der Übung";
-
-            result1.value = date.toString();
-
-            results.push(result1);
-
-            var result2 = {};
-
-            result2.name = "Anzahl Klicks";
-
-            result2.value = clicks;
-
-            results.push(result2);
-
-            var result3 = {};
-
-            result3.name = "Anzahl Punkte des Labyrinths angeklickt";
-
-            result3.value = rightclicks;
-
-            results.push(result3);
-
-            var result4 = {};
-
-            result4.name = "Anzahl richtige Verbindungen";
-
-            result4.value = rightlines;
-
-            results.push(result4);
-
-
-    //service ufruef zersch mit em name vor üebig u när em array wome d variable het drigspicheret
-
-            ExcersiseStorageService.saveResultsToFile("Labyrinth Übung", results);
-
-        };
+    //Service Aufruf
+    ExcersiseStorageService.saveResultsToFile("Labyrinth Übung", results);
+  };
 
   // Popup mit den Variablen für Midata
   $scope.showPopupMIDATA = function() {
