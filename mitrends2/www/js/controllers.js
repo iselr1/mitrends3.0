@@ -22,7 +22,7 @@ angular.module('starter.controllers', [])
   .controller('HomeCtrl', function($scope, $state, I4MIMidataService, jsonService) {
 
     $scope.goKernsymp = function() {
-      $state.go('Kernsymptome');
+      $state.go('kernsymptome');
     };
 
     //Change the language

@@ -189,6 +189,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'ionic-datepicker', 'ionic-time
         controller: 'LabyrinthVideoCtrl'
       })
 
-    $urlRouterProvider.otherwise('/home')
+    $urlRouterProvider.otherwise('/labyrinth')
 
   });

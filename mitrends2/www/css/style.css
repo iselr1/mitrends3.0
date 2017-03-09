@@ -39,7 +39,10 @@ body {
 }
 
 .popup-body {
-  font-size: 22px !important;
+  font-size: 20px !important;
+}
+.popup-buttons .button {
+  font-size: 20px;
 }
 
 .col{
