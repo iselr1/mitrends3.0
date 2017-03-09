@@ -683,7 +683,7 @@ angular.module('starter.controllersSarah', [])
     results.push(result3);
 
     var result4 = {};
-    result4.name = "Anzahl richtige Verbindungen der Testperson/Richtige Verbindungen total";
+    result4.name = "Anzahl richtige Verbindungen der Testperson/Total";
     result4.value = rightlines + "/" + labWayLines.length;
     results.push(result4);
 
@@ -693,7 +693,7 @@ angular.module('starter.controllersSarah', [])
     results.push(result5);
 
     var result6 = {};
-    result6.name = "Dauer für die Labyrinth-Übung";
+    result6.name = "Dauer für die Labyrinth-Übung in Sekunden";
     result6.value = (endTime - startTime) / 1000;
     results.push(result6);
 
