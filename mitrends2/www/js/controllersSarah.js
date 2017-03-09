@@ -684,7 +684,7 @@ angular.module('starter.controllersSarah', [])
 
     var result4 = {};
     result4.name = "Anzahl richtige Verbindungen der Testperson/Richtige Verbindungen total";
-    result4.value = rightlines + "/" + labWayLines.lenght;
+    result4.value = rightlines + "/" + labWayLines.length;
     results.push(result4);
 
     var result5 = {};
