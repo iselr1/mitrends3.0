@@ -678,29 +678,24 @@ angular.module('starter.controllersSarah', [])
     results.push(result2);
 
     var result3 = {};
-    result3.name = "Anzahl Punkte des Labyrinths angeklickt";
+    result3.name = "Anzahl Klicks auf Punkte des Labyrinths";
     result3.value = rightclicks;
     results.push(result3);
 
     var result4 = {};
-    result4.name = "Anzahl richtige Verbindungen";
-    result4.value = rightlines;
+    result4.name = "Anzahl richtige Verbindungen der Testperson/Richtige Verbindungen total";
+    result4.value = rightlines + "/" + labWayLines.lenght;
     results.push(result4);
 
     var result5 = {};
-    result5.name = "Anzahl Verbindungen im vorgezeigten Labyrinth";
-    result5.value = labWayLines;
+    result5.name = "Anzahl Korrekturen";
+    result5.value = countcorrection;
     results.push(result5);
 
     var result6 = {};
-    result6.name = "Anzahl Korrekturen";
-    result6.value = countcorrection;
+    result6.name = "Dauer für die Labyrinth-Übung";
+    result6.value = (endTime - startTime) / 1000;
     results.push(result6);
-
-    var result7 = {};
-    result7.name = "Dauer für die Labyrinth-Übung";
-    result7.value = (endTime - startTime) / 1000;
-    results.push(result7);
 
     //Service Aufruf
     ExcersiseStorageService.saveResultsToFile("Labyrinth Übung", results);
