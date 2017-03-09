@@ -185,10 +185,15 @@ angular.module('starter.controllersSarah', [])
   // how many times the function showWay was executed - initial 0 - counter for the point to draw and the line to draw
   var countway;
   var countwaylines;
+  var countcorrection;
 
   // counter for the point, that needs to be drawn white again (after green) / the line, that needs to be black again
   var whiteone;
   var blackline;
+
+  // Start und Endzeit
+  var startTime;
+  var endTime;
 
   // Arrays with all the points and all the lines from the labyrinth - 2 Dimensional Array
   // The first square bracket references the desired element in the outer array (actualLab).
@@ -255,6 +260,7 @@ angular.module('starter.controllersSarah', [])
     // every variable gets his initialvalue
     countway = 0;
     countwaylines = 0;
+    countcorrection = 0;
     lastpoint = [0, 0];
     beforelastpoint = [0, 0];
     lastline = [0, 0, 0, 0];
@@ -269,6 +275,8 @@ angular.module('starter.controllersSarah', [])
     rightclicks = 0;
     clicks = 0;
     rightlines = 0;
+    startTime = 0;
+    endTime = 0;
 
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
@@ -278,20 +286,28 @@ angular.module('starter.controllersSarah', [])
 
     // Draw The Labyrinth
     $scope.drawLab();
-    // Show the Way through the Labyrinth - Points
-    setTimeout(function() {
-      $interval(showWay, 1500, labWay.length + 1); //1500
-    }, 2000);//2000
-    // Show the Way through the Labyrinth - Lines
-    setTimeout(function() {
-      $interval(showWayLines, 1500, labWayLines.length + 1); //1500
-    }, 2750);//2750
-    // Click is Only possible when way through Labyrinth was shown
-    setTimeout(function() {
-      $scope.drawLab();
-      clickOK = true;
-      nowDoIt();
-    }, 30000); //30000
+
+    // Show Popup
+    var alertPopup = $ionicPopup.alert({
+      title: $translate.instant('TRY_LAB'),
+      template: $translate.instant('TRY_LAB_TEXT'),
+    });
+    alertPopup.then(function() {
+      // Show the Way through the Labyrinth - Points
+      setTimeout(function() {
+        $interval(showWay, 1500, labWay.length + 1); //1500
+      }, 2000);//2000
+      // Show the Way through the Labyrinth - Lines
+      setTimeout(function() {
+        $interval(showWayLines, 1500, labWayLines.length + 1); //1500
+      }, 2750);//2750
+      // Click is Only possible when way through Labyrinth was shown
+      setTimeout(function() {
+        $scope.drawLab();
+        clickOK = true;
+        nowDoIt();
+      }, 30000); //30000
+    });
   };
 
   getWay = function() {
@@ -460,15 +476,6 @@ angular.module('starter.controllersSarah', [])
     ctx.textBaseline = 'middle';
     ctx.fillStyle = "mediumblue";
     ctx.fillText($translate.instant('DO_WAY'), ctx.canvas.width / 2, 15);
-
-    var alertPopup = $ionicPopup.alert({
-      title: $translate.instant('TRY_LAB'),
-      template: $translate.instant('TRY_LAB_TEXT'),
-    });
-    alertPopup;
-    /*.then(function() {
-      $state.go('geschafftLAB');
-    });*/
   };
 
   // Function Click: Draw a blue point when click, wherever you are
@@ -493,6 +500,8 @@ angular.module('starter.controllersSarah', [])
       var madearealline = false;
       var alreadyLine = false;
       var alreadyPoint = false;
+
+
 
       if (!endcircle) {
         // the user clicked in a circle which was not the end
@@ -521,6 +530,7 @@ angular.module('starter.controllersSarah', [])
                     drawPoint(beforelastpoint[0], beforelastpoint[1], "cyan");
                     userway.splice(userway.length-1, 1);
                     userpoints.splice(userpoints.length-1, 1);
+                    countcorrection = countcorrection + 1;
                   }
                   // Wenn aktueller Punkt "Start war"
                   else{
@@ -573,6 +583,7 @@ angular.module('starter.controllersSarah', [])
             else {
               drawPoint(actualLab[i][0], actualLab[i][1], "cyan");
               lastpoint = [actualLab[i][0], actualLab[i][1]];
+              startTime = new Date().getTime();
             }
           }
         }
@@ -580,6 +591,7 @@ angular.module('starter.controllersSarah', [])
         countlab = countlab + 1;
         clicks = clicks + 1;
         rightclicks = rightclicks + 1;
+        endTime = new Date().getTime();
         drawLine(lastpoint[0], lastpoint[1], point22[0], point22[1], "cyan");
         // put the clicked line in the array of the way the user did
         userway.push([lastpoint[0], lastpoint[1], point22[0], point22[1]]);
@@ -674,6 +686,21 @@ angular.module('starter.controllersSarah', [])
     result4.name = "Anzahl richtige Verbindungen";
     result4.value = rightlines;
     results.push(result4);
+
+    var result5 = {};
+    result5.name = "Anzahl Verbindungen im vorgezeigten Labyrinth";
+    result5.value = labWayLines;
+    results.push(result5);
+
+    var result6 = {};
+    result6.name = "Anzahl Korrekturen";
+    result6.value = countcorrection;
+    results.push(result6);
+
+    var result7 = {};
+    result7.name = "Dauer für die Labyrinth-Übung";
+    result7.value = (endTime - startTime) / 1000;
+    results.push(result7);
 
     //Service Aufruf
     ExcersiseStorageService.saveResultsToFile("Labyrinth Übung", results);
