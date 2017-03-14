@@ -21,11 +21,7 @@
         </div>
         <div class="col col-55 col-align-center" translate="{{question.text}}">
         </div>
-        <!--<div class="col col-60 col-align-center">
-          <ol start=1>
-            <li translate="{{question.text}}">
-          </ol>
-        </div>-->
+
         <div class="col col-text-align-center" ng-repeat="buttons in data.FSS.RADIOS">
           <input type="radio" id="fss" class="col-text-align-center" ng-model="FSS" ng-value="{{buttons.id}}" name="{{$parent.question.id}}" ng-change="setValue({{buttons.id}}, {{$parent.question.id}})"/>
           <label for="fss"></label>

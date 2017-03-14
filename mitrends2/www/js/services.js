@@ -51,13 +51,14 @@ angular.module('starter.services', [])
   //--------------------------------------------------------//
   //---------------Service for Questionnaires-----------------------//
   //--------------------------------------------------------//
-  .factory('QuestionnaireService', function($state, $ionicPopup, $translate, $cordovaFile) {
+  .factory('QuestionnaireService', function($state, $ionicPopup, $translate, $cordovaFile, jsonService) {
     var QuestionnaireService = {};
     // boolean that indicates if all questions were answered
     var allAnswers = false;
     // Array with the answers of the questions
     var answers = [];
     var formattedAnswers;
+    var jsonData = jsonService.getJson();
 
     /* function to set the boolean allAnswers back to false and clear the answers array */
     QuestionnaireService.reset = function() {
@@ -173,12 +174,10 @@ angular.module('starter.services', [])
       }
       // if allAnswers false inform the user that he has to answer all the answers before he can save
       else {
-        var popTitle = $translate.instant('Info');
-        var popTemplate = $translate.instant('Bitte wählen Sie eine Antwort für jede Aussage');
 
         var alertPopup = $ionicPopup.alert({
-          title: popTitle,
-          template: popTemplate,
+          title: jsonData.INFO,
+          template: jsonData.PLEASE,
           cssClass: 'my-popup'
         });
       }
@@ -229,6 +228,7 @@ angular.module('starter.services', [])
     };
     jsonService.getJson = function() {
       return jsonService.data.json;
+      console.log(key);
     };
 
     return jsonService;
@@ -261,19 +261,10 @@ angular.module('starter.services', [])
     var n_correct = 0;
     //Anzahl der Versuche bei der Vorbereitung
     var n_trys = 0;
-    // Zeit für Zahlsymbol Übung in ms - 120 sek
-    //var time = 120000:
-    // Für Kundenworkshop
-    // Zeitdauer, welche für die Übung zur Verfügung steht
-    //var timeExcersise = 5000;
-    var timeExcersise = 20000;
-    // Zeit beim Start der Übung
-    //var timeWhenExcersiseStart = 0;
+    // Zeitdauer, welche für die Übung zur Verfügung steht (Wichtig: muss durch 15 Teilbar sein)
+    var timeExcersise = 30000;
     //Klickfrequenz (Zeit /(Anzahl Korrekte + Inkorrekte Zuordnungen))
     var clickfrequency = 0;
-    // Längste Latenz (Zeit ohne Klick)
-    var longestLatency = 0;
-    var next_symbol = 0;
     // Array mit korrekten und inkorrekten Antworten
     var resultsArray = [];
     // Startposition für die Auswertung der Zwischenresultate

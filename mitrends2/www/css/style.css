@@ -1,11 +1,22 @@
 body {
   /*basic styling */
   font-size: 20px !important;
+  vertical-align: middle;
   height: 100%;
-  vertical-align: bottom;
   line-height: 120%;
   /*flexbox
   display: flex;*/
+}
+
+.scroll-content {
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.scroll {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .scroll {
@@ -22,31 +33,60 @@ body {
   -webkit-flex-direction: column !important;
   -ms-flex-direction: column !important;
   flex-direction: column !important;
-
 }
 
 .label {
   font-size: 20px !important;
 }
 
-
 .popup {
   width: 500px !important;
 }
 
-.popup-title{
-  font-size:30px !important;
+.popup-title {
+  font-size: 30px !important;
 }
 
 .popup-body {
   font-size: 20px !important;
 }
+
 .popup-buttons .button {
   font-size: 20px;
 }
 
-.col{
-  height:100% !important;
+.col-align-center {
+  position: relative;
+  top: 100%;
+  transform: perspective(1px) translateY(-90%);
+  /*
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      link: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+      */
+}
+
+.col {
+  height: 100% !important;
+}
+.col-48 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 48%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 48%;
+  -ms-flex: 0 0 48%;
+  flex: 0 0 48%;
+  max-width: 48%;
+}
+.col-68 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 68%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 68%;
+  -ms-flex: 0 0 68%;
+  flex: 0 0 68%;
+  max-width: 68%;
 }
 
 .row-8 {
@@ -64,6 +104,7 @@ body {
   -ms-flex: 0 1 10% !important;
   flex: 0 1 10% !important;
 }
+
 .row-15 {
   -webkit-box-flex: 0 !important;
   -moz-box-flex: 0 !important;
@@ -71,6 +112,7 @@ body {
   -ms-flex: 0 1 15% !important;
   flex: 0 1 15% !important;
 }
+
 .row-20 {
   -webkit-box-flex: 0 !important;
   -moz-box-flex: 0 !important;
@@ -126,6 +168,7 @@ body {
   -ms-flex: 0 1 80% !important;
   flex: 0 1 80% !important;
 }
+
 .row-85 {
   -webkit-box-flex: 0 !important;
   -moz-box-flex: 0 !important;
@@ -133,6 +176,7 @@ body {
   -ms-flex: 0 1 85% !important;
   flex: 0 1 85% !important;
 }
+
 .row-90 {
   -webkit-box-flex: 0 !important;
   -moz-box-flex: 0 !important;
@@ -146,15 +190,14 @@ body {
   margin-right: auto;
   display: block;
 }
-.row-verticalalign{
-  vertical-align:middle;
-    display:table-cell;
-}
-/* Vertical in the grid*/
-.col-align-center{
-  align-self: center !important;
 
+
+/* Vertical in the grid*/
+
+.col-align-center {
+  align-self: center !important;
 }
+
 .zs-col {
   border: 2.5px solid black;
   text-align: center;
@@ -173,7 +216,7 @@ input[type="radio"]:checked {
 
 #kernsymp_one {
   width: 80%;
-  height: 100%;
+  height: 96%;
 }
 
 #core_smile {

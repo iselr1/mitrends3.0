@@ -219,7 +219,9 @@ angular.module('starter.controllersRea', [])
     var counter = 0;
     var results = [];
     var lastTime;
-    var intervalrepetitions = 6;
+    var intervalDuration = 15000;
+    var intervalrepetitions = SymDigService.getTimeExcersise() / intervalDuration;
+    console.log("intervalrep" + intervalrepetitions);
 
     var alertPopup = $ionicPopup.alert({
       title: popTitle,
@@ -233,7 +235,7 @@ angular.module('starter.controllersRea', [])
     functcorrincorr = function() {
 
       // End excersise after 120 seconds
-      $interval(functioninterval, SymDigService.getTimeExcersise() / intervalrepetitions, intervalrepetitions);
+      $interval(functioninterval, intervalDuration, intervalrepetitions);
 
       // Fill the keyTable with the images in a random way and the numbers ordered from 1 to 9
       var ranNums = SymDigService.doShuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]);
