@@ -19,7 +19,8 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Home-----------------------//
   //--------------------------------------------------------//
-  .controller('HomeCtrl', function($scope, $state, I4MIMidataService, jsonService) {
+  .controller('HomeCtrl', function($scope, $state, I4MIMidataService, jsonService, $translate, $ionicPopup, $ionicHistory) {
+    var jsonData = jsonService.getJson();
 
     $scope.goKernsymp = function() {
       $state.go('kernsymptome');
@@ -27,9 +28,26 @@ angular.module('starter.controllers', [])
 
     //Change the language
     $scope.switchLanguage = function(key) {
+      console.log(key);
       $translate.use(key);
-      jsonService.loadJson(key);
+      jsonService.loadJson(key).then(function() {
+        jsonData = jsonService.getJson();
+        $ionicHistory.clearCache();
+      });
     };
+
+
+
+
+    $scope.showDATATEXT = function() {
+      console.log("hier");
+      var alertPopup = $ionicPopup.alert({
+        title: jsonData.DATAPROTECTION,
+        template: jsonData.DATATEXT,
+        okType: 'button-positive',
+        okText: jsonData.UNDERSTOOD
+      });
+    }
   })
 
   //--------------------------------------------------------//

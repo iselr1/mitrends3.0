@@ -1,4 +1,4 @@
-<ion-view view-title="{{'LOGIN' | translate}}">
+<ion-view view-title="{{'WELCOME' | translate}}">
   <ion-nav-buttons side="right">
     <button class="button" ng-click="switchLanguage('en')" translate="LANG_EN"></button>
     <button class="button" ng-click="switchLanguage('de')" translate="LANG_DE"></button>
@@ -7,7 +7,7 @@
   <ion-content class="padding">
 
     <div class="row row-10"></div>
-    <h1 align="center" translate="WELCOME"></h1>
+    <h1 align="center" translate="WELCOME_STUDY"></h1>
     <div class="row row-10"></div>
     <div class="row row-40" style="height:100%">
       <div class="col">
@@ -17,11 +17,13 @@
     <div class="row row-20"></div>
 
     <div class="row row-20">
-      <div class="col col-offset-20">
-        <button class="button button-positive button-block" ng-click="goKernsymp()" translate="GO"/>
-      </button>
-    </div>
-      <div class="col col-20"></div>
+      <div class="col col-offset-15 col-30">
+        <button class="button button-positive button-block" ng-click="showDATATEXT()" translate="DATAPROTECTION"></button>
+      </div>
+      <div class="col col-offset-10 col-30">
+        <button class="button button-positive button-block" ng-click="goKernsymp()" translate="GO"></button>
+      </div>
+      <div class="col col-15"></div>
     </div>
   </ion-content>
 </ion-view>

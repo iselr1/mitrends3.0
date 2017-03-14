@@ -190,7 +190,7 @@ angular.module('starter.services', [])
   //--------------------------------------------------------//
   //---------------Service for JSON language file-----------------------//
   //--------------------------------------------------------//
-  .factory('jsonService', function($rootScope, $http, $translate) {
+  .factory('jsonService', function($rootScope, $http, $translate, $q) {
     var jsonService = {};
     // variable with the first part of the path to the language file
     var prefix = 'js/locale-';
@@ -210,14 +210,22 @@ angular.module('starter.services', [])
 
     //Gets the new json file if the language is changed
     jsonService.loadJson = function(key) {
+      var deferred = $q.defer();
+
       $http.get(prefix + key + suffix)
         .success(function(data) {
+          $translate.use(key);
           //Array leeren
           jsonService.data.json = {};
           //Array mit neuen Werten befüllen
           jsonService.data.json = data;
           console.log('Json data is loaded');
+          deferred.resolve();
+        })
+        .error(function(data) {
+          deferred.reject();
         });
+      return deferred.promise;
     };
     jsonService.getJson = function() {
       return jsonService.data.json;
