@@ -2,7 +2,7 @@
 Document name       controllerSarah.js
 Made:               01.10.2016
 Made through:       meles1
-Version Nr.:         1.0
+Version Nr.:        1.1
 
 Function: All Controller for the Views "Kernsymptome", "Labyrinth", "Labyrinth Anleitung"
 */
@@ -214,9 +214,9 @@ angular.module('starter.controllersSarah', [])
   var labWay4 = [point1, point7, point8, point6, point3, point4, point5, point12, point14, point15, point13, point11, point10, point9, point17, point18, point22];
   var labWayLines4 = [line9, line10, line11, line6, line3, line4, line15, line16, line19, line18, line36, line13, line22, line24, line33, line34];
 
-  // Array with all the points to show the second time - 2 Dimensional Array
-  //var secondWay = [point4, point3, point6, point2, point7, point8, point9, point10, point16, point17, point18, point19, point15, point13, point12, point14, point21];
-  //var secondWayLines = [line3, line6, line7, line8, line10, line23, line22, line21, line25, line33, line32, line27, line18, line17, line16, line31];
+  // Video Weg
+  //var testWay = [point1, point7, point8, point9, point10, point11, point13, point15, point16, point17, point22];
+  //var testWayLines = [line9, line10, line23, line22, line13, line36, line18, line20, line25, line35];
 
   // The way the user did
   var userway = [];
@@ -312,6 +312,8 @@ angular.module('starter.controllersSarah', [])
 
   getWay = function() {
     var numberLab = (Math.ceil(Math.random() * 4));
+    //labWay = testWay;
+    //labWayLines = testWayLines;
     if (numberLab == 1) {
       labWay = labWay1;
       labWayLines = labWayLines1;
@@ -501,8 +503,6 @@ angular.module('starter.controllersSarah', [])
       var alreadyLine = false;
       var alreadyPoint = false;
 
-
-
       if (!endcircle) {
         // the user clicked in a circle which was not the end
         clicks = clicks + 1;
@@ -544,17 +544,6 @@ angular.module('starter.controllersSarah', [])
                 }
               }
               else {
-                // draw Line if its in the actualLab (Normale Zeichenfunktion)
-                // check ob die Linie bereits gezeichnet wurde --> dann darf nicht gezeichnet werden!!
-              /*  for (var x = 0; x < userway.length; x++) {
-                  if (
-                    ((userway[x][0] == lastpoint[0] && userway[x][1] == lastpoint[1]) || (userway[x][0] == actualLab[i][0] && userway[x][1] == actualLab[i][1])) &&
-                    ((userway[x][2] == lastpoint[0] && userway[x][3] == lastpoint[1]) || (userway[x][2] == actualLab[i][0] && userway[x][3] == actualLab[i][1]))
-                  ){
-                    alreadyLine = true;
-                  }
-                }*/
-
                 // check ob der Punkt bereits gezeichnet wurde --> dann darf nicht gezeichnet werden!!
                 for (var x = 0; x < userpoints.length; x++) {
                   if (userpoints[x][0] == actualLab[i][0] && userpoints[x][1] == actualLab[i][1]){
@@ -713,9 +702,6 @@ angular.module('starter.controllersSarah', [])
       template: "Anzahl Clicks: " + clicks + "</br></br>" + "Anz. Punkt des Labs angeklickt: " + rightclicks + "</br></br>" + "Anz. richtige Verbindungen: " + rightlines,
     });
     alertPopup;
-    /*.then(function() {
-      $state.go('geschafftLAB');
-    });*/
   };
 
   // Labyrinth is defined for width="1024" height="768"

@@ -6,8 +6,8 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ngCordova', 'ionic-datepicker', 'ionic-timepicker', 'formlyIonic', 'nvd3', 'i4mi', 'starter.controllers', 'starter.controllersRea', 'starter.controllersSarah', 'starter.services', 'jsonFormatter', 'pascalprecht.translate'])
-  .constant('APPNAME', 'MitrendS')
-  .constant('APPSECRET', 'Mi3636trend9696S000')
+  .constant('APPNAME', 'MitrendS2')
+  .constant('APPSECRET', 'Mi3636trend9696S002')
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -189,6 +189,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'ionic-datepicker', 'ionic-time
         controller: 'LabyrinthVideoCtrl'
       })
 
-    $urlRouterProvider.otherwise('/msis')
+    $urlRouterProvider.otherwise('/home')
 
   });
