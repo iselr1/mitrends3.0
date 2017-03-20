@@ -75,7 +75,6 @@
       "id": "5",
       "imgSrc": "img/emotes_face_smile_big.png"
     }]
-
   },
   "Q1CORE": "Sie sind...",
   "Q2COREL": "Haben Sie eine Bewegungseinschränkung in der linken Hand?",
@@ -86,7 +85,6 @@
   "Q5CORE": "Wie beurteilen Sie ihre momentane Konzentrationsfähigkeit?",
   "Q6CORE": "Hatten Sie seit der letzten Übung einen Schub?",
   "Q7CORE": "Haben Ihre MS Symptome seit der letzten Übung zugenommen?",
-
   "RIGHTHANDED": "Rechtshänder",
   "LEFTHANDED": "Linkshänder",
   "BOTHHANDED": "Beidhänder",

@@ -38,9 +38,9 @@
   "MOTOR_SKILLS": "Motor skills",
   "VARIABLES_MIDATA": "MIDATA Variables",
   "TRY_LAB": "Try the Labyrinth",
-  "TRY_LAB_TEXT": "Try to do the way of the Labyrinth. <br><br> Begin at the START!! point",
+  "TRY_LAB_TEXT": "A way through the Labyrinth is shown to you now. You have to do it by yourself afterwards. Click OK whenever you are ready",
   "MIND_WAY": "!! Please mind the shown way !!",
-  "DO_WAY": "!! Please try to do the shown way !!",
+  "DO_WAY": "!! Please try to do the shown way. Begin at the START point !!",
   "CORE": {
     "AHAND": [{
       "id": "1",
