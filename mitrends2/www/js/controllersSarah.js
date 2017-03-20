@@ -92,7 +92,7 @@ angular.module('starter.controllersSarah', [])
   // to display the next button after 60 seconds
   $timeout(function() {
     $scope.hideButton = false;
-  }, 10000);
+  }, 5000);
 })
 
 /* -- Controller for Labyrinth View -- */
@@ -533,8 +533,16 @@ angular.module('starter.controllersSarah', [])
                     countcorrection = countcorrection + 1;
                   }
                   // Wenn aktueller Punkt "Start war"
-                  else{
+                  else if (actualLab[i][0] == point1[0] && actualLab[i][1] == point1[1]){
                     drawPoint(actualLab[i][0], actualLab[i][1], "black");
+                    userpoints.splice(userpoints.length-1, 1);
+                    countcorrection = countcorrection + 1;
+                  }
+                  // Erster Punkt war nicht Start und wird korrigiert
+                  else{
+                    drawPoint(actualLab[i][0], actualLab[i][1], "white");
+                    userpoints.splice(userpoints.length-1, 1);
+                    countcorrection = countcorrection + 1;
                   }
                   // Letzter Punkt zurücksetzen auf Vorletzten
                   lastpoint = beforelastpoint;
@@ -572,6 +580,7 @@ angular.module('starter.controllersSarah', [])
             else {
               drawPoint(actualLab[i][0], actualLab[i][1], "cyan");
               lastpoint = [actualLab[i][0], actualLab[i][1]];
+              userpoints.push([actualLab[i][0], actualLab[i][1]]);
               startTime = new Date().getTime();
             }
           }
