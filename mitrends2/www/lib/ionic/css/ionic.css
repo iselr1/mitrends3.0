@@ -10669,6 +10669,9 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
 .col-offset-50 {
   margin-left: 50%;
 }
+.col-offset-60 {
+  margin-left: 60%;
+}
 
 .col-offset-66, .col-offset-67 {
   margin-left: 66.6666%;

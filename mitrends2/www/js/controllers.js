@@ -119,14 +119,20 @@ angular.module('starter.controllers', [])
   .controller('ImpCtrl', function($scope, $stateParams, $state, $ionicPopup, jsonService) {
     var jsonData = jsonService.getJson();
 
-    $scope.showDATATEXT = function() {
-      console.log("hier");
-      var alertPopup = $ionicPopup.alert({
-        title: jsonData.DATAPROTECTION,
-        template: jsonData.DATATEXT,
-        okType: 'button-positive',
-        okText: jsonData.UNDERSTOOD
-      });
+    $scope.sendEmail = function() {
+      if (window.plugins && window.plugins.emailComposer) {
+        window.plugins.emailComposer.showEmailComposerWithCallback(function(result) {
+            console.log("Response -> " + result);
+          },
+          jsonData.EMAIL_SUBJECT, // Subject
+          "", // Body
+          ["mitrends@outlook.com"], // To
+          null, // CC
+          null, // BCC
+          false, // isHTML
+          null, // Attachments
+          null); // Attachment Data
+      }
     }
   })
 
