@@ -68,7 +68,9 @@ body {
       link: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
       */
 }
-
+.text-right{
+  text-align: right;
+}
 .col {
   height: 100% !important;
 }
@@ -80,6 +82,51 @@ body {
   -ms-flex: 0 0 4%;
   flex: 0 0 4%;
   max-width: 4%;
+}
+.col-17 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 17%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 17%;
+  -ms-flex: 0 0 17%;
+  flex: 0 0 17%;
+  max-width: 17%;
+}
+.col-25 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 25%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 25%;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+.col-26 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 26%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 26%;
+  -ms-flex: 0 0 26%;
+  flex: 0 0 26%;
+  max-width: 26%;
+}
+.col-27 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 27.5%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 27.5%;
+  -ms-flex: 0 0 27.5%;
+  flex: 0 0 27.5%;
+  max-width: 27.5%;
+}
+.col-28 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 28%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 28%;
+  -ms-flex: 0 0 28%;
+  flex: 0 0 28%;
+  max-width: 28%;
 }
 .col-48 {
   -webkit-box-flex: 0;

@@ -20,23 +20,15 @@
   "IMP_CONTACT": "You have a question or feedback?",
   "IMP_WRITE": "Send us an E-Mail",
   "OVERVIEW": "Home",
-  "EXCERCISES": "Exercises",
   "DONE": "Managed!",
   "PLEASE": "Please choose for every question an answer",
   "QUESTIONNAIRES": "Questionnaires",
-  "MAINSYMPTOMS": "Main symptoms, part 2 of 5",
-  "MAINSYMPTOMS_CAPTURE": "Catch main symtoms",
-  "EXCERCISES_RUNTROUGH": "Make exercise",
-  "DO_MORE_EXCERCISES": "Do more exercise",
-  "LABYRINTH": "Labyrinth, part 4 of 5",
-  "LAB_VIDEO": "Labyrinth video instruction, part 4 of 5",
-  "LABYRINTH_INSTRUCTION": "Labyrinth exercise instruction",
-  "SYMBOL_DIGIT": "Symbol-Digit, part 2 of 5",
-  "SD_VIDEO": "Symbol-Digit video instruction,part 2 of 5",
-  "SD_PREPARATION": "Symbol-Digit preparation, part 2 of 5",
-  "SD_INSTRUCTION": "Symbol-Digit exercise instruction",
-  "MOTOR_SKILLS": "Motor skills",
-  "VARIABLES_MIDATA": "MIDATA Variables",
+  "MAINSYMPTOMS": "Part 1 of 5 - Main symptoms",
+  "LABYRINTH": "Part 4 of 5 - Labyrinth",
+  "LAB_VIDEO": "Part 4 of 5 - Labyrinth video instruction",
+  "SYMBOL_DIGIT": "Part 2 of 5 - Symbol-Digit",
+  "SD_VIDEO": "Part 2 of 5 - Symbol-Digit video instruction",
+  "SD_PREPARATION": "Part 2 of 5 - Symbol-Digit trial run",
   "TRY_LAB": "Try the Labyrinth",
   "TRY_LAB_TEXT": "A way through the Labyrinth is shown to you now. You have to do it by yourself afterwards. Click OK whenever you are ready",
   "MIND_WAY": "!! Please mind the shown way !!",
@@ -93,13 +85,13 @@
   "SAVE": "Save",
   "BACK": "Back",
   "NEXT": "Next",
-  "COMMENT": "Comments concerning the exercise:",
+  "COMMENT": "Comments/feedback concerning the exercise:",
   "DIGIT": "Digit",
   "SYMBOL": "Symbol",
   "INFO": "Info",
   "TEMPLATEPOPUP_NEXTPREPZS": "Now the prepartion starts, the actual exercise with a defined amount of time, will start after this preparation.",
   "SDTEMPLATE_POPUP": "The preparation is over. As soon as you click OK, the actual exercise starts.",
-  "MSIS-29": "MSIS-29, part 3 of 5",
+  "MSIS-29": "Part 3 of 5 - MSIS-29",
   "MSIS": {
     "RADIOS": [{
       "id": "1",
@@ -120,95 +112,95 @@
     "QUESTIONS": {
       "QS1": [{
         "id": "1",
-        "text": "1. ... Do physically demanding tasks? "
+        "text": "... Do physically demanding tasks? "
       }, {
         "id": "2",
-        "text": "2. ... Grip things tightly (e.g. turning on taps)?"
+        "text": "... Grip things tightly (e.g. turning on taps)?"
       }, {
         "id": "3",
-        "text": "3. ... Carry things?"
+        "text": "... Carry things?"
       }],
       "QS2_1": [{
         "id": "4",
-        "text": "4. ... Problems with your balance?"
+        "text": "... Problems with your balance?"
       }, {
         "id": "5",
-        "text": "5. ... Difficulties moving about indoors?"
+        "text": "... Difficulties moving about indoors?"
       }, {
         "id": "6",
-        "text": "6. ... Being clumsy?"
+        "text": "... Being clumsy?"
       }, {
         "id": "7",
-        "text": "7. ... Stiffness?"
+        "text": "... Stiffness?"
       }],
       "QS2_2": [{
         "id": "8",
-        "text": "8. ... Heavy arms and/or legs?"
+        "text": "... Heavy arms and/or legs?"
       }, {
         "id": "9",
-        "text": "9. ... Tremor of your arms or legs?"
+        "text": "... Tremor of your arms or legs?"
       }, {
         "id": "10",
-        "text": "10. ... Spasms in your limbs?"
+        "text": "... Spasms in your limbs?"
       }, {
         "id": "11",
-        "text": "11. ... Your body not doing what you want it to do?"
+        "text": "... Your body not doing what you want it to do?"
       }, {
         "id": "12",
-        "text": "12. ... Having to depend on others to do things for you?"
+        "text": "... Having to depend on others to do things for you?"
       }, {
         "id": "13",
-        "text": "13. ... Limitations in your social and leisure activities at home?"
+        "text": "... Limitations in your social and leisure activities at home?"
       }, {
         "id": "14",
-        "text": "14. ... Being stuck at home more than you would like to be?"
+        "text": "... Being stuck at home more than you would like to be?"
       }, {
         "id": "15",
-        "text": "15. ... Difficulties using your hands in everyday tasks?"
+        "text": "... Difficulties using your hands in everyday tasks?"
       }],
       "QS2_3": [{
         "id": "16",
-        "text": "16. ... Having to cut down the amount of time you spent on work or other daily activities?"
+        "text": "... Having to cut down the amount of time you spent on work or other daily activities?"
       }, {
         "id": "17",
-        "text": "17. ... Problems using transport (e.g. car, bus, train, taxi, etc.)?"
+        "text": "... Problems using transport (e.g. car, bus, train, taxi, etc.)?"
       }, {
         "id": "18",
-        "text": "18. ... Taking longer to do things?"
+        "text": "... Taking longer to do things?"
       }, {
         "id": "19",
-        "text": "19. ... Difficulty doing things spontaneously (e.g. going out on the spur of the moment)?"
+        "text": "... Difficulty doing things spontaneously (e.g. going out on the spur of the moment)?"
       }, {
         "id": "20",
-        "text": "20. ... Needing to go to the toilet urgently?"
+        "text": "... Needing to go to the toilet urgently?"
       }, {
         "id": "21",
-        "text": "21. ... Feeling unwell?"
+        "text": "... Feeling unwell?"
       }, {
         "id": "22",
-        "text": "22. ... Problems sleeping?"
+        "text": "... Problems sleeping?"
       }, {
         "id": "23",
-        "text": "23. ... Feeling mentally fatigued?"
+        "text": "... Feeling mentally fatigued?"
       }],
       "QS2_4": [{
         "id": "24",
-        "text": "24. ... Worries related to your MS?"
+        "text": "... Worries related to your MS?"
       }, {
         "id": "25",
-        "text": "25. ... Feeling anxious or tense?"
+        "text": "... Feeling anxious or tense?"
       }, {
         "id": "26",
-        "text": "26. ... Feeling irritable, impatient, or short tempered?"
+        "text": "... Feeling irritable, impatient, or short tempered?"
       }, {
         "id": "27",
-        "text": "27. ... Problems concentrating?"
+        "text": "... Problems concentrating?"
       }, {
         "id": "28",
-        "text": "28. ... Lack of confidence?"
+        "text": "... Lack of confidence?"
       }, {
         "id": "29",
-        "text": "29. ... Feeling depressed?"
+        "text": "... Feeling depressed?"
       }]
     }
   },
@@ -217,18 +209,6 @@
   "ZS-INSTRUCTION": "Choose according to the referencetable, the appropriate digit of the digittable to the symbol, in the table, from left to right.",
   "REFERENCETABLE": "Referencetable",
   "DIGITTABLE": "Digittable",
-  "ZS-INSTRUCTION_TEXT_1": "<b>How does the excersise work?</b>",
-  "ZS-INSTRUCTION_TEXT_2": "Each symbol is matches excatly to one digit.",
-  "ZS-INSTRUCTION_TEXT_3": "In the uppermost table, the referencetable, you see which digit matches which symbol.",
-  "ZS-INSTRUCTION_TEXT_4": "In the intermediate table, the solutiontable, only the symols are set, the appropriate digits are missing.",
-  "ZS-INSTRUCTION_TEXT_5": "In the bottommost table, the digittable, you see the digits, which you can tap. Tap allways on the digit that matches the symbol above the empty space in the solutiontable. You can look for the appropriate digit according to the definition in the referencetable.",
-  "ZS-INSTRUCTION_TEXT_6": "If you tap on <b>Next</b>, you start the prepartion. There you have 3 times the possibility to complete one row. As soon as you have completed one row correctly, the actual exercise begins.",
-  "ZS-INSTRUCTION_TEXT_7": "<b>Important</b>: During the exercise you should not be disturbed!",
-  "LABYRINTH-INSTRUCTION_TEXT_2": "The computer shows you a way through the labyrinth.<br><br>",
-  "LABYRINTH-INSTRUCTION_TEXT_3": "The way is shown you only <b>once</b>. <br> As soon as the demonstrated way of the computer reaches the end, it's your turn.",
-  "LABYRINTH-INSTRUCTION_TEXT_4": "Start at the Start (by tapping on start).",
-  "LABYRINTH-INSTRUCTION_TEXT_5": "Try afterwards to <b>tap</b> the points of the way in the same order as the computer has demonstrated it.",
-  "LABYRINTH-INSTRUCTION_TEXT_6": "The exercise is over, if you reach the end(by tapping on end).",
   "PAGE1OF4": "Page 1 of 4",
   "PAGE2OF4": "Page 2 of 4",
   "PAGE3OF4": "Page 3 of 4",
@@ -262,31 +242,31 @@
     }],
     "QUESTIONS": [{
       "id": "1",
-      "text": "1. My motivation is lower when I am fatigued."
+      "text": "My motivation is lower when I am fatigued."
     }, {
       "id": "2",
-      "text": "2. Exercise brings on my fatigue."
+      "text": "Exercise brings on my fatigue."
     }, {
       "id": "3",
-      "text": "3.  I am easily fatigued."
+      "text": "I am easily fatigued."
     }, {
       "id": "4",
-      "text": "4. Fatigue interferes with my physical functioning."
+      "text": "Fatigue interferes with my physical functioning."
     }, {
       "id": "5",
-      "text": "5. Fatigue causes frequent problems for me."
+      "text": "Fatigue causes frequent problems for me."
     }, {
       "id": "6",
-      "text": "6. My fatigue prevents sustained physical functioning."
+      "text": "My fatigue prevents sustained physical functioning."
     }, {
       "id": "7",
-      "text": "7. Fatigue interferes with carrying out certain duties and responsibilities."
+      "text": "Fatigue interferes with carrying out certain duties and responsibilities."
     }, {
       "id": "8",
-      "text": "8. Fatigue is among my most disabling symptoms."
+      "text": "Fatigue is among my most disabling symptoms."
     }, {
       "id": "9",
-      "text": "9. Fatigue interferes with my work, family, or social life."
+      "text": "Fatigue interferes with my work, family, or social life."
     }]
   }
 }

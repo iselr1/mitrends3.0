@@ -14,7 +14,7 @@
   "LOGININFO": "Info",
   "LOGOUT": "Logout",
   "IMPRESSUM": "Impressum",
-    "EMAIL_SUBJECT": "Frage MitrendS App",
+  "EMAIL_SUBJECT": "Frage MitrendS App",
   "UNDERSTOOD": "Verstanden",
   "IMP_TEXT": "Diese App wurde von der Abteilung Medizininformatik der Berner Fachhochschule für die Abteilung Neurologie des Universitätsspital Zürich entwickelt.",
   "IMP_CONTACT": "Sie haben eine Frage oder R&uuml;ckmeldung?",
@@ -106,7 +106,7 @@
       "label": "gar nicht"
     }, {
       "id": "2",
-      "label": "ein bisschen"
+      "label": "ein biss- chen"
     }, {
       "id": "3",
       "label": "mässig"

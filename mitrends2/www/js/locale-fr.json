@@ -7,59 +7,47 @@
   "WELCOME_STUDY": "Bonjour chez nôtre étude",
   "GO": "Allez!",
   "HOME": "Home",
-  "DATAPROTECTION": "Datenschutzerklärung",
-  "DATATEXT": "Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen ein. Persönliche Daten werden streng vertraulich behandelt und weder an Dritte verkauft noch weiter gegeben.",
+  "DATAPROTECTION": "Déclaration de confidentialité",
+  "DATATEXT": "Lors l'article 13 de la constitution fédérale de la confédération suisse et le loi fédérale sur la protection des données, chaque personne a le droit de la protection de leur intimité et en même temps la protection d'abus de leur personel données. Nous respectons ces dispositions. Les seuls données qui sont collécte avec cette application sont les resultat et les réponses des test et ces données sont traiter comme tout les données collécte pendent une visite en hôpital. Les données sont traiter strictement confidentiel et n'est pas vendus ou transmis à des tiers.",
   "LOGIN": "Login",
-  "LOGINERRORTEXT": "User oder Passwort falsch",
+  "LOGINERRORTEXT": "Utilisateur ou mot de passe fausse",
   "LOGININFO": "Info",
   "LOGOUT": "Logout",
   "IMPRESSUM": "Empreinte",
   "EMAIL_SUBJECT": "Question MitrendS App",
-  "UNDERSTOOD": "Verstanden",
-  "IMP_TEXT": "Diese App wurde von der Abteilung Medizininformatik der Berner Fachhochschule für die Abteilung Neurologie des Unispitals Zürich entwickelt.",
+  "UNDERSTOOD": "Compris",
+  "IMP_TEXT": "L'application était implémenté du filière universitaire informatique médicale de la haute école spécialisée bernoise pour la clinique neurologique de l'hôpital universitaire de Zurich.",
   "IMP_CONTACT": "Vous avez une question ou un feedback?",
-  "IMP_WRITE": "Envoyez nous un E-Mail",
+  "IMP_WRITE": "Envoyez nous un e-mail",
   "OVERVIEW": "Home",
-  "EXCERCISES": "Übungen",
-  "CONGRATULATIONS": "Gratulation",
-  "CONGRATULATIONS_TEXT": "Vielen Dank fürs Mitmachen!",
-  "DONE": "Réussi!",
-  "PLEASE": "S'il vous plaît choissisez pour chaque question une réponse",
-  "QUESTIONNAIRES": "Fragebogen",
-  "MAINSYMPTOMS": "Kernsymptome",
-  "MAINSYMPTOMS_CAPTURE": "Kernsymptome erfassen",
-  "EXCERCISES_RUNTROUGH": "Übungen durchführen",
-  "DO_MORE_EXCERCISES": "Weitere Übungen durchführen",
-  "LABYRINTH": "Labyrinth",
-  "LAB_VIDEO": "Labyrinth instruction en vidéo",
-  "LABYRINTH_INSTRUCTION": "Labyrinth instruction",
-  "SYMBOL_DIGIT": "Zahl-Symbol",
-  "SD_VIDEO": "Zahl-Symbol Videoanleitung",
-  "SD_PREPARATION": "Zahl-Symbol préparation",
-  "SD_INSTRUCTION": "Zahl-Symbol instruction",
-  "MOTOR_SKILLS": "Motorik",
-  "VARIABLES_MIDATA": "Variablen für MIDATA",
-  "TRY_LAB": "Labyrinth Übung",
-  "TRY_LAB_TEXT": "Versuchen Sie nun den vorgezeigten Weg nachzumachen. <br><br> Beginnen Sie beim Punkt START!!",
-  "MIND_WAY": "!! Bitte merken Sie sich den Weg !!",
-  "DO_WAY": "!! Bitte versuchen Sie den vorgezeigten Weg nachzumachen !!",
+    "DONE": "Géré!",
+  "PLEASE": "S'il vous plaît choissisez une réponse pour chaque question",
+  "QUESTIONNAIRES": "Questionnaire",
+  "MAINSYMPTOMS": "Part 1 de 5 - Symptôme de fond",
+  "LABYRINTH": "Part 4 de 5 - Labyrinthe",
+  "LAB_VIDEO": "Part 4 de 5 - Labyrinthe instruction en vidéo",
+  "SYMBOL_DIGIT": "Part 2 de 5 - Chiffre-Symbole",
+  "SD_VIDEO": "Part 2 de 5 - Chiffre-Symbole instruction en vidéo",
+  "SD_PREPARATION": "Part 2 de 5 - Chiffre-Symbole essai",
+  "TRY_LAB": "Labyrinthe exercice",
+  "TRY_LAB_TEXT": "Ihnen wird nun ein Weg vorgezeigt, den Sie anschliessend nachmachen sollen. Klicken Sie auf OK sobald sie bereit sind.",
   "CORE": {
     "AHAND": [{
       "id": "1",
-      "label": "Rechtshänder"
+      "label": "Droitier"
     }, {
       "id": "2",
-      "label": "Linkshänder"
+      "label": "Gaucher"
     }, {
       "id": "3",
-      "label": "Beidhänder"
+      "label": "Ambidextre"
     }],
     "AYN": [{
       "id": "true",
-      "label": "Ja"
+      "label": "Oui"
     }, {
       "id": "false",
-      "label": "Nein"
+      "label": "Non"
     }],
     "ASMILE": [{
       "id": "1",
@@ -79,168 +67,154 @@
     }]
 
   },
-  "Q1CORE": "Sie sind...",
-  "Q2COREL": "Haben Sie eine Bewegungseinschränkung in der linken Hand?",
-  "Q2CORER": "Haben Sie eine Bewegungseinschränkung in der rechten Hand?",
-  "Q3COREL": "Haben Sie eine Gefühlsstörung in der linken Hand?",
-  "Q3CORER": "Haben Sie eine Gefühlsstörung in der rechten Hand?",
-  "Q4CORE": "Wie fühlen Sie sich heute?",
-  "Q5CORE": "Wie beurteilen Sie ihre momentane Konzentrationsfähigkeit?",
-  "Q6CORE": "Hatten Sie seit der letzen Übung einen Schub?",
-  "Q7CORE": "Haben Ihre MS Symptome seit der letzten Übung zugenommen?",
+  "Q1CORE": "Êtes-vous...",
+  "Q2COREL": "Est-ce que vous avez une restriction de mouvement en main gauche?",
+  "Q2CORER": "Est-ce que vous avez une restriction de mouvement en main droite?",
+  "Q3COREL": "Est-ce que vous avez une perturbation de sensation en main gauche?",
+  "Q3CORER": "Est-ce que vous avez une perturbation de sensation en main droite?",
+  "Q4CORE": "Comment vous sentez-vous aujourd'hui?",
+  "Q5CORE": "Comment vous jugez vôtre pouvoir de concentration en ce moment?",
+  "Q6CORE": "Est-ce que vous avez eu un poussée depuis la dernière exercice?",
+  "Q7CORE": "Est-ce que vôtre symptômes de SEP ont gangé en intensité depuis la dernière exercice?",
 
-  "RIGHTHANDED": "Rechtshänder",
-  "LEFTHANDED": "Linkshänder",
-  "BOTHHANDED": "Beidhänder",
-  "YES": "Ja",
-  "NO": "Nein",
-  "SAVE": "Speichern",
-  "BACK": "Zurück",
-  "NEXT": "Weiter",
-  "COMMENT": "Kommentare/Rückmeldung zur Übung:",
-  "DIGIT": "Zahl",
-  "SYMBOL": "Symbol",
+  "RIGHTHANDED": "Droitier",
+  "LEFTHANDED": "Gaucher",
+  "BOTHHANDED": "Ambidextre",
+  "YES": "Oui",
+  "NO": "Non",
+  "SAVE": "Sauvegarder",
+  "BACK": "Retour",
+  "NEXT": "Continuer",
+  "COMMENT": "Commentaires/réaction d'exercice:",
+  "DIGIT": "Chiffre",
+  "SYMBOL": "Symbole",
   "INFO": "Info",
-  "TEMPLATEPOPUP_NEXTPREPZS": "Nun startet die VORBEREITUNG, die eigentliche Übung mit begrenzter Zeitdauer beginnt danach.",
-  "SDTEMPLATE_POPUP": "Die Vorbereitung ist nun abgeschlossen. Sobald Sie OK drücken beginnt die eigentliche Übung.",
-  "MSIS-29": "MSIS-29",
+  "TEMPLATEPOPUP_NEXTPREPZS": "Maintenant le essai est lancé, après l'exercice principale est lancé.",
+  "SDTEMPLATE_POPUP": "Le essai est terminé. Dès que vous cliquez sur OK l'exercice principale commence.",
+  "MSIS-29": "Part 3 de 5 - MSIS-29",
   "MSIS": {
     "RADIOS": [{
       "id": "1",
-      "label": "gar nicht"
+      "label": "pas du tout"
     }, {
       "id": "2",
-      "label": "ein bisschen"
+      "label": "un peu"
     }, {
       "id": "3",
-      "label": "mässig"
     }, {
       "id": "4",
-      "label": "ziemlich"
+      "label": "beaucoup"
     }, {
       "id": "5",
-      "label": "sehr"
     }],
     "QUESTIONS": {
       "QS1": [{
         "id": "1",
-        "text": "1. ... körperlich anstrengende Dinge zu tun?"
+        "text": "Faire des tâches exigeant des efforts physiques?"
       }, {
         "id": "2",
-        "text": "2. ... Dinge fest anzufassen (z.B. Hahn aufdrehen)?"
+        "text": "Serrer fort un objet(ex tourner un robinet)?"
       }, {
         "id": "3",
-        "text": "3. ... Dinge zu tragen?"
+        "text": "Porter quelque chose?"
       }],
       "QS2_1": [{
         "id": "4",
-        "text": "4. ... Probleme mit dem Gleichgewicht?"
+        "text": "Des problèmes d'équilibre?"
       }, {
         "id": "5",
-        "text": "5. ... Schwierigkeiten, sich in der Wohnung zu bewegen?"
+        "text": "Des difficultés pour vous déplacer à l'intérieur"
       }, {
         "id": "6",
-        "text": "6. ... ungeschickt zu sein?"
+        "text": "La maladresse?"
       }, {
         "id": "7",
-        "text": "7. ... steif zu sein"
+        "text": "La raideur"
       }],
       "QS2_2": [{
         "id": "8",
-        "text": "8. ... schwere Arme und/oder Beine zu haben?"
+        "text": "Une sensation de bras et/ou jambe lourds?"
       }, {
         "id": "9",
-        "text": "9. ... Zittern der Arme oder Beine zu haben?"
+        "text": "Des tremblements des bras ou des jambes?"
       }, {
         "id": "10",
-        "text": "10. ... Krämpfe der Extremitäten zu haben?"
+        "text": "Des spasmes dans les  membres?"
       }, {
         "id": "11",
-        "text": "11. ... dass ihr Körper nicht tat, was Sie wollten?"
+        "text": "Votre corps qui ne fait pas ce que vous voulez?"
       }, {
         "id": "12",
-        "text": "12. ... dass Sie davon abhingen, dass andere Dinge für Sie erledigten?"
+        "text": "La nécessité de dépendre des autres pour qu'ils fassent des choses à votre place?"
       }, {
         "id": "13",
-        "text": "13. ... Beeinträchtigung im sozialen und Freizeitleben zu Hause?"
+        "text": "Des limitation das vos acitvités sociales et loisirs à la maison?"
       }, {
         "id": "14",
-        "text": "14. ... gezwungen zu sein, zu Hause zu bleiben?"
+        "text": "Etre coincé à la maison plus que vous le souhaitez?"
       }, {
         "id": "15",
-        "text": "15. ... Probleme der Hände bei Alltagstätigkeiten?"
+        "text": "Des difficultés à vous servir de vos mains pour des tâches quotidiennes?"
       }],
       "QS2_3": [{
         "id": "16",
-        "text": "16. ... die Zeit für Arbeit oder Alltagsaktivitäten einzuschränken?"
+        "text": "L'obligation de diminuer le temps passé à travailler ou faire d'autres activités quotidiennes?"
       }, {
         "id": "17",
-        "text": "17. ... Probleme sich fortzubewegen (Auto, Bus, Taxis,Zug)?"
+        "text": "Des problèmes pour utiliser les transports(ex voiture, bus, train, taxi etc.)?"
       }, {
         "id": "18",
-        "text": "18. ... länger für Dinge zu brauchen?"
+        "text": "Le fait de passer plus de temps pour faire quelque chose?"
       }, {
         "id": "19",
-        "text": "19. ... Schwierigkeiten, Dinge spontan zu machen?"
+        "text": "La difficulté à faire des choses spontanées(ex sortir spontanément)?"
       }, {
         "id": "20",
-        "text": "20. ... ganz schnell zur Toilette zu müssen?"
+        "text": "Un envie pressante d'aller aux toilette?"
       }, {
         "id": "21",
-        "text": "21. ... sich allgemein unwohl zu fühlen?"
+        "text": "Le fait de ne pas vous sentir bien?"
       }, {
         "id": "22",
-        "text": "22. ... Schlafprobleme zu haben?"
+        "text": "Des problèmes de sommeil?"
       }, {
         "id": "23",
-        "text": "23. ... sich geistig/mental müde zu fühlen?"
+        "text": "Une fatigue mentale?"
       }],
       "QS2_4": [{
         "id": "24",
-        "text": "24. ... Sorgen bezogen auf MS zu haben?"
+        "text": "Des inquiétudes liées à la SEP?"
       }, {
         "id": "25",
-        "text": "25. ... sich angespannt und ängstlich zu fühlen?"
+        "text": "Le fait de vous sentir anxieux ou tendu?"
       }, {
         "id": "26",
-        "text": "26. ... sich störbar, ungeduldig und aufbrausend zu fühlen?"
+        "text": "Le fait de vous sentir irritable, impatient ou facilement en colère?"
       }, {
         "id": "27",
-        "text": "27. ... Konzentrationsprobleme zu haben?"
+        "text": "Des difficultés à vous concentrer?"
       }, {
         "id": "28",
-        "text": "28. ... keine Zuversicht zu haben?"
+        "text": "Un manque de confiance en vous?"
       }, {
         "id": "29",
-        "text": "29. ... sich traurig/depressiv zu fühlen?"
+        "text": "Le fait de vous sentir déprimé?"
       }]
     }
   },
-  "MSISQS1": "Wie sehr waren Sie in den letzen 2 Wochen eingeschränkt…",
-  "MSISQS2": "Wie sehr waren Sie in den letzen 2 Wochen beeinträchtigt durch...",
-  "ZS-INSTRUCTION": "Wählen Sie anhand der Referenztabelle aus der Zahlentabelle die passende Zahl zum Symbol oberhalb der grünen Fläche.",
-  "REFERENCETABLE": "Referenztabelle",
-  "DIGITTABLE": "Zahlentabelle",
-  "ZS-INSTRUCTION_TEXT_1": "<b>Wie funktioniert die Übung?</b>",
-  "ZS-INSTRUCTION_TEXT_2": "Jedes Symbol ist genau einer Zahl zugeordnet.",
-  "ZS-INSTRUCTION_TEXT_3": "In der obersten Tabelle, der Referenztabelle, sehen Sie welche Zahl welchem Symbol zugeordnet ist.",
-  "ZS-INSTRUCTION_TEXT_4": "In der mittleren Tabelle, der Lösungstabelle, sind nur Symbole eingetragen, die passenden Zahlen fehlen.",
-  "ZS-INSTRUCTION_TEXT_5": "In der untersten Tabelle, der Zahlentabelle, sehen Sie die Zahlen, welche Sie anklicken können. Klicken Sie jeweils die Zahl an, welche zum Symbol passt, das sich in der Lösungstabelle oberhalb des leeren Feldes befindet. Die passende Zahl finden Sie anhand der Referenztabelle heraus.",
-  "ZS-INSTRUCTION_TEXT_6": "Durch klicken auf <b>Weiter</b>, beginnen Sie die Vorbereitung. Dort haben Sie dreimal die Möglichkeit eine Reihe auszufüllen. Sobald Sie eine komplette Reihe korrekt ausgefüllt haben, beginnt die eigentliche Übung.",
-  "ZS-INSTRUCTION_TEXT_7": "<b>Wichtig</b>: Sie sollten bei dieser Übung ungestört sein!",
-  "LABYRINTH-INSTRUCTION_TEXT_2": "Der Computer gibt Ihnen einen Weg durch das Labyrinth vor.<br><br>",
-  "LABYRINTH-INSTRUCTION_TEXT_3": "Der Weg wird Ihnen <b>einmal</b> gezeigt. <br> Sobald der Weg vom Computer bei ENDE angelangt ist, sind Sie dran.",
-  "LABYRINTH-INSTRUCTION_TEXT_4": "Beginnen Sie bei START (auf Start tippen). ",
-  "LABYRINTH-INSTRUCTION_TEXT_5": "Versuchen Sie danach die Punkte des Weges in der gleichen Reihenfolge <b>anzutippen</b>, wie Sie der Computer vorgezeigt hat.",
-  "LABYRINTH-INSTRUCTION_TEXT_6": "Die Übung ist beendet, wenn Sie beim Ende angelangt sind (auf Ende tippen).",
-  "PAGE1OF4": "Seite 1 von 4",
-  "PAGE2OF4": "Seite 2 von 4",
-  "PAGE3OF4": "Seite 3 von 4",
-  "PAGE4OF4": "Seite 4 von 4",
-  "FATIGUE_SS": "Fatigue Severity Scale",
-  "FSS_Q": "Ich finde, dass während der vergangenen Woche folgedes zutraf:",
-  "AGREE_COMPLETELY": "Stimme vollkommen zu = 7",
-  "AGRRE_NOT": "Stimme gar nicht zu = 1",
+  "MSISQS1": "Au cours des deux dernières semaines dans quelle mesure votre SEP a restreint votre capacité à:",
+  "MSISQS2": "Au cours des deux dernières semaines, dans quelle mesure avez-vous été gêné par:",
+  "ZS-INSTRUCTION": "Choissisez à l'aide de la table de reference de la table des chiffres les bonnes chiffres pour les symboles au-dessus, de gauche a droite.",
+  "REFERENCETABLE": "Table de reference",
+  "DIGITTABLE": "Table de chiffres",
+  "PAGE1OF4": "Page 1 de 4",
+  "PAGE2OF4": "Page 2 de 4",
+  "PAGE3OF4": "Page 3 de 4",
+  "PAGE4OF4": "Page 4 de 4",
+  "FATIGUE_SS": "Part 5 de 5 - Fatigue Severity Scale",
+  "FSS_Q": "Au cours de la semaine précédente, j'ai trouvé que:",
+  "AGREE_COMPLETELY": "Tout à fait d'accord = 7",
+  "AGRRE_NOT": "Pas du tout d'accord = 1",
   "FSS": {
     "RADIOS": [{
       "id": "1",
@@ -266,31 +240,31 @@
     }],
     "QUESTIONS": [{
       "id": "1",
-      "text": "1. Ich bin weniger motiviert, wenn ich müde bin."
+      "text": "Ma motivation est plus basse quand je suis fatigué."
     }, {
       "id": "2",
-      "text": "2. Körperliche Bewegung macht mich müde."
+      "text": "Faire de l'exercice me fatigue."
     }, {
       "id": "3",
-      "text": "3. Ich ermüde rasch."
+      "text": "Je suis facilement fatigue."
     }, {
       "id": "4",
-      "text": "4. Meine Müdigkeit beeinträchtigt meine körperliche Leistungsfähigkeit"
+      "text": "La fatigue a des conséquences sur mon fonctionnement physique."
     }, {
       "id": "5",
-      "text": "5. Meine Müdigkeit bereitet mir oft Probleme."
+      "text": "La fatigue me cause des problèmes fréquents."
     }, {
       "id": "6",
-      "text": "6. Meine Müdigkeit verhindert längerdauernde körperliche Tätigkeiten."
+      "text": "La fatigue me contraint à un effort physique soutenu."
     }, {
       "id": "7",
-      "text": "7. Meine Müdigkeit beeinträchtigt mich, gewisse Pflichten und Verantwortungen zu erfüllen."
+      "text": "La fatigue me pose des problèmes quant à certaines tâches ou certaines responsabilités."
     }, {
       "id": "8",
-      "text": "8. Meine Müdigkeit gehört zu den drei Beschwerden, die mich am meisten behindern."
+      "text": "La fatigue est parmi les 3 symptômes qui me posent le plus de problèmes."
     }, {
       "id": "9",
-      "text": "9. Meine Müdigkeit beeinträchtigt meine Arbeit, meine Familie oder mein soziales Leben."
+      "text": "La fatigue interfère avec mon travail ma famille et ma vie sociale."
     }]
   }
 }

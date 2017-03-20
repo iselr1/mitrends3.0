@@ -70,14 +70,14 @@ angular.module('starter', ['ionic', 'ngCordova', 'ionic-datepicker', 'ionic-time
       //register the supported languages, if the languages is other than the supported set it to the german file
       .registerAvailableLanguageKeys(['fr', 'de', 'en'], {
         'fr_*': 'fr',
-        'de_*': 'de',
+        'de_*': 'fr',
         'en_*': 'en',
         '*': 'de'
       })
       //determine the system language
       .determinePreferredLanguage()
       //if the system language can't be determined set it to german
-      .fallbackLanguage('de');
+      .fallbackLanguage('fr');
     $translateProvider.useSanitizeValueStrategy('sanitize');
 
     // Ionic uses AngularUI Router which uses the concept of states
@@ -189,6 +189,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'ionic-datepicker', 'ionic-time
         controller: 'LabyrinthVideoCtrl'
       })
 
-    $urlRouterProvider.otherwise('/home')
+    $urlRouterProvider.otherwise('/labyrinth')
 
   });
