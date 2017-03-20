@@ -92,7 +92,7 @@ angular.module('starter.controllersSarah', [])
   // to display the next button after 60 seconds
   $timeout(function() {
     $scope.hideButton = false;
-  }, 5000);
+  }, 10000);
 })
 
 /* -- Controller for Labyrinth View -- */
