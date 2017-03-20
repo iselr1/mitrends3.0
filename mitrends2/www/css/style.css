@@ -118,7 +118,20 @@ body {
   flex: 0 0 58%;
   max-width: 58%;
 }
-
+.row-3 {
+  -webkit-box-flex: 0 !important;
+  -moz-box-flex: 0 !important;
+  -webkit-flex: 0 1 3% !important;
+  -ms-flex: 0 1 3% !important;
+  flex: 0 1 3% !important;
+}
+.row-5 {
+  -webkit-box-flex: 0 !important;
+  -moz-box-flex: 0 !important;
+  -webkit-flex: 0 1 5% !important;
+  -ms-flex: 0 1 5% !important;
+  flex: 0 1 5% !important;
+}
 .row-8 {
   -webkit-box-flex: 0 !important;
   -moz-box-flex: 0 !important;
