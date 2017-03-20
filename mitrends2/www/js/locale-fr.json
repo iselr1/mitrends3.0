@@ -20,7 +20,7 @@
   "IMP_CONTACT": "Vous avez une question ou un feedback?",
   "IMP_WRITE": "Envoyez nous un e-mail",
   "OVERVIEW": "Home",
-    "DONE": "Géré!",
+  "DONE": "Géré!",
   "PLEASE": "S'il vous plaît choissisez une réponse pour chaque question",
   "QUESTIONNAIRES": "Questionnaire",
   "MAINSYMPTOMS": "Part 1 de 5 - Symptôme de fond",
@@ -31,8 +31,8 @@
   "SD_PREPARATION": "Part 2 de 5 - Chiffre-Symbole essai",
   "TRY_LAB": "Labyrinthe exercice",
   "TRY_LAB_TEXT": "Un chemin qui vous devez imiter ensuite est montré. Cliquez sur OK quand vous êtes prêt.",
-  "MIND_WAY": "!! S'il vous pla&icirc;t, m&eacute;morisez-vous le chemin!!",
-  "DO_WAY": "!! S'il vous pla&icirc;t, essayez de imiter le chemin pr&eacute;sent&eacute; !!",
+  "MIND_WAY": "!! S'il vous plaît, mémorisez-vous le chemin!!",
+  "DO_WAY": "!! S'il vous plaît, essayez de imiter le chemin présenté; !!",
   "CORE": {
     "AHAND": [{
       "id": "1",
