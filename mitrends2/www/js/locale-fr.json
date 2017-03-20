@@ -31,6 +31,8 @@
   "SD_PREPARATION": "Part 2 de 5 - Chiffre-Symbole essai",
   "TRY_LAB": "Labyrinthe exercice",
   "TRY_LAB_TEXT": "Ihnen wird nun ein Weg vorgezeigt, den Sie anschliessend nachmachen sollen. Klicken Sie auf OK sobald sie bereit sind.",
+  "MIND_WAY": "!! S'il vous pla&icirc;t, m&eacute;morisez-vous le chemin!!",
+  "DO_WAY": "!! S'il vous pla&icirc;t, essayez de imiter le chemin pr&eacute;sent&eacute; !!",
   "CORE": {
     "AHAND": [{
       "id": "1",
@@ -101,11 +103,13 @@
       "label": "un peu"
     }, {
       "id": "3",
+      "label": "moyennement"
     }, {
       "id": "4",
       "label": "beaucoup"
     }, {
       "id": "5",
+      "label": "énormément"
     }],
     "QUESTIONS": {
       "QS1": [{
