@@ -15,8 +15,6 @@ body {
 }
 
 .scroll {
-  display: table-cell;
-  vertical-align: middle;
 }
 
 .scroll {
@@ -33,6 +31,9 @@ body {
   -webkit-flex-direction: column !important;
   -ms-flex-direction: column !important;
   flex-direction: column !important;
+}
+.msis-special-line-height{
+  line-height: 100%;
 }
 
 .label {
@@ -59,16 +60,26 @@ body {
   position: relative;
   top: 100%;
   transform: perspective(1px) translateY(-90%);
-  /*
+/*
       -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);
+
       link: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
       */
 }
 
 .col {
   height: 100% !important;
+}
+.col-4 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 4%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 4%;
+  -ms-flex: 0 0 4%;
+  flex: 0 0 4%;
+  max-width: 4%;
 }
 .col-48 {
   -webkit-box-flex: 0;
@@ -87,6 +98,25 @@ body {
   -ms-flex: 0 0 68%;
   flex: 0 0 68%;
   max-width: 68%;
+}
+.col-54 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 54%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 54%;
+  -ms-flex: 0 0 54%;
+  flex: 0 0 54%;
+  max-width: 54%;
+}
+
+.col-58 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 58%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 58%;
+  -ms-flex: 0 0 58%;
+  flex: 0 0 58%;
+  max-width: 58%;
 }
 
 .row-8 {
@@ -192,11 +222,6 @@ body {
 }
 
 
-/* Vertical in the grid*/
-
-.col-align-center {
-  align-self: center !important;
-}
 
 .zs-col {
   border: 2.5px solid black;
@@ -226,6 +251,10 @@ input[type="radio"]:checked {
 
 #msis {
   width: 45%;
+  height: 100%;
+}
+#msis3 {
+  width: 50%;
   height: 100%;
 }
 
