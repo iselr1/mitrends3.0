@@ -472,7 +472,6 @@ angular.module('starter.controllersSarah', [])
   /* -- Now its Your Turn to draw -- */
   nowDoIt = function() {
     // write the letters in Arial, 16 pt in white
-    ctx.clearRect((ctx.canvas.width / 2) - 250, 3, 500, 35);
     ctx.font = 'bold 18pt Arial';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
