@@ -70,14 +70,14 @@ angular.module('starter', ['ionic', 'ngCordova', 'ionic-datepicker', 'ionic-time
       //register the supported languages, if the languages is other than the supported set it to the german file
       .registerAvailableLanguageKeys(['fr', 'de', 'en'], {
         'fr_*': 'fr',
-        'de_*': 'fr',
+        'de_*': 'de',
         'en_*': 'en',
         '*': 'de'
       })
       //determine the system language
       .determinePreferredLanguage()
       //if the system language can't be determined set it to german
-      .fallbackLanguage('fr');
+      .fallbackLanguage('de');
     $translateProvider.useSanitizeValueStrategy('sanitize');
 
     // Ionic uses AngularUI Router which uses the concept of states

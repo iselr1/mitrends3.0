@@ -202,7 +202,7 @@ angular.module('starter.controllersRea', [])
     // to display the next button after 60 seconds
     $timeout(function() {
       $scope.hideButton = false;
-    }, 5000);
+    }, 15000);
   })
 
   //--------------------------------------------------------//

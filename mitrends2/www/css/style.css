@@ -137,6 +137,15 @@ body {
   flex: 0 0 48%;
   max-width: 48%;
 }
+.col-62 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 62.5%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 62.5%;
+  -ms-flex: 0 0 62.5%;
+  flex: 0 0 62.5%;
+  max-width: 62.5%;
+}
 .col-68 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 68%;
