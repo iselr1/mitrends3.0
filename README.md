@@ -1,1 +1,1 @@
-# MitrendS 2.0
+# MitrendS 3.0
