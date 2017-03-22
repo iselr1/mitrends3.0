@@ -1,0 +1,78 @@
+.pointstest {
+    position: fixed;
+    width: 100%;
+    /* Substract the height of the topbar, TODO: Is this the same on every device/resolution? */
+    height: calc(100% - 43px);
+}
+
+.pointstest .triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid red;
+}
+
+.pointstest .triangle-bbox {
+
+}
+
+.pointstest .stats-container {
+    float: right;
+    font-weight: bold;
+}
+
+.pointstest .counter-container {
+    border-radius: 5px;
+    display: inline-block;
+    border: 1px solid gray;
+    margin: 5px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    background-color: #eee;
+}
+
+.pointstest .counter-header {
+    padding: 2px 5px;
+    border-bottom: 1px solid gray;
+}
+
+.pointstest .counter-content {
+    padding: 25px 5px;
+    font-size: 4em;
+}
+
+.pointstest .time-counter {
+}
+
+.pointstest .figure-counter {
+    color: green;
+}
+
+
+.pointstest .overlay {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    z-index: 9999;
+    position: fixed;
+    padding-top: 200px;
+}
+
+.pointstest .overlay .buttons {
+    width: 400px;
+    text-align: center;
+}
+
+.pointstest .overlay button {
+    font-size: 2em;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 25px -5px rgba(0,0,0,0.75);
+    font-weight: bold;
+    height: 100px;
+    width: 100%;
+}
+
+

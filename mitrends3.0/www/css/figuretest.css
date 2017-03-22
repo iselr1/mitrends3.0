@@ -1,0 +1,130 @@
+#DashBoardBody{
+  margin-left: 5%;
+  margin-right: 2%;
+}
+
+
+#BodyExam{}
+
+
+#startFigureZone, #targetFigureZone{
+  //border: 3px solid red;
+  height: 40%;
+}
+
+
+#startFigureZoneLeft, #targetFigureZoneLeft{
+  //border: 3px solid green;
+  height: 70%;
+  width: 20%;
+}
+
+#startFigureZoneLeft{
+  margin-left: 5%;
+}
+
+
+#targetFigureZoneLeft{
+  margin-right: 5%;
+  margin-left: auto;
+}
+
+
+#startTriangleLeft, #targetTriangleLeft {
+    width: 0;
+    height: 0;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-bottom: 150px solid #29e;
+    //margin-left: 4px;
+    background-color: transparent;
+  }
+
+
+#figure1, #figure2, #figure3, #targetFigure1, #targetFigure2, #targetFigure3{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: #29e;
+}
+
+
+#startFigure1PointTop, #targetFigure1PointTop, #startFigure1PointLeft, #targetFigure1PointLeft, #startFigure1PointRight, #targetFigure1PointRight{
+  border: 0px solid red;
+  width: 100px;
+  height: 100px;
+}
+
+
+#startFigure1PointTop, #targetFigure1PointTop{
+margin-left: 30px;
+margin-top: -10%;
+//position: absolute;
+}
+
+#startFigure1PointLeft, #targetFigure1PointLeft{
+  margin-left: -50px;
+  margin-top: 40px;
+  //position: absolute;
+}
+
+#startFigure1PointRight, #targetFigure1PointRight{
+  margin-left: 100px;
+  margin-top: -100px;
+  //position: absolute;
+}
+
+#startFigureLeft, #targetFigureLeft{
+margin-left: 5%;
+//background-color: transparent;
+//overflow: hidden;
+}
+
+
+#outer-dropzone {
+  height: 140px;
+}
+
+#inner-dropzone {
+  height: 80px;
+}
+
+.dropzone {
+  //background-color: #ccc;
+  border: dashed 4px transparent;
+  border-radius: 4px;
+  //margin: 10px auto 30px;
+  //padding: 10px;
+  //width: 80%;
+  transition: background-color 0.3s;
+}
+
+.drop-active {
+  border-color: #aaa;
+}
+
+.drop-target {
+  //background-color: #29e;
+  border-color: #fff;
+  border-style: solid;
+}
+
+.drag-drop {
+  display: inline-block;
+  min-width: 40px;
+  padding: 2em 0.5em;
+
+  color: #fff;
+  background-color: #29e;
+  border: solid 2px #fff;
+
+  -webkit-transform: translate(0px, 0px);
+          transform: translate(0px, 0px);
+
+  transition: background-color 0.3s;
+}
+
+.drag-drop.can-drop {
+  color: #000;
+  background-color: #4e4;
+}

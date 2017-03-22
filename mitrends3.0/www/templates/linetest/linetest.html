@@ -1,0 +1,77 @@
+<ion-view title="Motorik-Test 2">
+
+  <ion-content scroll="false" class="line-test" ng-show="!showSummary">
+
+    <div class="row">
+      <div class="col-80">
+        <div class="line-canvas-container">
+          <canvas class="line-canvas" width="800" height="620">
+          </canvas>
+        </div>
+      </div>
+
+      <div class="col-20">
+        <div class="row">
+            <div class="col">
+          <h1 class="message" ng-show="done" ng-bind="endMessage"></h1>
+          </div>
+        </div>
+        <div class="row"></div>
+        <div class="row">
+          <button class="restart-button button button-block button-positive button-large"
+            ng-click="restart()"
+            ng-show="canRestart">Neustart</button>
+          <button class="next-button button button-block button-balanced button-large"
+            ng-click="nextTest()"
+            ng-show="canDoNext">Weiter</button>
+        </div>
+        <div class="row">
+          <div class="list card" ng-show="success">
+            <a href="javascript:;" class="item item-icon-left">
+              <i class="icon ion-ios-star"></i>
+              <span class="score-display" ng-bind="score1"></span>
+            </a>
+            <a href="javascript:;" class="item item-icon-left">
+              <i class="icon ion-ios-star"></i>
+              <span class="score-display" ng-bind="score2"></span>
+            </a>
+            <a href="javascript:;" class="item item-icon-left">
+              <i class="icon ion-ios-stopwatch"></i>
+              <span class="time-display" ng-bind="time"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  <!--For the study we don't want to show any summary-->
+<!--
+  <ion-content scroll="true" ng-show="showSummary">
+    <h1>Zusammenfassung</h1>
+
+    <div class="card">
+      <div ng-repeat="res in resultHistory" class="item item-text-wrap">
+        <div class="row">
+          <div class="col" inject-element="res.canvas"></div>
+          <div class="col">
+            <div class="list card" ng-show="success">
+              <a href="javascript:;" class="item item-icon-left">
+                <i class="icon ion-ios-star"></i>
+                <span class="score-display"> {{:: res.score1 }} </span>
+              </a>
+              <a href="javascript:;" class="item item-icon-left">
+                <i class="icon ion-ios-star"></i>
+                <span class="score-display"> {{:: res.score2 }} </span>
+              </a>
+              <a href="javascript:;" class="item item-icon-left">
+                <i class="icon ion-ios-stopwatch"></i>
+                <span class="time-display"> {{:: res.time }} </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>-->
+
+</ion-view>

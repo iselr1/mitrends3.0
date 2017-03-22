@@ -17,12 +17,12 @@
       }
     </script>-->
 
+  <!-- Styles -->
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-
-  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
+  <link href="css/ionic.app.css" rel="stylesheet">
+  <link href="css/pointstest.css" rel="stylesheet">
+  <link href="css/figuretest.css" rel="stylesheet"> -->
 
   <!-- ionic/angularjs js -->
   <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -35,16 +35,45 @@
   <script src="js/midataServices.js"></script>
   <script src="lib/midata.js/dist/midata.js"></script>
 
-  <!-- ADD DEPENDENCIES LINKS -->
+  <!-- Serveral Libraries -->
   <script src="lib/angular-translate/angular-translate.min.js"></script>
   <script src="lib/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+  <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="lib/bower_components/d3/d3.min.js"></script>
+  <script src="lib/bower_components/lodash/lodash.js"></script>
+  <script src="lib/bower_components/eventemitter3/index.js"></script>
 
-  <!-- your app's js -->
+  <!-- Application -->
+  <script src="js/uszapp.routes.js"></script>
+  <script src="js/AppCtrl.js"></script>
+  <script src="js/LoginCtrl.js"></script>
   <script src="js/app.js"></script>
   <script src="js/controllers.js"></script>
   <script src="js/controllersRea.js"></script>
   <script src="js/controllersSarah.js"></script>
   <script src="js/services.js"></script>
+
+  <!-- Tests -->
+  <!-- Shared code -->
+  <script src="js/util/MouseTracker.js"></script>
+  <!-- (1) Point test -->
+  <script src="js/pointstest/pointstest.module.js"></script>
+  <script src="js/pointstest/PointsTestCtrl.js"></script>
+  <script src="js/pointstest/pointstest.util.js"></script>
+  <script src="js/pointstest/PointsTest.js"></script>
+  <script src="js/pointstest/PointsTestRoundCtrl.js"></script>
+  <script src="js/pointstest/Triangle.js"></script>
+  <script src="js/pointstest/Point.js"></script>
+  <!-- (2) Line test -->
+  <script src="js/linetest/linetest.module.js"></script>
+  <script src="js/linetest/StartArea.js"></script>
+  <script src="js/linetest/ReferenceLine.js"></script>
+  <script src="js/linetest/LineTestConfig.js"></script>
+  <script src="js/linetest/linetest.util.js"></script>
+  <script src="js/linetest/PathSampler.js"></script>
+  <script src="js/linetest/lineTests.js"></script>
+  <script src="js/linetest/LineTest.js"></script>
+  <script src="js/linetest/LineTestCtrl.js"></script>
 </head>
 
 <body ng-app="starter" ng-controller="NavCtrl">

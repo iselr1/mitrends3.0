@@ -23,7 +23,7 @@ angular.module('starter.controllers', [])
     var jsonData = jsonService.getJson();
 
     $scope.goKernsymp = function() {
-      $state.go('kernsymptome');
+      $state.go('zahlsymbolVideo');
     };
 
     //Change the language
@@ -143,7 +143,7 @@ angular.module('starter.controllers', [])
     $scope.comment = {};
 
     $scope.goMSIS = function() {
-      $state.go('msis');
+      $state.go('labyrinthVideo');
     };
     $scope.$on('$ionicView.beforeLeave', function() {
       // Datenübermittlung an Service für lokale Speicherung
@@ -159,12 +159,12 @@ angular.module('starter.controllers', [])
     $scope.comment = {};
 
     $scope.goFSS = function() {
-      $state.go('fatigue');
+      $state.go('pointstest.intro');
     };
     $scope.$on('$ionicView.beforeLeave', function() {
       // Datenübermittlung an Service für lokale Speicherung
       console.log($scope.comment.text);
 
-      ExcersiseStorageService.saveResultCommentsToFile("Kommentar Labyrinth", $scope.comment.text);
+      //ExcersiseStorageService.saveResultCommentsToFile("Kommentar Labyrinth", $scope.comment.text);
     });
   })
