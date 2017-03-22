@@ -120,51 +120,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'ionic-datepicker', 'ionic-time
         controller: 'ZS1Ctrl'
       })
 
-      .state('kernsymptome', {
-        url: '/kernsymptome',
-        templateUrl: 'templates/kernsymptome.html',
-        controller: 'KernsympCtrl'
-      })
-
-      .state('msis', {
-        url: '/msis',
-        templateUrl: 'templates/msis.html',
-        controller: 'MsisCtrl'
-      })
-
-      .state('msis2', {
-        url: '/msis2',
-        templateUrl: 'templates/msis2.html',
-        controller: 'Msis2Ctrl'
-      })
-      .state('msis3', {
-        url: '/msis3',
-        templateUrl: 'templates/msis3.html',
-        controller: 'Msis3Ctrl'
-      })
-      .state('msis4', {
-        url: '/msis4',
-        templateUrl: 'templates/msis4.html',
-        controller: 'Msis4Ctrl'
-      })
-
-      .state('fatigue', {
-        url: '/fatigue',
-        templateUrl: 'templates/fatigue.html',
-        controller: 'FatigueCtrl'
-      })
-
-      .state('labyrinthAnl', {
-        url: '/labyrinthAnl',
-        templateUrl: 'templates/labyrinthAnl.html',
-        controller: 'RouteAnlCtrl'
-      })
-
-      .state('zahlsymbol_anl', {
-        url: '/zahlsymbol_anl',
-        templateUrl: 'templates/zahlsymbol_anl.html',
-        controller: 'ZahlsymbolAnlCtrl'
-      })
 
       .state('geschafftSD', {
         url: '/geschafftSD',
