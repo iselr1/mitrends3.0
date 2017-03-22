@@ -3,7 +3,7 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Navigation-----------------------//
   //--------------------------------------------------------//
-  .controller('NavCtrl', function($scope, $state, I4MIMidataService, jsonService) {
+  .controller('NavCtrl', function($scope, $state, jsonService) {
 
     $scope.goHome = function() {
       $state.go('home');
@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Home-----------------------//
   //--------------------------------------------------------//
-  .controller('HomeCtrl', function($scope, $state, I4MIMidataService, jsonService, $translate, $ionicPopup, $ionicHistory) {
+  .controller('HomeCtrl', function($scope, $state, jsonService, $translate, $ionicPopup, $ionicHistory) {
     var jsonData = jsonService.getJson();
 
     $scope.goKernsymp = function() {
@@ -53,7 +53,7 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Login-----------------------//
   //--------------------------------------------------------//
-  .controller('LoginCtrl', function($scope, $translate, I4MIMidataService, jsonService, $timeout, $http, $state, $ionicLoading, $ionicPopup) {
+  .controller('LoginCtrl', function($scope, $translate, jsonService, $timeout, $http, $state, $ionicLoading, $ionicPopup) {
     // Values for login
     $scope.login = {};
     $scope.login.email = '';
