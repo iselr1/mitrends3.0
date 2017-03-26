@@ -3,7 +3,7 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Navigation-----------------------//
   //--------------------------------------------------------//
-  .controller('NavCtrl', function($scope, $state, jsonService) {
+  .controller('NavCtrl', function($scope, $state, jsonService, ownMidataService) {
 
     $scope.goHome = function() {
       $state.go('home');
@@ -53,46 +53,54 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Login-----------------------//
   //--------------------------------------------------------//
-  .controller('LoginCtrl', function($scope, $translate, jsonService, $timeout, $http, $state, $ionicLoading, $ionicPopup) {
+  .controller('LoginCtrl', function($scope, $translate, jsonService, $timeout, $http, $state, $ionicLoading, $ionicPopup, ownMidataService) {
     // Values for login
     $scope.login = {};
     $scope.login.email = '';
     $scope.login.password = '';
+    $scope.login.pseudonym = '';
     $scope.login.server = 'https://test.midata.coop:9000';
-
+    //Inform the user that he's not logged in
+    var jsonData = jsonService.getJson();
+    var title = jsonData.LOGININFO;
+    var template = jsonData.LOGINERRORTEXT;
+    var noCredentials = jsonData.LOGINERRORCREDENTIALS;
     // Login
     $scope.doLogin = function() {
       //console.info(I4MIMidataService.currentUser());
 
-      if ($scope.login.email != '' && $scope.login.password != '')
-        I4MIMidataService.login($scope.login.email, $scope.login.password, $scope.login.server);
-      //$scope.closeModal();
-      // Zeige Loading Spinner
-      $ionicLoading.show({
-        template: '<p>Loading...</p><ion-spinner></ion-spinner>'
-      });
+      if ($scope.login.email != '' && $scope.login.password != '') {
+        ownMidataService.login($scope.login.email, $scope.login.password, $scope.login.server);
+        //$scope.closeModal();
+        // Zeige Loading Spinner
+        $ionicLoading.show({
+          template: '<p>Loading...</p><ion-spinner></ion-spinner>'
+        });
 
-      setTimeout(function() {
-        $scope.checkUser();
-        // Verstecke Loading Spinner
-        $ionicLoading.hide();
-      }, 3000);
+        setTimeout(function() {
+          $scope.checkUser();
+          // Verstecke Loading Spinner
+          $ionicLoading.hide();
+        }, 3000);
+      } else {
+        var alertPopup = $ionicPopup.alert({
+          title: title,
+          template: noCredentials,
+        });
+      }
     }
 
 
 
     // Check if valid User
     $scope.checkUser = function() {
-      console.info(I4MIMidataService.currentUser());
-      if (I4MIMidataService.currentUser() !== undefined) {
-        //$state.go('home');
-        $state.go('kernsymptome');
+      console.info(ownMidataService.loggedIn());
+      if (ownMidataService.loggedIn()) {
+        //   midataPseudonym = $scope.login.pseudonym;
+        $state.go('home');
       } else {
-        I4MIMidataService.logout();
-        //Inform the user that he's not logged in
-        var jsonData = jsonService.getJson();
-        var title = jsonData.LOGININFO;
-        var template = jsonData.LOGINERRORTEXT;
+        ownMidataService.logout();
+
         var alertPopup = $ionicPopup.alert({
           title: title,
           template: template,
@@ -103,7 +111,7 @@ angular.module('starter.controllers', [])
     // Logout
     $scope.logout = function() {
       console.info("Logout");
-      I4MIMidataService.logout();
+      ownMidataService.logout();
     }
 
     //Change the language
@@ -139,32 +147,40 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Done Symbol Digit-----------------------//
   //--------------------------------------------------------//
-  .controller('GeschafftSDCtrl', function($scope, $stateParams, $state, ExcersiseStorageService) {
-    $scope.comment = {};
+  .controller('GeschafftSymCtrl', function($scope, $stateParams, $state) {
 
-    $scope.goMSIS = function() {
+    $scope.goNext = function() {
       $state.go('labyrinthVideo');
     };
-    $scope.$on('$ionicView.beforeLeave', function() {
-      // Datenübermittlung an Service für lokale Speicherung
-      console.log($scope.comment.text);
 
-      ExcersiseStorageService.saveResultCommentsToFile("Kommentar Symbol-Digit", $scope.comment.text);
-    });
   })
   //--------------------------------------------------------//
   //---------------CONTROLLER Done Labyrinth-----------------------//
   //--------------------------------------------------------//
-  .controller('GeschafftLABCtrl', function($scope, $stateParams, $state, ExcersiseStorageService) {
-    $scope.comment = {};
+  .controller('GeschafftLabCtrl', function($scope, $stateParams, $state) {
 
-    $scope.goFSS = function() {
+    $scope.goNext = function() {
       $state.go('pointstest.intro');
     };
-    $scope.$on('$ionicView.beforeLeave', function() {
-      // Datenübermittlung an Service für lokale Speicherung
-      console.log($scope.comment.text);
 
-      //ExcersiseStorageService.saveResultCommentsToFile("Kommentar Labyrinth", $scope.comment.text);
-    });
+  })
+  //--------------------------------------------------------//
+  //---------------CONTROLLER Done Line-----------------------//
+  //--------------------------------------------------------//
+  .controller('GeschafftLineCtrl', function($scope, $stateParams, $state) {
+
+    $scope.goNext = function() {
+      $state.go('pointstest.intro');
+    };
+
+  })
+  //--------------------------------------------------------//
+  //---------------CONTROLLER Done Figur-----------------------//
+  //--------------------------------------------------------//
+  .controller('GeschafftFigurCtrl', function($scope, $stateParams, $state) {
+
+    $scope.goNext = function() {
+      $state.go('pointstest.intro');
+    };
+
   })

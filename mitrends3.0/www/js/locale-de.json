@@ -11,6 +11,7 @@
   "DATATEXT": "Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen ein. Persönliche Daten werden streng vertraulich behandelt und weder an Dritte verkauft noch weiter gegeben.",
   "LOGIN": "Login",
   "LOGINERRORTEXT": "User oder Passwort falsch",
+  "LOGINERRORCREDENTIALS": "Bitten füllen Sie die Felder aus",
   "LOGININFO": "Info",
   "LOGOUT": "Logout",
   "IMPRESSUM": "Impressum",

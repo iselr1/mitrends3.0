@@ -15,9 +15,6 @@ body {
 }
 
 .scroll {
-}
-
-.scroll {
   height: 100% !important;
   display: -webkit-box !important;
   display: -moz-box !important;
@@ -32,7 +29,8 @@ body {
   -ms-flex-direction: column !important;
   flex-direction: column !important;
 }
-.msis-special-line-height{
+
+.msis-special-line-height {
   line-height: 100%;
 }
 
@@ -60,7 +58,7 @@ body {
   position: relative;
   top: 100%;
   transform: perspective(1px) translateY(-90%);
-/*
+  /*
       -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);
@@ -68,12 +66,15 @@ body {
       link: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
       */
 }
-.text-right{
+
+.text-right {
   text-align: right;
 }
+
 .col {
   height: 100% !important;
 }
+
 .col-4 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 4%;
@@ -83,6 +84,7 @@ body {
   flex: 0 0 4%;
   max-width: 4%;
 }
+
 .col-17 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 17%;
@@ -92,6 +94,7 @@ body {
   flex: 0 0 17%;
   max-width: 17%;
 }
+
 .col-25 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 25%;
@@ -101,6 +104,7 @@ body {
   flex: 0 0 25%;
   max-width: 25%;
 }
+
 .col-26 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 26%;
@@ -110,6 +114,7 @@ body {
   flex: 0 0 26%;
   max-width: 26%;
 }
+
 .col-27 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 27.5%;
@@ -119,6 +124,7 @@ body {
   flex: 0 0 27.5%;
   max-width: 27.5%;
 }
+
 .col-28 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 28%;
@@ -127,6 +133,15 @@ body {
   -ms-flex: 0 0 28%;
   flex: 0 0 28%;
   max-width: 28%;
+}
+.col-45 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 45%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 45%;
+  -ms-flex: 0 0 45%;
+  flex: 0 0 45%;
+  max-width: 45%;
 }
 .col-48 {
   -webkit-box-flex: 0;
@@ -137,6 +152,15 @@ body {
   flex: 0 0 48%;
   max-width: 48%;
 }
+.col-55 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 55%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 55%;
+  -ms-flex: 0 0 55%;
+  flex: 0 0 55%;
+  max-width: 55%;
+}
 .col-62 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 62.5%;
@@ -146,6 +170,7 @@ body {
   flex: 0 0 62.5%;
   max-width: 62.5%;
 }
+
 .col-68 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 68%;
@@ -155,6 +180,7 @@ body {
   flex: 0 0 68%;
   max-width: 68%;
 }
+
 .col-54 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 54%;
@@ -174,114 +200,61 @@ body {
   flex: 0 0 58%;
   max-width: 58%;
 }
+
 .row-3 {
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 3% !important;
-  -ms-flex: 0 1 3% !important;
-  flex: 0 1 3% !important;
+  height: 3vh;
 }
+
 .row-5 {
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 5% !important;
-  -ms-flex: 0 1 5% !important;
-  flex: 0 1 5% !important;
+height:5vh;
 }
+
 .row-8 {
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 8% !important;
-  -ms-flex: 0 1 8% !important;
-  flex: 0 1 8% !important;
+  height:8vh:
 }
 
 .row-10 {
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 10% !important;
-  -ms-flex: 0 1 10% !important;
-  flex: 0 1 10% !important;
+  height:10vh;
 }
 
 .row-15 {
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 15% !important;
-  -ms-flex: 0 1 15% !important;
-  flex: 0 1 15% !important;
+  height:15vh;
 }
 
 .row-20 {
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 20% !important;
-  -ms-flex: 0 1 20% !important;
-  flex: 0 1 20% !important;
+  height:20vh;
 }
 
 .row-25 {
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 25% !important;
-  -ms-flex: 0 1 25% !important;
-  flex: 0 1 25% !important;
+  height:25vh;
 }
 
 .row-30 {
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 30% !important;
-  -ms-flex: 0 1 30% !important;
-  flex: 0 1 30% !important;
+  height:30vh;
 }
 
 .row-33 {
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 33% !important;
-  -ms-flex: 0 1 33% !important;
-  flex: 0 1 33% !important;
+  height:33vh;
 }
 
 .row-35 {
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 35% !important;
-  -ms-flex: 0 1 35% !important;
-  flex: 0 1 35% !important;
+  height:35vh;
 }
 
 .row-40 {
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 40% !important;
-  -ms-flex: 0 1 40% !important;
-  flex: 0 1 40% !important;
+  height:40vh;
 }
 
 .row-80 {
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 80% !important;
-  -ms-flex: 0 1 80% !important;
-  flex: 0 1 80% !important;
+  height:80vh;
 }
 
 .row-85 {
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 85% !important;
-  -ms-flex: 0 1 85% !important;
-  flex: 0 1 85% !important;
+  height:85vh;
 }
 
 .row-90 {
-  -webkit-box-flex: 0 !important;
-  -moz-box-flex: 0 !important;
-  -webkit-flex: 0 1 90% !important;
-  -ms-flex: 0 1 90% !important;
-  flex: 0 1 90% !important;
+  height:90vh;
 }
 
 .center {
@@ -289,8 +262,6 @@ body {
   margin-right: auto;
   display: block;
 }
-
-
 
 .zs-col {
   border: 2.5px solid black;
@@ -322,6 +293,7 @@ input[type="radio"]:checked {
   width: 45%;
   height: 100%;
 }
+
 #msis3 {
   width: 50%;
   height: 100%;
@@ -338,49 +310,4 @@ input[type="radio"]:checked {
 
 #questionlabels {
   vertical-align: middle;
-}
-
-.image-list-thumb {
-  padding: 2px 2px 2px 2px;
-  height: 100px;
-}
-
-.image-modal {
-  width: 100% !important;
-  height: 100%;
-  top: 0 !important;
-  left: 0 !important;
-}
-
-.transparent {
-  background: transparent !important;
-}
-
-.fullscreen-image {
-  max-width: 100% !important;
-  max-height: 100% !important;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  overflow: auto;
-  position: fixed;
-  right: 0;
-  top: 0;
-}
-
-.slider {
-  width: 100%;
-  height: 100%;
-}
-
-.fullscreen-player {
-  max-width: 100%;
-  max-height: 100%;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  overflow: none;
-  position: fixed;
-  right: 0;
-  top: 0;
 }

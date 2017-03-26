@@ -12,7 +12,7 @@ angular.module('starter.ownServices', [])
   // --> Now it should work
   .service('ownMidataService', [function() {
     // Set your own appname and appscr. Not in the app.js anymore
-    var appname = 'SINA';
+    var appname = 'MitrendS3.0';
     var appsecr = 'S9I35N28A';
 
 
@@ -22,6 +22,7 @@ angular.module('starter.ownServices', [])
     // Creating the object to handle midata-requests
     var md = new midata.Midata(
       'https://test.midata.coop:9000', appname, appsecr);
+
 
     // Login function (call it with ownMidataService.login(un, pw, role))
     // Sets the authToken and refreshToken (not really used anywhere)
@@ -37,6 +38,7 @@ angular.module('starter.ownServices', [])
           console.log('Logged in!');
           authToken = md.authToken;
           refreshToken = md.refreshToken;
+          console.log(md);
         });
     }
 

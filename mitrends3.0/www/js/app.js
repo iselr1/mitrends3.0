@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter.controllersRea', 'starter.controllersSarah', 'starter.services', 'pascalprecht.translate', 'uszapp.linetest', 'uszapp.pointstest'])
+angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter.controllersRea', 'starter.controllersSarah', 'starter.services', 'starter.ownServices', 'pascalprecht.translate', 'uszapp.linetest', 'uszapp.pointstest'])
   .constant('APPNAME', 'MitrendS2')
   .constant('APPSECRET', 'Mi3636trend9696S002')
   .run(function($ionicPlatform) {
@@ -121,15 +121,25 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
       })
 
 
-      .state('geschafftSD', {
-        url: '/geschafftSD',
-        templateUrl: 'templates/geschafftSD.html',
-        controller: 'GeschafftSDCtrl'
+      .state('geschafftSym', {
+        url: '/geschafftSym',
+        templateUrl: 'templates/geschafftSym.html',
+        controller: 'GeschafftSymCtrl'
       })
-      .state('geschafftLAB', {
-        url: '/geschafftLAB',
-        templateUrl: 'templates/geschafftLAB.html',
-        controller: 'GeschafftLABCtrl'
+      .state('geschafftLab', {
+        url: '/geschafftLab',
+        templateUrl: 'templates/geschafftLab.html',
+        controller: 'GeschafftLabCtrl'
+      })
+      .state('geschafftLine', {
+        url: '/geschafftLine',
+        templateUrl: 'templates/geschafftLine.html',
+        controller: 'GeschafftLineCtrl'
+      })
+      .state('geschafftFigur', {
+        url: '/geschafftFigur',
+        templateUrl: 'templates/geschafftFigur.html',
+        controller: 'GeschafftFigurCtrl'
       })
 
       .state('zahlsymbolVideo', {
