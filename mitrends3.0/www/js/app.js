@@ -59,8 +59,13 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
     }*/
   })
 
-  .config(function($stateProvider, $urlRouterProvider, $translateProvider) {
-
+  .config(function($stateProvider, $urlRouterProvider, $translateProvider, $sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+      // Allow same origin resource loads.
+      'self',
+      // Allow loading from our assets domain.  Notice the difference between * and **.
+      'https://www.youtube.com/**'
+    ]);
     // path to laod the language files
     $translateProvider.useStaticFilesLoader({
       prefix: 'js/locale-',
@@ -85,7 +90,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
     // Set up the various states which the app can be in.
     // Each state's controller can be found in controllers.js
     $stateProvider
-
       .state('home', {
         url: '/home',
         templateUrl: 'templates/home.html',
@@ -121,26 +125,12 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
       })
 
 
-      .state('geschafftSym', {
-        url: '/geschafftSym',
-        templateUrl: 'templates/geschafftSym.html',
-        controller: 'GeschafftSymCtrl'
+      .state('geschafft', {
+        url: '/geschafft',
+        templateUrl: 'templates/geschafft.html',
+        controller: 'GeschafftCtrl'
       })
-      .state('geschafftLab', {
-        url: '/geschafftLab',
-        templateUrl: 'templates/geschafftLab.html',
-        controller: 'GeschafftLabCtrl'
-      })
-      .state('geschafftLine', {
-        url: '/geschafftLine',
-        templateUrl: 'templates/geschafftLine.html',
-        controller: 'GeschafftLineCtrl'
-      })
-      .state('geschafftFigur', {
-        url: '/geschafftFigur',
-        templateUrl: 'templates/geschafftFigur.html',
-        controller: 'GeschafftFigurCtrl'
-      })
+
       .state('leftHand', {
         url: '/leftHand',
         templateUrl: 'templates/leftHand.html',
@@ -151,16 +141,11 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         templateUrl: 'templates/rightHand.html',
         controller: 'RightHandCtrl'
       })
-      .state('zahlsymbolVideo', {
-        url: '/zahlsymbolVideo',
-        templateUrl: 'templates/zahlsymbolVideo.html',
-        controller: 'ZSVideoCtrl'
-      })
 
-      .state('labyrinthVideo', {
-        url: '/labyrinthVideo',
-        templateUrl: 'templates/labyrinthVideo.html',
-        controller: 'LabyrinthVideoCtrl'
+      .state('anleitungsvideo', {
+        url: '/anleitungsvideo',
+        templateUrl: 'templates/anleitungsvideo.html',
+        controller: 'AnleitungsvideoCtrl'
       })
       .state('pointstest', {
         abstract: true,
@@ -181,14 +166,12 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         controllerAs: 'roundCtrl'
       })
 
-
       .state('linetest', {
-        parent: 'test',
         url: '/line',
         templateUrl: 'templates/linetest/linetest.html',
         controller: 'LineTestCtrl'
       })
 
-    $urlRouterProvider.otherwise('/home')
+    $urlRouterProvider.otherwise('/login')
 
   });
