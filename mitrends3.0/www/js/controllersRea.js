@@ -123,8 +123,8 @@ angular.module('starter.controllersRea', [])
               SymDigService.addTry();
             } else if (SymDigService.getTrys() == 2) {
               //function to reload the lines with new values
-              $scope.solveTable = SymDigService.fillSolveTable((SymDigService.genNums([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9], 18)), false);
-              $scope.solveTable2 = SymDigService.fillSolveTable((SymDigService.genNums([1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9], 18)), false);
+              $scope.solveTable = SymDigService.fillSolveTable((SymDigService.genNums(ranNums, 18)), false);
+              $scope.solveTable2 = SymDigService.fillSolveTable((SymDigService.genNums(ranNums, 18)), false);
               $scope.solveTable2[0].next = false;
               solveTableOneComplete = false;
               SymDigService.setTry(0);
