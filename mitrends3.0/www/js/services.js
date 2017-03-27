@@ -242,11 +242,11 @@ angular.module('starter.services', [])
     // Array für die Schlüsseltabelle
     var keyTable = [];
     // Array für die Lösungstabelle
-    var solveTable = [];
+    var solveTableArray = [];
     /* Objekt mit welchem die Schlüsseltabelle gefüllt werden soll
     mit Variablen, id, numSrc -> Pfad zum Bild der Zahl, imgSrc -> Pfad zum Bild des Zeichens*/
     // Array für Lösungsbilder
-    var solveImages = [];
+    var solveNumberImages = [];
     // Anzahl der Objekte der Schlüsseltabelle
     var numberObjectsKeyTable = 9;
     // Anzahl der Objekte in der lösungstabelle
@@ -285,9 +285,9 @@ angular.module('starter.services', [])
       return keyTable;
     }
 
-    /* Funktion um die Schlüsseltabelle mit Objekten zu befüllen*/
+    /* Funktion um die Lösungstabelle mit Objekten zu befüllen*/
     SymDigService.fillSolveTable = function(solveNums) {
-      solveTable = [];
+      solveTableArray = [];
       for (var i = 1; i <= numberObjectsSolveTable; i++) {
         var newObject = {};
         if (i == 1) {
@@ -300,24 +300,25 @@ angular.module('starter.services', [])
           newObject.next = false;
 
         }
-        solveTable.push(newObject);
+        solveTableArray.push(newObject);
       }
-      console.log(solveTable);
-      return solveTable;
+      console.log(solveTableArray);
+      return solveTableArray;
     }
 
-    /* Funktion um die Schlüsseltabelle mit Objekten zu befüllen*/
-    SymDigService.genSolveImages = function(solveImgs) {
-      solveImages = [];
+    /* Funktion um die Zahlentabelle mit Objekten zu befüllen*/
+    SymDigService.genSolveNumbers = function(solveNumberImages) {
+      solveNumberImagesArray = [];
       for (var i = 1; i <= numberObjectsKeyTable; i++) {
         var newObject = {};
         newObject.id = i;
-        newObject.imgSrc = "img/b" + solveImgs[i - 1].toString() + ".png";
-        solveImages.push(newObject);
+        newObject.imgSrc = "img/b" + solveNumberImages[i - 1].toString() + ".png";
+        solveNumberImagesArray.push(newObject);
       }
-      console.log(solveImages);
-      return solveImages;
+      console.log(solveNumberImagesArray);
+      return solveNumberImagesArray;
     }
+
     /**************** Getters *****************/
     // Get number of incorrect assigned symbols
     SymDigService.getIncorrect = function() {

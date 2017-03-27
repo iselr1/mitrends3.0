@@ -48,41 +48,34 @@ angular.module('starter.controllersRea', [])
       // End excersise after 120 seconds
       $interval(functioninterval, intervalDuration, intervalrepetitions);
 
-      // Fill the keyTable with the images in a random way and the numbers ordered from 1 to 9
-      var ranNums = SymDigService.doShuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+      // Fill the keyTable with the first 9 images after the array was sorted in a random way
+      var ranNums = SymDigService.doShuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]);
       console.log(ranNums);
       $scope.keyTable = SymDigService.fillKeyTable(ranNums);
-
-      // Generate Tables with 18 random ordered images
-      $scope.solveTable = SymDigService.fillSolveTable((SymDigService.genNums([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9], 18)));
-      $scope.solveTable2 = SymDigService.fillSolveTable((SymDigService.genNums([1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9], 18)));
+      //Remove 8 items after the nint one - because for the keytable only the first nine numbers were choosen to be an image
+      ranNums.splice(9, 8);
+      // Add the number at position 2 of the ranNums array again to the ranNums array, because we need to have 10 images in the solveTable
+      for (var i = 0; i < 9; i++) {
+        ranNums.push(ranNums[i]);
+      }
+      console.log()
+      // Generate Tables with 18 random ordered images of the ranNums array that we used to create the keytable
+      $scope.solveTable = SymDigService.fillSolveTable((SymDigService.genNums(ranNums, 18)));
+      $scope.solveTable2 = SymDigService.fillSolveTable((SymDigService.genNums(ranNums, 18)));
       $scope.solveTable2[0].next = false;
       //*****************************************************************************************
       var solveImgs = [1, 2, 3, 4, 5, 6, 7, 8, 9];
       console.log(solveImgs);
 
       // Generate the Images to add to the solveTable
-      $scope.solveImages = SymDigService.genSolveImages(solveImgs);
+      $scope.solveNumbers = SymDigService.genSolveNumbers(solveImgs);
+
       // *****************************************************************************************
       // Function excecuted if a digit was selected, to set it to assign it to the next symbol
       // *****************************************************************************************
       // Indicates if the next digit to assign is in the first or second table
       var solveTableOneComplete = false;
       $scope.setValueImage = function(digit) {
-
-        /*Funktion um die Längste Latenz zwischen zwei Klicks zu eruieren*/
-        var lastLatency = 0;
-
-        function onClickCheck() {
-          var timeNow = (new Date()).getTime();
-
-          if (timeNow > (lastLatency + 5000)) {
-            // Execute the link action
-          } else {
-            alert('Please wait at least 5 seconds between clicks!');
-          }
-          lastLatency = timeNow;
-        }
 
         if (!solveTableOneComplete) {
           var currentSolveTable = $scope.solveTable;
@@ -95,7 +88,7 @@ angular.module('starter.controllersRea', [])
         // The imageName of the selected image
         console.log(length);
         for (var i = 0; i < length; i++) {
-          // true if the symbol image at this position is the green image, to mark that this image is gonna be replaced with the choosen one
+          // true if there is a next empty spot at the currentSolveTable
           console.log(i);
           if (currentSolveTable[i].next == true) {
             console.log("versuch");
@@ -223,19 +216,22 @@ angular.module('starter.controllersRea', [])
       var startTime = new Date().getTime();
 
       // Fill the keyTable with the images in a random way and the numbers ordered from 1 to 9
-      var ranNums = SymDigService.doShuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+      var ranNums = SymDigService.doShuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]);
       console.log(ranNums);
       $scope.keyTable = SymDigService.fillKeyTable(ranNums);
 
-
-      $scope.solveTable = SymDigService.fillSolveTable((SymDigService.genNums([1, 2, 2, 3, 4, 5, 6, 7, 8, 9], 10)));
+      //Remove 8 items after the nint one - because for the keytable only the first nine numbers were choosen to be an image
+      ranNums.splice(9, 8);
+      // Add the number at position 2 of the ranNums array again to the ranNums array, because we need to have 10 images in the solveTable
+      ranNums.push(ranNums[2]);
+      $scope.solveTable = SymDigService.fillSolveTable((SymDigService.genNums(ranNums, 10)));
 
       //*****************************************************************************************
-      var solveImgs = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-      console.log(solveImgs);
+      var solveNumberImages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      console.log("Lösungszahlen" + solveNumberImages);
 
       // Generate the Images to add to the solveTable
-      $scope.solveImages = SymDigService.genSolveImages(solveImgs);
+      $scope.solveNumbers = SymDigService.genSolveNumbers(solveNumberImages);
       // *****************************************************************************************
       // Function excecuted if a digit was selected, to set it to assign it to the next symbol
       // *****************************************************************************************
@@ -256,10 +252,10 @@ angular.module('starter.controllersRea', [])
             // Set the Symbol Image at the current position to the selected one
             currentSolveTable[i].numSrc = "img/" + digit.id + ".png";
 
-            // Set the next empty Symbol Image to the green one
+            // Set the next empty Symbol Image to be the next one
             if (i < (length - 1)) {
               console.log("hier2")
-              currentSolveTable[i + 1].numSrc = "img/empty.png";
+              //currentSolveTable[i + 1].numSrc = "img/empty.png";
               currentSolveTable[i + 1].next = true;
               currentSolveTable[i].next = false;
             }
@@ -267,10 +263,10 @@ angular.module('starter.controllersRea', [])
             // Check if the selected image is the one that corresponds to the number at the current position
             // imageSource of the symbol at the current[i] position
             var imgSrcSolveTable = currentSolveTable[i].imgSrc;
+            console.log("Bild" + imgSrcSolveTable);
             // imageSource of the symbol assigned to the choosen digit
             var imgSrcKeyTable = $scope.keyTable[digit.id - 1].imgSrc;
-            console.log(imgSrcSolveTable);
-            console.log(imgSrcKeyTable);
+            console.log("Zahl" + imgSrcKeyTable);
             if (angular.equals(imgSrcKeyTable, imgSrcSolveTable)) {
               SymDigService.addCorrectPrep();
             } else {
