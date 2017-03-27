@@ -141,7 +141,16 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         templateUrl: 'templates/geschafftFigur.html',
         controller: 'GeschafftFigurCtrl'
       })
-
+      .state('leftHand', {
+        url: '/leftHand',
+        templateUrl: 'templates/leftHand.html',
+        controller: 'LeftHandCtrl'
+      })
+      .state('rightHand', {
+        url: '/rightHand',
+        templateUrl: 'templates/rightHand.html',
+        controller: 'RightHandCtrl'
+      })
       .state('zahlsymbolVideo', {
         url: '/zahlsymbolVideo',
         templateUrl: 'templates/zahlsymbolVideo.html',

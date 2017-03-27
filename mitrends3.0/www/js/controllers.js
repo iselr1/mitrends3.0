@@ -184,3 +184,23 @@ angular.module('starter.controllers', [])
     };
 
   })
+  //--------------------------------------------------------//
+  //---------------CONTROLLER Instruction Left Hand-----------------------//
+  //--------------------------------------------------------//
+  .controller('LeftHandCtrl', function($scope, $stateParams, $state) {
+
+    $scope.goNext = function() {
+      $state.go('pointstest.intro');
+    };
+
+  })
+  //--------------------------------------------------------//
+  //---------------CONTROLLER Instruction Right Hand-----------------------//
+  //--------------------------------------------------------//
+  .controller('RightHandCtrl', function($scope, $stateParams, $state) {
+
+    $scope.goNext = function() {
+      $state.go('pointstest.intro');
+    };
+
+  })
