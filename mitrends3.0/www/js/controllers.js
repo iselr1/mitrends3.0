@@ -19,11 +19,14 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Home-----------------------//
   //--------------------------------------------------------//
-  .controller('HomeCtrl', function($scope, $state, jsonService, $translate, $ionicPopup, $ionicHistory) {
+  .controller('HomeCtrl', function($scope, $state, jsonService, $translate, $ionicPopup, $ionicHistory, $rootScope) {
+    $rootScope.videoSrc = "https://www.youtube.com/embed/bOymthBcuyE?rel=0&amp;showinfo=0;autoplay=1;controls=1";
+    $rootScope.stateAfterVideo = 'zahlsymbol1';
+    $rootScope.headerTitle = 'Teil 1 von 4 - Zahl-Symbol'
     var jsonData = jsonService.getJson();
 
     $scope.goKernsymp = function() {
-      $state.go('zahlsymbolVideo');
+      $state.go('anleitungsvideo');
     };
 
     //Change the language
@@ -147,43 +150,35 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Done Symbol Digit-----------------------//
   //--------------------------------------------------------//
-  .controller('GeschafftSymCtrl', function($scope, $stateParams, $state) {
+  .controller('GeschafftCtrl', function($scope, $stateParams, $state, $rootScope) {
 
+    headerTitle = $rootScope.headerTitle;
+    console.log($rootScope.stateAfterGeschafft);
     $scope.goNext = function() {
-      $state.go('labyrinthVideo');
+      $state.go($rootScope.stateAfterGeschafft);
     };
 
   })
+
   //--------------------------------------------------------//
-  //---------------CONTROLLER Done Labyrinth-----------------------//
+  //---------------CONTROLLER Anleitungsvideos----//
   //--------------------------------------------------------//
-  .controller('GeschafftLabCtrl', function($scope, $stateParams, $state) {
+  .controller('AnleitungsvideoCtrl', function($scope, $state, $timeout, $rootScope) {
+    videoSrc = $rootScope.videoSrc;
+    headerTitle = $rootScope.headerTitle;
+
+    $scope.hideButton = true;
 
     $scope.goNext = function() {
-      $state.go('pointstest.intro');
+      $state.go($rootScope.stateAfterVideo);
     };
-
+    // to display the next button after 60 seconds
+    $timeout(function() {
+      $scope.hideButton = false;
+    }, 15000);
   })
-  //--------------------------------------------------------//
-  //---------------CONTROLLER Done Line-----------------------//
-  //--------------------------------------------------------//
-  .controller('GeschafftLineCtrl', function($scope, $stateParams, $state) {
 
-    $scope.goNext = function() {
-      $state.go('pointstest.intro');
-    };
 
-  })
-  //--------------------------------------------------------//
-  //---------------CONTROLLER Done Figur-----------------------//
-  //--------------------------------------------------------//
-  .controller('GeschafftFigurCtrl', function($scope, $stateParams, $state) {
-
-    $scope.goNext = function() {
-      $state.go('pointstest.intro');
-    };
-
-  })
   //--------------------------------------------------------//
   //---------------CONTROLLER Instruction Left Hand-----------------------//
   //--------------------------------------------------------//

@@ -18,7 +18,8 @@ angular.module('starter.controllersRea', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Zahlsymbol-----------------------//
   //--------------------------------------------------------//
-  .controller('ZSCtrl', function($scope, $stateParams, $state, $timeout, $interval, $ionicPopup, SymDigService, $translate, ExcersiseStorageService) {
+  .controller('ZSCtrl', function($scope, $stateParams, $state, $timeout, $interval, $ionicPopup, SymDigService, $translate, ExcersiseStorageService, $rootScope) {
+
     //Popup zu Beginn, das besagt das die Übungsphase nun zu ende ist
     var popTitle = $translate.instant('INFO');
     var popTemplate = $translate.instant('SDTEMPLATE_POPUP');
@@ -167,7 +168,13 @@ angular.module('starter.controllersRea', [])
       results.push(partresult3);
       console.log("Zwischenresultate" + results);
       if (counter == intervalrepetitions) {
-        $state.go('geschafftSD');
+        $rootScope.headerTitle = "Teil 1 von 4 - Zahl-Symbol";
+        $rootScope.videoSrc = "https://www.youtube.com/embed/xxUsDHzbH2Y?rel=0&amp;showinfo=0;autoplay=1;controls=1";
+        $rootScope.stateAfterVideo = 'labyrinth';
+        $rootScope.stateAfterGeschafft = 'anleitungsvideo';
+        $rootScope.imgSrc = 'img/oneStar.png';
+        $state.go('geschafft');
+
         // Variables to store in the result file
         var date = new Date();
         correct = SymDigService.getCorrect();

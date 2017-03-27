@@ -90,7 +90,10 @@ angular.module('uszapp.pointstest')
         template: 'Sie haben erfolgreich den Test beendet.'
       });
       alertPopup.then(function(res) {
-        $state.go('linetest')
+        $rootScope.headerTitle = "Teil 3 von 4 - Punkte Bewegen"
+        $rootScope.nextState = 'LineTestIntro';
+        $state.go('geschafft');
+
       });
     }
 
