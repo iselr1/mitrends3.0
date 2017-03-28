@@ -713,7 +713,7 @@ angular.module('starter.controllersSarah', [])
       results.push(result10);
 
       //Service Call
-      ExcersiseStorageService.saveResultsToFile("Labyrinth Übung", results);
+      //ExcersiseStorageService.saveResultsToFile("Labyrinth Übung", results);
     };
 
     // Labyrinth is defined for width="1024" height="768"
