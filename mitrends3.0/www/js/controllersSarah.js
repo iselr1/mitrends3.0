@@ -668,7 +668,7 @@ angular.module('starter.controllersSarah', [])
       results.push(result1);
 
       var result2 = {};
-      result2.name = "Anz. Klicks";
+      result2.name = "Anz. Klicks des Benutzers";
       result2.value = clicks;
       results.push(result2);
 
@@ -678,39 +678,49 @@ angular.module('starter.controllersSarah', [])
       results.push(result3);
 
       var result4 = {};
-      result4.name = "Anz. richtige Verbindungen der Testperson/Total richtige Verbindungen (egal welche Richtung)";
-      result4.value = rightlines + "/" + labWayLines.length;
+      result4.name = "Anz. richtige Verbindungen in die richtige Richtung";
+      result4.value = rightdirection;
       results.push(result4);
 
       var result5 = {};
-      result5.name = "Anz. Fehler";
-      result5.value = faults;
+      result5.name = "Anzal richtige Verbindungen in die falsche Richtung";
+      result5.value = rightlines - rightdirection;
       results.push(result5);
 
       var result6 = {};
-      result6.name = "Regelbrüche";
-      result6.value = rulebreaks;
+      result6.name = "Total Verbindungen des vorgezeigten Weges";
+      result6.value = labWayLines.length;
       results.push(result6);
 
       var result7 = {};
-      result7.name = "Anz. Korrekturen";
-      result7.value = countcorrection;
+      result7.name = "Anz. Fehler";
+      result7.value = faults;
       results.push(result7);
 
       var result8 = {};
-      result8.name = "Punktescore";
-      result8.value = score;
+      result8.name = "Regelbrüche";
+      result8.value = rulebreaks;
       results.push(result8);
 
       var result9 = {};
-      result9.name = "Anz. richtige Versuche/Total Versuche";
-      result9.value = countrightlab + "/" + countlab;
+      result9.name = "Anz. Korrekturen";
+      result9.value = countcorrection;
       results.push(result9);
 
       var result10 = {};
-      result10.name = "Dauer für die Labyrinth-Übung in Sekunden";
-      result10.value = (endTime - startTime) / 1000;
+      result10.name = "Punktescore";
+      result10.value = score;
       results.push(result10);
+
+      var result11 = {};
+      result11.name = "Anz. richtige Versuche/Total Versuche";
+      result11.value = countrightlab + "/" + countlab;
+      results.push(result11);
+
+      var result12 = {};
+      result12.name = "Dauer für die Labyrinth-Übung in Sekunden";
+      result12.value = (endTime - startTime) / 1000;
+      results.push(result12);
 
       //Service Call
       //ExcersiseStorageService.saveResultsToFile("Labyrinth Übung", results);
