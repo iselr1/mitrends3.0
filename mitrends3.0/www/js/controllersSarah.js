@@ -613,7 +613,7 @@ angular.module('starter.controllersSarah', [])
             console.log(results);
             $rootScope.headerTitle = "Teil 2 von 4 - Labyrinth";
             $rootScope.stateAfterGeschafft = 'anleitungsvideo';
-            $rootScope.stateAfterVideo = 'pointstest.info';
+            $rootScope.stateAfterVideo = 'pointstest.intro';
             //$rootScope.videoSrc = "youtubelink Pointtest";
             $state.go('geschafft');
           } else {
