@@ -11,6 +11,7 @@ angular.module('starter.ownServices', [])
   // --> Add service to the controller params (ownMidataService)
   // --> Now it should work
   .service('ownMidataService', [function() {
+
     // Set your own appname and appscr. Not in the app.js anymore
     var appname = 'MitrendS3.0';
     var appsecr = 'S9I35N28A';
@@ -28,12 +29,9 @@ angular.module('starter.ownServices', [])
     // Sets the authToken and refreshToken (not really used anywhere)
     // -->  un:   Unsername
     // -->  pw:   Passwort
-    // -->  role: User-role
     //            The user Role can be 'member', 'provider', 'developer' or 'research'
-    function login(un, pw, role) {
-      md.login(un,
-          pw,
-          role)
+    function login(un, pw) {
+      md.login(un, pw)
         .then(function() {
           console.log('Logged in!');
           authToken = md.authToken;
