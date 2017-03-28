@@ -4,6 +4,7 @@ Made:               28.03.2017
 Made through:       meles1
 Version Nr.:        1.0
 
+Function: All Controller for the Views "Labyrinth", "Labyrinth Video Anleitung"
 */
 angular.module('starter.controllersSarah', [])
 
@@ -610,7 +611,11 @@ angular.module('starter.controllersSarah', [])
             // two times in a row right or 5 times tried
             $scope.saveResultsLab();
             console.log(results);
-            $state.go('geschafftLAB');
+            $rootScope.headerTitle = "Teil 2 von 4 - Labyrinth";
+            $rootScope.stateAfterGeschafft = 'anleitungsvideo';
+            $rootScope.stateAfterVideo = 'pointstest.info';
+            //$rootScope.videoSrc = "youtubelink Pointtest";
+            $state.go('geschafft');
           } else {
             // Do the way again
             $scope.saveResultsLab();
