@@ -31,8 +31,8 @@
   "SD_PREPARATION": "Part 2 of 5 - Symbol-Digit trial run",
   "TRY_LAB": "Try the Labyrinth",
   "TRY_LAB_TEXT": "A way through the Labyrinth is shown to you now. You have to do it by yourself afterwards. Click OK whenever you are ready",
-  "MIND_WAY": "!! Please mind the shown way !!",
-  "DO_WAY": "!! Please try to do the shown way. Begin at the START point !!",
+  "MIND_WAY": "Please mind the shown way",
+  "DO_WAY": "Please try to do the shown way. Begin at the START point!",
   "CORE": {
     "AHAND": [{
       "id": "1",

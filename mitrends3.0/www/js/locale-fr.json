@@ -31,8 +31,8 @@
   "SD_PREPARATION": "Part 2 de 5 - Chiffre-Symbole essai",
   "TRY_LAB": "Labyrinthe exercice",
   "TRY_LAB_TEXT": "Un chemin qui vous devez imiter ensuite est montré. Cliquez sur OK quand vous êtes prêt.",
-  "MIND_WAY": "!! S'il vous plaît, mémorisez-vous le chemin!!",
-  "DO_WAY": "!! S'il vous plaît, essayez de imiter le chemin présenté; !!",
+  "MIND_WAY": "S'il vous plaît, mémorisez-vous le chemin",
+  "DO_WAY": "S'il vous plaît, essayez de imiter le chemin présenté!",
   "CORE": {
     "AHAND": [{
       "id": "1",

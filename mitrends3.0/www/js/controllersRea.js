@@ -162,7 +162,7 @@ angular.module('starter.controllersRea', [])
       console.log("Zwischenresultate" + results);
       if (counter == intervalrepetitions) {
         $rootScope.headerTitle = "Teil 1 von 4 - Zahl-Symbol";
-        $rootScope.videoSrc = "https://www.youtube.com/embed/xxUsDHzbH2Y?rel=0&amp;showinfo=0;autoplay=1;controls=1";
+        $rootScope.videoSrc = "https://www.youtube.com/embed/ju3Gj7sujms?rel=0&amp;showinfo=0;autoplay=1;controls=1";
         $rootScope.stateAfterVideo = 'labyrinth';
         $rootScope.stateAfterGeschafft = 'anleitungsvideo';
         $rootScope.imgSrc = 'img/oneStar.png';

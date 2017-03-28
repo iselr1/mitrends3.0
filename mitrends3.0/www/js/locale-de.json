@@ -47,8 +47,8 @@
   "VARIABLES_MIDATA": "Variablen für MIDATA",
   "TRY_LAB": "Labyrinth Übung",
   "TRY_LAB_TEXT": "Ihnen wird nun ein Weg vorgezeigt, den Sie anschliessend nachmachen sollen. Klicken Sie auf OK sobald sie bereit sind.",
-  "MIND_WAY": "!! Bitte merken Sie sich den Weg !!",
-  "DO_WAY": "!! Versuchen Sie den vorgezeigten Weg nachzumachen. Beginnen Sie bei START !!",
+  "MIND_WAY": "Bitte merken Sie sich den Weg",
+  "DO_WAY": "Versuchen Sie den vorgezeigten Weg nachzumachen. Beginnen Sie bei START!",
   "CORE": {
     "AHAND": [{
       "id": "1",

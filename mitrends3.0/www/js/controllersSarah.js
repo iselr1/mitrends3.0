@@ -1,15 +1,16 @@
 /*
 Document name       controllerSarah.js
-Made:               01.10.2016
+Made:               28.03.2017
 Made through:       meles1
-Version Nr.:        1.1
+Version Nr.:        1.0
 
-Function: All Controller for the Views "Kernsymptome", "Labyrinth", "Labyrinth Anleitung"
 */
 angular.module('starter.controllersSarah', [])
 
 
-  /* -- Controller for Labyrinth View -- */
+  /*-----------------------------------------------------
+  ----------- Controller for Labyrinth View -------------
+  -------------------------------------------------------*/
   .controller('LabCtrl', function($scope, $stateParams, $interval, $state, $ionicPopup, $translate, ExcersiseStorageService, $rootScope) {
 
     // Array with results for the save service
@@ -94,7 +95,7 @@ angular.module('starter.controllersSarah', [])
     var point21 = [877, 91.5];
     var point22 = [953.5, 669.5]; //end
 
-    // the last point and line the user clicked
+    // the last point, before last point and line the user clicked
     var lastpoint;
     var beforelastpoint;
     var lastline;
@@ -116,8 +117,8 @@ angular.module('starter.controllersSarah', [])
     // The first square bracket references the desired element in the outer array (actualLab).
     // The second square bracket references the desired element in the inner array (Point or Line Array).
     // (JavaScript array indexes start at zero.)
-    var actualLab; // = [point1, point2, point3, point4, point5, point6, point7, point8, point9, point10, point11, point12, point13, point14, point15, point16, point17, point18, point19, point20, point21, point22];
-    var actualLabLines; // = [line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, line22, line23, line24, line25, line26, line27, line28, line29, line30, line31, line32, line33, line34, line35, line36];
+    var actualLab;// = [point1, point2, point3, point4, point5, point6, point7, point8, point9, point10, point11, point12, point13, point14, point15, point16, point17, point18, point19, point20, point21, point22];
+    var actualLabLines;// = [line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, line22, line23, line24, line25, line26, line27, line28, line29, line30, line31, line32, line33, line34, line35, line36];
 
     // Array with all the points and all the lines to show
     var labWay;
@@ -186,6 +187,7 @@ angular.module('starter.controllersSarah', [])
 
     // Make the Way
     doWay = function() {
+
       //You cannot click the lab until the way is shown
       clickOK = false;
 
@@ -233,11 +235,11 @@ angular.module('starter.controllersSarah', [])
         // Show the Way through the Labyrinth - Points
         setTimeout(function() {
           $interval(showWay, 1500, labWay.length + 1); //1500
-        }, 2000); //2000
+        }, 2000);//2000
         // Show the Way through the Labyrinth - Lines
         setTimeout(function() {
           $interval(showWayLines, 1500, labWayLines.length + 1); //1500
-        }, 2750); //2750
+        }, 2750);//2750
         // Click is Only possible when way through Labyrinth was shown
         setTimeout(function() {
           $scope.drawLab();
@@ -254,13 +256,16 @@ angular.module('starter.controllersSarah', [])
       if (numberLab == 1) {
         labWay = labWay1;
         labWayLines = labWayLines1;
-      } else if (numberLab == 2) {
+      }
+      else if (numberLab == 2) {
         labWay = labWay2;
         labWayLines = labWayLines2;
-      } else if (numberLab == 3) {
+      }
+      else if (numberLab == 3) {
         labWay = labWay3;
         labWayLines = labWayLines3;
-      } else {
+      }
+      else {
         labWay = labWay4;
         labWayLines = labWayLines4;
       }
@@ -451,73 +456,75 @@ angular.module('starter.controllersSarah', [])
               // Was a point clicked before?
               if (lastpoint[0] != 0) {
                 // Was the last point the same like the clicked --> Option to correct
-                if (lastpoint[0] == actualLab[i][0] && lastpoint[1] == actualLab[i][1]) {
+                if (lastpoint[0] == actualLab[i][0] && lastpoint[1] == actualLab[i][1]){
                   // You can correct the last point
-                  if (lastpoint != beforelastpoint) {
+                  if (lastpoint != beforelastpoint){
                     // draw the last line black again
                     drawLine(lastline[0], lastline[1], lastline[2], lastline[3], "black");
 
                     // If there was a line
-                    if (beforelastpoint[0] != 0) {
+                    if (beforelastpoint[0] != 0 ){
 
                       // check if the point was already drawn --> then let it cyan, else make it white (overgoing same points)
                       for (var k = 0; k < userpoints.length; k++) {
-                        if (userpoints[k][0] == actualLab[i][0] && userpoints[k][1] == actualLab[i][1]) {
-                          alreadyPoint = alreadyPoint + 1;
-                        }
+                        if (userpoints[k][0] == actualLab[i][0] && userpoints[k][1] == actualLab[i][1]){
+                            alreadyPoint = alreadyPoint + 1;
+                          }
                       }
 
                       //make it white if not drawn already
-                      if (alreadyPoint < 2) {
+                      if (alreadyPoint < 2){
                         drawPoint(actualLab[i][0], actualLab[i][1], "white");
                       }
 
                       //make it cyan if drawn already
-                      else {
+                      else{
                         drawPoint(actualLab[i][0], actualLab[i][1], "cyan");
                       }
 
-                      //make the "actual point" yellow
-                      drawPoint(beforelastpoint[0], beforelastpoint[1], "yellow");
-                      userway.splice(userway.length - 1, 1);
-                      userpoints.splice(userpoints.length - 1, 1);
+                      //make the "actual point" mediumblue
+                      drawPoint(beforelastpoint[0], beforelastpoint[1], "mediumblue");
+                      userway.splice(userway.length-1, 1);
+                      userpoints.splice(userpoints.length-1, 1);
                       countcorrection = countcorrection + 1;
                     }
 
-                    // Wenn aktueller Punkt "Start war"
-                    else if (actualLab[i][0] == point1[0] && actualLab[i][1] == point1[1]) {
+                    // actual point was start
+                    else if (actualLab[i][0] == point1[0] && actualLab[i][1] == point1[1]){
                       drawPoint(actualLab[i][0], actualLab[i][1], "black");
-                      userpoints.splice(userpoints.length - 1, 1);
+                      userpoints.splice(userpoints.length-1, 1);
                       countcorrection = countcorrection + 1;
                     }
 
-                    // Erster Punkt war nicht Start und wird korrigiert
-                    else {
+                    // first point was not START and is corrected
+                    else{
                       drawPoint(actualLab[i][0], actualLab[i][1], "white");
-                      userpoints.splice(userpoints.length - 1, 1);
+                      userpoints.splice(userpoints.length-1, 1);
                       countcorrection = countcorrection + 1;
                     }
 
-                    // Letzter Punkt zurücksetzen auf Vorletzten
+                    // set last point to beforelastpoint
                     lastpoint = beforelastpoint;
-                  } else {
+                  }
+                  else{
                     // You can not correct more than one point
                     console.log("Korrektur so nicht erlaubt");
                   }
-                } else {
+                }
+                else {
                   // check if the line is already drawn, then it's forbidden to draw
                   for (var x = 0; x < userway.length; x++) {
                     if (
                       ((userway[x][0] == actualLab[i][0] && userway[x][1] == actualLab[i][1]) || (userway[x][0] == lastpoint[0] && userway[x][1] == lastpoint[1])) &&
                       ((userway[x][2] == actualLab[i][0] && userway[x][3] == actualLab[i][1]) || (userway[x][2] == lastpoint[0] && userway[x][3] == lastpoint[1]))
-                    ) {
+                    ){
                       alreadyLine = true;
                     }
                   }
 
-                  if (alreadyLine == false) {
+                  if (alreadyLine == false){
                     madearealline = realLineInLab(lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1]);
-                    if (madearealline) {
+                    if(madearealline){
                       drawLine(lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1], "cyan");
                       // put the clicked line in the array of the way the user did
                       userway.push([lastpoint[0], lastpoint[1], actualLab[i][0], actualLab[i][1]]);
@@ -526,20 +533,20 @@ angular.module('starter.controllersSarah', [])
                       // set the point before the lastpoint
                       beforelastpoint = lastpoint;
                       // draw Point
-                      drawPoint(actualLab[i][0], actualLab[i][1], "yellow");
+                      drawPoint(actualLab[i][0], actualLab[i][1], "mediumblue");
                       drawPoint(lastpoint[0], lastpoint[1], "cyan");
                       lastpoint = [actualLab[i][0], actualLab[i][1]];
                     }
-                    // Regelbruch
-                    else {
+                    // Rulebreak
+                    else{
                       rulebreaks = rulebreaks + 1;
                     }
                   }
                 }
               }
-              // else draw just the point yellow (Startpunkt)
+              // else draw just the point mediumblue (Startpunkt)
               else {
-                drawPoint(actualLab[i][0], actualLab[i][1], "yellow");
+                drawPoint(actualLab[i][0], actualLab[i][1], "mediumblue");
                 lastpoint = [actualLab[i][0], actualLab[i][1]];
                 userpoints.push([actualLab[i][0], actualLab[i][1]]);
                 startTime = new Date().getTime();
@@ -557,7 +564,7 @@ angular.module('starter.controllersSarah', [])
           userpoints.push([point22[0], point22[1]]);
           // draw Point
           drawPoint(point22[0], point22[1], "cyan");
-          //search in the whole labyrinth
+          // search in the whole labyrinth
           // check if the user did a right line (doesnt matter which direction)
           // loop through userway array
           for (var i = 0; i < userway.length; i++) {
@@ -573,10 +580,10 @@ angular.module('starter.controllersSarah', [])
           }
 
           // check the reihenfolge of the points (direction matter)
-          for (var r = 1; r < userpoints.length; r++) {
-            for (var t = 1; t < labWay.length; t++) {
-              if (userpoints[r][0] == labWay[t][0] && userpoints[r][1] == labWay[t][1]) {
-                if (userpoints[r - 1][0] == labWay[t - 1][0] && userpoints[r - 1][1] == labWay[t - 1][1]) {
+          for (var r = 1; r < userpoints.length; r++){
+            for (var t = 1; t < labWay.length; t++){
+              if (userpoints[r][0] == labWay[t][0] && userpoints[r][1] == labWay[t][1]){
+                if (userpoints[r-1][0] == labWay[t-1][0] && userpoints[r-1][1] == labWay[t-1][1]){
                   rightdirection = rightdirection + 1;
                 }
               }
@@ -585,37 +592,33 @@ angular.module('starter.controllersSarah', [])
 
           // do the math for the score
           console.log("rightdirection: " + rightdirection);
-          console.log("rightlines: " + rightlines);
-          score = rightdirection + ((rightlines - rightdirection) * 0.5);
+          console.log("rightlines: "+ rightlines);
+          score = rightdirection + ((rightlines - rightdirection)*0.5);
           // do the math the number of the faults
           faults = userway.length - rightlines;
-          // checken ob der ganze weg richtig gemacht wurde
+          // check if the whole way was right
           if (userway.length == rightlines) {
             rightlab = rightlab + 1;
             countrightlab = countrightlab + 1;
           }
-          // muss 2 mal NACHEINANDER richtig gemacht werden
+          // has to be right two times IN A ROW
           else {
             rightlab = 0;
           }
 
           if (rightlab > 1 || countlab > 4) {
-            // 2 mal nacheinander richtig oder 5 mal falsch --> Übung beendet
+            // two times in a row right or 5 times tried
             $scope.saveResultsLab();
             console.log(results);
-            $rootScope.headerTitle = "Teil 2 von 4 - Labyrinth";
-            $rootScope.stateAfterGeschafft = 'anleitungsvideo';
-            $rootScope.stateAfterVideo = 'pointstest.info';
-            //$rootScope.videoSrc = "youtubelink Pointtest";
-            $state.go('geschafft');
+            $state.go('geschafftLAB');
           } else {
-            // Mache den Weg nochmal
+            // Do the way again
             $scope.saveResultsLab();
             console.log(results);
             doWay();
           }
         }
-        // Klicken noch nicht erlaubt
+        // Not allowed to click already
       } else {
         console.info("nopes");
       }
@@ -635,23 +638,23 @@ angular.module('starter.controllersSarah', [])
     // cx, cy is circle center, and radius is circle radius
     realLineInLab = function(x1, y1, x2, y2) {
       var isinlab = false;
-      // loop durch die linien des labs
-      for (var n = 0; n < actualLabLines.length; n++) {
-        if (
-          // vergleich ob koordinaten vorhanden im labyrinth
-          ((x1 == actualLabLines[n][0] && y1 == actualLabLines[n][1]) || (x1 == actualLabLines[n][2] && y1 == actualLabLines[n][3])) &&
-          ((x2 == actualLabLines[n][0] && y2 == actualLabLines[n][1]) || (x2 == actualLabLines[n][2] && y2 == actualLabLines[n][3]))
-        ) {
-          isinlab = true;
+      // loop through the lines of the lab
+        for (var n = 0; n < actualLabLines.length; n++) {
+          if (
+            // compare all the coordinates of the lab
+            ((x1 == actualLabLines[n][0] && y1 == actualLabLines[n][1]) || (x1 == actualLabLines[n][2] && y1 == actualLabLines[n][3])) &&
+            ((x2 == actualLabLines[n][0] && y2 == actualLabLines[n][1]) || (x2 == actualLabLines[n][2] && y2 == actualLabLines[n][3]))
+          ) {
+            isinlab = true;
+          }
         }
-      }
-      return isinlab;
+        return isinlab;
     };
 
     // Save the Results
     $scope.saveResultsLab = function() {
 
-      //Paramter die übergeben werden
+      //Save all Auswertungen
       var result1 = {};
       var date = new Date();
 
@@ -704,17 +707,8 @@ angular.module('starter.controllersSarah', [])
       result10.value = (endTime - startTime) / 1000;
       results.push(result10);
 
-      //Service Aufruf
+      //Service Call
       ExcersiseStorageService.saveResultsToFile("Labyrinth Übung", results);
-    };
-
-    // Popup mit den Variablen für Midata
-    $scope.showPopupMIDATA = function() {
-      var alertPopup = $ionicPopup.alert({
-        title: $translate.instant('VARIABLES_MIDATA'),
-        template: "Anzahl Clicks: " + clicks + "</br></br>" + "Anz. Punkt des Labs angeklickt: " + rightclicks + "</br></br>" + "Anz. richtige Verbindungen: " + rightlines,
-      });
-      alertPopup;
     };
 
     // Labyrinth is defined for width="1024" height="768"
