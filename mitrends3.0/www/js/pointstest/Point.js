@@ -97,9 +97,16 @@ function Point(opt) {
         element.css({
             top: position.y - diameter / 2,
             left: position.x - diameter / 2,
-
         });
-        console.info("Call : setPosition");
+    };
+
+    /** Move the point to a position on-screen */
+    this.setPositionByUser = function(newPosition) {
+        position = newPosition;
+        element.css({
+            top: position.y - (diameter * 0.9 ),
+            left: position.x - (diameter /2),
+        });
     };
 
     this.getIsActive = function() {

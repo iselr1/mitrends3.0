@@ -92,6 +92,13 @@ angular.module('uszapp.linetest')
                     startTest();
                 };
 
+
+                this.goToFirstRound = function() {
+                    $ionicHistory.clearHistory();
+                    $state.go('LineTest');
+                };
+
+
             }])
         .directive('injectElement', function () {
             return {

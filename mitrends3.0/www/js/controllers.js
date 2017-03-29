@@ -23,7 +23,8 @@ angular.module('starter.controllers', [])
     var jsonData = jsonService.getJson();
 
     $scope.goKernsymp = function() {
-      $state.go('zahlsymbolVideo');
+      //$state.go('zahlsymbolVideo');
+      $state.go('PointTestIntro');
     };
 
     //Change the language
@@ -35,9 +36,6 @@ angular.module('starter.controllers', [])
         $ionicHistory.clearCache();
       });
     };
-
-
-
 
     $scope.showDATATEXT = function() {
       console.log("hier");
@@ -89,7 +87,6 @@ angular.module('starter.controllers', [])
         });
       }
     }
-
 
 
     // Check if valid User
@@ -170,9 +167,20 @@ angular.module('starter.controllers', [])
   .controller('GeschafftLineCtrl', function($scope, $stateParams, $state) {
 
     $scope.goNext = function() {
-      $state.go('pointstest.intro');
+      $state.go('impressum');
     };
 
+  })
+  //--------------------------------------------------------//
+  //---------------CONTROLLER Done Point-----------------------//
+  //--------------------------------------------------------//
+  .controller('GeschafftPointCtrl', function($scope, $stateParams, $state, $rootScope) {
+
+    headerTitle = $rootScope.headerTitle;
+
+    $scope.goNext = function() {
+      $state.go($rootScope.nextState);
+    };
   })
   //--------------------------------------------------------//
   //---------------CONTROLLER Done Figur-----------------------//

@@ -1,5 +1,5 @@
 angular.module('uszapp.pointstest')
-  .controller('PointsTestRoundCtrl', function($rootScope, PointsTest, $scope, $timeout, $ionicPopup, $state, $cordovaNativeAudio, $ionicPlatform, $ionicBackdrop, $ionicModal) {
+.controller('PointsTestRoundCtrl', function($rootScope, PointsTest, $scope, $timeout, $ionicPopup, $state, $cordovaNativeAudio, $ionicHistory, $ionicPlatform, $ionicBackdrop, $ionicModal) {
 
     var self = this;
 
@@ -8,23 +8,25 @@ angular.module('uszapp.pointstest')
     var currentTest;
 
     // Config
-    var TIME_PER_ROUND = 90; // # seconds per round
+    var TIME_PER_ROUND = 3; // # seconds per round
     // Where the start triangle can be set
     var startPositionQuarters = [
-      'topLeft', 'topRight', 'bottomLeft', 'bottomRight'
+        'topLeft', 'topRight', 'bottomLeft', 'bottomRight'
     ];
     // By how much the target can be rotated
-    var targetRotations = [-60, -30, 30, 60];
+    var targetRotations = [
+        -60, -30, 30, 60
+    ];
 
     var testRunning = false;
     this.timeCounter = TIME_PER_ROUND;
     this.figureCounter = 0;
 
     $ionicPlatform.ready(function() {
-      var isWebView = ionic.Platform.isWebView();
-      if (isWebView) {
-        $cordovaNativeAudio.preloadSimple('ding', 'audio/ding.mp3');
-      }
+        var isWebView = ionic.Platform.isWebView();
+        if (isWebView) {
+            $cordovaNativeAudio.preloadSimple('ding', 'audio/ding.mp3');
+        }
     });
 
     // $ionicModal.fromTemplateUrl('templates/pointstest/round-info-modal.html', {
@@ -37,63 +39,62 @@ angular.module('uszapp.pointstest')
     // });
 
     this.startTests = function() {
-      start();
+        start();
     };
-
 
     // Start first round
     function start() {
-      var startTime = new Date();
-      var sub = setInterval(function() {
-        testRunning = true;
-        var time = new Date();
-        var elapsedTime = Math.round((time - startTime) / 1000);
-        var remainingTime = TIME_PER_ROUND - elapsedTime;
-        self.timeCounter = remainingTime;
-        // Angular doesn't update the view automatically
-        $scope.$apply();
-        if (elapsedTime >= TIME_PER_ROUND) {
-          clearInterval(sub);
-          endPointsTestRound();
-        }
-      }.bind(this), 1000);
-
-      startNewTest();
+        var startTime = new Date();
+        var sub = setInterval(function() {
+            testRunning = true;
+            var time = new Date();
+            var elapsedTime = Math.round((time - startTime) / 1000);
+            var remainingTime = TIME_PER_ROUND - elapsedTime;
+            self.timeCounter = remainingTime;
+            // Angular doesn't update the view automatically
+            $scope.$apply();
+            if (elapsedTime >= TIME_PER_ROUND) {
+                clearInterval(sub);
+                endPointsTestRound();
+            }
+        }.bind(this), 1000);
+        startNewTest();
     }
 
     function startNewTest() {
-      var test = new PointsTest({
-        startPositionQuarter: _.sample(startPositionQuarters),
-        targetRotation: _.sample(targetRotations)
-      });
-      currentTest = test;
-      test.on('TEST_DONE', function() {
-        test.destroy();
-        self.figureCounter += 1;
-        $cordovaNativeAudio.play('ding');
-        if (testRunning) {
-          startNewTest();
-        }
-      });
-      test.start();
+        var test = new PointsTest({
+            startPositionQuarter: _.sample(startPositionQuarters),
+            targetRotation: _.sample(targetRotations)
+        });
+        currentTest = test;
+        test.on('TEST_DONE', function() {
+            test.destroy();
+            self.figureCounter += 1;
+            $cordovaNativeAudio.play('ding');
+            if (testRunning) {
+                startNewTest();
+            }
+        });
+        test.start();
     }
 
     function endPointsTestRound() {
-      testRunning = false;
-      openEndScreen();
-      console.log('FINISHED');
+        testRunning = false;
+
+
+        if ($ionicHistory.backView().url != "/hand")
+          $state.go('PointTestHand');
+        else
+          openEndScreen();
+        console.info('FINISHED');
     }
 
-    function openEndScreen() {
-      var alertPopup = $ionicPopup.alert({
-        title: 'Test beendet',
-        template: 'Sie haben erfolgreich den Test beendet.'
-      });
-      alertPopup.then(function(res) {
-        $state.go('linetest')
-      });
+    function openEndScreen(){
+      $rootScope.headerTitle = "Teil 3 von 4 - Punkte Bewegen"
+      $rootScope.nextState = 'LineTestIntro';
+      $state.go('geschafftPoint');
     }
 
     this.startTests();
 
-  });
+});

@@ -133,8 +133,13 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
       })
       .state('geschafftLine', {
         url: '/geschafftLine',
-        templateUrl: 'templates/geschafftLine.html',
+        templateUrl: 'templates/linetest/geschafftLine.html',
         controller: 'GeschafftLineCtrl'
+      })
+      .state('geschafftPoint', {
+        url: '/geschafftPoint',
+        templateUrl: 'templates/pointstest/geschafftPoint.html',
+        controller: 'GeschafftPointCtrl'
       })
       .state('geschafftFigur', {
         url: '/geschafftFigur',
@@ -153,32 +158,60 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         templateUrl: 'templates/labyrinthVideo.html',
         controller: 'LabyrinthVideoCtrl'
       })
+
+
+      // Motor tasks
       .state('pointstest', {
-        abstract: true,
-        url: '/pointstest',
-        templateUrl: 'templates/pointstest/pointstest.html',
-        controller: 'PointsTestCtrl',
-        controllerAs: 'pointsTestCtrl'
-      })
-      .state('pointstest.intro', {
-        url: '/intro',
-        templateUrl: 'templates/pointstest/intro.html'
-      })
-      .state('pointstest.round', {
-        url: '/test',
-        templateUrl: 'templates/pointstest/round.html',
-        controller: 'PointsTestRoundCtrl',
-        cacheView: false,
-        controllerAs: 'roundCtrl'
-      })
+              abstract: true,
+              url: '/pointstest',
+              templateUrl: 'templates/pointstest/pointstest.html',
+              controller: 'PointsTestCtrl',
+              controllerAs: 'pointsTestCtrl'
+          })
 
+      .state('PointTestIntro', {
+              url: '/intro',
+              templateUrl: 'templates/pointstest/intro.html',
+              controller: 'PointsTestCtrl',
+              controllerAs: 'pointsTestCtrl'
+          })
 
-      .state('linetest', {
-        parent: 'test',
-        url: '/line',
-        templateUrl: 'templates/linetest/linetest.html',
-        controller: 'LineTestCtrl'
-      })
+      .state('PointstestRound', {
+              url: '/test',
+              templateUrl: 'templates/pointstest/round.html',
+              controller: 'PointsTestRoundCtrl',
+              cacheView: false,
+              controllerAs: 'roundCtrl'
+          })
+
+      .state('PointTestHand', {
+                  url: '/hand',
+                  templateUrl: 'templates/pointstest/hand.html',
+                  controller: 'PointsTestCtrl',
+                  controllerAs: 'pointsTestCtrl'
+          })
+
+    .state('LineTestIntro', {
+                  url: '/intro',
+                  templateUrl: 'templates/linetest/intro.html',
+                  controller: 'LineTestCtrl',
+                  controllerAs: 'LineTestCtrl'
+          })
+
+    .state('LineTestHand', {
+                  url: '/hand',
+                  templateUrl: 'templates/linetest/hand.html',
+                  controller: 'LineTestCtrl',
+                  controllerAs: 'LineTestCtrl'
+          })
+
+    .state('linetest', {
+              parent: 'test',
+              url: '/line',
+              templateUrl: 'templates/linetest/linetest.html',
+              controller: 'LineTestCtrl'
+          })
+      // End motor tasks
 
     $urlRouterProvider.otherwise('/home')
 
