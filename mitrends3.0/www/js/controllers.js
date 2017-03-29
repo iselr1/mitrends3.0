@@ -3,7 +3,7 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Navigation-----------------------//
   //--------------------------------------------------------//
-  .controller('NavCtrl', function($scope, $state, jsonService, ownMidataService) {
+  .controller('NavCtrl', function($scope, $state, jsonService) {
 
     $scope.goHome = function() {
       $state.go('home');

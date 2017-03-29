@@ -2,37 +2,38 @@
   "LANG_DE": "DE",
   "LANG_EN": "EN",
   "LANG_FR": "FR",
-  "THANKS": "Merci beaucoup pour votre participation!",
-  "WELCOME": "Bonjour",
-  "WELCOME_STUDY": "Bonjour chez nôtre étude",
-  "GO": "Allez!",
+  "THANKS": "Merci beaucoup pour votre participation !",
+  "WELCOME": "Bienvenue",
+  "WELCOME_STUDY": "Bienvenue dans notre étude",
+  "GO": "C'est parti !",
   "HOME": "Home",
   "DATAPROTECTION": "Déclaration de confidentialité",
-  "DATATEXT": "Lors l'article 13 de la constitution fédérale de la confédération suisse et le loi fédérale sur la protection des données, chaque personne a le droit de la protection de leur intimité et en même temps la protection d'abus de leur personel données. Nous respectons ces dispositions. Les seuls données qui sont collécte avec cette application sont les resultat et les réponses des test et ces données sont traiter comme tout les données collécte pendent une visite en hôpital. Les données sont traiter strictement confidentiel et n'est pas vendus ou transmis à des tiers.",
-  "LOGIN": "Login",
-  "LOGINERRORTEXT": "Utilisateur ou mot de passe fausse",
+  "DATATEXT": "Selon l'article 13 de la constitution fédérale de la Confédération suisse et la Loi fédérale sur la protection des données (LDP), chaque personne a le droit à la protection de sa sphère privée ainsi qu'à la protection contre l'usage abusif de ses données personnelles. Nous respectons ces dispositions. Les données collectées sont traitées de façon strictement confidentielle et ne sont pas vendues ou transmises à des tiers.",
+  "LOGIN": "Connexion",
+  "LOGINERRORTEXT": "Utilisateur ou mot de passe erroné",
   "LOGININFO": "Info",
-  "LOGOUT": "Logout",
-  "IMPRESSUM": "Empreinte",
-  "EMAIL_SUBJECT": "Question MitrendS App",
+  "LOGOUT": "Déconnexion",
+  "IMPRESSUM": "Impressum",
+  "EMAIL_SUBJECT": "Question App MitrendS",
   "UNDERSTOOD": "Compris",
-  "IMP_TEXT": "L'application était implémenté du filière universitaire informatique médicale de la haute école spécialisée bernoise pour la clinique neurologique de l'hôpital universitaire de Zurich.",
-  "IMP_CONTACT": "Vous avez une question ou un feedback?",
-  "IMP_WRITE": "Envoyez nous un e-mail",
+  "IMP_TEXT": "L'application a été développée par la filière d'informatique médicale de la haute école spécialisée bernoise (BFH) pour la clinique neurologique de l'hôpital universitaire de Zurich.",
+  "IMP_CONTACT": "Avez-vous une question ou un commentaire?",
+  "IMP_WRITE": "Envoyez-nous un e-mail",
   "OVERVIEW": "Home",
-  "DONE": "Géré!",
-  "PLEASE": "S'il vous plaît choissisez une réponse pour chaque question",
+  "EXCERCISES": "Exercices",
+  "DONE": "Bravo !",
+  "PLEASE": "Choisissez s'il vous plaît une réponse pour chaque question",
   "QUESTIONNAIRES": "Questionnaire",
-  "MAINSYMPTOMS": "Part 1 de 5 - Symptôme de fond",
-  "LABYRINTH": "Part 4 de 5 - Labyrinthe",
-  "LAB_VIDEO": "Part 4 de 5 - Labyrinthe instruction en vidéo",
-  "SYMBOL_DIGIT": "Part 2 de 5 - Chiffre-Symbole",
-  "SD_VIDEO": "Part 2 de 5 - Chiffre-Symbole instruction en vidéo",
-  "SD_PREPARATION": "Part 2 de 5 - Chiffre-Symbole essai",
-  "TRY_LAB": "Labyrinthe exercice",
-  "TRY_LAB_TEXT": "Un chemin qui vous devez imiter ensuite est montré. Cliquez sur OK quand vous êtes prêt.",
-  "MIND_WAY": "S'il vous plaît, mémorisez-vous le chemin",
-  "DO_WAY": "S'il vous plaît, essayez de imiter le chemin présenté!",
+  "MAINSYMPTOMS": "Partie 1 de 5 - Symptômes clés",
+  "LABYRINTH": "Partie 4 de 5 - Labyrinthe",
+  "LAB_VIDEO": "Partie 4 de 5 - Labyrinthe - vidéo d'instruction",
+  "SYMBOL_DIGIT": "Partie 2 de 5 - Chiffre-Symbole",
+  "SD_VIDEO": "Partie 2 de 5 - Chiffre-Symbole - vidéo d'instruction",
+  "SD_PREPARATION": "Partie 2 de 5 - Chiffre-Symbole - essai",
+  "TRY_LAB": "Exercice du labyrinthe ",
+  "TRY_LAB_TEXT": "Un chemin vous est montré, vous devez ensuite le redessiner. Cliquez sur OK quand vous êtes prêt.",
+  "MIND_WAY": "Veuillez mémoriser le chemin",
+  "DO_WAY": "Veuillez essayer de redessiner le chemin mémorisé. Commencez par START !",
   "CORE": {
     "AHAND": [{
       "id": "1",
@@ -67,18 +68,16 @@
       "id": "5",
       "imgSrc": "img/emotes_face_smile_big.png"
     }]
-
   },
   "Q1CORE": "Êtes-vous...",
-  "Q2COREL": "Est-ce que vous avez une restriction de mouvement en main gauche?",
-  "Q2CORER": "Est-ce que vous avez une restriction de mouvement en main droite?",
-  "Q3COREL": "Est-ce que vous avez une perturbation de sensation en main gauche?",
-  "Q3CORER": "Est-ce que vous avez une perturbation de sensation en main droite?",
-  "Q4CORE": "Comment vous sentez-vous aujourd'hui?",
-  "Q5CORE": "Comment vous jugez vôtre pouvoir de concentration en ce moment?",
-  "Q6CORE": "Est-ce que vous avez eu un poussée depuis la dernière exercice?",
-  "Q7CORE": "Est-ce que vôtre symptômes de SEP ont gangé en intensité depuis la dernière exercice?",
-
+  "Q2COREL": "Avez-vous une restriction de mouvement à la main gauche ?",
+  "Q2CORER": "Avez-vous une restriction de mouvement à la main droite ?",
+  "Q3COREL": "Avez-vous une perturbation de sensation à la main gauche ?",
+  "Q3CORER": "Avez-vous une perturbation de sensation à la main droite ?",
+  "Q4CORE": "Comment vous sentez-vous aujourd'hui ? ",
+  "Q5CORE": "Comment jugez-vous votre pouvoir de concentration en ce moment ?",
+  "Q6CORE": "Avez-vous eu une poussée depuis le dernier exercice ?",
+  "Q7CORE": "Est-ce que vos symptômes de SEP ont gagné en intensité depuis le dernier exercice ?",
   "RIGHTHANDED": "Droitier",
   "LEFTHANDED": "Gaucher",
   "BOTHHANDED": "Ambidextre",
@@ -87,13 +86,13 @@
   "SAVE": "Sauvegarder",
   "BACK": "Retour",
   "NEXT": "Continuer",
-  "COMMENT": "Commentaires/réaction d'exercice:",
+  "COMMENT": "Commentaire/réaction à propos de l'exercice:",
   "DIGIT": "Chiffre",
   "SYMBOL": "Symbole",
   "INFO": "Info",
-  "TEMPLATEPOPUP_NEXTPREPZS": "Maintenant le essai est lancé, après l'exercice principale est lancé.",
-  "SDTEMPLATE_POPUP": "Le essai est terminé. Dès que vous cliquez sur OK l'exercice principale commence.",
-  "MSIS-29": "Part 3 de 5 - MSIS-29",
+  "TEMPLATEPOPUP_NEXTPREPZS": " L'essai est maintenant lancé, il sera suivi de l'exercice principal.",
+  "SDTEMPLATE_POPUP": "L'essai est terminé. Dès que vous cliquez sur OK, l'exercice principal commence.",
+  "MSIS-29": "Partie 3 de 5 - MSIS-29",
   "MSIS": {
     "RADIOS": [{
       "id": "1",
@@ -114,109 +113,109 @@
     "QUESTIONS": {
       "QS1": [{
         "id": "1",
-        "text": "Faire des tâches exigeant des efforts physiques?"
+        "text": "Faire des tâches exigeant des efforts physiques ?"
       }, {
         "id": "2",
-        "text": "Serrer fort un objet(ex tourner un robinet)?"
+        "text": "Serrer fort un objet (p.ex. tourner un robinet) ?"
       }, {
         "id": "3",
-        "text": "Porter quelque chose?"
+        "text": "Porter quelque chose ?"
       }],
       "QS2_1": [{
         "id": "4",
-        "text": "Des problèmes d'équilibre?"
+        "text": "Des problèmes d'équilibre ?"
       }, {
         "id": "5",
-        "text": "Des difficultés pour vous déplacer à l'intérieur"
+        "text": "Des difficultés pour vous déplacer à l'intérieur ?"
       }, {
         "id": "6",
-        "text": "La maladresse?"
+        "text": "La maladresse ?"
       }, {
         "id": "7",
-        "text": "La raideur"
+        "text": "La raideur ?"
       }],
       "QS2_2": [{
         "id": "8",
-        "text": "Une sensation de bras et/ou jambe lourds?"
+        "text": "Une sensation de bras et/ou jambe lourds ?"
       }, {
         "id": "9",
-        "text": "Des tremblements des bras ou des jambes?"
+        "text": "Des tremblements des bras ou des jambes ?"
       }, {
         "id": "10",
-        "text": "Des spasmes dans les  membres?"
+        "text": "Des spasmes dans les membres ?"
       }, {
         "id": "11",
-        "text": "Votre corps qui ne fait pas ce que vous voulez?"
+        "text": "Votre corps qui ne fait pas ce que vous voulez ?"
       }, {
         "id": "12",
-        "text": "La nécessité de dépendre des autres pour qu'ils fassent des choses à votre place?"
+        "text": "La nécessité de dépendre des autres pour qu'ils fassent des choses à votre place ?"
       }, {
         "id": "13",
-        "text": "Des limitation das vos acitvités sociales et loisirs à la maison?"
+        "text": "Des limitations dans vos activités sociales et loisirs à la maison ?"
       }, {
         "id": "14",
-        "text": "Etre coincé à la maison plus que vous le souhaitez?"
+        "text": "Être coincé à la maison plus que vous le souhaitez ?"
       }, {
         "id": "15",
-        "text": "Des difficultés à vous servir de vos mains pour des tâches quotidiennes?"
+        "text": "Des difficultés à vous servir de vos mains pour des tâches quotidiennes ?"
       }],
       "QS2_3": [{
         "id": "16",
-        "text": "L'obligation de diminuer le temps passé à travailler ou faire d'autres activités quotidiennes?"
+        "text": "L'obligation de diminuer le temps passé à travailler ou faire d'autres activités quotidiennes ?"
       }, {
         "id": "17",
-        "text": "Des problèmes pour utiliser les transports(ex voiture, bus, train, taxi etc.)?"
+        "text": "Des problèmes pour utiliser les transports (p.ex. voiture, bus, train, taxi, etc.) ?"
       }, {
         "id": "18",
-        "text": "Le fait de passer plus de temps pour faire quelque chose?"
+        "text": "Le fait de passer plus de temps pour faire quelque chose ?"
       }, {
         "id": "19",
-        "text": "La difficulté à faire des choses spontanées(ex sortir spontanément)?"
+        "text": "La difficulté à faire des choses spontanées (p.ex. sortir spontanément) ?"
       }, {
         "id": "20",
-        "text": "Un envie pressante d'aller aux toilette?"
+        "text": "Un envie pressante d'aller aux toilettes ?"
       }, {
         "id": "21",
-        "text": "Le fait de ne pas vous sentir bien?"
+        "text": "Le fait de ne pas vous sentir bien ?"
       }, {
         "id": "22",
-        "text": "Des problèmes de sommeil?"
+        "text": "Des problèmes de sommeil ?"
       }, {
         "id": "23",
-        "text": "Une fatigue mentale?"
+        "text": "Une fatigue mentale ?"
       }],
       "QS2_4": [{
         "id": "24",
-        "text": "Des inquiétudes liées à la SEP?"
+        "text": "Des inquiétudes liées à la SEP ?"
       }, {
         "id": "25",
-        "text": "Le fait de vous sentir anxieux ou tendu?"
+        "text": "Le fait de vous sentir anxieux ou tendu ?"
       }, {
         "id": "26",
-        "text": "Le fait de vous sentir irritable, impatient ou facilement en colère?"
+        "text": "Le fait de vous sentir irritable, impatient ou facilement en colère ?"
       }, {
         "id": "27",
-        "text": "Des difficultés à vous concentrer?"
+        "text": "Des difficultés à vous concentrer ?"
       }, {
         "id": "28",
-        "text": "Un manque de confiance en vous?"
+        "text": "Un manque de confiance en vous ?"
       }, {
         "id": "29",
-        "text": "Le fait de vous sentir déprimé?"
+        "text": "Le fait de vous sentir déprimé ?"
       }]
     }
   },
-  "MSISQS1": "Au cours des deux dernières semaines dans quelle mesure votre SEP a restreint votre capacité à:",
-  "MSISQS2": "Au cours des deux dernières semaines, dans quelle mesure avez-vous été gêné par:",
-  "ZS-INSTRUCTION": "Choissisez à l'aide de la table de reference de la table des chiffres les bonnes chiffres pour les symboles au-dessus, de gauche a droite.",
-  "REFERENCETABLE": "Table de reference",
+  "MSISQS1": "Au cours des deux dernières semaines, dans quelle mesure votre SEP a restreint votre capacité à :",
+  "MSISQS2": "Au cours des deux dernières semaines, dans quelle mesure avez-vous été gêné par :",
+  "ZS-INSTRUCTION": "Veuillez remplir la table ci-dessous de gauche à droite, en cliquant sur le chiffre correspondant à la forme selon la table de référence.",
+  "REFERENCETABLE": "Table de référence",
   "DIGITTABLE": "Table de chiffres",
   "PAGE1OF4": "Page 1 de 4",
   "PAGE2OF4": "Page 2 de 4",
   "PAGE3OF4": "Page 3 de 4",
   "PAGE4OF4": "Page 4 de 4",
-  "FATIGUE_SS": "Part 5 de 5 - Fatigue Severity Scale",
-  "FSS_Q": "Au cours de la semaine précédente, j'ai trouvé que:",
+  "FATIGUE_SS": "Partie 5 de 5 - Fatigue Severity Scale",
+  "FSS_Q": "Au cours de la semaine précédente, j'ai trouvé que :",
   "AGREE_COMPLETELY": "Tout à fait d'accord = 7",
   "AGRRE_NOT": "Pas du tout d'accord = 1",
   "FSS": {
@@ -250,7 +249,7 @@
       "text": "Faire de l'exercice me fatigue."
     }, {
       "id": "3",
-      "text": "Je suis facilement fatigue."
+      "text": "Je suis facilement fatigué."
     }, {
       "id": "4",
       "text": "La fatigue a des conséquences sur mon fonctionnement physique."
@@ -268,7 +267,7 @@
       "text": "La fatigue est parmi les 3 symptômes qui me posent le plus de problèmes."
     }, {
       "id": "9",
-      "text": "La fatigue interfère avec mon travail ma famille et ma vie sociale."
+      "text": "La fatigue interfère avec mon travail, ma famille et ma vie sociale."
     }]
   }
 }
