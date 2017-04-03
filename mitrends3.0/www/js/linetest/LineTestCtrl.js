@@ -119,10 +119,11 @@ angular.module('uszapp.linetest')
                             $scope.showSummary = false;
                             $scope.showTest = false;
                         } else {
-                            $scope.showAnimation1 = false;
-                            $scope.showAnimation2 = false;
-                            $scope.showSummary = true;
-                            $scope.showTest = false;
+//                            $scope.showAnimation1 = false;
+//                            $scope.showAnimation2 = false;
+//                            $scope.showSummary = true;
+//                            $scope.showTest = false;
+                            $state.go('endScreen');
                         }
 
                     } else {
