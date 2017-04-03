@@ -193,24 +193,11 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
 
     .state('LineTestIntro', {
                   url: '/intro',
-                  templateUrl: 'templates/linetest/intro.html',
+                  templateUrl: 'templates/linetest/linetest.html',
                   controller: 'LineTestCtrl',
                   controllerAs: 'LineTestCtrl'
           })
 
-    .state('LineTestHand', {
-                  url: '/hand',
-                  templateUrl: 'templates/linetest/hand.html',
-                  controller: 'LineTestCtrl',
-                  controllerAs: 'LineTestCtrl'
-          })
-
-    .state('linetest', {
-              parent: 'test',
-              url: '/line',
-              templateUrl: 'templates/linetest/linetest.html',
-              controller: 'LineTestCtrl'
-          })
       // End motor tasks
 
     $urlRouterProvider.otherwise('/home')

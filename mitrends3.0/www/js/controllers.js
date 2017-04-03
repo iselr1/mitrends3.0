@@ -167,7 +167,7 @@ angular.module('starter.controllers', [])
   .controller('GeschafftLineCtrl', function($scope, $stateParams, $state) {
 
     $scope.goNext = function() {
-      $state.go('impressum');
+      $state.go('linetest');
     };
 
   })

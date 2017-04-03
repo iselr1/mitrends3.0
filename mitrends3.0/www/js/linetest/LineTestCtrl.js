@@ -18,7 +18,6 @@ angular.module('uszapp.linetest')
                  * the state is left.
                  */
                 function init() {
-                    console.log('test');
                     $scope.debug = false;
                     $scope.showAnimation1 = true;
                     $scope.showAnimation2 = false;
