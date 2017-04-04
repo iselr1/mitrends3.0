@@ -24,6 +24,8 @@ angular.module('uszapp.linetest')
                     currentCategoryIdx = 0;  // the current index in the linetests array
                     $scope.showSummary = false; // if the summary screen should be shown
                     $scope.showTest = false; // if the summary screen should be shown
+                    $scope.showRightHand = false;
+                    $scope.showLeftHand = false;
                     $scope.canRestart = false; // if the line test can be restarted
                     $scope.canDoNext = false; // if the user can proceed to the next test
                     $scope.resultHistory = []; // saved results
@@ -42,6 +44,8 @@ angular.module('uszapp.linetest')
                     $scope.showAnimation2 = false;
                     $scope.showSummary = false;
                     $scope.showTest = false;
+                    $scope.showRightHand = false;
+                    $scope.showLeftHand = false;
                     $timeout(function () {
                         $scope.mouseTracker = new MouseTracker(canvas);
                         loadTest(currentCategoryIdx);
@@ -95,17 +99,16 @@ angular.module('uszapp.linetest')
                 }
                 $scope.beginLeft = function () {
                     $scope.showAnimation1 = false;
-                    $scope.showAnimation2 = false;
                     $scope.showSummary = false;
                     $scope.showTest = false;
+                    $scope.showRightHand = false;
+                    $scope.showLeftHand = false;
                     $timeout(function () {
                         currentCategoryIdx = 0;
                         loadTest(currentCategoryIdx);
                         startTest();
                         $scope.showTest = true;
                     }, 200);
-                    
-
                 }
                 $scope.nextTest = function () {
                     if ($scope.allTestsFinished) {
@@ -115,15 +118,16 @@ angular.module('uszapp.linetest')
                         });
                         if ($scope.count === lineTests.length) {
                             $scope.showAnimation1 = false;
-                            $scope.showAnimation2 = true;
                             $scope.showSummary = false;
                             $scope.showTest = false;
+                            $scope.showRightHand = false;
+                            $scope.showLeftHand = true;
                         } else {
 //                            $scope.showAnimation1 = false;
 //                            $scope.showAnimation2 = false;
 //                            $scope.showSummary = true;
 //                            $scope.showTest = false;
-                            $state.go('endScreen');
+                            $state.go('geschafftLine');
                         }
 
                     } else {
@@ -132,6 +136,25 @@ angular.module('uszapp.linetest')
                         startTest();
                     }
                 };
+                
+                
+                
+                   $scope.goLeftHand = function() {
+                        $scope.showAnimation1 = false;
+                        $scope.showSummary = false;
+                        $scope.showTest = false;
+                        $scope.showRightHand = false;
+                        $scope.showLeftHand = true;
+                    };
+
+                    $scope.goRightHand = function() {
+                            $scope.showAnimation1 = false;
+                            $scope.showSummary = false;
+                            $scope.showTest = false;
+                            $scope.showRightHand = true;
+                            $scope.showLeftHand = false;
+                   };
+                
 
                 $scope.restart = function () {
                     loadTest(currentCategoryIdx);

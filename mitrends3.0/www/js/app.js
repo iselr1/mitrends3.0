@@ -175,7 +175,35 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
                         controller: 'PointsTestCtrl',
                         controllerAs: 'pointsTestCtrl'
                     })
-
+                    
+                    .state('rightHandPointTest', {
+                        url: '/rightHandPointTest',
+                        templateUrl: 'templates/pointstest/rightHand.html',
+                        controller: 'PointsTestCtrl',
+                        controllerAs: 'pointsTestCtrl'
+                    })
+                    
+                    .state('leftHandPointTest', {
+                        url: '/leftHandPointTest',
+                        templateUrl: 'templates/pointstest/leftHand.html',
+                        controller: 'PointsTestCtrl',
+                        controllerAs: 'pointsTestCtrl'
+                    })
+                    
+                    .state('rightHandLineTest', {
+                        url: '/rightHandLineTest',
+                        templateUrl: 'templates/linetest/rightHand.html',
+                        controller: 'LineTestCtrl',
+                        controllerAs: 'lineTestCtrl'
+                    })
+                    
+                    .state('leftHandLineTest', {
+                        url: '/leftHandLineTest',
+                        templateUrl: 'templates/linetest/leftHand.html',
+                        controller: 'LineTestCtrl',
+                        controllerAs: 'lineTestCtrl'
+                    })
+                    
                     .state('PointstestRound', {
                         url: '/test',
                         templateUrl: 'templates/pointstest/round.html',
@@ -202,6 +230,9 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
                         templateUrl: 'templates/endScreen.html',
                         controller: 'EndScreenCtrl',
                     })
+                
+                    
+                    
 
             // End motor tasks
 

@@ -114,7 +114,7 @@ angular.module('uszapp.pointstest')
             var bottomOffset = bbox.maxy - position.y;
             // The space that the bounding box should have to the
             // screen edge.
-            var padding = 20;
+            var padding = 80;
             switch (quarter) {
                 case "topLeft":
                     triangle.setPosition({

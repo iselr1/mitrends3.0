@@ -5,5 +5,18 @@ angular.module('uszapp.pointstest')
         $ionicHistory.clearHistory();
         $state.go('PointstestRound');
     };
+    
+    
+      this.goLeftHand = function() {
+        $ionicHistory.clearHistory();
+        $state.go('leftHandPointTest');
+    };
+    
+     this.goRightHand = function() {
+       $ionicHistory.clearHistory();
+        $state.go('rightHandPointTest');
+    };
+    
+    
 
 });
