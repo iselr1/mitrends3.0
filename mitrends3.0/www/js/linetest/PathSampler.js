@@ -140,14 +140,13 @@ angular.module('uszapp.linetest')
             elapsedTime = (Date.now() - startTime) / 1000;
             if (!foundTrace) {
                 console.log('Info: Unable to follow trace any further, assuming this is the end.');
-                break outer;
+                break;
             }
             if (elapsedTime >= 2) {
                 console.log('Warning: Tracing of path aborted to avoid infinite loop!');
                 break outer;
             }
         }
-
         return coords;
     }
 
