@@ -1,14 +1,14 @@
 angular.module('uszapp.linetest')
-        .controller('LineTestCtrl', ['$scope', '$state', 'LineTest', 'lineTests', '$timeout',
-            function ($scope, $state, LineTest, lineTests, $timeout) {
+        .controller('LineTestCtrl', ['$scope', '$state', 'LineTest', 'lineTests', '$timeout', '$ionicPopup',
+            function ($scope, $state, LineTest, lineTests, $timeout, $ionicPopup) {
 
                 var canvas = $('canvas.line-canvas')[0];
                 var currentCategoryIdx;  // the current index in the `lineTests` array
                 var lineTest;
                 $scope.$on("$ionicView.beforeEnter", function () {
-                    canvas.height = window.innerHeight * 0.8;
-                    canvas.width = window.innerWidth * 0.8;
-                    $('.message1').width(window.innerWidth * 0.2);
+                    canvas.height = window.innerHeight * 0.9;
+                    canvas.width = window.innerWidth * 0.9;
+//                    $('.message1').width(window.innerWidth * 0.25);
                     init();
                 });
 
@@ -84,20 +84,31 @@ angular.module('uszapp.linetest')
                         } else {
                             result.test = 'RIGHT';
                         }
+
                         if ($scope.allTestsFinished) {
                             $scope.endMessage = 'Weiter zur Zusammenfassung.';
                         } else {
-                            $scope.endMessage = 'Weiter zum nächsten Test.';
+                            $scope.endMessage = 'Nächster Test.';
                         }
-
                         $scope.resultHistory.push(result);
                         $scope.mouseTracker.initialiseClicks();
+                        $timeout(function () {
+                            $scope.nextTest();
+                        }, 500);
+                        console.log(currentCategoryIdx)
                     }, function (err) {
                         $scope.done = true;
                         $scope.success = false;
                         $scope.endMessage = err;
                         $scope.canRestart = true;
                         $scope.canDoNext = false;
+                        var alertPopup = $ionicPopup.alert({
+                            template: 'Versuchen Sie nochmals'
+                        });
+
+                        alertPopup.then(function (res) {
+                            $scope.restart();
+                        });
                     });
                 }
                 $scope.beginLeft = function () {
@@ -132,8 +143,8 @@ angular.module('uszapp.linetest')
 //                            $scope.showTest = false;
                             $state.go('geschafftLine');
                         }
-
                     } else {
+                        console.log('nextTest')
                         currentCategoryIdx += 1;
                         loadTest(currentCategoryIdx);
                         startTest();

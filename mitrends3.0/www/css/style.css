@@ -1,325 +1,335 @@
 body {
-  /*basic styling */
-  font-size: 20px !important;
-  vertical-align: middle;
-  height: 100%;
-  line-height: 120%;
-  /*flexbox
-  display: flex;*/
+    /*basic styling */
+    font-size: 20px !important;
+    vertical-align: middle;
+    height: 100%;
+    line-height: 120%;
+    /*flexbox
+    display: flex;*/
 }
 canvas{
-    border: red 2px solid;
+    /*border: red 2px solid;*/
 }
-
+.colLineTest{
+    /*padding: 5%;*/
+    margin-right: 2%;
+    overflow: hidden;
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+}
 .message1{
-      overflow: hidden;
-      width: 80%;
-      padding-right: 15%;
+    display: none;
+    /*overflow: hidden;*/
+    /*width: 80%;*/
+    /*padding-right: 15%;*/
+    /*margin-left: -20%;*/
 }
 .lineButton{
-    overflow: hidden;
-    width: 80%;
+    /*padding-right: 15%;*/
+    /*overflow: hidden;*/
+    /*width: 80%;*/
 }
 .scroll-content {
-  display: table !important;
-  width: 100% !important;
-  height: 100% !important;
+    display: table !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .scroll {
-  height: 100% !important;
-  display: -webkit-box !important;
-  display: -moz-box !important;
-  display: -ms-flexbox !important;
-  display: -webkit-flex !important;
-  display: flex !important;
-  -webkit-box-direction: normal !important;
-  -moz-box-direction: normal !important;
-  -webkit-box-orient: vertical !important;
-  -moz-box-orient: vertical !important;
-  -webkit-flex-direction: column !important;
-  -ms-flex-direction: column !important;
-  flex-direction: column !important;
+    height: 100% !important;
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+    -webkit-box-direction: normal !important;
+    -moz-box-direction: normal !important;
+    -webkit-box-orient: vertical !important;
+    -moz-box-orient: vertical !important;
+    -webkit-flex-direction: column !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
 }
 
 .msis-special-line-height {
-  line-height: 100%;
+    line-height: 100%;
 }
 
 .label {
-  font-size: 20px !important;
+    font-size: 20px !important;
 }
 
 .popup {
-  width: 500px !important;
+    width: 500px !important;
 }
 
 .popup-title {
-  font-size: 30px !important;
+    font-size: 30px !important;
 }
 
 .popup-body {
-  font-size: 20px !important;
+    font-size: 20px !important;
 }
 
 .popup-buttons .button {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 .col-align-center {
-  position: relative;
-  top: 100%;
-  transform: perspective(1px) translateY(-90%);
-  /*
-      -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
-
-      link: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
-      */
+    position: relative;
+    top: 100%;
+    transform: perspective(1px) translateY(-90%);
+    /*
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+  
+        link: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+    */
 }
 
 .text-right {
-  text-align: right;
+    text-align: right;
 }
 
 .col {
-  height: 100% !important;
+    height: 100% !important;
 }
 
 .col-4 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 4%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 4%;
-  -ms-flex: 0 0 4%;
-  flex: 0 0 4%;
-  max-width: 4%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 4%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 4%;
+    -ms-flex: 0 0 4%;
+    flex: 0 0 4%;
+    max-width: 4%;
 }
 
 .col-17 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 17%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 17%;
-  -ms-flex: 0 0 17%;
-  flex: 0 0 17%;
-  max-width: 17%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 17%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 17%;
+    -ms-flex: 0 0 17%;
+    flex: 0 0 17%;
+    max-width: 17%;
 }
 
 .col-25 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 25%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 25%;
-  -ms-flex: 0 0 25%;
-  flex: 0 0 25%;
-  max-width: 25%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 25%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
 }
 
 .col-26 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 26%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 26%;
-  -ms-flex: 0 0 26%;
-  flex: 0 0 26%;
-  max-width: 26%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 26%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 26%;
+    -ms-flex: 0 0 26%;
+    flex: 0 0 26%;
+    max-width: 26%;
 }
 
 .col-27 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 27.5%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 27.5%;
-  -ms-flex: 0 0 27.5%;
-  flex: 0 0 27.5%;
-  max-width: 27.5%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 27.5%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 27.5%;
+    -ms-flex: 0 0 27.5%;
+    flex: 0 0 27.5%;
+    max-width: 27.5%;
 }
 
 .col-28 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 28%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 28%;
-  -ms-flex: 0 0 28%;
-  flex: 0 0 28%;
-  max-width: 28%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 28%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 28%;
+    -ms-flex: 0 0 28%;
+    flex: 0 0 28%;
+    max-width: 28%;
 }
 .col-45 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 45%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 45%;
-  -ms-flex: 0 0 45%;
-  flex: 0 0 45%;
-  max-width: 45%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 45%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 45%;
+    -ms-flex: 0 0 45%;
+    flex: 0 0 45%;
+    max-width: 45%;
 }
 .col-48 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 48%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 48%;
-  -ms-flex: 0 0 48%;
-  flex: 0 0 48%;
-  max-width: 48%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 48%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 48%;
+    -ms-flex: 0 0 48%;
+    flex: 0 0 48%;
+    max-width: 48%;
 }
 .col-55 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 55%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 55%;
-  -ms-flex: 0 0 55%;
-  flex: 0 0 55%;
-  max-width: 55%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 55%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 55%;
+    -ms-flex: 0 0 55%;
+    flex: 0 0 55%;
+    max-width: 55%;
 }
 .col-62 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 62.5%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 62.5%;
-  -ms-flex: 0 0 62.5%;
-  flex: 0 0 62.5%;
-  max-width: 62.5%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 62.5%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 62.5%;
+    -ms-flex: 0 0 62.5%;
+    flex: 0 0 62.5%;
+    max-width: 62.5%;
 }
 
 .col-68 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 68%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 68%;
-  -ms-flex: 0 0 68%;
-  flex: 0 0 68%;
-  max-width: 68%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 68%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 68%;
+    -ms-flex: 0 0 68%;
+    flex: 0 0 68%;
+    max-width: 68%;
 }
 
 .col-54 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 54%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 54%;
-  -ms-flex: 0 0 54%;
-  flex: 0 0 54%;
-  max-width: 54%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 54%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 54%;
+    -ms-flex: 0 0 54%;
+    flex: 0 0 54%;
+    max-width: 54%;
 }
 
 .col-58 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 58%;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 58%;
-  -ms-flex: 0 0 58%;
-  flex: 0 0 58%;
-  max-width: 58%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 58%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 58%;
+    -ms-flex: 0 0 58%;
+    flex: 0 0 58%;
+    max-width: 58%;
 }
 
 .row-3 {
-  height: 3vh;
+    height: 3vh;
 }
 
 .row-5 {
-height:5vh;
+    height:5vh;
 }
 
 .row-8 {
-  height:8vh:
+    height:8vh:
 }
 
 .row-10 {
-  height:10vh;
+    height:10vh;
 }
 
 .row-15 {
-  height:15vh;
+    height:15vh;
 }
 
 .row-20 {
-  height:20vh;
+    height:20vh;
 }
 
 .row-25 {
-  height:25vh;
+    height:25vh;
 }
 
 .row-30 {
-  height:30vh;
+    height:30vh;
 }
 
 .row-33 {
-  height:33vh;
+    height:33vh;
 }
 
 .row-35 {
-  height:35vh;
+    height:35vh;
 }
 
 .row-40 {
-  height:40vh;
+    height:40vh;
 }
 
 .row-80 {
-  height:80vh;
+    height:80vh;
 }
 
 .row-85 {
-  height:85vh;
+    height:85vh;
 }
 
 .row-90 {
-  height:90vh;
+    height:90vh;
 }
 
 .center {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .zs-col {
-  border: 2.5px solid black;
-  text-align: center;
+    border: 2.5px solid black;
+    text-align: center;
 }
 
 input[type="radio"]:checked {
-  background: linear-gradiant(#3498DB);
-  color: #3498DB;
-  font-style: normal;
+    background: linear-gradiant(#3498DB);
+    color: #3498DB;
+    font-style: normal;
 }
 
 #kernsymp {
-  width: 80%;
-  height: 90%;
+    width: 80%;
+    height: 90%;
 }
 
 #kernsymp_one {
-  width: 80%;
-  height: 96%;
+    width: 80%;
+    height: 96%;
 }
 
 #core_smile {
-  width: 80%;
-  height: 80%;
+    width: 80%;
+    height: 80%;
 }
 
 #msis {
-  width: 45%;
-  height: 100%;
+    width: 45%;
+    height: 100%;
 }
 
 #msis3 {
-  width: 50%;
-  height: 100%;
+    width: 50%;
+    height: 100%;
 }
 
 #fss {
-  width: 65%;
-  height: 100%;
+    width: 65%;
+    height: 100%;
 }
 
 #radiolabels {
-  text-align: center;
+    text-align: center;
 }
 
 #questionlabels {
-  vertical-align: middle;
+    vertical-align: middle;
 }
