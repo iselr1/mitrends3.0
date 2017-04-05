@@ -133,7 +133,7 @@ function Point(opt) {
         $rootScope.$emit('POINT_ACTIVE', self);
         isActive = true;
         element.css({
-            'border': '7px solid orange'
+            'border': '7px solid cyan'
         });
     }
 }

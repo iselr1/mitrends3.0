@@ -106,14 +106,14 @@ angular.module('uszapp.linetest')
                         ctx.lineWidth = LineTestConfig.DRAWN_LINE_WIDTH;
                         ctx.moveTo(posiX, posiY);
 //                        ctx.moveTo(position.x, position.y);
-                        console.log('Start tracking');
+                        //console.log('Start tracking');
                     };
 
                     /**
                      * Stop tracking the movement of the user's mouse/finger.
                      */
                     this.stopTracking = function () {
-                        console.log('Stop tracking');
+                        //console.log('Stop tracking');
                         shouldTrack = false;
                     };
 

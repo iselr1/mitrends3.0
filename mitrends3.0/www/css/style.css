@@ -7,7 +7,19 @@ body {
   /*flexbox
   display: flex;*/
 }
+canvas{
+    border: red 2px solid;
+}
 
+.message1{
+      overflow: hidden;
+      width: 80%;
+      padding-right: 15%;
+}
+.lineButton{
+    overflow: hidden;
+    width: 80%;
+}
 .scroll-content {
   display: table !important;
   width: 100% !important;

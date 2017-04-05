@@ -6,6 +6,9 @@ angular.module('uszapp.linetest')
                 var currentCategoryIdx;  // the current index in the `lineTests` array
                 var lineTest;
                 $scope.$on("$ionicView.beforeEnter", function () {
+                    canvas.height = window.innerHeight * 0.8;
+                    canvas.width = window.innerWidth * 0.8;
+                    $('.message1').width(window.innerWidth * 0.2);
                     init();
                 });
 
@@ -136,25 +139,25 @@ angular.module('uszapp.linetest')
                         startTest();
                     }
                 };
-                
-                
-                
-                   $scope.goLeftHand = function() {
-                        $scope.showAnimation1 = false;
-                        $scope.showSummary = false;
-                        $scope.showTest = false;
-                        $scope.showRightHand = false;
-                        $scope.showLeftHand = true;
-                    };
 
-                    $scope.goRightHand = function() {
-                            $scope.showAnimation1 = false;
-                            $scope.showSummary = false;
-                            $scope.showTest = false;
-                            $scope.showRightHand = true;
-                            $scope.showLeftHand = false;
-                   };
-                
+
+
+                $scope.goLeftHand = function () {
+                    $scope.showAnimation1 = false;
+                    $scope.showSummary = false;
+                    $scope.showTest = false;
+                    $scope.showRightHand = false;
+                    $scope.showLeftHand = true;
+                };
+
+                $scope.goRightHand = function () {
+                    $scope.showAnimation1 = false;
+                    $scope.showSummary = false;
+                    $scope.showTest = false;
+                    $scope.showRightHand = true;
+                    $scope.showLeftHand = false;
+                };
+
 
                 $scope.restart = function () {
                     loadTest(currentCategoryIdx);

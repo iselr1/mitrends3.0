@@ -68,7 +68,7 @@ angular.module('uszapp.linetest')
 
                     endArea.on('ENTERED_AREA', function () {
                         if (inStartArea) {
-                            console.log('end-Area')
+//                            console.log('end-Area')
                             referenceLine.stopTracking();
                             referenceLine.lock();
                             startArea.lock();
