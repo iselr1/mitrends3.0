@@ -28,13 +28,7 @@ angular.module('starter.controllers', [])
     $scope.goNext = function() {
       //$state.go('anleitungsvideo');
       //JUST FOR TESTING
-      $rootScope.headerTitleDone = "Teil 2 von 4 - Labyrinth";
-      $rootScope.headerTitleVideo = "Teil 3 von 4 - Punkte bewegen";
-      $rootScope.stateAfterVideo = 'rightHandPointTest';
-      $rootScope.stateAfterDone = 'anleitungsvideo';
-      $rootScope.videoSrc = "video/labyrinth.mp4";
-      $rootScope.imgSrc = 'img/twoStars.png';
-      $state.go('geschafft');
+      $state.go('PointTestIntro');
     };
 
     //Change the language

@@ -606,9 +606,7 @@ angular.module('starter.controllersSarah', [])
             $scope.saveResultsLab();
             console.log(results);
             $rootScope.headerTitleDone = "Teil 2 von 4 - Labyrinth";
-            $rootScope.headerTitleVideo = "Teil 3 von 4 - Punkte bewegen";
-            $rootScope.stateAfterVideo = 'rightHandPointTest';
-            $rootScope.videoSrc = "video/labyrinth.mp4";
+            $rootScope.stateAfterDone = 'PointTestIntro';
             $rootScope.imgSrc = 'img/twoStars.png';
             $state.go('geschafft');
           } else {

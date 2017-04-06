@@ -59,13 +59,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
     }*/
   })
 
-  .config(function($stateProvider, $urlRouterProvider, $translateProvider, $sceDelegateProvider) {
-    $sceDelegateProvider.resourceUrlWhitelist([
-      // Allow same origin resource loads.
-      'self',
-      // Allow loading from our assets domain.  Notice the difference between * and **.
-      'https://www.youtube.com/**'
-    ]);
+  .config(function($stateProvider, $urlRouterProvider, $translateProvider) {
     // path to laod the language files
     $translateProvider.useStaticFilesLoader({
       prefix: 'js/locale-',
@@ -130,16 +124,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         controller: 'GeschafftCtrl'
       })
 
-      .state('leftHand', {
-        url: '/leftHand',
-        templateUrl: 'templates/leftHand.html',
-        controller: 'LeftHandCtrl'
-      })
-      .state('rightHand', {
-        url: '/rightHand',
-        templateUrl: 'templates/rightHand.html',
-        controller: 'RightHandCtrl'
-      })
 
       .state('anleitungsvideo', {
         url: '/anleitungsvideo',
@@ -148,81 +132,63 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
       })
 
       // Motoric tests
-       .state('pointstest', {
-         abstract: true,
-         url: '/pointstest',
-         templateUrl: 'templates/pointstest/pointstest.html',
-         controller: 'PointsTestCtrl',
-         controllerAs: 'pointsTestCtrl'
-        })
+      .state('pointstest', {
+        abstract: true,
+        url: '/pointstest',
+        templateUrl: 'templates/pointstest/pointstest.html',
+        controller: 'PointsTestCtrl',
+        controllerAs: 'pointsTestCtrl'
+      })
 
-        .state('PointTestIntro', {
-          url: '/intro',
-          templateUrl: 'templates/pointstest/intro.html',
-          controller: 'PointsTestCtrl',
-          controllerAs: 'pointsTestCtrl'
-        })
+      .state('PointTestIntro', {
+        url: '/intro',
+        templateUrl: 'templates/pointstest/intro.html',
+        controller: 'PointsTestCtrl',
+        controllerAs: 'pointsTestCtrl'
+      })
 
-        .state('rightHandPointTest', {
-          url: '/rightHandPointTest',
-          templateUrl: 'templates/pointstest/rightHand.html',
-          controller: 'PointsTestCtrl',
-          controllerAs: 'pointsTestCtrl'
-        })
+      .state('rightHandPointTest', {
+        url: '/rightHandPointTest',
+        templateUrl: 'templates/pointstest/rightHand.html',
+        controller: 'PointsTestCtrl',
+        controllerAs: 'pointsTestCtrl'
+      })
 
-        .state('leftHandPointTest', {
-          url: '/leftHandPointTest',
-          templateUrl: 'templates/pointstest/leftHand.html',
-          controller: 'PointsTestCtrl',
-          controllerAs: 'pointsTestCtrl'
-        })
+      .state('leftHandPointTest', {
+        url: '/leftHandPointTest',
+        templateUrl: 'templates/pointstest/leftHand.html',
+        controller: 'PointsTestCtrl',
+        controllerAs: 'pointsTestCtrl'
+      })
 
-        .state('PointstestRound', {
-          url: '/test',
-          templateUrl: 'templates/pointstest/round.html',
-          controller: 'PointsTestRoundCtrl',
-          cacheView: false,
-          controllerAs: 'roundCtrl'
-          })
+      .state('PointstestRound', {
+        url: '/test',
+        templateUrl: 'templates/pointstest/round.html',
+        controller: 'PointsTestRoundCtrl',
+        cacheView: false,
+        controllerAs: 'roundCtrl'
+      })
 
-          .state('geschafftPoint', {
-            url: '/geschafftPoint',
-            templateUrl: 'templates/pointstest/geschafftPoint.html',
-            controller: 'GeschafftPointCtrl'
-          })
+      .state('rightHandLineTest', {
+        url: '/rightHandLineTest',
+        templateUrl: 'templates/linetest/rightHand.html',
+        controller: 'LineTestCtrl',
+        controllerAs: 'lineTestCtrl'
+      })
 
-          .state('rightHandLineTest', {
-            url: '/rightHandLineTest',
-            templateUrl: 'templates/linetest/rightHand.html',
-            controller: 'LineTestCtrl',
-            controllerAs: 'lineTestCtrl'
-          })
+      .state('leftHandLineTest', {
+        url: '/leftHandLineTest',
+        templateUrl: 'templates/linetest/leftHand.html',
+        controller: 'LineTestCtrl',
+        controllerAs: 'lineTestCtrl'
+      })
 
-          .state('leftHandLineTest', {
-            url: '/leftHandLineTest',
-            templateUrl: 'templates/linetest/leftHand.html',
-            controller: 'LineTestCtrl',
-            controllerAs: 'lineTestCtrl'
-          })
-
-          .state('LineTestIntro', {
-            url: '/intro',
-            templateUrl: 'templates/linetest/linetest.html',
-            controller: 'LineTestCtrl',
-            controllerAs: 'LineTestCtrl'
-          })
-
-          .state('geschafftLine', {
-            url: '/geschafftLine',
-            templateUrl: 'templates/linetest/geschafftLine.html',
-            controller: 'GeschafftLineCtrl'
-          })
-
-          .state('endScreen', {
-            url: '/end',
-            templateUrl: 'templates/endScreen.html',
-            controller: 'EndScreenCtrl'
-          })
+      .state('LineTestIntro', {
+        url: '/intro',
+        templateUrl: 'templates/linetest/linetest.html',
+        controller: 'LineTestCtrl',
+        controllerAs: 'LineTestCtrl'
+      })
 
     //$urlRouterProvider.otherwise('/labyrinth')
     $urlRouterProvider.otherwise('/home')

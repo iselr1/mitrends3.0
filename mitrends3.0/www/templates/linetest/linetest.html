@@ -1,79 +1,82 @@
 <ion-view title="Teil 4 von 4 - Linie nachzeichnen">
-
-    <ion-content scroll="false" ng-show="showAnimation1">
-
-        <div>PASTE YOUR VIDEO HERE
-            <button class="next-button button button-block button-balanced button-large" ng-click="goRightHand()">Weiter</button>
-        </div>
-    </ion-content>
-
-
-    <ion-content scroll="false" ng-show="showRightHand">
-        <div class="row row-5"></div>
-        <h1 align="center">Bitte benützen Sie für die nächste Übung ihre <b style="color:#00B050">RECHTE</b> Hand!</h1>
-        <div class="row row-5"></div>
-        <div class="row row-40">
-            <div class="col col-50">
-                <img src="img/leftPalmBlack.png" class="center" height="100%"></image>
-            </div>
-            <div class="col col-50">
-                <img src="img/rightPalmGreen.png" class="center" height="100%"></image>
-            </div>
-        </div>
-        <div class="row row-15">
-        </div>
-        <div class="row">
-            <div class="col col-10"></div>
-            <div class="col">
-                <button class="button button-large button-block button-positive" ng-click="initTest()" translate="NEXT" />
-            </div>
-            <div class="col col-10"></div>
-        </div>
-    </ion-content>
+  <ion-content scroll="false" ng-show="showAnimation1">
+    <div class="row row-80">
+      <div class="col">
+        <video src="video/linetest.mp4" controls="controls" width="100%" height="80%" autoplay="autoplay"></video>
+      </div>
+    </div>
+    <div class="row row-10">
+      <div class="col col-10 padding"></div>
+      <div class="col padding">
+        <button class="button button-large button-block button-positive" ng-hide="hideButton" ng-click="goRightHand()">Weiter</button>
+      </div>
+      <div class="col col-10"></div>
+    </div>
+  </ion-content>
 
 
+  <ion-content scroll="false" ng-show="showRightHand">
+    <div class="row row-5"></div>
+    <h1 align="center">Bitte benützen Sie für die nächste Übung ihre <b style="color:#00B050">RECHTE</b> Hand!</h1>
+    <div class="row row-5"></div>
+    <div class="row row-40">
+      <div class="col col-50">
+        <img src="img/leftPalmBlack.png" class="center" height="100%"></image>
+      </div>
+      <div class="col col-50">
+        <img src="img/rightPalmGreen.png" class="center" height="100%"></image>
+      </div>
+    </div>
+    <div class="row row-15">
+    </div>
+    <div class="row">
+      <div class="col col-10"></div>
+      <div class="col">
+        <button class="button button-large button-block button-positive" ng-click="initTest()" translate="NEXT" />
+      </div>
+      <div class="col col-10"></div>
+    </div>
+  </ion-content>
 
-    <ion-content scroll="false" ng-show="showLeftHand">
-        <div class="row row-5"></div>
-        <h1 align="center">Bitte benützen Sie für die nächste Übung ihre <b style="color:#00B050">LINKE</b> Hand!</h1>
-        <div class="row row-5"></div>
-        <div class="row row-40">
-            <div class="col col-50">
-                <img src="img/leftPalmGreen.png" class="center" height="100%"></image>
-            </div>
-            <div class="col col-50">
-                <img src="img/rightPalmBlack.png" class="center" height="100%"></image>
-            </div>
-        </div>
-        <div class="row row-15">
-        </div>
-        <div class="row">
-            <div class="col col-10"></div>
-            <div class="col">
-                <button class="button button-large button-block button-positive" ng-click="beginLeft()" translate="NEXT" />
-            </div>
-            <div class="col col-10"></div>
-        </div>
-    </ion-content>
 
 
-    <ion-content scroll="false" class="line-test" ng-show="showTest">
-        <div class="colLineTest">
-            <div class="line-canvas-container">
-                <canvas class="line-canvas">
+  <ion-content scroll="false" ng-show="showLeftHand">
+    <div class="row row-5"></div>
+    <h1 align="center">Bitte benützen Sie für die nächste Übung ihre <b style="color:#00B050">LINKE</b> Hand!</h1>
+    <div class="row row-5"></div>
+    <div class="row row-40">
+      <div class="col col-50">
+        <img src="img/leftPalmGreen.png" class="center" height="100%"></image>
+      </div>
+      <div class="col col-50">
+        <img src="img/rightPalmBlack.png" class="center" height="100%"></image>
+      </div>
+    </div>
+    <div class="row row-15">
+    </div>
+    <div class="row">
+      <div class="col col-10"></div>
+      <div class="col">
+        <button class="button button-large button-block button-positive" ng-click="beginLeft()" translate="NEXT" />
+      </div>
+      <div class="col col-10"></div>
+    </div>
+  </ion-content>
+
+
+  <ion-content scroll="false" class="line-test" ng-show="showTest">
+    <div class="colLineTest">
+      <div class="line-canvas-container">
+        <canvas class="line-canvas">
                 </canvas>
 
-                <div class="message1">
-                    <div class="col">
-                        <h1 class="message" ng-show="done" ng-bind="endMessage"></h1>
-                    </div>
-                    <button class="restart-button button button-block button-positive button-large"
-                            ng-click="restart()"
-                            ng-show="canRestart">Neustart</button>
-                    <button class="next-button button button-block button-balanced button-large"
-                            ng-click="nextTest()"
-                            ng-show="canDoNext">Weiter</button>
-<!--                    <div class="row">
+        <div class="message1">
+          <div class="col">
+            <h1 class="message" ng-show="done" ng-bind="endMessage"></h1>
+          </div>
+          <button class="restart-button button button-block button-positive button-large" ng-click="restart()" ng-show="canRestart">Neustart</button>
+          <button class="next-button button button-block button-balanced button-large" ng-click="nextTest()" ng-show="canDoNext">Weiter</button>
+          <!--                    <div class="row">
                         <div class="list card" ng-show="success">
                             <a href="javascript:;" class="item item-icon-left">
                                 <i class="icon ion-ios-star"></i>
@@ -89,39 +92,39 @@
                             </a>
                         </div>
                     </div>-->
-                </div>
-            </div>
         </div>
-    </ion-content>
+      </div>
+    </div>
+  </ion-content>
 
-    <ion-content scroll="false" ng-show="showSummary">
-        <h1>Zusammenfassung</h1>
+  <ion-content scroll="false" ng-show="showSummary">
+    <h1>Zusammenfassung</h1>
 
-        <div class="card">
-            <div ng-repeat="res in resultHistory" class="item item-text-wrap">
-                <div class="row">
-                    <div class="col" inject-element="res.canvas"></div>
-                    <div class="col">
-                        {{:: res.test}} HAND
-                        <div class="list card" ng-show="success">
-                            <a href="javascript:;" class="item item-icon-left">
-                                <i class="icon ion-ios-star"></i>
-                                <span class="score-display"> {{:: res.score1}} </span>
-                            </a>
-                            <a href="javascript:;" class="item item-icon-left">
-                                <i class="icon ion-ios-star"></i>
-                                <span class="score-display"> {{:: res.score2}} </span>
-                            </a>
-                            <a href="javascript:;" class="item item-icon-left">
-                                <i class="icon ion-ios-stopwatch"></i>
-                                <span class="time-display"> {{:: res.time}} </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+    <div class="card">
+      <div ng-repeat="res in resultHistory" class="item item-text-wrap">
+        <div class="row">
+          <div class="col" inject-element="res.canvas"></div>
+          <div class="col">
+            {{:: res.test}} HAND
+            <div class="list card" ng-show="success">
+              <a href="javascript:;" class="item item-icon-left">
+                <i class="icon ion-ios-star"></i>
+                <span class="score-display"> {{:: res.score1}} </span>
+              </a>
+              <a href="javascript:;" class="item item-icon-left">
+                <i class="icon ion-ios-star"></i>
+                <span class="score-display"> {{:: res.score2}} </span>
+              </a>
+              <a href="javascript:;" class="item item-icon-left">
+                <i class="icon ion-ios-stopwatch"></i>
+                <span class="time-display"> {{:: res.time}} </span>
+              </a>
             </div>
+          </div>
         </div>
-    </ion-content>
+      </div>
+    </div>
+  </ion-content>
 
 
 </ion-view>
