@@ -9,7 +9,7 @@ function StartEndArea(opt) {
     this.emitter = new EventEmitter();
     this.mouseTracker = opt.mouseTracker;
 
-    this.draw(false);
+    this.draw('start');
 
     this.active = false;
 
@@ -101,7 +101,12 @@ StartEndArea.prototype.draw = function() {
     if (highlight) {
         this.ctx.fillStyle = LineTestConfig.START_AREA_HIGHLIGHT_COLOR;
     } else {
-        this.ctx.fillStyle = 'white';
+        if(this.start){
+            this.ctx.fillStyle = 'darkblue';
+        }else{
+            this.ctx.fillStyle = 'white';
+        }
+        
     }
     this.ctx.lineWidth = 4;
     this.ctx.strokeStyle = LineTestConfig.REFERENCE_LINE_COLOR;
@@ -117,9 +122,13 @@ StartEndArea.prototype.draw = function() {
     this.ctx.beginPath();
     this.ctx.font = "bold 24px arial, sans-serif";
     if (highlight) {
+        
         this.ctx.fillStyle = 'white';
     } else {
-        this.ctx.fillStyle = LineTestConfig.REFERENCE_LINE_COLOR;
+        if(this.start)
+            this.ctx.fillStyle = "white";
+        else
+            this.ctx.fillStyle = LineTestConfig.REFERENCE_LINE_COLOR;
     }
     this.ctx.textAlign = 'center';
     this.ctx.textBaseline = 'middle';

@@ -7,7 +7,9 @@ body {
   /*flexbox
   display: flex;*/
 }
-
+.message1{
+    display: none;
+}
 .scroll-content {
   display: table !important;
   width: 100% !important;
