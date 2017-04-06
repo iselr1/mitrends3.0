@@ -43,7 +43,10 @@ angular.module('uszapp.pointstest')
         });
 
         // Rotate triangles at the origin
-        // startTriangle.rotate(0);
+
+        if(!$rootScope.isLeftHand)
+          startTriangle.rotate(-280);
+
         targetTriangle.rotate(targetRotation);
 
         //////////////////////////////////////////
