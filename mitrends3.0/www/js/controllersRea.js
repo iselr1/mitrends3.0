@@ -1,20 +1,5 @@
 angular.module('starter.controllersRea', [])
 
-
-  //--------------------------------------------------------//
-  //---------------CONTROLLER Zahlsymbol Instructionvideo-----------------------//
-  //--------------------------------------------------------//
-  .controller('ZSVideoCtrl', function($scope, $state, $timeout) {
-    $scope.hideButton = true;
-    $scope.goSD = function() {
-      $state.go('zahlsymbol1');
-    };
-    // to display the next button after 60 seconds
-    $timeout(function() {
-      $scope.hideButton = false;
-    }, 15000);
-  })
-
   //--------------------------------------------------------//
   //---------------CONTROLLER Zahlsymbol-----------------------//
   //--------------------------------------------------------//
@@ -30,7 +15,9 @@ angular.module('starter.controllersRea', [])
     var counter = 0;
     var results = [];
     var lastTime;
-    var intervalDuration = 15000;
+    //for testing
+    //var intervalDuration = 15000;
+    var intervalDuration = 1000;
     var intervalrepetitions = SymDigService.getTimeExcersise() / intervalDuration;
     console.log("intervalrep" + intervalrepetitions);
 
@@ -48,17 +35,18 @@ angular.module('starter.controllersRea', [])
       // End excersise after 120 seconds
       $interval(functioninterval, intervalDuration, intervalrepetitions);
 
-      // Fill the keyTable with the first 9 images after the array was sorted in a random way
-      var ranNums = SymDigService.doShuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]);
-      console.log(ranNums);
-      $scope.keyTable = SymDigService.fillKeyTable(ranNums);
-      //Remove 8 items after the nint one - because for the keytable only the first nine numbers were choosen to be an image
-      ranNums.splice(9, 8);
-      // Add the number at position 2 of the ranNums array again to the ranNums array, because we need to have 10 images in the solveTable
+      // Assign the same 9 images as in the sd prepartion to the ranNums variable
+      var ranNums = $rootScope.ranNums;
+
+      console.log("Lösungstabelle vom Probelauf:" + ranNums);
+      // Assign the keyTable of the sd prepartion to be also the keytable of the main excercise
+      $scope.keyTable = $rootScope.keyTable;
+
+      // Add every number of the ranNums array again to the array, because we need to have 18 images in one row in the solveTable - therefore every image is displayed twice in one row
       for (var i = 0; i < 9; i++) {
         ranNums.push(ranNums[i]);
       }
-      console.log()
+      console.log("Nummern für Bilder der Lösungstabelle:" + ranNums);
       // Generate Tables with 18 random ordered images of the ranNums array that we used to create the keytable
       $scope.solveTable = SymDigService.fillSolveTable((SymDigService.genNums(ranNums, 18)));
       $scope.solveTable2 = SymDigService.fillSolveTable((SymDigService.genNums(ranNums, 18)));
@@ -117,17 +105,21 @@ angular.module('starter.controllersRea', [])
             //True if the image for the last field was choosen
             if (i == (length - 1)) {
               console.log("letztes feld");
-              currentSolveTable[i].next = false;
-              solveTableOneComplete = true;
-              $scope.solveTable2[0].next = true;
-              SymDigService.addTry();
-            } else if (SymDigService.getTrys() == 2) {
-              //function to reload the lines with new values
-              $scope.solveTable = SymDigService.fillSolveTable((SymDigService.genNums(ranNums, 18)), false);
-              $scope.solveTable2 = SymDigService.fillSolveTable((SymDigService.genNums(ranNums, 18)), false);
-              $scope.solveTable2[0].next = false;
-              solveTableOneComplete = false;
-              SymDigService.setTry(0);
+              //True if it's the last field of the first row
+              if (SymDigService.getTrys() == 0) {
+                currentSolveTable[i].next = false;
+                solveTableOneComplete = true;
+                $scope.solveTable2[0].next = true;
+                SymDigService.addTry();
+                //True if it's the last field of the second row
+              } else if (SymDigService.getTrys() == 1) {
+                //function to reload the lines with new values
+                $scope.solveTable = SymDigService.fillSolveTable((SymDigService.genNums(ranNums, 18)), false);
+                $scope.solveTable2 = SymDigService.fillSolveTable((SymDigService.genNums(ranNums, 18)), false);
+                $scope.solveTable2[0].next = false;
+                solveTableOneComplete = false;
+                SymDigService.setTry(0);
+              }
             } else {
               break;
             }
@@ -161,10 +153,11 @@ angular.module('starter.controllersRea', [])
       results.push(partresult3);
       console.log("Zwischenresultate" + results);
       if (counter == intervalrepetitions) {
-        $rootScope.headerTitle = "Teil 1 von 4 - Zahl-Symbol";
-        $rootScope.videoSrc = "https://www.youtube.com/embed/ju3Gj7sujms?rel=0&amp;showinfo=0;autoplay=1;controls=1";
+        $rootScope.headerTitleDone = "Teil 1 von 4 - Zahl-Symbol";
+        $rootScope.headerTitleVideo = "Teil 2 von 4 - Labyrinth";
+        $rootScope.videoSrc = "video/labyrinth.mp4";
         $rootScope.stateAfterVideo = 'labyrinth';
-        $rootScope.stateAfterGeschafft = 'anleitungsvideo';
+        $rootScope.stateAfterDone = 'anleitungsvideo';
         $rootScope.imgSrc = 'img/oneStar.png';
         $state.go('geschafft');
 
@@ -194,7 +187,7 @@ angular.module('starter.controllersRea', [])
         result5.value = (SymDigService.getTimeExcersise() / 1000);
         results.push(result5);
         console.log("FinalResultate" + results);
-        ExcersiseStorageService.saveResultsToFile("Zahl-Symbol Übung", results);
+        //ExcersiseStorageService.saveResultsToFile("Zahl-Symbol Übung", results);
       } else {
         //do nothing
       }
@@ -204,7 +197,7 @@ angular.module('starter.controllersRea', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Zahlsymbol Vorbereitung-----------------------//
   //--------------------------------------------------------//
-  .controller('ZS1Ctrl', function($scope, $stateParams, $ionicPopup, $translate, $state, SymDigService, ExcersiseStorageService) {
+  .controller('ZS1Ctrl', function($scope, $stateParams, $ionicPopup, $translate, $rootScope, $state, SymDigService, ExcersiseStorageService) {
     var popTitle = $translate.instant('INFO');
     var popTemplate = $translate.instant('TEMPLATEPOPUP_NEXTPREPZS');
 
@@ -217,15 +210,20 @@ angular.module('starter.controllersRea', [])
 
       // Fill the keyTable with the images in a random way and the numbers ordered from 1 to 9
       var ranNums = SymDigService.doShuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]);
-      console.log(ranNums);
-      $scope.keyTable = SymDigService.fillKeyTable(ranNums);
+      console.log("RandomOrderedNumbers:" + ranNums);
 
-      //Remove 8 items after the nint one - because for the keytable only the first nine numbers were choosen to be an image
-      ranNums.splice(9, 8);
+      //Remove all items after the nint one - because for the keytable only the first nine numbers were choosen to be an image
+      ranNums.splice(9);
+
       // Add the number at position 2 of the ranNums array again to the ranNums array, because we need to have 10 images in the solveTable
-      ranNums.push(ranNums[2]);
-      $scope.solveTable = SymDigService.fillSolveTable((SymDigService.genNums(ranNums, 10)));
 
+      var ranNumsForSolveTable = ranNums;
+      ranNumsForSolveTable.push(ranNumsForSolveTable[2]);
+
+      $rootScope.keyTable = SymDigService.fillKeyTable(ranNums);
+      $scope.solveTable = SymDigService.fillSolveTable((SymDigService.genNums(ranNumsForSolveTable, 10)));
+      ranNums.splice(9);
+      $rootScope.ranNums = ranNums;
       //*****************************************************************************************
       var solveNumberImages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
       console.log("Lösungszahlen" + solveNumberImages);

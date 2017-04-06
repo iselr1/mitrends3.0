@@ -20,15 +20,21 @@ angular.module('starter.controllers', [])
   //---------------CONTROLLER Home-----------------------//
   //--------------------------------------------------------//
   .controller('HomeCtrl', function($scope, $state, jsonService, $translate, $ionicPopup, $ionicHistory, $rootScope) {
-    $rootScope.videoSrc = "https://www.youtube.com/embed/bOymthBcuyE?rel=0&amp;showinfo=0;autoplay=1;controls=1";
-    $rootScope.stateAfterVideo = 'zahlsymbol1';
-    $rootScope.headerTitle = 'Teil 1 von 4 - Zahl-Symbol'
+    //$rootScope.videoSrc = 'video/symboldigit.mp4';
+    //$rootScope.stateAfterVideo = 'zahlsymbol1';
+    //$rootScope.headerTitleVideo = 'Teil 1 von 4 - Zahl-Symbol'
     var jsonData = jsonService.getJson();
 
-    $scope.goKernsymp = function() {
-      //JUST FOR TESTING
+    $scope.goNext = function() {
       //$state.go('anleitungsvideo');
-      $state.go('PointTestIntro');
+      //JUST FOR TESTING
+      $rootScope.headerTitleDone = "Teil 2 von 4 - Labyrinth";
+      $rootScope.headerTitleVideo = "Teil 3 von 4 - Punkte bewegen";
+      $rootScope.stateAfterVideo = 'rightHandPointTest';
+      $rootScope.stateAfterDone = 'anleitungsvideo';
+      $rootScope.videoSrc = "video/labyrinth.mp4";
+      $rootScope.imgSrc = 'img/twoStars.png';
+      $state.go('geschafft');
     };
 
     //Change the language
@@ -40,9 +46,6 @@ angular.module('starter.controllers', [])
         $ionicHistory.clearCache();
       });
     };
-
-
-
 
     $scope.showDATATEXT = function() {
       console.log("hier");
@@ -129,35 +132,27 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Impressum-----------------------//
   //--------------------------------------------------------//
-  .controller('ImpCtrl', function($scope, $stateParams, $state, $ionicPopup, jsonService) {
-    var jsonData = jsonService.getJson();
+  .controller('ImpCtrl', function($scope, $stateParams, $state, $ionicPopup) {
 
-    $scope.sendEmail = function() {
-      if (window.plugins && window.plugins.emailComposer) {
-        window.plugins.emailComposer.showEmailComposerWithCallback(function(result) {
-            console.log("Response -> " + result);
-          },
-          jsonData.EMAIL_SUBJECT, // Subject
-          "", // Body
-          ["mitrends@outlook.com"], // To
-          null, // CC
-          null, // BCC
-          false, // isHTML
-          null, // Attachments
-          null); // Attachment Data
-      }
+    $scope.goHome = function() {
+      $state.go('home');
+    };
+    $scope.closeApp = function() {
+      ionic.Platform.exitApp();
+      window.close();
     }
   })
 
   //--------------------------------------------------------//
-  //---------------CONTROLLER Done Symbol Digit-----------------------//
+  //---------------CONTROLLER Done-----------------------//
   //--------------------------------------------------------//
   .controller('GeschafftCtrl', function($scope, $stateParams, $state, $rootScope) {
 
-    headerTitle = $rootScope.headerTitle;
-    console.log($rootScope.stateAfterGeschafft);
+    headerTitleDone = $rootScope.headerTitleDone;
+    imgSrc = $rootScope.imgSrc;
+    console.log($rootScope.stateAfterDone);
     $scope.goNext = function() {
-      $state.go($rootScope.stateAfterGeschafft);
+      $state.go($rootScope.stateAfterDone);
     };
 
   })
@@ -167,7 +162,7 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   .controller('AnleitungsvideoCtrl', function($scope, $state, $timeout, $rootScope) {
     videoSrc = $rootScope.videoSrc;
-    headerTitle = $rootScope.headerTitle;
+    headerTitle = $rootScope.headerTitleVideo;
 
     $scope.hideButton = true;
 
@@ -177,52 +172,5 @@ angular.module('starter.controllers', [])
     // to display the next button after 60 seconds
     $timeout(function() {
       $scope.hideButton = false;
-    }, 15000);
+    }, 1000);
   })
-
-
-  //--------------------------------------------------------//
-  //---------------CONTROLLER Done Line-----------------------//
-  //--------------------------------------------------------//
-  .controller('GeschafftLineCtrl', function($scope, $stateParams, $state) {
-
-    $scope.goNext = function() {
-      $state.go('endScreen');
-    };
-
-  })
-  //--------------------------------------------------------//
-  //---------------CONTROLLER Done Point-----------------------//
-  //--------------------------------------------------------//
-  .controller('GeschafftPointCtrl', function($scope, $stateParams, $state, $rootScope) {
-
-    headerTitle = $rootScope.headerTitle;
-
-    $scope.goNext = function() {
-      $state.go($rootScope.nextState);
-    };
-  })
-
-
-  //--------------------------------------------------------//
-  //---------------CONTROLLER Instruction Left Hand-----------------------//
-  //--------------------------------------------------------//
-  .controller('LeftHandCtrl', function($scope, $stateParams, $state) {
-
-    $scope.goNext = function() {
-      //$state.go('pointstest.intro');
-      $state.go('PointTestIntro');
-    };
-
-  })
-  //--------------------------------------------------------//
-  //---------------CONTROLLER Instruction Right Hand-----------------------//
-  //--------------------------------------------------------//
-  .controller('RightHandCtrl', function($scope, $stateParams, $state) {
-
-    $scope.goNext = function() {
-      $state.go('PointTestIntro');
-    };
-  })
-
-  .controller('EndScreenCtrl', function($scope, $state) {})

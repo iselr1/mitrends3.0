@@ -3,8 +3,9 @@ angular.module('starter.services', [])
   //--------------------------------------------------------//
   //---------------Service to store the results of the excersises to a file-----------------------//
   //--------------------------------------------------------//
-  .factory('ExcersiseStorageService', function($state, $ionicPopup, $translate, $cordovaFile) {
+  .factory('ExcersiseStorageService', function($state, $ionicPopup, $translate, $cordovaFile, $rootScope, $ionicPlatform) {
     var ExcersiseStorageService = {};
+    $rootScope.filename = "MitrendS.txt";
 
     function resultsToString(excersiseName, array) {
       var i;
@@ -24,25 +25,30 @@ angular.module('starter.services', [])
       resultString = resultsToString(excersiseName, array);
 
       //save the answers to the file, with the filename, we retrieve from localStorage
-      var storedTextFileName = JSON.parse(localStorage.getItem("fileName"));
-      console.log(storedTextFileName);
-      $cordovaFile.writeExistingFile(cordova.file.externalDataDirectory, storedTextFileName, resultString, true).then(function(result) {
-        //alert('Success! Results stored!');
-      }, function(err) {
-        console.log("ERROR");
-      })
+      //var storedTextFileName = JSON.parse(localStorage.getItem("fileName"));
+      //console.log(storedTextFileName);
+      $ionicPlatform.ready(function() {
+
+        $cordovaFile.writeExistingFile(cordova.file.externalDataDirectory, $rootScope.filename, resultString).then(function(result) {
+          //alert('Success! Results stored!');
+        }, function(err) {
+          console.log("ERROR");
+        })
+        // Any cordova plugins need to be fired in here
+      });
     }
     ExcersiseStorageService.saveResultCommentsToFile = function(excersiseName, comment) {
       var commentString = "\r\n" + excersiseName + ": " + comment + "\r\n";
-
-      //save the answers to the file, with the filename, we retrieve from localStorage
-      var storedTextFileName = JSON.parse(localStorage.getItem("fileName"));
-      console.log(storedTextFileName);
-      $cordovaFile.writeExistingFile(cordova.file.externalDataDirectory, storedTextFileName, commentString, true).then(function(result) {
-        //alert('Success! Results stored!');
-      }, function(err) {
-        console.log("ERROR");
-      })
+      $ionicPlatform.ready(function() {
+        //save the answers to the file, with the filename, we retrieve from localStorage
+        //var storedTextFileName = JSON.parse(localStorage.getItem("fileName"));
+        //console.log(storedTextFileName);
+        $cordovaFile.writeExistingFile(cordova.file.externalDataDirectory, $rootScope.filename, commentString).then(function(result) {
+          //alert('Success! Results stored!');
+        }, function(err) {
+          console.log("ERROR");
+        })
+      });
     }
 
     return ExcersiseStorageService;
@@ -51,7 +57,7 @@ angular.module('starter.services', [])
   //--------------------------------------------------------//
   //---------------Service for Questionnaires-----------------------//
   //--------------------------------------------------------//
-  .factory('QuestionnaireService', function($state, $ionicPopup, $translate, $cordovaFile, jsonService) {
+  .factory('QuestionnaireService', function($state, $ionicPopup, $translate, $cordovaFile, $ionicPlatform, $rootScope, jsonService) {
     var QuestionnaireService = {};
     // boolean that indicates if all questions were answered
     var allAnswers = false;
@@ -75,14 +81,14 @@ angular.module('starter.services', [])
     }
     // function to create the file name, it contains the current date and time
     function createFileName() {
-      var currentDate = new Date();
-      var day = currentDate.getDate();
-      var month = currentDate.getMonth() + 1;
-      var year = currentDate.getFullYear();
-      var hours = currentDate.getHours();
-      var minutes = currentDate.getMinutes();
-      var seconds = currentDate.getSeconds();
-      var fileName = day + "_" + month + "_" + year + "T" + hours + "_" + minutes + "_" + seconds + ".txt";
+      /*  var currentDate = new Date();
+        var day = currentDate.getDate();
+        var month = currentDate.getMonth() + 1;
+        var year = currentDate.getFullYear();
+        var hours = currentDate.getHours();
+        var minutes = currentDate.getMinutes();
+        var seconds = currentDate.getSeconds();
+        var fileName = day + "_" + month + "_" + year + "T" + hours + "_" + minutes + "_" + seconds + ".txt";*/
       return fileName;
     }
 
@@ -144,7 +150,7 @@ angular.module('starter.services', [])
       // if allAnswers true navigate to goTo and store the answers, in the end we set allAnswers back to false and clear the answers array
       if (allAnswers) {
 
-        if (questionnaireName == "Kernsymptome") {
+        /*if (questionnaireName == "Kernsymptome") {
           console.log("kernsymp");
 
           var fileName = createFileName();
@@ -160,13 +166,30 @@ angular.module('starter.services', [])
           //save the answers to the file, with the filename, we retrieve from localStorage
           var storedTextFileName = JSON.parse(localStorage.getItem("fileName"));
           console.log(storedTextFileName);
-          $cordovaFile.writeExistingFile(cordova.file.externalDataDirectory, storedTextFileName, formattedAnswers, true).then(function(result) {
+          $cordovaFile.writeExistingFile(cordova.file.externalDataDirectory, storedTextFileName, formattedAnswers).then(function(result) {
             //alert('Success! Answers stored!');
           }, function(err) {
             console.log("ERROR");
           })
 
-        }
+        }*/
+        $rootScope.filename = "MitrendS.txt";
+        $ionicPlatform.ready(function() {
+          $cordovaFile.checkFile(cordova.file.externalDataDirectory, $rootScope.filename)
+            .then(function(success) {
+              $cordovaFile.writeExistingFile(cordova.file.externalDataDirectory, $rootScope.filename, formattedAnswers).then(function(result) {
+                //alert('Success! Answers stored!');
+              }, function(err) {
+                console.log("ERROR");
+              })
+            }, function(error) {
+              $cordovaFile.writeFile(cordova.file.externalDataDirectory, $rootScope.filename, formattedAnswers, false).then(function(result) {
+                //alert('Success! Answers stored!');
+              }, function(err) {
+                console.log("ERROR");
+              })
+            });
+        });
         $state.go(goTo);
 
         //reset the function
@@ -262,7 +285,8 @@ angular.module('starter.services', [])
     //Anzahl der Versuche bei der Vorbereitung
     var n_trys = 0;
     // Zeitdauer, welche für die Übung zur Verfügung steht (Wichtig: muss durch 15 Teilbar sein)
-    var timeExcersise = 30000;
+    //var timeExcersise = 90000;
+    var timeExcersise = 1000;
     //Klickfrequenz (Zeit /(Anzahl Korrekte + Inkorrekte Zuordnungen))
     var clickfrequency = 0;
     // Array mit korrekten und inkorrekten Antworten
@@ -281,7 +305,7 @@ angular.module('starter.services', [])
         newObject.imgSrc = "img/SD_" + ranNums[i - 1].toString() + ".png";
         keyTable.push(newObject);
       }
-      console.log(keyTable);
+      console.log("Schlüsseltabelle:" + keyTable);
       return keyTable;
     }
 
@@ -302,7 +326,7 @@ angular.module('starter.services', [])
         }
         solveTableArray.push(newObject);
       }
-      console.log(solveTableArray);
+      console.log("Lösungstabelle:" + solveTableArray);
       return solveTableArray;
     }
 
