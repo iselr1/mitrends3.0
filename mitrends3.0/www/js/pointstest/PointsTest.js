@@ -44,8 +44,11 @@ angular.module('uszapp.pointstest')
 
         // Rotate triangles at the origin
 
-        if(!$rootScope.isLeftHand)
-          startTriangle.rotate(-280);
+        if($rootScope.isLeftHand == false){
+          startTriangle.rotate(-300);
+          $rootScope.isLeftHand = true;
+        }
+
 
         targetTriangle.rotate(targetRotation);
 
@@ -73,7 +76,7 @@ angular.module('uszapp.pointstest')
         }
 
         startTriangle.on('TRIANGLE_MOVED', function(triangle) {
-            var doesMatch = triangle.matches(targetTriangle, 50);
+            var doesMatch = triangle.matches(targetTriangle, 75);
             if (doesMatch) {
                 emitter.emit('TEST_DONE');
             }

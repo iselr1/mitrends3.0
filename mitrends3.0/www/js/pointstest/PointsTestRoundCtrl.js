@@ -8,7 +8,7 @@ angular.module('uszapp.pointstest')
             var currentTest;
 
             // Config
-            var TIME_PER_ROUND = 3; // # seconds per round
+            var TIME_PER_ROUND = 60; // # seconds per round
             // Where the start triangle can be set
             var startPositionQuarters = [
                 'topLeft', 'topRight', 'bottomLeft', 'bottomRight'
