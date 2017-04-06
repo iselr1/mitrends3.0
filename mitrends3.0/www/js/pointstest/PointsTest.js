@@ -76,7 +76,7 @@ angular.module('uszapp.pointstest')
         }
 
         startTriangle.on('TRIANGLE_MOVED', function(triangle) {
-            var doesMatch = triangle.matches(targetTriangle, 75);
+            var doesMatch = triangle.matches(targetTriangle, 50);
             if (doesMatch) {
                 emitter.emit('TEST_DONE');
             }
