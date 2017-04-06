@@ -70,9 +70,11 @@ function StartEndArea(opt) {
         if (locked) {
             return;
         }
+        
         mousedown = false;
         hasLeft = true;
         hasEntered = false;
+        
         if (!this.end && this.isPositionInside(pos)) {
             this.active = false;
             this.draw();

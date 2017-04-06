@@ -21,7 +21,6 @@ angular.module('uszapp.linetest')
                     debug = debug || false;
 
                     var ctx = canvas.getContext('2d');
-
                     var startTime, endTime;
                     var testResultDef;
                     var mouseTracker = mouseTracker;
@@ -68,13 +67,11 @@ angular.module('uszapp.linetest')
 
                     endArea.on('ENTERED_AREA', function () {
                         if (inStartArea) {
-//                            console.log('end-Area')
                             referenceLine.stopTracking();
                             referenceLine.lock();
                             startArea.lock();
                             endArea.lock();
                             hasTestEnded = true;
-                            finish();
                         }
                     });
 
@@ -84,6 +81,9 @@ angular.module('uszapp.linetest')
                             startArea.lock();
                             endArea.lock();
                             cancel('Mouse up before reaching end area.');
+                            
+                        }else{
+                            finish();
                         }
                     });
 
