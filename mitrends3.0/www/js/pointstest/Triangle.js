@@ -87,10 +87,12 @@ function Triangle(opt) {
     var container = $(containerSelector).get(0);
     var areaMouseTracker = new MouseTracker(container);
 
+
+    // User move with finger
     if (!target) {
         areaMouseTracker.onMove(function(pos, info) {
-            if (self.canMove() && info.touch) {
 
+            if (self.canMove() && info.touch) {
                 var touches = info.event.touches;
                 var nTouches = touches.length;
 
@@ -103,10 +105,10 @@ function Triangle(opt) {
                             x: touch.pageX,
                             y: touch.pageY
                         };
-                        var isPositionInsideCorner =
-                            distance(corner.getPosition(), newPosition) <= corner.getDiameter();
+                        var isPositionInsideCorner = distance(corner.getPosition(), newPosition) <= corner.getDiameter();
                         if (isPositionInsideCorner) {
-                            corner.setPosition(newPosition);
+                            //corner.setPosition(newPosition);
+                              corner.setPositionByUser(newPosition);
                         } else {
                             corner.setInactive();
                         }
@@ -138,7 +140,6 @@ function Triangle(opt) {
       });
       if
       (
-
         this.corner1.matches(triangle.corner1, tolerance) && this.corner2.matches(triangle.corner2, tolerance) && this.corner3.matches(triangle.corner3, tolerance) ||
         this.corner1.matches(triangle.corner1, tolerance) && this.corner2.matches(triangle.corner3, tolerance) && this.corner3.matches(triangle.corner2, tolerance) ||
 
@@ -147,7 +148,6 @@ function Triangle(opt) {
 
         this.corner1.matches(triangle.corner3, tolerance) && this.corner2.matches(triangle.corner1, tolerance) && this.corner3.matches(triangle.corner3, tolerance) ||
         this.corner1.matches(triangle.corner3, tolerance) && this.corner2.matches(triangle.corner3, tolerance) && this.corner3.matches(triangle.corner1, tolerance)
-
       )
         return true;
         return false;
@@ -249,7 +249,7 @@ function Triangle(opt) {
     };
 
     this.getPosition = function() {
-        // TODO: make position private
+        console.info();
         return this.position;
     };
 }

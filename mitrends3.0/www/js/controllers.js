@@ -26,7 +26,9 @@ angular.module('starter.controllers', [])
     var jsonData = jsonService.getJson();
 
     $scope.goKernsymp = function() {
-      $state.go('anleitungsvideo');
+      //JUST FOR TESTING
+      //$state.go('anleitungsvideo');
+      $state.go('PointTestIntro');
     };
 
     //Change the language
@@ -180,12 +182,36 @@ angular.module('starter.controllers', [])
 
 
   //--------------------------------------------------------//
+  //---------------CONTROLLER Done Line-----------------------//
+  //--------------------------------------------------------//
+  .controller('GeschafftLineCtrl', function($scope, $stateParams, $state) {
+
+    $scope.goNext = function() {
+      $state.go('endScreen');
+    };
+
+  })
+  //--------------------------------------------------------//
+  //---------------CONTROLLER Done Point-----------------------//
+  //--------------------------------------------------------//
+  .controller('GeschafftPointCtrl', function($scope, $stateParams, $state, $rootScope) {
+
+    headerTitle = $rootScope.headerTitle;
+
+    $scope.goNext = function() {
+      $state.go($rootScope.nextState);
+    };
+  })
+
+
+  //--------------------------------------------------------//
   //---------------CONTROLLER Instruction Left Hand-----------------------//
   //--------------------------------------------------------//
   .controller('LeftHandCtrl', function($scope, $stateParams, $state) {
 
     $scope.goNext = function() {
-      $state.go('pointstest.intro');
+      //$state.go('pointstest.intro');
+      $state.go('PointTestIntro');
     };
 
   })
@@ -195,7 +221,8 @@ angular.module('starter.controllers', [])
   .controller('RightHandCtrl', function($scope, $stateParams, $state) {
 
     $scope.goNext = function() {
-      $state.go('pointstest.intro');
+      $state.go('PointTestIntro');
     };
-
   })
+
+  .controller('EndScreenCtrl', function($scope, $state) {})

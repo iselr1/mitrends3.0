@@ -52,6 +52,7 @@ angular.module('uszapp.linetest')
                     var inStartArea = false;
 //                    referenceLine.startTracking(startPosition);
                     startArea.on('LEFT_AREA', function (ev) {
+                        console.log('left-Area')
                         inStartArea = true;
                         referenceLine.startTracking(ev.position);
                         startTime = new Date();
@@ -67,6 +68,7 @@ angular.module('uszapp.linetest')
 
                     endArea.on('ENTERED_AREA', function () {
                         if (inStartArea) {
+//                            console.log('end-Area')
                             referenceLine.stopTracking();
                             referenceLine.lock();
                             startArea.lock();
