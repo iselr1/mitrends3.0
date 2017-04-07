@@ -169,20 +169,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         controllerAs: 'roundCtrl'
       })
 
-      .state('rightHandLineTest', {
-        url: '/rightHandLineTest',
-        templateUrl: 'templates/linetest/rightHand.html',
-        controller: 'LineTestCtrl',
-        controllerAs: 'lineTestCtrl'
-      })
-
-      .state('leftHandLineTest', {
-        url: '/leftHandLineTest',
-        templateUrl: 'templates/linetest/leftHand.html',
-        controller: 'LineTestCtrl',
-        controllerAs: 'lineTestCtrl'
-      })
-
       .state('LineTestIntro', {
         url: '/intro',
         templateUrl: 'templates/linetest/linetest.html',

@@ -27,6 +27,7 @@ angular.module('uszapp.linetest')
         currentCategoryIdx = 0; // the current index in the linetests array
         $scope.showSummary = false; // if the summary screen should be shown
         $scope.showTest = false; // if the summary screen should be shown
+        $scope.showDone = false; // if the done screen should be shown
         $scope.showRightHand = false;
         $scope.showLeftHand = false;
         $scope.canRestart = false; // if the line test can be restarted
@@ -49,6 +50,7 @@ angular.module('uszapp.linetest')
         $scope.showTest = false;
         $scope.showRightHand = false;
         $scope.showLeftHand = false;
+        $scope.showDone = false;
         $timeout(function() {
           $scope.mouseTracker = new MouseTracker(canvas);
           loadTest(currentCategoryIdx);
@@ -116,6 +118,7 @@ angular.module('uszapp.linetest')
         $scope.showSummary = false;
         $scope.showTest = false;
         $scope.showRightHand = false;
+        $scope.showDone = false;
         $scope.showLeftHand = false;
         $timeout(function() {
           currentCategoryIdx = 0;
@@ -134,6 +137,7 @@ angular.module('uszapp.linetest')
             $scope.showAnimation1 = false;
             $scope.showSummary = false;
             $scope.showTest = false;
+            $scope.showDone = false;
             $scope.showRightHand = false;
             $scope.showLeftHand = true;
           } else {
@@ -141,12 +145,13 @@ angular.module('uszapp.linetest')
             //                            $scope.showAnimation2 = false;
             //                            $scope.showSummary = true;
             //                            $scope.showTest = false;
-            console.log("variablen für geschafft seite");
-            $rootScope.headerTitleDone = 'Teil 4 von 4 - Linie nachzeichnen';
-            $rootScope.stateAfterDone = 'impressum';
-            $rootScope.imgSrc = 'img/fourStars.png';
-            console.log("wechseln zu geschafft");
-            $state.go('geschafft');
+            $scope.showLeftHand = false;
+            $scope.showAnimation1 = false;
+            $scope.showSummary = false;
+            $scope.showTest = false;
+            $scope.showDone = false;
+            $scope.showRightHand = false;
+            $scope.showDone = true; // show Done content
           }
         } else {
           console.log('nextTest')
@@ -156,13 +161,12 @@ angular.module('uszapp.linetest')
         }
       };
 
-
-
       $scope.goLeftHand = function() {
         $scope.showAnimation1 = false;
         $scope.showSummary = false;
         $scope.showTest = false;
         $scope.showRightHand = false;
+        $scope.showDone = false;
         $scope.showLeftHand = true;
       };
 
@@ -170,10 +174,14 @@ angular.module('uszapp.linetest')
         $scope.showAnimation1 = false;
         $scope.showSummary = false;
         $scope.showTest = false;
+        $scope.showDone = false;
         $scope.showRightHand = true;
         $scope.showLeftHand = false;
       };
 
+      $scope.goImpressum = function() {
+        $state.go('impressum');
+      }
 
       $scope.restart = function() {
         loadTest(currentCategoryIdx);
