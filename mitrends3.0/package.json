@@ -4,10 +4,11 @@
   "description": "MitrendS3.0: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
-    "gulp-sass": "^2.0.4",
     "gulp-concat": "^2.2.0",
     "gulp-minify-css": "^0.3.0",
-    "gulp-rename": "^1.2.0"
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.0.4",
+    "midata": "git+https://github.com/i4mi/midata.js.git#v2.2"
   },
   "devDependencies": {
     "bower": "^1.3.3",
@@ -28,7 +29,8 @@
     "cordova-plugin-device@~1.1.5",
     "cordova-plugin-splashscreen@~4.0.2",
     "ionic-plugin-keyboard@~2.2.1",
-    "cordova-plugin-nativeaudio"
+    "cordova-plugin-nativeaudio",
+    "cordova-plugin-inappbrowser"
   ],
   "cordovaPlatforms": [
     "android"

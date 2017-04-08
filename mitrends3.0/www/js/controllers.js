@@ -28,7 +28,7 @@ angular.module('starter.controllers', [])
     $scope.goNext = function() {
       //$state.go('anleitungsvideo');
       //JUST FOR TESTING
-      $state.go('PointTestIntro');
+      $state.go('zahlsymbol1');
     };
 
     //Change the language

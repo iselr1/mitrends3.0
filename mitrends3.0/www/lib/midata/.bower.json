@@ -1,0 +1,35 @@
+{
+  "name": "midata",
+  "description": "A collection of utility classes and functions to interact with the MIDATA.coop platform.",
+  "main": "dist/midata.js",
+  "authors": [
+    "Robin Hafen"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "midata",
+    "bfh",
+    "i4mi"
+  ],
+  "homepage": "https://www.ti.bfh.ch",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "es6-promise": "^4.0.5"
+  },
+  "_release": "14df0d0ee5",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "14df0d0ee50f39985036211e5e20b1a9dbea1de9"
+  },
+  "_source": "https://github.com/i4mi/midata.js.git",
+  "_target": "*",
+  "_originalSource": "midata",
+  "_direct": true
+}

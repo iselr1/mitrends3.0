@@ -3,7 +3,7 @@ angular.module('starter.controllersRea', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Zahlsymbol-----------------------//
   //--------------------------------------------------------//
-  .controller('ZSCtrl', function($scope, $stateParams, $state, $timeout, $interval, $ionicPopup, SymDigService, $translate, ExcersiseStorageService, $rootScope) {
+  .controller('ZSCtrl', function($scope, $stateParams, $state, $timeout, $interval, $ionicPopup, SymDigService, $translate, ExcersiseStorageService, $rootScope, ownMidataService) {
 
     //Popup zu Beginn, das besagt das die Übungsphase nun zu ende ist
     var popTitle = $translate.instant('INFO');
@@ -197,7 +197,7 @@ angular.module('starter.controllersRea', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Zahlsymbol Vorbereitung-----------------------//
   //--------------------------------------------------------//
-  .controller('ZS1Ctrl', function($scope, $stateParams, $ionicPopup, $translate, $rootScope, $state, SymDigService, ExcersiseStorageService) {
+  .controller('ZS1Ctrl', function($scope, $stateParams, $ionicPopup, $translate, $rootScope, $state, SymDigService, ownMidataService) {
     var popTitle = $translate.instant('INFO');
     var popTemplate = $translate.instant('TEMPLATEPOPUP_NEXTPREPZS');
 
@@ -288,6 +288,21 @@ angular.module('starter.controllersRea', [])
               correct = SymDigService.getCorrectPrep();
               incorrect = SymDigService.getIncorrectPrep();
               clickFrequency = Math.round((60 / durationExcersisePrep) * (correct + incorrect));
+
+              //Speicherung Midata
+              var symbolDigitProbe = new midata.MSCogTestSDPrep(new Date(), 'preliminary');
+              symbolDigitProbe.addNbCorrect(correct);
+              symbolDigitProbe.addNbIncorrect(incorrect);
+              symbolDigitProbe.addDuration(durationExcersisePrep);
+              symbolDigitProbe.addClickFrequency(clickFrequency);
+              console.log("midata");
+              ownMidataService.addToBundle(symbolDigitProbe);
+              ownMidataService.saveBundle();
+
+              /*var durationExcersisePrep = (endTime - startTime) / 1000;
+              correct = SymDigService.getCorrectPrep();
+              incorrect = SymDigService.getIncorrectPrep();
+              clickFrequency = Math.round((60 / durationExcersisePrep) * (correct + incorrect));
               var result1 = {};
               result1.name = "Datum, Uhrzeit nach beenden der Übung";
               result1.value = new Date().toString();
@@ -309,7 +324,7 @@ angular.module('starter.controllersRea', [])
               result5.value = durationExcersisePrep;
               results.push(result5);
               console.log("FinalResultate" + results);
-              ExcersiseStorageService.saveResultsToFile("Zahl-Symbol Übung Vorbereitung", results);
+              ExcersiseStorageService.saveResultsToFile("Zahl-Symbol Übung Vorbereitung", results);*/
             }
             break;
           } else {

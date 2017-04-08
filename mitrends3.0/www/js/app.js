@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter.controllersRea', 'starter.controllersSarah', 'starter.services', 'pascalprecht.translate', 'uszapp.linetest', 'uszapp.pointstest'])
+angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter.controllersRea', 'starter.controllersSarah', 'starter.services', 'pascalprecht.translate', 'uszapp.linetest', 'uszapp.pointstest', 'starter.ownServices'])
   .constant('APPNAME', 'MitrendS2')
   .constant('APPSECRET', 'Mi3636trend9696S002')
   .run(function($ionicPlatform) {
@@ -177,6 +177,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
       })
 
     //$urlRouterProvider.otherwise('/labyrinth')
-    $urlRouterProvider.otherwise('/home')
+    $urlRouterProvider.otherwise('/login')
 
   });
