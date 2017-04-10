@@ -9,7 +9,7 @@
   "HOME": " Home",
   "CLOSE": " Close",
   "DATAPROTECTION": "Dataprotection",
-  "DATATEXT": "<center>Based on article 13 of the federal constitution of switzerland and the federal dataprotection assignments (Datenschutzgesetz, DSG) every person has a right for the protection of her privacy, aswell as the protction of misuse of her personal data. We keep those assignments.<br><br>Personal data is handled strictly confidential and is only used by the MitrendS Team (BFH) and by the Departement of Neurology of the University Hospital Zurich (UHZ) in the context of the bachelor thesis during the spring semester 2017.<br><br>By using our App, following data will be stored in a logfile: pseudonym, date, time, evaluation data from the tests (your score). This data is used for statistic and anonyme evaluation and validation of the MitrendS App.",
+  "DATATEXT": "<center>Based on article 13 of the federal constitution of switzerland and the federal dataprotection assignments (Datenschutzgesetz, DSG) every person has a right for the protection of her privacy, aswell as the protction of misuse of her personal data. We keep those assignments.<br><br>Personal data is handled strictly confidential and is only used by the MitrendS Team (BFH) and by the Departement of Neurology of the University Hospital Zurich (UHZ) in the context of the bachelor thesis during the spring semester 2017.<br><br>By using our App, following data will be stored on Midata.coop: pseudonym, date, time, evaluation data from the tests (your score). This data is used for statistic and anonyme evaluation and validation of the MitrendS App.",
   "LOGIN": "Login",
   "LOGINERRORTEXT": "Wrong user or password",
   "LOGININFO": "Information",
