@@ -75,8 +75,8 @@ angular.module('uszapp.linetest')
           $scope.count++;
           $scope.done = true;
           $scope.success = true;
-          $scope.score1 = result.score1;
-          $scope.score2 = result.score2;
+          $scope.difference = result.score1;
+          $scope.similarity = result.score2;
           $scope.time = result.time;
           $scope.canRestart = false;
           $scope.canDoNext = true;
@@ -93,11 +93,20 @@ angular.module('uszapp.linetest')
             $scope.endMessage = 'Nächster Test.';
           }
           $scope.resultHistory.push(result);
+
+
+
+
+          // TODO: Save score1,score2,score3 to midata
+          console.info("Abweichung : " + $scope.difference);
+          console.info("Ähnlichkeit : " + $scope.similarity);
+          console.info("Time : " + $scope.time);
+
           $scope.mouseTracker.initialiseClicks();
           $timeout(function() {
             $scope.nextTest();
           }, 500);
-          console.log(currentCategoryIdx)
+          //console.log(currentCategoryIdx)
         }, function(err) {
           $scope.done = true;
           $scope.success = false;

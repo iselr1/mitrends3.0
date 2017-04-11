@@ -8,7 +8,7 @@ angular.module('uszapp.pointstest')
     var currentTest;
 
     // Config
-    var TIME_PER_ROUND = 30; // # seconds per round
+    var TIME_PER_ROUND = 60; // # seconds per round
     // Where the start triangle can be set
     var startPositionQuarters = [
       'topLeft', 'topRight', 'bottomLeft', 'bottomRight'
@@ -18,8 +18,8 @@ angular.module('uszapp.pointstest')
 
     var testRunning = false;
     this.timeCounter = TIME_PER_ROUND;
-    this.figureCounter = 0;
-
+    this.figureCounterLeft = 0;
+    this.figureCounterRight = 0;
     $ionicPlatform.ready(function() {
       var isWebView = ionic.Platform.isWebView();
       if (isWebView) {
@@ -39,6 +39,9 @@ angular.module('uszapp.pointstest')
     this.startTests = function() {
       start();
     };
+
+
+
 
     // Start first round
     function start() {
@@ -67,7 +70,9 @@ angular.module('uszapp.pointstest')
       currentTest = test;
       test.on('TEST_DONE', function() {
         test.destroy();
-        self.figureCounter += 1;
+
+        $rootScope.isLeftHandNext ? self.figureCounterLeft++ : self.figureCounterRight++;
+
         $cordovaNativeAudio.play('ding');
         if (testRunning) {
           startNewTest();
@@ -81,11 +86,24 @@ angular.module('uszapp.pointstest')
 
       $rootScope.isLeftHandNext = $ionicHistory.backView().url == "/rightHandPointTest" ? true : false;
 
-      if ($rootScope.isLeftHandNext)
+      if ($rootScope.isLeftHandNext){
+        // TODO: Save figureCounterRight to midata
+        console.info("Amount of figure Right: " + self.figureCounterRight);
+
         $state.go('leftHandPointTest');
-      else
+      }
+      else{
         openEndScreen();
-      console.info('FINISHED');
+
+
+
+        // TODO: Save figureCounterLeft to midata
+        console.info("Amount of figure Left : " + self.figureCounterLeft);
+
+
+        console.info('FINISHED PointsTest');
+      }
+
     }
 
     function openEndScreen() {
