@@ -8,13 +8,13 @@ angular.module('uszapp.pointstest')
     var currentTest;
 
     // Config
-    var TIME_PER_ROUND = 60; // # seconds per round
+    var TIME_PER_ROUND = 30; // # seconds per round
     // Where the start triangle can be set
     var startPositionQuarters = [
       'topLeft', 'topRight', 'bottomLeft', 'bottomRight'
     ];
     // By how much the target can be rotated
-    var targetRotations = [-60, -30, 30, 60];
+    var targetRotations = [-30, -60];
 
     var testRunning = false;
     this.timeCounter = TIME_PER_ROUND;
@@ -79,10 +79,9 @@ angular.module('uszapp.pointstest')
     function endPointsTestRound() {
       testRunning = false;
 
-      $rootScope.isLeftHand = $ionicHistory.backView().url == "/leftHandPointTest" ? true : false;
+      $rootScope.isLeftHandNext = $ionicHistory.backView().url == "/rightHandPointTest" ? true : false;
 
-      console.info("PointsTestRoundCtrl : " + $rootScope.isLeftHand);
-      if (!$rootScope.isLeftHand)
+      if ($rootScope.isLeftHandNext)
         $state.go('leftHandPointTest');
       else
         openEndScreen();
