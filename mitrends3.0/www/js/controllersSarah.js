@@ -245,7 +245,7 @@ angular.module('starter.controllersSarah', [])
           $scope.drawLab();
           clickOK = true;
           nowDoIt();
-        }, 30000); //30000
+        }, 27500); //30000
       });
     };
 
