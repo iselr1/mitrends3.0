@@ -170,7 +170,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
       })
 
       .state('LineTestIntro', {
-        url: '/intro',
+        url: '/intro1',
         templateUrl: 'templates/linetest/linetest.html',
         controller: 'LineTestCtrl',
         controllerAs: 'LineTestCtrl'

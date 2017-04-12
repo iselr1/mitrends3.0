@@ -62,7 +62,7 @@ angular.module('uszapp.linetest')
       function loadTest(categoryIndex) {
         var test = _.sample(lineTests[categoryIndex].tests);
         // var test = lineTests[0].tests[0];
-        lineTest = new LineTest(canvas, test, $scope.debug, $scope.mouseTracker);
+        lineTest = new LineTest(canvas, test, $scope.debug, $scope.mouseTracker, $ionicPopup);
       }
 
       function startTest() {

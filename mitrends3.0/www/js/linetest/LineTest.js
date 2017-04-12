@@ -12,10 +12,10 @@ angular.module('uszapp.linetest')
                  * @param test An object of type { svgPath: string }
                  * @param debug Boolean flag if debug mode should be activated
                  */
-                function LineTest(canvas, test, debug, mouseTracker) {
+                function LineTest(canvas, test, debug, mouseTracker, $ionicPopup) {
                     var horizontalMirror = Math.round(Math.random()) == 1;
                     var verticalMirror = Math.round(Math.random()) == 1;
-
+                    var countStop = 0;
                     var self = this;
 
                     debug = debug || false;
@@ -80,9 +80,9 @@ angular.module('uszapp.linetest')
                             referenceLine.lock();
                             startArea.lock();
                             endArea.lock();
-                            cancel('Mouse up before reaching end area.');
-                            
-                        }else{
+                            cancel('Mouse up before reaching end area.', $ionicPopup);
+
+                        } else {
                             finish();
                         }
                     });
@@ -93,7 +93,7 @@ angular.module('uszapp.linetest')
                     this.start = function () {
                         testResultDef = $q.defer();
                         if (hasTestEnded) {
-                            cancel('Test already done');
+                            cancel('Test already done', $ionicPopup);
                         } else {
                             setupCanvas();
                             hasTestEnded = false;
@@ -164,15 +164,23 @@ angular.module('uszapp.linetest')
                     /**
                      * Cancel the result promise.
                      */
-                    function cancel(msg) {
-                        if (mouseTracker.getClicks()/4 >= 3) {
-                            var canvasCopy = document.createElement('canvas');
-                            testResultDef.resolve({
-                                time: 0,
-                                score1: 0,
-                                score2: 0,
-                                canvas: canvasCopy
-                            });
+                    function cancel(msg, $ionicPopup) {
+                        countStop++;
+                        if (mouseTracker.getClicks() / 4 >= 3) {
+                            if (countStop <= 1) {
+                                var alertPopup = $ionicPopup.alert({
+                                    template: 'Next test'
+                                });
+                                alertPopup.then(function (res) {
+                                    var canvasCopy = document.createElement('canvas');
+                                    testResultDef.resolve({
+                                        time: 0,
+                                        score1: 0,
+                                        score2: 0,
+                                        canvas: canvasCopy
+                                    });
+                                });
+                            }
                         } else {
                             testResultDef.reject(msg);
                         }
