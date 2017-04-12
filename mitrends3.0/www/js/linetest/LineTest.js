@@ -165,25 +165,26 @@ angular.module('uszapp.linetest')
                      * Cancel the result promise.
                      */
                     function cancel(msg, $ionicPopup) {
-                        countStop++;
-                        if (mouseTracker.getClicks() / 4 >= 3) {
-                            if (countStop <= 1) {
-                                var alertPopup = $ionicPopup.alert({
-                                    template: 'Next test'
-                                });
-                                alertPopup.then(function (res) {
-                                    var canvasCopy = document.createElement('canvas');
-                                    testResultDef.resolve({
-                                        time: 0,
-                                        score1: 0,
-                                        score2: 0,
-                                        canvas: canvasCopy
-                                    });
-                                });
-                            }
-                        } else {
+//                        countStop++;
+//                        if (mouseTracker.getClicks() / 4 >= 3) {
+//                            if (countStop <= 1) {
+//                                var alertPopup = $ionicPopup.alert({
+//                                    template: 'Next test'
+//                                });
+//                                alertPopup.then(function (res) {
+//                                    var canvasCopy = document.createElement('canvas');
+//                                    testResultDef.resolve({
+//                                        time: 0,
+//                                        score1: 0,
+//                                        score2: 0,
+//                                        canvas: canvasCopy
+//                                    });
+//                                });
+//                            }
+//                        } else {
+//                            console.log(msg)
                             testResultDef.reject(msg);
-                        }
+//                        }
                     }
 
                 }
