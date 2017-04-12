@@ -146,8 +146,8 @@ function Triangle(opt) {
         this.corner1.matches(triangle.corner2, tolerance) && this.corner2.matches(triangle.corner1, tolerance) && this.corner3.matches(triangle.corner3, tolerance) ||
         this.corner1.matches(triangle.corner2, tolerance) && this.corner2.matches(triangle.corner3, tolerance) && this.corner3.matches(triangle.corner1, tolerance) ||
 
-        this.corner1.matches(triangle.corner3, tolerance) && this.corner2.matches(triangle.corner1, tolerance) && this.corner3.matches(triangle.corner3, tolerance) ||
-        this.corner1.matches(triangle.corner3, tolerance) && this.corner2.matches(triangle.corner3, tolerance) && this.corner3.matches(triangle.corner1, tolerance)
+        this.corner1.matches(triangle.corner3, tolerance) && this.corner2.matches(triangle.corner1, tolerance) && this.corner3.matches(triangle.corner2, tolerance) ||
+        this.corner1.matches(triangle.corner3, tolerance) && this.corner2.matches(triangle.corner2, tolerance) && this.corner3.matches(triangle.corner1, tolerance)
       )
         return true;
         return false;
