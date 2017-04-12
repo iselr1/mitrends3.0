@@ -285,8 +285,7 @@ angular.module('starter.services', [])
     //Anzahl der Versuche bei der Vorbereitung
     var n_trys = 0;
     // Zeitdauer, welche für die Übung zur Verfügung steht (Wichtig: muss durch 15 Teilbar sein)
-    //var timeExcersise = 90000;
-    var timeExcersise = 1000;
+    var timeExcersise = 90000;
     //Klickfrequenz (Zeit /(Anzahl Korrekte + Inkorrekte Zuordnungen))
     var clickfrequency = 0;
     // Array mit korrekten und inkorrekten Antworten

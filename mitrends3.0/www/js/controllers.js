@@ -55,13 +55,12 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Login-----------------------//
   //--------------------------------------------------------//
-  .controller('LoginCtrl', function($scope, $translate, jsonService, $timeout, $http, $state, $ionicLoading, $ionicPopup, ownMidataService) {
+  .controller('LoginCtrl', function($scope, $translate, jsonService, $timeout, $http, $state, $ionicLoading, $ionicPopup, ownMidataService, $rootScope) {
     // Values for login
     $scope.login = {};
-    $scope.login.email = '';
-    $scope.login.password = '';
-    $scope.login.pseudonym = '';
-    $scope.login.server = 'https://test.midata.coop:9000';
+    $scope.login.email = 'iselr1@bfh.ch';
+    $scope.login.password = 'MSbfh14+';
+    $scope.login.pseudonym = 'Test2';
     //Inform the user that he's not logged in
     var jsonData = jsonService.getJson();
     var title = jsonData.LOGININFO;
@@ -71,9 +70,9 @@ angular.module('starter.controllers', [])
     $scope.doLogin = function() {
       //console.info(I4MIMidataService.currentUser());
 
-      if ($scope.login.email != '' && $scope.login.password != '') {
-        ownMidataService.login($scope.login.email, $scope.login.password, $scope.login.server);
-        //$scope.closeModal();
+      if ($scope.login.email != '' && $scope.login.password != '' && $scope.login.pseudonym != '') {
+        ownMidataService.login($scope.login.email, $scope.login.password);
+
         // Zeige Loading Spinner
         $ionicLoading.show({
           template: '<p>Loading...</p><ion-spinner></ion-spinner>'
@@ -98,7 +97,7 @@ angular.module('starter.controllers', [])
     $scope.checkUser = function() {
       console.info(ownMidataService.loggedIn());
       if (ownMidataService.loggedIn()) {
-        //   midataPseudonym = $scope.login.pseudonym;
+        ownMidataService.setFilename($scope.login.pseudonym);
         $state.go('home');
       } else {
         ownMidataService.logout();
@@ -138,15 +137,42 @@ angular.module('starter.controllers', [])
   })
 
   //--------------------------------------------------------//
-  //---------------CONTROLLER Done-----------------------//
+  //---------------CONTROLLER Done Labyrinth-----------------------//
   //--------------------------------------------------------//
-  .controller('GeschafftCtrl', function($scope, $stateParams, $state, $rootScope) {
+  .controller('GeschafftLabCtrl', function($scope, $stateParams, $state, $rootScope) {
 
-    headerTitleDone = $rootScope.headerTitleDone;
+    /**headerTitleDone = $rootScope.headerTitleDone;
     imgSrc = $rootScope.imgSrc;
-    console.log($rootScope.stateAfterDone);
+    console.log($rootScope.stateAfterDone);**/
     $scope.goNext = function() {
-      $state.go($rootScope.stateAfterDone);
+      $state.go('PointTestIntro');
+    };
+
+  })
+
+  //--------------------------------------------------------//
+  //---------------CONTROLLER Done Symbol Digit-----------------------//
+  //--------------------------------------------------------//
+  .controller('GeschafftSDCtrl', function($scope, $stateParams, $state, $rootScope) {
+
+    /**headerTitleDone = $rootScope.headerTitleDone;
+    imgSrc = $rootScope.imgSrc;
+    console.log($rootScope.stateAfterDone);**/
+    $scope.goNext = function() {
+      $state.go('labyrinth');
+    };
+  })
+
+  //--------------------------------------------------------//
+  //---------------CONTROLLER Done Point-----------------------//
+  //--------------------------------------------------------//
+  .controller('GeschafftPointCtrl', function($scope, $stateParams, $state, $rootScope) {
+
+    /**headerTitleDone = $rootScope.headerTitleDone;
+    imgSrc = $rootScope.imgSrc;
+    console.log($rootScope.stateAfterDone);**/
+    $scope.goNext = function() {
+      $state.go('LineTestIntro');
     };
 
   })

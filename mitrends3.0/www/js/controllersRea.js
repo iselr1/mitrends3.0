@@ -131,6 +131,11 @@ angular.module('starter.controllersRea', [])
       };
     };
 
+    //Arrays für Midata intiitalisieren
+    var correctArray = [];
+    var incorrectArray = [];
+    var clickFrequencyArray = [];
+
     // Alles was im Intervall passiert
     functioninterval = function() {
       counter++;
@@ -139,33 +144,51 @@ angular.module('starter.controllersRea', [])
       incorrect = partResult.incorrect;
       clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / intervalrepetitions) / 60000));
 
-      var partresult1 = {};
-      partresult1.name = "Anzahl korrekte Zuordnungen (während dem " + counter + ".Teil)";
-      partresult1.value = correct;
-      results.push(partresult1);
-      var partresult2 = {};
-      partresult2.name = "Anzahl inkorrekte Zuordnungen (während dem " + counter + ".Teil)";
-      partresult2.value = incorrect;
-      results.push(partresult2);
-      var partresult3 = {};
-      partresult3.name = "Klickfrequenz pro Minute (während dem " + counter + ".Teil)";
-      partresult3.value = clickFrequency;
-      results.push(partresult3);
+      //var partresult1 = {};
+      //partresult1.name = "Anzahl korrekte Zuordnungen (während dem " + counter + ".Teil)";
+      correctArray.push(correct);
+      //results.push(partresult1);
+      //var partresult2 = {};
+      //partresult2.name = "Anzahl inkorrekte Zuordnungen (während dem " + counter + ".Teil)";
+      incorrectArray.push(incorrect);
+      //results.push(partresult2);
+      //var partresult3 = {};
+      //partresult3.name = "Klickfrequenz pro Minute (während dem " + counter + ".Teil)";
+      //partresult3.value = clickFrequency;
+      //results.push(partresult3);
+      clickFrequencyArray.push(clickFrequency);
+
       console.log("Zwischenresultate" + results);
       if (counter == intervalrepetitions) {
-        $rootScope.headerTitleDone = "Teil 1 von 4 - Zahl-Symbol";
-        $rootScope.headerTitleVideo = "Teil 2 von 4 - Labyrinth";
+        /**$rootScope.headerTitleDone = "Teil 1 von 4 - Zahl-Symbol";
+        //$rootScope.headerTitleVideo = "Teil 2 von 4 - Labyrinth";
         $rootScope.videoSrc = "video/labyrinth.mp4";
-        $rootScope.stateAfterVideo = 'labyrinth';
-        $rootScope.stateAfterDone = 'anleitungsvideo';
-        $rootScope.imgSrc = 'img/oneStar.png';
-        $state.go('geschafft');
+        //$rootScope.stateAfterVideo = 'labyrinth';
+        $rootScope.stateAfterDone = 'labyrinth';
+        $rootScope.imgSrc = 'img/oneStar.png';**/
+
+        //Speicherung Midata
+        var symbolDigit = new midata.MSCogTestSD(new Date());
+        symbolDigit.addNbCorrectPartResults(correctArray);
+        symbolDigit.addNbIncorrectPartResults(incorrectArray);
+        symbolDigit.addClickFreqPartResults(clickFrequencyArray);
+
+        $state.go('geschafftSD');
 
         // Variables to store in the result file
-        var date = new Date();
         correct = SymDigService.getCorrect();
         incorrect = SymDigService.getIncorrect();
         clickFrequency = SymDigService.getClickFrequency();
+
+        symbolDigit.addNbTotalCorrect(correct);
+        symbolDigit.addNbTotalIncorrect(incorrect);
+        symbolDigit.addClickFrequency(Math.round(clickFrequency));
+        symbolDigit.addDuration(SymDigService.getTimeExcersise() / 1000);
+        console.log("midata");
+        ownMidataService.addToBundle(symbolDigit);
+        ownMidataService.saveLocally(symbolDigit);
+
+        /**
         var result1 = {};
         result1.name = "Datum, Uhrzeit nach beenden der Übung";
         result1.value = date.toString();
@@ -188,6 +211,7 @@ angular.module('starter.controllersRea', [])
         results.push(result5);
         console.log("FinalResultate" + results);
         //ExcersiseStorageService.saveResultsToFile("Zahl-Symbol Übung", results);
+        **/
       } else {
         //do nothing
       }
@@ -217,12 +241,13 @@ angular.module('starter.controllersRea', [])
 
       // Add the number at position 2 of the ranNums array again to the ranNums array, because we need to have 10 images in the solveTable
 
-      var ranNumsForSolveTable = ranNums;
+      var ranNumsForSolveTable = ranNums.slice();
       ranNumsForSolveTable.push(ranNumsForSolveTable[2]);
-
+      console.log("zehn zahlen" + ranNumsForSolveTable);
+      console.log("9zahlen" + ranNums);
       $rootScope.keyTable = SymDigService.fillKeyTable(ranNums);
       $scope.solveTable = SymDigService.fillSolveTable((SymDigService.genNums(ranNumsForSolveTable, 10)));
-      ranNums.splice(9);
+      console.log("Zahlen für richtige Übung" + ranNums);
       $rootScope.ranNums = ranNums;
       //*****************************************************************************************
       var solveNumberImages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -290,14 +315,14 @@ angular.module('starter.controllersRea', [])
               clickFrequency = Math.round((60 / durationExcersisePrep) * (correct + incorrect));
 
               //Speicherung Midata
-              var symbolDigitProbe = new midata.MSCogTestSDPrep(new Date(), 'preliminary');
+              var symbolDigitProbe = new midata.MSCogTestSDPrep(new Date());
               symbolDigitProbe.addNbCorrect(correct);
               symbolDigitProbe.addNbIncorrect(incorrect);
               symbolDigitProbe.addDuration(durationExcersisePrep);
               symbolDigitProbe.addClickFrequency(clickFrequency);
               console.log("midata");
               ownMidataService.addToBundle(symbolDigitProbe);
-              ownMidataService.saveBundle();
+              ownMidataService.saveLocally(symbolDigitProbe);
 
               /*var durationExcersisePrep = (endTime - startTime) / 1000;
               correct = SymDigService.getCorrectPrep();

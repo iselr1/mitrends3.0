@@ -1,6 +1,6 @@
 angular.module('uszapp.linetest')
-  .controller('LineTestCtrl', ['$scope', '$state', 'LineTest', 'lineTests', '$timeout', '$ionicPopup', '$rootScope',
-    function($scope, $state, LineTest, lineTests, $timeout, $ionicPopup, $rootScope) {
+  .controller('LineTestCtrl', ['$scope', '$state', 'LineTest', 'lineTests', '$timeout', '$ionicPopup', '$rootScope', 'ownMidataService',
+    function($scope, $state, LineTest, lineTests, $timeout, $ionicPopup, $rootScope, ownMidataService) {
 
       var canvas = $('canvas.line-canvas')[0];
       var currentCategoryIdx; // the current index in the `lineTests` array
@@ -82,9 +82,9 @@ angular.module('uszapp.linetest')
           $scope.canDoNext = true;
           $scope.allTestsFinished = currentCategoryIdx === lineTests.length - 1;
           if ($scope.count > 4) {
-            result.test = 'LEFT';
+            result.test = 'left';
           } else {
-            result.test = 'RIGHT';
+            result.test = 'right';
           }
 
           if ($scope.allTestsFinished) {
@@ -101,6 +101,21 @@ angular.module('uszapp.linetest')
           console.info("Abweichung : " + $scope.difference);
           console.info("Ähnlichkeit : " + $scope.similarity);
           console.info("Time : " + $scope.time);
+          //Speicherung Midata
+          var linetest = new midata.MSMotTestLine(new Date(), result.test);
+          if (result.test == 'left') {
+            linetest.addLxDuration($scope.time, $scope.count);
+            linetest.addLxAvgDist($scope.difference, $scope.count);
+            linetest.addlxStdDevDist($scope.similarity, $scope.count);
+          } else {
+            linetest.addLxDuration($scope.time, ($scope.count - 4));
+            linetest.addLxAvgDist($scope.difference, ($scope.count - 4));
+            linetest.addlxStdDevDist($scope.similarity, ($scope.count - 4));
+          }
+
+          console.log("midata");
+          ownMidataService.addToBundle(linetest);
+
 
           $scope.mouseTracker.initialiseClicks();
           $timeout(function() {
@@ -114,7 +129,7 @@ angular.module('uszapp.linetest')
           $scope.canRestart = true;
           $scope.canDoNext = false;
           var alertPopup = $ionicPopup.alert({
-            template: 'Versuchen Sie nochmals'
+            template: 'Die Linie war nicht durchgängig. Beginnen Sich nochmals neu bei Start.'
           });
 
           alertPopup.then(function(res) {
@@ -161,6 +176,20 @@ angular.module('uszapp.linetest')
             $scope.showDone = false;
             $scope.showRightHand = false;
             $scope.showDone = true; // show Done content
+
+            //Speichern aller Midataeinträge
+            var allTestObjects = new midata.MSTests(new Date(), $rootScope.midataPseudonym);
+            console.log(ownMidataService.getBundle());
+            for (entry of ownMidataService.getBundle().getObservationEntries()) {
+              console.log(entry);
+              console.log(entry.resource);
+              allTestObjects.addRelated(entry.resource);
+            }
+            ownMidataService.addToBundle(allTestObjects);
+            ownMidataService.saveLocally(linetest);
+            ownMidataService.saveBundle();
+
+
           }
         } else {
           console.log('nextTest')

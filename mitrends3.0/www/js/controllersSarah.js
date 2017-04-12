@@ -11,7 +11,7 @@ angular.module('starter.controllersSarah', [])
   /*-------------------------------------------------------
     ----------- Controller for Labyrinth View ----------
     -------------------------------------------------------*/
-  .controller('LabCtrl', function($scope, $stateParams, $interval, $state, $ionicPopup, $translate, $rootScope, ExcersiseStorageService) {
+  .controller('LabCtrl', function($scope, $stateParams, $interval, $state, $ionicPopup, $translate, $rootScope, ownMidataService) {
 
     // Array with results for the save service
     var results;
@@ -605,10 +605,10 @@ angular.module('starter.controllersSarah', [])
             // two times in a row right or 5 times tried
             $scope.saveResultsLab();
             console.log(results);
-            $rootScope.headerTitleDone = "Teil 2 von 4 - Labyrinth";
-            $rootScope.stateAfterDone = 'PointTestIntro';
-            $rootScope.imgSrc = 'img/twoStars.png';
-            $state.go('geschafft');
+            //$rootScope.headerTitleDone = "Teil 2 von 4 - Labyrinth";
+            //$rootScope.stateAfterDone = 'PointTestIntro';
+            //$rootScope.imgSrc = 'img/twoStars.png';
+            $state.go('geschafftLab');
           } else {
             // Do the way again
             $scope.saveResultsLab();
@@ -652,6 +652,24 @@ angular.module('starter.controllersSarah', [])
     // Save the Results
     $scope.saveResultsLab = function() {
 
+      //Speicherung Midata
+      var labyrinth = new midata.MSCogTestLab(new Date(), countlab);
+      labyrinth.addNbClicks(clicks);
+      labyrinth.addNbPointsLab(rightclicks);
+      labyrinth.addNbCorrectConnections(rightdirection);
+      labyrinth.addNbInvertedConnections(rightlines - rightdirection);
+      labyrinth.addNbConnectionsGiven(labWayLines.length);
+      labyrinth.addNbErrors(faults);
+      labyrinth.addNbRuleBreaks(rulebreaks);
+      labyrinth.addNbCorrections(countcorrection);
+      labyrinth.addScore(score);
+      labyrinth.addNbCorrectTries(countrightlab);
+      labyrinth.addDuration((endTime - startTime) / 1000);
+      console.log("midata");
+      ownMidataService.addToBundle(labyrinth);
+      ownMidataService.saveLocally(labyrinth);
+
+      /**
       //Save all Auswertungen
       var result1 = {};
       var date = new Date();
@@ -717,6 +735,7 @@ angular.module('starter.controllersSarah', [])
 
       //Service Call
       //ExcersiseStorageService.saveResultsToFile("Labyrinth Übung", results);
+      **/
     };
 
     // Labyrinth is defined for width="1024" height="768"

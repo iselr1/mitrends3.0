@@ -10,7 +10,7 @@ angular.module('starter.ownServices', [])
   // --> Add module to the app.js service list ('starter.ownServices')
   // --> Add service to the controller params (ownMidataService)
   // --> Now it should work
-  .service('ownMidataService', [function() {
+  .service('ownMidataService', ['$ionicPlatform', '$cordovaFile', function($ionicPlatform, $cordovaFile) {
 
     // Set your own appname and appscr. Not in the app.js anymore
     var appname = 'MitrendS3';
@@ -19,6 +19,7 @@ angular.module('starter.ownServices', [])
 
     var authToken = '';
     var refreshToken = '';
+    var filename = '';
 
     // Creating the object to handle midata-requests
     var md = new midata.Midata(
@@ -39,6 +40,10 @@ angular.module('starter.ownServices', [])
           refreshToken = md.refreshToken;
           console.log(md);
         });
+    }
+
+    function setFilename(pseudonym) {
+      filename = pseudonym + ".txt";
     }
 
     // Check if logged in (call it with ownMidataService.loggedIn())
@@ -68,8 +73,32 @@ angular.module('starter.ownServices', [])
     }
 
     function saveBundle() {
-      console.log(bundle.toJson());
+      console.log("Bundle" + bundle.toJson());
       md.save(bundle);
+    }
+
+    function getBundle() {
+      return bundle;
+    }
+
+    function saveLocally(object) {
+      var exerciceObject = object.toJson();
+      $ionicPlatform.ready(function() {
+        $cordovaFile.checkFile(cordova.file.externalDataDirectory, filename)
+          .then(function(success) {
+            $cordovaFile.writeExistingFile(cordova.file.externalDataDirectory, filename, exerciceObject).then(function(result) {
+              //alert('Success! Answers stored!');
+            }, function(err) {
+              console.log("ERROR");
+            })
+          }, function(error) {
+            $cordovaFile.writeFile(cordova.file.externalDataDirectory, filename, exerciceObject, false).then(function(result) {
+              //alert('Success! Answers stored!');
+            }, function(err) {
+              console.log("ERROR");
+            })
+          });
+      });
     }
 
     // TO BE CONTINUED... (/-.-)/ |__|
@@ -79,6 +108,9 @@ angular.module('starter.ownServices', [])
       loggedIn: loggedIn,
       logout: logout,
       addToBundle: addToBundle,
-      saveBundle: saveBundle
+      saveBundle: saveBundle,
+      getBundle: getBundle,
+      saveLocally: saveLocally,
+      setFilename: setFilename
     }
   }]);

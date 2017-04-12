@@ -30,7 +30,8 @@
     "cordova-plugin-splashscreen@~4.0.2",
     "ionic-plugin-keyboard@~2.2.1",
     "cordova-plugin-nativeaudio",
-    "cordova-plugin-inappbrowser"
+    "cordova-plugin-inappbrowser",
+    "cordova-plugin-file"
   ],
   "cordovaPlatforms": [
     "android"

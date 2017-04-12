@@ -118,10 +118,22 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         controller: 'ZS1Ctrl'
       })
 
-      .state('geschafft', {
-        url: '/geschafft',
-        templateUrl: 'templates/geschafft.html',
-        controller: 'GeschafftCtrl'
+      .state('geschafftLab', {
+        url: '/geschafftLab',
+        templateUrl: 'templates/geschafftLab.html',
+        controller: 'GeschafftLabCtrl'
+      })
+
+      .state('geschafftPoint', {
+        url: '/geschafftPoint',
+        templateUrl: 'templates/geschafftPoint.html',
+        controller: 'GeschafftPointCtrl'
+      })
+
+      .state('geschafftSD', {
+        url: '/geschafftSD',
+        templateUrl: 'templates/geschafftSD.html',
+        controller: 'GeschafftSDCtrl'
       })
 
 

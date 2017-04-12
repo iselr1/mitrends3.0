@@ -1,5 +1,5 @@
 angular.module('uszapp.pointstest')
-  .controller('PointsTestRoundCtrl', function($rootScope, PointsTest, $scope, $timeout, $ionicPopup, $state, $cordovaNativeAudio, $ionicHistory, $ionicPlatform, $ionicBackdrop, $ionicModal) {
+  .controller('PointsTestRoundCtrl', function($rootScope, PointsTest, $scope, $timeout, $ionicPopup, $state, $cordovaNativeAudio, $ionicHistory, $ionicPlatform, $ionicBackdrop, $ionicModal, ownMidataService) {
 
     var self = this;
 
@@ -85,32 +85,37 @@ angular.module('uszapp.pointstest')
       testRunning = false;
 
       $rootScope.isLeftHandNext = $ionicHistory.backView().url == "/rightHandPointTest" ? true : false;
+      var pointTest;
 
-      if ($rootScope.isLeftHandNext){
+      if ($rootScope.isLeftHandNext) {
         // TODO: Save figureCounterRight to midata
         console.info("Amount of figure Right: " + self.figureCounterRight);
+        pointTest = new midata.MSMotTestDot(new Date(), "right");
+        pointTest.addDuration(TIME_PER_ROUND);
+        pointTest.addPoints(self.figureCounterRight);
 
         $state.go('leftHandPointTest');
-      }
-      else{
+      } else {
         openEndScreen();
-
-
 
         // TODO: Save figureCounterLeft to midata
         console.info("Amount of figure Left : " + self.figureCounterLeft);
-
+        pointTest = new midata.MSMotTestDot(new Date(), "left");
+        pointTest.addDuration(TIME_PER_ROUND);
+        pointTest.addPoints(self.figureCounterLeft);
 
         console.info('FINISHED PointsTest');
       }
-
+      console.log("midata");
+      ownMidataService.addToBundle(pointTest);
+      ownMidataService.saveLocally(pointTest);
     }
 
     function openEndScreen() {
-      $rootScope.headerTitleDone = "Teil 3 von 4 - Punkte bewegen";
+      /**$rootScope.headerTitleDone = "Teil 3 von 4 - Punkte bewegen";
       $rootScope.stateAfterDone = 'LineTestIntro';
-      $rootScope.imgSrc = 'img/threeStars.png';
-      $state.go('geschafft');
+      $rootScope.imgSrc = 'img/threeStars.png';**/
+      $state.go('geschafftPoint');
     }
 
     this.startTests();
