@@ -37,8 +37,8 @@ angular.module('uszapp.linetest')
                     var startPosition = referenceLine.getStartPosition();
                     var endPosition = referenceLine.getEndPosition();
 
-                    var isMouseDown = false;
-                    var hasTestEnded = false;
+                    //var isMouseDown = false;
+                    var hasReachedEndArea = false;
 
                     // Create start and end areas
                     var startArea = new StartArea({
@@ -51,7 +51,7 @@ angular.module('uszapp.linetest')
                     var inStartArea = false;
 //                    referenceLine.startTracking(startPosition);
                     startArea.on('LEFT_AREA', function (ev) {
-                        console.log('left-Area')
+                        //console.log('left-Area')
                         inStartArea = true;
                         referenceLine.startTracking(ev.position);
                         startTime = new Date();
@@ -71,32 +71,40 @@ angular.module('uszapp.linetest')
                             referenceLine.lock();
                             startArea.lock();
                             endArea.lock();
-                            hasTestEnded = true;
+                            hasReachedEndArea = true;
+                            //console.info("endArea: has ended");
+                            finish();
+                            // TODO ?
+                            //inStartArea = false;
                         }
                     });
 
                     mouseTracker.onUp(function (pos) {
-                        if (!hasTestEnded) {
-                            referenceLine.lock();
-                            startArea.lock();
-                            endArea.lock();
-                            cancel('Mouse up before reaching end area.', $ionicPopup);
-
+                        if (!hasReachedEndArea) {
+                              referenceLine.lock();
+                              startArea.lock();
+                              endArea.lock();
+                              cancel('Mouse up before reaching end area.', $ionicPopup);
+                              //console.info("mouseTracker : ONUP");
                         } else {
-                            finish();
+                            //console.info("mouseTracker : do nothing");
+                            //console.info("mouseTracker : finish");
+                            //hasTestEnded = false;
+                            //finish();
                         }
                     });
 
                     // Setup the canvas with all elements
-                    setupCanvas();
-
                     this.start = function () {
                         testResultDef = $q.defer();
-                        if (hasTestEnded) {
+
+                        if (hasReachedEndArea) {
+                            // Dieser Fall tritt nie auf. Was war damit gemeint ?!?
+                            //console.info("cancel: Test already done");
                             cancel('Test already done', $ionicPopup);
                         } else {
+                            //console.info("start: setupCanvas");
                             setupCanvas();
-                            hasTestEnded = false;
                         }
                         return testResultDef.promise;
                     };

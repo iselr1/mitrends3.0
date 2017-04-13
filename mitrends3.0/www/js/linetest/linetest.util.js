@@ -63,17 +63,26 @@ function getArrayWithAdjustedLength(array, n) {
     }
 
     function interpolate(points) {
+
+      // Exception if array is too small
+      if (points.length < 2 )
+                throw new Error('ERROR: Cannot get eveny spaced sample of array with length 2 or smaller');
+
+
         var n = points.length;
         var newPoints = [];
         var p1, p2, pi;
-        for (var i = 0; i < n - 1; i += 2) {
+        //Bug by condition i += 2 --> i++
+        //for (var i = 0; i < n - 1; i += 2) {
+        for (var i = 0; i < n - 1; i++) {
             p1 = points[i];
             p2 = points[i + 1];
             pi = {
                 x: (p1.x + p2.x) / 2,
                 y: (p1.y + p2.y) / 2
             };
-            newPoints.push(p1);
+            if (i==0)
+              newPoints.push(p1);
             newPoints.push(pi);
             newPoints.push(p2);
         }
