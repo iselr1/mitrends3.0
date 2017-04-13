@@ -102,19 +102,21 @@ angular.module('uszapp.linetest')
           console.info("Ähnlichkeit : " + $scope.similarity);
           console.info("Time : " + $scope.time);
           //Speicherung Midata
-          var linetest = new midata.MSMotTestLine(new Date(), result.test);
+          var linetest = new mitrends.MSMotTestLine(new Date(), result.test);
           if (result.test == 'left') {
-            linetest.addLxDuration($scope.time, $scope.count);
-            linetest.addLxAvgDist($scope.difference, $scope.count);
-            linetest.addlxStdDevDist($scope.similarity, $scope.count);
-          } else {
+            console.log($scope.count);
             linetest.addLxDuration($scope.time, ($scope.count - 4));
             linetest.addLxAvgDist($scope.difference, ($scope.count - 4));
-            linetest.addlxStdDevDist($scope.similarity, ($scope.count - 4));
+            linetest.addLxStdDevDist($scope.similarity, ($scope.count - 4));
+          } else {
+            linetest.addLxDuration($scope.time, $scope.count);
+            linetest.addLxAvgDist($scope.difference, $scope.count);
+            linetest.addLxStdDevDist($scope.similarity, $scope.count);
           }
 
           console.log("midata");
           ownMidataService.addToBundle(linetest);
+          ownMidataService.saveLocally(linetest);
 
 
           $scope.mouseTracker.initialiseClicks();
@@ -178,7 +180,7 @@ angular.module('uszapp.linetest')
             $scope.showDone = true; // show Done content
 
             //Speichern aller Midataeinträge
-            var allTestObjects = new midata.MSTests(new Date(), $rootScope.midataPseudonym);
+            var allTestObjects = new mitrends.MSTests(new Date(), $rootScope.midataPseudonym);
             console.log(ownMidataService.getBundle());
             for (entry of ownMidataService.getBundle().getObservationEntries()) {
               console.log(entry);
@@ -186,9 +188,7 @@ angular.module('uszapp.linetest')
               allTestObjects.addRelated(entry.resource);
             }
             ownMidataService.addToBundle(allTestObjects);
-            ownMidataService.saveLocally(linetest);
             ownMidataService.saveBundle();
-
 
           }
         } else {

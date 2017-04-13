@@ -1,12 +1,12 @@
 <ion-view view-title="{{'LOGIN' | translate}}">
   <ion-nav-buttons side="right">
-    <button class="button" ng-click="switchLanguage('en')" translate="LANG_EN"></button>
-    <button class="button" ng-click="switchLanguage('de')" translate="LANG_DE"></button>
-    <button class="button" ng-click="switchLanguage('fr')" translate="LANG_FR"></button>
   </ion-nav-buttons>
   <ion-content class="padding" scroll="false">
-
-    <div class="row row-30">
+    <div class="row row-5">
+      <div class="col text-right">Version 3.0
+      </div>
+    </div>
+    <div class="row row-20">
       <div class="col">
         <img src="img/MitrendS.png" class="center" height="100%"></img>
       </div>
@@ -23,6 +23,9 @@
           <label class="item item-input">
       <input ng-model="login.pseudonym" type="text" placeholder="Pseudonym"></input>
     </label>
+          <label class="item item-input">
+<input ng-model="login.state" type="text" placeholder="State"></input>
+</label>
         </div>
       </div>
     </div>
@@ -31,13 +34,14 @@
     </div>
     <div class="row row-5">
     </div>
-    <div class="row row-30">
-      <div class="col col-50" style="height:100%">
-        <img src="img/usz.png" class="center" width="100%"></img>
+    <div class="row row-25">
+      <!-- image bottom left USZ Logo -->
+      <div class="col col-50" style="width:100%">
+        <img src="img/usz.png" class="center" width="90%"></img>
       </div>
-      <!--<div class="col"></div>-->
-      <div class="col col-50" style="height:100%">
-        <img src="img/bfh.png" class="center" height="80%"></img>
+      <!-- image bottom right BFH Logo -->
+      <div class="col col-50" style="witdh:100%">
+        <img src="img/bfh.png" class="center" height="70%"></img>
       </div>
     </div>
   </ion-content>

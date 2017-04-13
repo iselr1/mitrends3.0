@@ -90,7 +90,7 @@ angular.module('uszapp.pointstest')
       if ($rootScope.isLeftHandNext) {
         // TODO: Save figureCounterRight to midata
         console.info("Amount of figure Right: " + self.figureCounterRight);
-        pointTest = new midata.MSMotTestDot(new Date(), "right");
+        pointTest = new mitrends.MSMotTestDot(new Date(), "right");
         pointTest.addDuration(TIME_PER_ROUND);
         pointTest.addPoints(self.figureCounterRight);
 
@@ -100,7 +100,7 @@ angular.module('uszapp.pointstest')
 
         // TODO: Save figureCounterLeft to midata
         console.info("Amount of figure Left : " + self.figureCounterLeft);
-        pointTest = new midata.MSMotTestDot(new Date(), "left");
+        pointTest = new mitrends.MSMotTestDot(new Date(), "left");
         pointTest.addDuration(TIME_PER_ROUND);
         pointTest.addPoints(self.figureCounterLeft);
 

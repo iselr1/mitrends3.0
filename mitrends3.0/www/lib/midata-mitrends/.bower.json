@@ -1,0 +1,13 @@
+{
+  "name": "midata-mitrends",
+  "homepage": "https://github.com/i4mi/midata-mitrends",
+  "_release": "88d5f0c348",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "88d5f0c348742c8760c3ec7ac81e0349a0f27274"
+  },
+  "_source": "https://github.com/i4mi/midata-mitrends.git",
+  "_target": "*",
+  "_originalSource": "midata-mitrends"
+}

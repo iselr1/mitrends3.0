@@ -1,13 +1,16 @@
 <ion-view view-title="{{'IMPRESSUM' | translate}}" cache-view="false">
   <ion-nav-buttons side="left">
-    <button class="button icon-left ion-home" ng-click="goHome()" translate="HOME"></button>
+    <button class="button icon-left ion-home" ng-click="doLogout()" translate="LOGOUT"></button>
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
     <button class="button icon-left ion-close" ng-click="closeApp()" translate="CLOSE"></button>
   </ion-nav-buttons>
   <ion-content class="padding">
 
-    <div class="row row-5"></div>
+    <div class="row row-5">
+      <div class="col text-right">Version 3.0
+      </div>
+    </div>
     <h1 align="center" translate="THANKS"></h1>
     <div class="row row-5"></div>
     <div class="row row-25" style="width:100%">
@@ -25,7 +28,6 @@
         <div class="button button-large button-positive" translate="IMP_WRITE" ng-click="sendEmail()"></div>
       </div>-->
     </div>
-
 
     <div class="row row-10"></div>
     <div class="row row-25">

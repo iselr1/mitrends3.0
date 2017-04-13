@@ -2,7 +2,8 @@ angular.module('starter.ownServices', [])
 
   /*----------------------------------------------------------------------------*/
   /* MidataService for the use of x3a (^.^)
-  /* isels1
+  /* inital version of isels1
+  /* adapted and extended for the use with mitrends of iselr1
   /* The comments should show "how to use it"
   /*----------------------------------------------------------------------------*/
   // Use this service like all others:
@@ -15,8 +16,6 @@ angular.module('starter.ownServices', [])
     // Set your own appname and appscr. Not in the app.js anymore
     var appname = 'MitrendS3';
     var appsecr = 'Mi3636trend9696S003';
-
-
     var authToken = '';
     var refreshToken = '';
     var filename = '';
@@ -27,11 +26,10 @@ angular.module('starter.ownServices', [])
 
     var bundle = new midata.Bundle('transaction');
 
-    // Login function (call it with ownMidataService.login(un, pw, role))
+    // Login function (call it with ownMidataService.login(un, pw))
     // Sets the authToken and refreshToken (not really used anywhere)
     // -->  un:   Unsername
     // -->  pw:   Passwort
-    //            The user Role can be 'member', 'provider', 'developer' or 'research'
     function login(un, pw) {
       md.login(un, pw)
         .then(function() {
@@ -40,10 +38,6 @@ angular.module('starter.ownServices', [])
           refreshToken = md.refreshToken;
           console.log(md);
         });
-    }
-
-    function setFilename(pseudonym) {
-      filename = pseudonym + ".txt";
     }
 
     // Check if logged in (call it with ownMidataService.loggedIn())
@@ -58,6 +52,11 @@ angular.module('starter.ownServices', [])
       console.log(md.authToken);
     }
 
+    // new functions for the use with mitrends
+
+    function setFilename(pseudonym) {
+      filename = pseudonym + ".txt";
+    }
 
     function addToBundle(res) {
       console.log("hallo");
@@ -100,8 +99,6 @@ angular.module('starter.ownServices', [])
           });
       });
     }
-
-    // TO BE CONTINUED... (/-.-)/ |__|
 
     return {
       login: login,

@@ -1,0 +1,24 @@
+{
+  "name": "mitrends",
+  "version": "1.0.0",
+  "description": "MitrendS extension for midata.js",
+  "main": "dist/mitrends.js",
+  "scripts": {
+    "build": "rm -rf dist/ && PROD=1 webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "MitrendS",
+    "I4mi"
+  ],
+  "author": "Adrian Wyss",
+  "license": "ISC",
+  "dependencies": {
+    "midata": "git+https://github.com/i4mi/midata.js.git"
+  },
+  "devDependencies": {
+    "ts-loader": "^2.0.3",
+    "typescript": "^2.2.2",
+    "uglifyjs-webpack-plugin": "^0.4.1"
+  }
+}

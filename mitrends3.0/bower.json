@@ -6,6 +6,7 @@
     "platform.js": "platform#^1.3.4"
   },
   "dependencies": {
-    "midata.js": "*"
+    "midata.js": "*",
+    "midata-mitrends": "*"
   }
 }
