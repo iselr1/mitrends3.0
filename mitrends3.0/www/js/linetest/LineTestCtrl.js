@@ -131,7 +131,7 @@ angular.module('uszapp.linetest')
           $scope.canRestart = true;
           $scope.canDoNext = false;
           var alertPopup = $ionicPopup.alert({
-            template: 'Die Linie war nicht durchgängig. Beginnen Sich nochmals neu bei Start.'
+            template: 'Die Linie war nicht durchgängig. Beginnen Sie nochmals neu bei Start.'
           });
 
           alertPopup.then(function(res) {

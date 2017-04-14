@@ -169,13 +169,7 @@ angular.module('starter.services', [])
       clickfrequency = temp;
       return clickfrequency;
     }
-    // Calculate and return the longest latencency - longest time between to clicks
-    SymDigService.getLongestLatency = function() {
 
-    }
-    /*SymDigService.setTimeWhenExcersiseStart = function(time) {
-      timeWhenExcersiseStart = time;
-    }*/
     /******************Setters*****************/
     // Add one to the number of correct assignments in the preparation
     SymDigService.addCorrectPrep = function() {
@@ -203,6 +197,14 @@ angular.module('starter.services', [])
     // Reset the number of incorrect assignments in the preparation to zero
     SymDigService.resetIncorrectPrep = function() {
       n_incorrectPrep = 0;
+    }
+    // Reset the number of correct assignments in the excercise to zero
+    SymDigService.resetCorrect = function() {
+      n_correct = 0;
+    }
+    // Reset the number of incorrect assignments in the excercise to zero
+    SymDigService.resetIncorrect = function() {
+      n_incorrect = 0;
     }
 
     /*Function to shuffle an given *array* of numbers and return it*/

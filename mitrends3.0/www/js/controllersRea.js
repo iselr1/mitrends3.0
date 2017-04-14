@@ -172,6 +172,8 @@ angular.module('starter.controllersRea', [])
         console.log("midata");
         ownMidataService.addToBundle(symbolDigit);
         ownMidataService.saveLocally(symbolDigit);
+        SymDigService.resetCorrect();
+        SymDigService.resetIncorrect();
 
       } else {
         //do nothing
