@@ -3,7 +3,7 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Navigation-----------------------//
   //--------------------------------------------------------//
-  .controller('NavCtrl', function($scope, $state, jsonService) {
+  .controller('NavCtrl', function($scope, $state, jsonService, ownMidataService) {
 
     $scope.goHome = function() {
       $state.go('home');
@@ -11,7 +11,7 @@ angular.module('starter.controllers', [])
 
     $scope.doLogout = function() {
       //Logout function
-      I4MIMidataService.logout();
+      ownMidataService.logout();
       $state.go('login');
     }
 
@@ -20,15 +20,13 @@ angular.module('starter.controllers', [])
   //---------------CONTROLLER Home-----------------------//
   //--------------------------------------------------------//
   .controller('HomeCtrl', function($scope, $state, jsonService, $translate, $ionicPopup, $ionicHistory, $rootScope) {
-    //$rootScope.videoSrc = 'video/symboldigit.mp4';
-    //$rootScope.stateAfterVideo = 'zahlsymbol1';
-    //$rootScope.headerTitleVideo = 'Teil 1 von 4 - Zahl-Symbol'
+
     var jsonData = jsonService.getJson();
 
     $scope.goNext = function() {
       //$state.go('anleitungsvideo');
       //JUST FOR TESTING
-      $state.go('zahlsymbol1');
+      $state.go('symbolDigitPrep');
     };
 
     //Change the language
@@ -61,6 +59,8 @@ angular.module('starter.controllers', [])
     $scope.login.email = 'iselr1@bfh.ch';
     $scope.login.password = 'MSbfh14+';
     $scope.login.pseudonym = 'Test2';
+    $scope.login.state = 'home';
+
     //Inform the user that he's not logged in
     var jsonData = jsonService.getJson();
     var title = jsonData.LOGININFO;
@@ -91,14 +91,12 @@ angular.module('starter.controllers', [])
       }
     }
 
-
-
     // Check if valid User
     $scope.checkUser = function() {
       console.info(ownMidataService.loggedIn());
       if (ownMidataService.loggedIn()) {
         ownMidataService.setFilename($scope.login.pseudonym);
-        $state.go('home');
+        $state.go($scope.login.state);
       } else {
         ownMidataService.logout();
 
@@ -120,17 +118,23 @@ angular.module('starter.controllers', [])
       $translate.use(key);
       jsonService.loadJson(key);
     };
+
   })
 
   //--------------------------------------------------------//
   //---------------CONTROLLER Impressum-----------------------//
   //--------------------------------------------------------//
-  .controller('ImpCtrl', function($scope, $stateParams, $state, $ionicPopup) {
+  .controller('ImpCtrl', function($scope, $stateParams, $state, $ionicPopup, ownMidataService) {
 
-    $scope.goHome = function() {
-      $state.go('home');
+    $scope.doLogout = function() {
+      console.info("Logout");
+      ownMidataService.logout();
+      $state.go('login');
     };
+
     $scope.closeApp = function() {
+      console.info("Logout");
+      ownMidataService.logout();
       ionic.Platform.exitApp();
       window.close();
     }
@@ -139,11 +143,8 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Done Labyrinth-----------------------//
   //--------------------------------------------------------//
-  .controller('GeschafftLabCtrl', function($scope, $stateParams, $state, $rootScope) {
+  .controller('GeschafftLabCtrl', function($scope, $stateParams, $state) {
 
-    /**headerTitleDone = $rootScope.headerTitleDone;
-    imgSrc = $rootScope.imgSrc;
-    console.log($rootScope.stateAfterDone);**/
     $scope.goNext = function() {
       $state.go('PointTestIntro');
     };
@@ -153,11 +154,8 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Done Symbol Digit-----------------------//
   //--------------------------------------------------------//
-  .controller('GeschafftSDCtrl', function($scope, $stateParams, $state, $rootScope) {
+  .controller('GeschafftSDCtrl', function($scope, $stateParams, $state) {
 
-    /**headerTitleDone = $rootScope.headerTitleDone;
-    imgSrc = $rootScope.imgSrc;
-    console.log($rootScope.stateAfterDone);**/
     $scope.goNext = function() {
       $state.go('labyrinth');
     };
@@ -166,31 +164,10 @@ angular.module('starter.controllers', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Done Point-----------------------//
   //--------------------------------------------------------//
-  .controller('GeschafftPointCtrl', function($scope, $stateParams, $state, $rootScope) {
+  .controller('GeschafftPointCtrl', function($scope, $stateParams, $state) {
 
-    /**headerTitleDone = $rootScope.headerTitleDone;
-    imgSrc = $rootScope.imgSrc;
-    console.log($rootScope.stateAfterDone);**/
     $scope.goNext = function() {
       $state.go('LineTestIntro');
     };
 
-  })
-
-  //--------------------------------------------------------//
-  //---------------CONTROLLER Anleitungsvideos----//
-  //--------------------------------------------------------//
-  .controller('AnleitungsvideoCtrl', function($scope, $state, $timeout, $rootScope) {
-    videoSrc = $rootScope.videoSrc;
-    headerTitle = $rootScope.headerTitleVideo;
-
-    $scope.hideButton = true;
-
-    $scope.goNext = function() {
-      $state.go($rootScope.stateAfterVideo);
-    };
-    // to display the next button after 60 seconds
-    $timeout(function() {
-      $scope.hideButton = false;
-    }, 1000);
   })

@@ -3,7 +3,7 @@ angular.module('starter.controllersRea', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Zahlsymbol-----------------------//
   //--------------------------------------------------------//
-  .controller('ZSCtrl', function($scope, $stateParams, $state, $timeout, $interval, $ionicPopup, SymDigService, $translate, ExcersiseStorageService, $rootScope, ownMidataService) {
+  .controller('SymbolDigitCtrl', function($scope, $stateParams, $state, $timeout, $interval, $ionicPopup, SymDigService, $translate, $rootScope, ownMidataService) {
 
     //Popup zu Beginn, das besagt das die Übungsphase nun zu ende ist
     var popTitle = $translate.instant('INFO');
@@ -15,10 +15,9 @@ angular.module('starter.controllersRea', [])
     var counter = 0;
     var results = [];
     var lastTime;
-    //for testing
-    //var intervalDuration = 15000;
-    var intervalDuration = 1000;
+    var intervalDuration = 15000;
     var intervalrepetitions = SymDigService.getTimeExcersise() / intervalDuration;
+
     console.log("intervalrep" + intervalrepetitions);
 
     var alertPopup = $ionicPopup.alert({
@@ -131,12 +130,12 @@ angular.module('starter.controllersRea', [])
       };
     };
 
-    //Arrays für Midata intiitalisieren
+    //Initialize arrays for Midata
     var correctArray = [];
     var incorrectArray = [];
     var clickFrequencyArray = [];
 
-    // Alles was im Intervall passiert
+    // Saving during the interval
     functioninterval = function() {
       counter++;
       var partResult = SymDigService.getPartResults();
@@ -144,31 +143,17 @@ angular.module('starter.controllersRea', [])
       incorrect = partResult.incorrect;
       clickFrequency = ((correct + incorrect) / ((SymDigService.getTimeExcersise() / intervalrepetitions) / 60000));
 
-      //var partresult1 = {};
-      //partresult1.name = "Anzahl korrekte Zuordnungen (während dem " + counter + ".Teil)";
+
       correctArray.push(correct);
-      //results.push(partresult1);
-      //var partresult2 = {};
-      //partresult2.name = "Anzahl inkorrekte Zuordnungen (während dem " + counter + ".Teil)";
       incorrectArray.push(incorrect);
-      //results.push(partresult2);
-      //var partresult3 = {};
-      //partresult3.name = "Klickfrequenz pro Minute (während dem " + counter + ".Teil)";
-      //partresult3.value = clickFrequency;
-      //results.push(partresult3);
       clickFrequencyArray.push(clickFrequency);
 
       console.log("Zwischenresultate" + results);
+      //If the time is over the counter is equal to the intervalrepetitions and we want to save the overall results
       if (counter == intervalrepetitions) {
-        /**$rootScope.headerTitleDone = "Teil 1 von 4 - Zahl-Symbol";
-        //$rootScope.headerTitleVideo = "Teil 2 von 4 - Labyrinth";
-        $rootScope.videoSrc = "video/labyrinth.mp4";
-        //$rootScope.stateAfterVideo = 'labyrinth';
-        $rootScope.stateAfterDone = 'labyrinth';
-        $rootScope.imgSrc = 'img/oneStar.png';**/
 
-        //Speicherung Midata
-        var symbolDigit = new midata.MSCogTestSD(new Date());
+        //Saving data to Midata
+        var symbolDigit = new mitrends.MSCogTestSD(new Date());
         symbolDigit.addNbCorrectPartResults(correctArray);
         symbolDigit.addNbIncorrectPartResults(incorrectArray);
         symbolDigit.addClickFreqPartResults(clickFrequencyArray);
@@ -188,30 +173,6 @@ angular.module('starter.controllersRea', [])
         ownMidataService.addToBundle(symbolDigit);
         ownMidataService.saveLocally(symbolDigit);
 
-        /**
-        var result1 = {};
-        result1.name = "Datum, Uhrzeit nach beenden der Übung";
-        result1.value = date.toString();
-        results.push(result1);
-        var result2 = {};
-        result2.name = "Anzahl korrekte Zuordnungen(insgesamt)";
-        result2.value = correct;
-        results.push(result2);
-        var result3 = {};
-        result3.name = "Anzahl inkorrekte Zuordnungen(insgesamt)";
-        result3.value = incorrect;
-        results.push(result3);
-        var result4 = {};
-        result4.name = "Klickfrequenz pro Minute(insgesamt)";
-        result4.value = Math.round(clickFrequency);
-        results.push(result4);
-        var result5 = {};
-        result5.name = "Dauer der Übung in Sekunden";
-        result5.value = (SymDigService.getTimeExcersise() / 1000);
-        results.push(result5);
-        console.log("FinalResultate" + results);
-        //ExcersiseStorageService.saveResultsToFile("Zahl-Symbol Übung", results);
-        **/
       } else {
         //do nothing
       }
@@ -221,7 +182,7 @@ angular.module('starter.controllersRea', [])
   //--------------------------------------------------------//
   //---------------CONTROLLER Zahlsymbol Vorbereitung-----------------------//
   //--------------------------------------------------------//
-  .controller('ZS1Ctrl', function($scope, $stateParams, $ionicPopup, $translate, $rootScope, $state, SymDigService, ownMidataService) {
+  .controller('SymbolDigitPrepCtrl', function($scope, $stateParams, $ionicPopup, $translate, $rootScope, $state, SymDigService, ownMidataService) {
     var popTitle = $translate.instant('INFO');
     var popTemplate = $translate.instant('TEMPLATEPOPUP_NEXTPREPZS');
 
@@ -278,7 +239,6 @@ angular.module('starter.controllersRea', [])
             // Set the next empty Symbol Image to be the next one
             if (i < (length - 1)) {
               console.log("hier2")
-              //currentSolveTable[i + 1].numSrc = "img/empty.png";
               currentSolveTable[i + 1].next = true;
               currentSolveTable[i].next = false;
             }
@@ -307,15 +267,15 @@ angular.module('starter.controllersRea', [])
               // Reset the number of Tries
               SymDigService.setTry(0);
 
-              $state.go('zahlsymbol');
+              $state.go('symbolDigit');
               // Variables to store in the result file
               var durationExcersisePrep = (endTime - startTime) / 1000;
               correct = SymDigService.getCorrectPrep();
               incorrect = SymDigService.getIncorrectPrep();
               clickFrequency = Math.round((60 / durationExcersisePrep) * (correct + incorrect));
 
-              //Speicherung Midata
-              var symbolDigitProbe = new midata.MSCogTestSDPrep(new Date());
+              //Saving results to Midata
+              var symbolDigitProbe = new mitrends.MSCogTestSDPrep(new Date());
               symbolDigitProbe.addNbCorrect(correct);
               symbolDigitProbe.addNbIncorrect(incorrect);
               symbolDigitProbe.addDuration(durationExcersisePrep);
@@ -323,33 +283,8 @@ angular.module('starter.controllersRea', [])
               console.log("midata");
               ownMidataService.addToBundle(symbolDigitProbe);
               ownMidataService.saveLocally(symbolDigitProbe);
-
-              /*var durationExcersisePrep = (endTime - startTime) / 1000;
-              correct = SymDigService.getCorrectPrep();
-              incorrect = SymDigService.getIncorrectPrep();
-              clickFrequency = Math.round((60 / durationExcersisePrep) * (correct + incorrect));
-              var result1 = {};
-              result1.name = "Datum, Uhrzeit nach beenden der Übung";
-              result1.value = new Date().toString();
-              results.push(result1);
-              var result2 = {};
-              result2.name = "Anzahl korrekte Zuordnungen(insgesamt)";
-              result2.value = correct;
-              results.push(result2);
-              var result3 = {};
-              result3.name = "Anzahl inkorrekte Zuordnungen(insgesamt)";
-              result3.value = incorrect;
-              results.push(result3);
-              var result4 = {};
-              result4.name = "Klickfrequenz(insgesamt)";
-              result4.value = clickFrequency;
-              results.push(result4);
-              var result5 = {};
-              result5.name = "Dauer der Übung in Sekunden";
-              result5.value = durationExcersisePrep;
-              results.push(result5);
-              console.log("FinalResultate" + results);
-              ExcersiseStorageService.saveResultsToFile("Zahl-Symbol Übung Vorbereitung", results);*/
+              SymDigService.resetCorrectPrep();
+              SymDigService.resetIncorrectPrep();
             }
             break;
           } else {

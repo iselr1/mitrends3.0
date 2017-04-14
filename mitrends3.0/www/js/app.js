@@ -107,15 +107,15 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         controller: 'LabCtrl'
       })
 
-      .state('zahlsymbol', {
-        url: '/zahlsymbol',
-        templateUrl: 'templates/zahlsymbol.html',
-        controller: 'ZSCtrl'
+      .state('symbolDigit', {
+        url: '/symbolDigit',
+        templateUrl: 'templates/symbolDigit.html',
+        controller: 'SymbolDigitCtrl'
       })
-      .state('zahlsymbol1', {
-        url: '/zahlsymbol1',
-        templateUrl: 'templates/zahlsymbol1.html',
-        controller: 'ZS1Ctrl'
+      .state('symbolDigitPrep', {
+        url: '/symbolDigitPrep',
+        templateUrl: 'templates/symbolDigitPrep.html',
+        controller: 'SymbolDigitPrepCtrl'
       })
 
       .state('geschafftLab', {
@@ -134,13 +134,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
         url: '/geschafftSD',
         templateUrl: 'templates/geschafftSD.html',
         controller: 'GeschafftSDCtrl'
-      })
-
-
-      .state('anleitungsvideo', {
-        url: '/anleitungsvideo',
-        templateUrl: 'templates/anleitungsvideo.html',
-        controller: 'AnleitungsvideoCtrl'
       })
 
       // Motoric tests

@@ -11,7 +11,7 @@ angular.module('starter.controllersSarah', [])
   /*-------------------------------------------------------
     ----------- Controller for Labyrinth View ----------
     -------------------------------------------------------*/
-  .controller('LabCtrl', function($scope, $stateParams, $interval, $state, $ionicPopup, $translate, $rootScope, ownMidataService) {
+  .controller('LabCtrl', function($scope, $stateParams, $interval, $state, $ionicPopup, $translate, ownMidataService) {
 
     // Array with results for the save service
     var results;
@@ -605,9 +605,6 @@ angular.module('starter.controllersSarah', [])
             // two times in a row right or 5 times tried
             $scope.saveResultsLab();
             console.log(results);
-            //$rootScope.headerTitleDone = "Teil 2 von 4 - Labyrinth";
-            //$rootScope.stateAfterDone = 'PointTestIntro';
-            //$rootScope.imgSrc = 'img/twoStars.png';
             $state.go('geschafftLab');
           } else {
             // Do the way again
@@ -653,7 +650,7 @@ angular.module('starter.controllersSarah', [])
     $scope.saveResultsLab = function() {
 
       //Speicherung Midata
-      var labyrinth = new midata.MSCogTestLab(new Date(), countlab);
+      var labyrinth = new mitrends.MSCogTestLab(new Date(), countlab);
       labyrinth.addNbClicks(clicks);
       labyrinth.addNbPointsLab(rightclicks);
       labyrinth.addNbCorrectConnections(rightdirection);
@@ -669,73 +666,6 @@ angular.module('starter.controllersSarah', [])
       ownMidataService.addToBundle(labyrinth);
       ownMidataService.saveLocally(labyrinth);
 
-      /**
-      //Save all Auswertungen
-      var result1 = {};
-      var date = new Date();
-
-      result1.name = "Datum, Uhrzeit nach beenden eines Durchgangs Labyrinth Übung";
-      result1.value = date.toString();
-      results.push(result1);
-
-      var result2 = {};
-      result2.name = "Anz. Klicks des Benutzers";
-      result2.value = clicks;
-      results.push(result2);
-
-      var result3 = {};
-      result3.name = "Anz. Klicks auf Punkte des Labyrinths";
-      result3.value = rightclicks;
-      results.push(result3);
-
-      var result4 = {};
-      result4.name = "Anz. richtige Verbindungen in die richtige Richtung";
-      result4.value = rightdirection;
-      results.push(result4);
-
-      var result5 = {};
-      result5.name = "Anzal richtige Verbindungen in die falsche Richtung";
-      result5.value = rightlines - rightdirection;
-      results.push(result5);
-
-      var result6 = {};
-      result6.name = "Total Verbindungen des vorgezeigten Weges";
-      result6.value = labWayLines.length;
-      results.push(result6);
-
-      var result7 = {};
-      result7.name = "Anz. Fehler";
-      result7.value = faults;
-      results.push(result7);
-
-      var result8 = {};
-      result8.name = "Regelbrüche";
-      result8.value = rulebreaks;
-      results.push(result8);
-
-      var result9 = {};
-      result9.name = "Anz. Korrekturen";
-      result9.value = countcorrection;
-      results.push(result9);
-
-      var result10 = {};
-      result10.name = "Punktescore";
-      result10.value = score;
-      results.push(result10);
-
-      var result11 = {};
-      result11.name = "Anz. richtige Versuche/Total Versuche";
-      result11.value = countrightlab + "/" + countlab;
-      results.push(result11);
-
-      var result12 = {};
-      result12.name = "Dauer für die Labyrinth-Übung in Sekunden";
-      result12.value = (endTime - startTime) / 1000;
-      results.push(result12);
-
-      //Service Call
-      //ExcersiseStorageService.saveResultsToFile("Labyrinth Übung", results);
-      **/
     };
 
     // Labyrinth is defined for width="1024" height="768"
