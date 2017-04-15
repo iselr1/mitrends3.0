@@ -11,7 +11,7 @@ angular.module('starter.controllersSarah', [])
   /*-------------------------------------------------------
     ----------- Controller for Labyrinth View ----------
     -------------------------------------------------------*/
-  .controller('LabCtrl', function($scope, $stateParams, $interval, $state, $ionicPopup, $translate, ownMidataService) {
+  .controller('LabCtrl', function($scope, $stateParams, $interval, $state, $ionicPopup, $translate, $rootScope, ownMidataService) {
 
     // Array with results for the save service
     var results;
@@ -606,6 +606,17 @@ angular.module('starter.controllersSarah', [])
             $scope.saveResultsLab();
             console.log(results);
             $state.go('geschafftLab');
+
+            //Speichern aller Midataeinträge Version 3.0 Paper first
+            var allTestObjects = new mitrends.MSTests(new Date(), $rootScope.midataPseudonym);
+            console.log(ownMidataService.getBundle());
+            for (entry of ownMidataService.getBundle().getObservationEntries()) {
+              console.log(entry);
+              console.log(entry.resource);
+              allTestObjects.addRelated(entry.resource);
+            }
+            ownMidataService.addToBundle(allTestObjects);
+            ownMidataService.saveBundle();
           } else {
             // Do the way again
             $scope.saveResultsLab();

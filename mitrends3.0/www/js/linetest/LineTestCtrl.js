@@ -178,18 +178,18 @@ angular.module('uszapp.linetest')
             $scope.showDone = false;
             $scope.showRightHand = false;
             $scope.showDone = true; // show Done content
-
-            //Speichern aller Midataeinträge
-            var allTestObjects = new mitrends.MSTests(new Date(), $rootScope.midataPseudonym);
-            console.log(ownMidataService.getBundle());
-            for (entry of ownMidataService.getBundle().getObservationEntries()) {
-              console.log(entry);
-              console.log(entry.resource);
-              allTestObjects.addRelated(entry.resource);
-            }
-            ownMidataService.addToBundle(allTestObjects);
-            ownMidataService.saveBundle();
-
+            /** for Version 3.0 Tablet first
+                        //Speichern aller Midataeinträge
+                        var allTestObjects = new mitrends.MSTests(new Date(), $rootScope.midataPseudonym);
+                        console.log(ownMidataService.getBundle());
+                        for (entry of ownMidataService.getBundle().getObservationEntries()) {
+                          console.log(entry);
+                          console.log(entry.resource);
+                          allTestObjects.addRelated(entry.resource);
+                        }
+                        ownMidataService.addToBundle(allTestObjects);
+                        ownMidataService.saveBundle();
+            **/
           }
         } else {
           console.log('nextTest')
@@ -218,7 +218,10 @@ angular.module('uszapp.linetest')
       };
 
       $scope.goImpressum = function() {
+        /** for Version 3.0 Tablet first
         $state.go('impressum');
+        **/
+        $state.go('symbolDigitPrep');
       }
 
       $scope.restart = function() {

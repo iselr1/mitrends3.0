@@ -24,9 +24,10 @@ angular.module('starter.controllers', [])
     var jsonData = jsonService.getJson();
 
     $scope.goNext = function() {
-      //$state.go('anleitungsvideo');
-      //JUST FOR TESTING
-      $state.go('symbolDigitPrep');
+      /** Version 3.0 Tablet first
+        $state.go('symbolDigitPrep');
+      **/
+      $state.go('PointTestIntro');
     };
 
     //Change the language
@@ -146,7 +147,10 @@ angular.module('starter.controllers', [])
   .controller('GeschafftLabCtrl', function($scope, $stateParams, $state) {
 
     $scope.goNext = function() {
+      /** Version 3.0 Tablet first
       $state.go('PointTestIntro');
+      **/
+      $state.go('impressum');
     };
 
   })
