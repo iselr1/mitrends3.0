@@ -74,6 +74,8 @@ angular.module('starter.ownServices', [])
     function saveBundle() {
       console.log("Bundle" + bundle.toJson());
       md.save(bundle);
+      // To newly initialize the bundle, that it becomes empty
+      bundle = new midata.Bundle('transaction');
     }
 
     function getBundle() {
