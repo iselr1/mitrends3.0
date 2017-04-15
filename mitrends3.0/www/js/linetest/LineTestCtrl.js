@@ -215,6 +215,9 @@ angular.module('uszapp.linetest')
         $scope.showDone = false;
         $scope.showRightHand = true;
         $scope.showLeftHand = false;
+        $("video").each(function() {
+          this.pause()
+        });
       };
 
       $scope.goImpressum = function() {
