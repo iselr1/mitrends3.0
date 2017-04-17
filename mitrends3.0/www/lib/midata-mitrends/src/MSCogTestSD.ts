@@ -74,7 +74,7 @@ export class MSCogTestSD extends Observation {
             },
             valueSampledData: {
                 origin: {
-                    value: 25
+                    value: 0
                 },
                 period: 15000,
                 dimensions: 1,
