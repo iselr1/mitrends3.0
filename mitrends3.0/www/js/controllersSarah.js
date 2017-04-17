@@ -250,10 +250,10 @@ angular.module('starter.controllersSarah', [])
     };
 
     getWay = function() {
-      var numberLab = (Math.ceil(Math.random() * 4));
-      //labWay = testWay;
-      //labWayLines = testWayLines;
-      if (numberLab == 1) {
+      //var numberLab = (Math.ceil(Math.random() * 4));
+      labWay = labWay2;
+      labWayLines = labWayLines2;
+      /*if (numberLab == 1) {
         labWay = labWay1;
         labWayLines = labWayLines1;
       } else if (numberLab == 2) {
@@ -265,7 +265,7 @@ angular.module('starter.controllersSarah', [])
       } else {
         labWay = labWay4;
         labWayLines = labWayLines4;
-      }
+      }*/
     };
 
     // -- Function Draw the Lab initially --//
