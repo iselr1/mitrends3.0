@@ -97,6 +97,7 @@ angular.module('starter.controllers', [])
       console.info(ownMidataService.loggedIn());
       if (ownMidataService.loggedIn()) {
         ownMidataService.setFilename($scope.login.pseudonym);
+        $rootScope.midataPseudonym = $scope.login.pseudonym;
         $state.go($scope.login.state);
       } else {
         ownMidataService.logout();
