@@ -57,9 +57,9 @@ angular.module('starter.controllers', [])
   .controller('LoginCtrl', function($scope, $translate, jsonService, $timeout, $http, $state, $ionicLoading, $ionicPopup, ownMidataService, $rootScope) {
     // Values for login
     $scope.login = {};
-    $scope.login.email = 'iselr1@bfh.ch';
-    $scope.login.password = 'MSbfh14+';
-    $scope.login.pseudonym = 'Test2';
+    $scope.login.email = '';
+    $scope.login.password = '';
+    $scope.login.pseudonym = '';
     $scope.login.state = 'home';
 
     //Inform the user that he's not logged in

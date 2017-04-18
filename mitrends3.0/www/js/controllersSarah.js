@@ -245,14 +245,14 @@ angular.module('starter.controllersSarah', [])
           $scope.drawLab();
           clickOK = true;
           nowDoIt();
-        }, 27500); //30000
+        }, 28000); //30000
       });
     };
 
     getWay = function() {
       //var numberLab = (Math.ceil(Math.random() * 4));
-      labWay = labWay2;
-      labWayLines = labWayLines2;
+      labWay = labWay4;
+      labWayLines = labWayLines4;
       /*if (numberLab == 1) {
         labWay = labWay1;
         labWayLines = labWayLines1;
