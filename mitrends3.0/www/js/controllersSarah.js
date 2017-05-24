@@ -125,8 +125,8 @@ angular.module('starter.controllersSarah', [])
     var labWayLines;
     var labWay1 = [point1, point2, point7, point8, point9, point10, point11, point13, point12, point14, point21, point20, point15, point19, point16, point17, point22];
     var labWayLines1 = [line1, line8, line10, line23, line22, line13, line36, line17, line16, line31, line29, line30, line27, line26, line25, line35];
-    var labWay2 = [point1, point7, point2, point3, point4, point5, point12, point11, point13, point15, point19, point16, point10, point9, point17, point18, point22];
-    var labWayLines2 = [line9, line8, line2, line3, line4, line15, line14, line36, line18, line27, line26, line21, line22, line24, line33, line34];
+    var labWay2 = [point1, point7, point2, point3, point6, point5, point12, point11, point13, point15, point19, point16, point10, point9, point17, point18, point22];
+    var labWayLines2 = [line9, line8, line2, line6, line5, line15, line14, line36, line18, line27, line26, line21, line22, line24, line33, line34];
     var labWay3 = [point1, point2, point3, point6, point8, point9, point10, point16, point15, point14, point21, point20, point19, point18, point17, point22];
     var labWayLines3 = [line1, line2, line6, line11, line23, line22, line21, line20, line19, line31, line29, line28, line32, line33, line35];
     var labWay4 = [point1, point7, point8, point6, point3, point4, point5, point12, point14, point15, point13, point11, point10, point9, point17, point18, point22];
@@ -235,17 +235,17 @@ angular.module('starter.controllersSarah', [])
         // Show the Way through the Labyrinth - Points
         setTimeout(function() {
           $interval(showWay, 1500, labWay.length + 1); //1500
-        }, 2000); //2000
+        }, 500); //2000
         // Show the Way through the Labyrinth - Lines
         setTimeout(function() {
           $interval(showWayLines, 1500, labWayLines.length + 1); //1500
-        }, 2750); //2750
+        }, 1250); //2750
         // Click is Only possible when way through Labyrinth was shown
         setTimeout(function() {
           $scope.drawLab();
           clickOK = true;
           nowDoIt();
-        }, 28000); //30000
+        }, 27000); //30000
       });
     };
 
@@ -253,8 +253,8 @@ angular.module('starter.controllersSarah', [])
       var numberLab = (Math.ceil(Math.random() * 4));
       //labWay = testWay;
       //labWayLines = testWayLines;
-      labWay = labWay4;
-      labWayLines = labWayLines4;
+      labWay = labWay2;
+      labWayLines = labWayLines2;
       /*if (numberLab == 1) {
         labWay = labWay1;
         labWayLines = labWayLines1;
@@ -594,7 +594,7 @@ angular.module('starter.controllersSarah', [])
           // do the math the number of the faults
           faults = userway.length - rightlines;
           // check if the whole way was right
-          if (userway.length == rightdirection) {
+          if (labWayLines.length == rightdirection) {
             rightlab = rightlab + 1;
             countrightlab = countrightlab + 1;
           }
